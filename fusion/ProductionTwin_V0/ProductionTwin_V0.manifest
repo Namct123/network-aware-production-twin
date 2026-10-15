@@ -1,0 +1,10 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "script",
+  "id": "93ae6001-d169-4ed4-947d-f1d7fd2017d0",
+  "author": "Codex",
+  "description": {"": "Production twin V4 with E3F-DS30C4 sensors, 4V210-08 valves, and XY travel check."},
+  "version": "V4.0",
+  "runOnStartup": false,
+  "supportedOS": "windows"
+}

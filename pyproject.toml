@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "factoryio-mcp"
+version = "0.1.0"
+description = "Local MCP bridge between Codex and Factory I/O over Modbus TCP"
+requires-python = ">=3.12"
+dependencies = [
+  "mcp==1.30.0",
+  "pymodbus==3.15.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2"]
+
+[project.scripts]
+factoryio-mcp = "factoryio_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
