@@ -8,6 +8,37 @@ permissions:
   contents: read
 
 jobs:
+  docker-candidate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build headless DT candidate (no registry push or accepted tag)
+        run: |
+          mkdir -p output/docker
+          chmod 777 output/docker
+          python3 docker/test_delivery.py
+          python3 docker/build_image.py
+      - name: Test logic inside image
+        run: docker compose run --rm --entrypoint python dt -m unittest discover -s mujoco -p 'test_*.py'
+      - name: Test paired MuJoCo scenarios inside image
+        run: |
+          docker compose run --rm dt predictive-check
+          python3 -c "import json; from pathlib import Path; c=json.loads(Path('mujoco/configs/measured_cell_20261030.json').read_text()); c['prediction']['wall_budget_s']=1.0; Path('output/docker/ci-measured-functional.json').write_text(json.dumps(c))"
+          docker compose run --rm dt measured-check --config /app/output/ci-measured-functional.json
+          docker compose run --rm dt observer-check
+          docker compose run --rm dt reconfiguration-check
+          docker compose run --rm dt robustness-check --plan /plans/robustness_smoke.json
+          docker compose run --rm dt adaptive-check --plan /plans/adaptive_speed_smoke.json
+          docker compose run --rm dt recovery-check
+          docker compose run --rm dt reset-check
+          docker compose run --rm dt integration-check
+      - name: Preserve simulation evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: docker-candidate-evidence
+          path: output/docker/
+          if-no-files-found: ignore
   check:
     runs-on: ubuntu-latest
     steps:
@@ -22,3 +53,13 @@ jobs:
         run: |
           python -m pip install -e '.[dev]'
           python -m pytest -q
+      - name: Test Digital Twin signal contract and replay
+        run: python mujoco/test_signals.py
+      - name: Test Digital Twin estimator and sequence
+        run: python mujoco/test_sequence.py
+      - name: Test machine profiles, calibration and network transport
+        run: python mujoco/test_configuration.py
+      - name: Test bounded prediction and supervisory policy selection
+        run: python mujoco/test_prediction.py
+      - name: Test local experiment boundary and paired comparisons
+        run: python web/test_experiments.py

@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.glb binary
+*.f3d binary
+*.zip binary
+*.ttf binary
+*.factoryio binary
+*.step -text
+*.stp -text

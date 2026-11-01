@@ -1,0 +1,3 @@
+# Versions observed in the existing validated WSL runtime.
+mujoco==3.16.0
+numpy==2.5.4

@@ -1,0 +1,20 @@
+# Allow only the runtime, its tests, profiles, and delivery metadata into build context.
+**
+!docker/
+!docker/Dockerfile
+!docker/snapshot.py
+!docker/requirements.lock
+!mujoco/
+!mujoco/**
+!scripts/
+!scripts/portable_bundle/
+!scripts/portable_bundle/launch.py
+!scripts/portable_bundle/requirements.txt
+!unity/
+!unity/Assets/
+!unity/Assets/ProductionTwin/
+!unity/Assets/ProductionTwin/parts.csv
+**/__pycache__/**
+**/*.pyc
+mujoco/commissioning.csv
+mujoco/preview.*

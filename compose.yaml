@@ -1,0 +1,17 @@
+name: production-twin
+services:
+  dt:
+    image: production-twin-dt:${DT_IMAGE_TAG:-candidate-20261031-integrated-core-v1}
+    init: true
+    network_mode: none
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - ./output/docker:/app/output
+      - ./mujoco/configs:/profiles:ro
+      - ./mujoco/experiments:/plans:ro

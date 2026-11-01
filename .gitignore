@@ -1,4 +1,5 @@
 .venv/
+.venv-wsl/
 __pycache__/
 .pytest_cache/
 *.py[cod]
@@ -8,6 +9,8 @@ tmp/
 rendered/
 rendered_vhd/
 output/
+mujoco/commissioning.csv
+mujoco/preview.ppm
 *.docx
 *.pdf
 .vs/
@@ -18,3 +21,7 @@ Logs/
 Obj/
 Builds/
 UserSettings/
+
+# Published project reports and manuscript figures
+!reports/*.pdf
+!docs/dt_cppps_title_abstract/figures/*.pdf

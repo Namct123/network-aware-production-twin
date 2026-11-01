@@ -1,0 +1,495 @@
+{
+  "schema_version": 1,
+  "profile": {
+    "name": "reconfigurable_cycle_partial",
+    "status": "partial",
+    "units": "SI: m, s, kg, N",
+    "notes": "User-reported envelope dimensions applied to a simplified functional plant, not a full CAD V5 replica. XY origins, A1, bins and all dynamics remain provisional. Logical ps1=physical PS2, logical ps2=physical PS3; transfer_present=physical PS1. No PLC addresses confirmed. Six-dimensional cup contact and 5mm effective rolling-friction length are provisional contact-patch assumptions; validate moment holding on hardware. Four finite-force pad samples approximate the suction footprint; no rigid weld. Patch size and effective holding force need calibration. Admission stop guard assumes the known single-product reset and commanded speed; stopping margin/coast are provisional, not a physical safety certificate. Command-history observer and rule-based signal health are uncalibrated software candidates. No automatic fault recovery or physical validation. Opt-in cycle-latched network warning speed cap and health-triggered HOLD. No sensor bypass or automatic HOLD reset.",
+    "measurements": [
+      {
+        "path": "geometry.product_size_m.0",
+        "value": 0.06,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "geometry.product_size_m.1",
+        "value": 0.06,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "geometry.product_size_m.2",
+        "value": 0.06,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "mechanics.frame_inner_xy_m.0",
+        "value": 0.465,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "mechanics.frame_inner_xy_m.1",
+        "value": 0.46,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "mechanics.profile_section_xy_m.0",
+        "value": 0.02,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "mechanics.profile_section_xy_m.1",
+        "value": 0.02,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "mechanics.beam_underside_z_m",
+        "value": 0.325,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "mechanics.belt_surface_z_m",
+        "value": 0.1,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "mechanics.long_belt_width_m",
+        "value": 0.08,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "mechanics.cup_retracted_z_m",
+        "value": 0.23,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "user-reported preliminary direct dimension",
+        "operator": "",
+        "notes": "Conversation measurement; uncertainty not supplied. CAD world origin is not physically surveyed."
+      },
+      {
+        "path": "geometry.joint_limits_m.a2_joint.1",
+        "value": 0.1,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "derived from user-reported direct cup endpoints 230mm and 130mm",
+        "operator": "",
+        "notes": "Tool travel, not confirmed cylinder nameplate stroke."
+      },
+      {
+        "path": "motion.a2_pick_m",
+        "value": 0.07,
+        "unit": "m",
+        "uncertainty": null,
+        "measured_on": "2026-10-28",
+        "method": "derived from cup 230mm, belt 100mm, product 60mm",
+        "operator": "",
+        "notes": "Geometric contact target, not calibrated pneumatic response."
+      }
+    ]
+  },
+  "geometry": {
+    "robot_origin_xy_m": [
+      -0.14,
+      0.06
+    ],
+    "joint_limits_m": {
+      "x_joint": [
+        0,
+        0.34
+      ],
+      "y_joint": [
+        -0.05,
+        0.32
+      ],
+      "a1_joint": [
+        0,
+        0.095
+      ],
+      "a2_joint": [
+        0,
+        0.1
+      ]
+    },
+    "ps_y_m": {
+      "ps1": -0.215,
+      "ps2": 0.045
+    },
+    "optical_xz_m": [
+      -0.187,
+      0.13
+    ],
+    "product_size_m": [
+      0.06,
+      0.06,
+      0.06
+    ],
+    "product_initial_xyz_m": [
+      0.2,
+      -0.335,
+      0.131
+    ],
+    "lane_x_m": -0.14,
+    "long_belt_y_m": [
+      -0.265,
+      0.265
+    ],
+    "bin_centers_xy_m": [
+      [
+        0.03,
+        0.09
+      ],
+      [
+        0.145,
+        0.09
+      ],
+      [
+        0.03,
+        0.205
+      ],
+      [
+        0.145,
+        0.205
+      ],
+      [
+        0.03,
+        0.32
+      ],
+      [
+        0.145,
+        0.32
+      ]
+    ],
+    "bin_inner_size_xy_m": [
+      0.096,
+      0.096
+    ],
+    "placement_z_m": [
+      0.03,
+      0.07
+    ],
+    "hold_z_m": [
+      0.11,
+      0.15
+    ],
+    "hold_lane_tolerance_m": 0.01,
+    "front_belt_xy_m": [
+      [
+        -0.2,
+        0.27
+      ],
+      [
+        -0.375,
+        -0.295
+      ]
+    ]
+  },
+  "plant": {
+    "product_mass_kg": 0.02,
+    "product_friction": [
+      1.2,
+      0.005,
+      0.0001
+    ],
+    "belt_friction": [
+      1.4,
+      0.005,
+      0.0001
+    ],
+    "cup_friction": [
+      1.2,
+      0.01,
+      0.005
+    ],
+    "vacuum_adhesion_n": 5.0,
+    "belt_speed_scale": {
+      "front": 1.0,
+      "long": 1.0
+    },
+    "joint_damping": 0.3,
+    "position_kp": {
+      "x_joint": 250.0,
+      "y_joint": 250.0,
+      "a1_joint": 600.0,
+      "a2_joint": 5000.0
+    },
+    "dampratio": 1.0,
+    "link_inertials": {
+      "x_beam_link": {
+        "mass_kg": 0.7,
+        "com_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diagonal_kg_m2": [
+          0.0110745833,
+          7.29167e-05,
+          0.0110745833
+        ]
+      },
+      "y_carriage_link": {
+        "mass_kg": 0.45,
+        "com_m": [
+          0.0,
+          0.0,
+          -0.06
+        ],
+        "diagonal_kg_m2": [
+          0.0006693375,
+          0.0006400875,
+          0.00031755
+        ]
+      },
+      "cup_link": {
+        "mass_kg": 0.15,
+        "com_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diagonal_kg_m2": [
+          3.125e-05,
+          4.42e-05,
+          3.545e-05
+        ]
+      },
+      "pusher_link": {
+        "mass_kg": 0.18,
+        "com_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diagonal_kg_m2": [
+          1.404e-05,
+          8.7e-05,
+          7.404e-05
+        ]
+      }
+    }
+  },
+  "motion": {
+    "front_speed_m_s": 0.16,
+    "long_speed_m_s": 0.16,
+    "test_speed_range_m_s": [
+      0.1,
+      0.24
+    ],
+    "rates_m_s": {
+      "x_joint": 0.12,
+      "y_joint": 0.12,
+      "a1_joint": 0.14,
+      "a2_joint": 0.12
+    },
+    "home_xy_m": [
+      0.0,
+      0.0
+    ],
+    "a2_pick_m": 0.07,
+    "feed_distance_m": 0.375,
+    "feed_startup_s": 0.015,
+    "axis_settle_s": 0.3,
+    "a2_settle_s": 0.25,
+    "grip_wait_s": 0.25,
+    "release_wait_s": 0.4,
+    "long_speed_schedule": []
+  },
+  "sensors": {
+    "end_switch_tolerance_m": 0.002,
+    "optical_detection_range_m": 0.075
+  },
+  "estimator": {
+    "stop_coast_m": 0.002,
+    "anchor_tolerance_m": 0.002,
+    "drift_m_s": 0.02,
+    "transit_speed_range_m_s": [
+      0.04,
+      0.4
+    ],
+    "pick_uncertainty_limit_m": 0.01,
+    "command_history_enabled": true,
+    "command_gain_range": [
+      0.8,
+      1.2
+    ],
+    "command_response_uncertainty_s": 0.04
+  },
+  "timing": {
+    "physics_step_s": 0.002,
+    "sample_steps": 10,
+    "max_age_s": 0.1,
+    "max_sample_gap_s": 0.061,
+    "silence_timeout_s": 0.1,
+    "cylinder_timeout_s": 2.0,
+    "track_timeout_max_s": 6.0,
+    "track_travel_budget_m": 0.44,
+    "run_budget_s": 40.0,
+    "hold_settle_s": 0.3
+  },
+  "network": {
+    "delay_s": 0.0,
+    "jitter_s": 0.0,
+    "drop_probability": 0.0,
+    "seed": 0
+  },
+  "prediction": {
+    "enabled": true,
+    "horizon_s": 0.5,
+    "step_s": 0.02,
+    "wall_budget_s": 0.02,
+    "speed_offsets_m_s": [
+      -0.02,
+      0,
+      0.02
+    ],
+    "position_offsets": [
+      -1,
+      0,
+      1
+    ],
+    "reaction_delays_s": [
+      0,
+      0.01,
+      0.02
+    ],
+    "stop_margin_m": 0.0
+  },
+  "mechanics": {
+    "frame_inner_xy_m": [
+      0.465,
+      0.46
+    ],
+    "frame_center_xy_m": [
+      0,
+      0.225
+    ],
+    "profile_section_xy_m": [
+      0.02,
+      0.02
+    ],
+    "beam_underside_z_m": 0.325,
+    "base_size_m": [
+      0.76,
+      1,
+      0.012
+    ],
+    "belt_surface_z_m": 0.1,
+    "belt_thickness_m": 0.004,
+    "long_belt_width_m": 0.08,
+    "side_rail_thickness_m": 0.006,
+    "side_rail_height_m": 0.014,
+    "transfer_bridge_y_m": [
+      -0.295,
+      -0.265
+    ],
+    "cup_retracted_z_m": 0.23,
+    "cup_radius_m": 0.011,
+    "cup_height_m": 0.016,
+    "cup_contact_gap_m": 0.003,
+    "carriage_size_m": [
+      0.054,
+      0.06,
+      0.02
+    ],
+    "pusher_rest_xyz_m": [
+      -0.14,
+      -0.385,
+      0.12
+    ],
+    "pusher_plate_size_m": [
+      0.07,
+      0.006,
+      0.04
+    ],
+    "bin_floor_top_z_m": 0.016,
+    "bin_floor_thickness_m": 0.004,
+    "bin_wall_height_m": 0.078,
+    "bin_wall_thickness_m": 0.004,
+    "pusher_sensor_offset_m": [
+      -0.01,
+      0,
+      0.0325
+    ],
+    "transfer_detection_range_m": 0.075,
+    "admission_centering_distance_m": 0.02,
+    "admission_timeout_s": 6,
+    "bin_release_descent_m": 0.05,
+    "gravity_m_s2": [
+      0,
+      0,
+      -9.81
+    ],
+    "sensor_roles": {
+      "transfer_present": "PS1_pusher",
+      "ps1": "PS2_upstream",
+      "ps2": "PS3_pickup"
+    },
+    "cup_contact_dimension": 6,
+    "cup_patch_radius_m": 0.007,
+    "cup_pad_radius_m": 0.003,
+    "admission_stop_margin_m": 0.01,
+    "front_stop_coast_m": 0.002
+  },
+  "health": {
+    "enabled": true,
+    "max_high_running_s": 1.0,
+    "edge_slack_m": 0.01
+  },
+  "reconfiguration": {
+    "enabled": true,
+    "warning_age_s": 0.02,
+    "warning_ticks": 2,
+    "degraded_long_speed_m_s": 0.12
+  }
+}

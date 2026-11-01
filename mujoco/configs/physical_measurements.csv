@@ -1,0 +1,21 @@
+path,value,unit,uncertainty,measured_on,method,operator,notes
+geometry.ps_y_m.ps1,,m,,,,,Measure beam center in shared machine frame
+geometry.ps_y_m.ps2,,m,,,,,Use the same origin as PS1
+geometry.robot_origin_xy_m.0,,m,,,,,World X at zero X joint
+geometry.robot_origin_xy_m.1,,m,,,,,World Y at zero Y joint
+geometry.product_size_m.0,,m,,,,,Product length along X
+geometry.product_size_m.1,,m,,,,,Product length along belt Y
+geometry.product_size_m.2,,m,,,,,Product height
+geometry.joint_limits_m.a1_joint.1,,m,,,,,A1 full stroke
+geometry.joint_limits_m.a2_joint.1,,m,,,,,A2 full stroke
+motion.a2_pick_m,,m,,,,,Requires an achievable and observable pneumatic position
+motion.front_speed_m_s,,m/s,,,,,Measured belt surface speed
+motion.long_speed_m_s,,m/s,,,,,Measured belt surface speed
+motion.rates_m_s.x_joint,,m/s,,,,,Observed X motion rate
+motion.rates_m_s.y_joint,,m/s,,,,,Observed Y motion rate
+motion.rates_m_s.a1_joint,,m/s,,,,,Approximate effective cylinder rate
+motion.rates_m_s.a2_joint,,m/s,,,,,Approximate effective cylinder rate
+estimator.stop_coast_m,,m,,,,,Travel after stop command
+sensors.end_switch_tolerance_m,,m,,,,,Switch activation window
+plant.product_mass_kg,,kg,,,,,Scale measurement
+timing.cylinder_timeout_s,,s,,,,,Engineering limit derived from repeated motion tests

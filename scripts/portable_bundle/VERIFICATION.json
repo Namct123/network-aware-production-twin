@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-29",
+  "scope": "ZIP extracted to a different directory containing spaces on the same host, not a second physical PC",
+  "logic_tests": {
+    "passed": 36,
+    "environment": "Windows Python; elevated access needed for sandbox temporary directory"
+  },
+  "predictive_acceptance": {
+    "passed": 10,
+    "total": 10,
+    "environment": "WSL Ubuntu 24.04, Python 3.12.3, MuJoCo 3.16.0, NumPy 2.5.4",
+    "comparison": {
+      "missing_ps2_earlier_hold_s": 0.039999999999995595,
+      "scope": "one deterministic matched fault fixture; not general fault-detection accuracy or safety proof",
+      "all_cases_pass": true
+    }
+  },
+  "launcher_demo": {
+    "bin": 6,
+    "state": "DONE",
+    "placement_pass": true,
+    "simulation_time_s": 17.380000000001246
+  },
+  "cad_source_checks": {
+    "passed": true,
+    "parts": 118
+  },
+  "unchanged_core_files": 32,
+  "gui_on_second_machine": "not tested"
+}

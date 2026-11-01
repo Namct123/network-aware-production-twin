@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "name": "robustness_smoke_20261031",
+  "seeds": [
+    0
+  ],
+  "compute_budget_s": 1.0,
+  "scenarios": [
+    {
+      "name": "nominal",
+      "patch": {},
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "delay20",
+      "patch": {
+        "network.delay_s": 0.02
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "pickup_missing",
+      "patch": {},
+      "fault": "ps2_stuck_low",
+      "fault_start_s": 0
+    }
+  ]
+}

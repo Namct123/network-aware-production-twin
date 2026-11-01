@@ -1,0 +1,20 @@
+{
+  "checks": "passed",
+  "parts": 118,
+  "survey_sha256": "938c41f8d0a3708af693e9e22efb9121ce24e9986ecc282069baaed9b22142e5",
+  "units": "mm; Z=0 at machine base top",
+  "poses": {
+    "retracted_cup_z": 230,
+    "pick_cup_z": 160,
+    "extended_cup_z": 130
+  },
+  "caveats": [
+    "2020 represented by 20x20 solid envelopes, grooves simplified",
+    "270 offset interpreted from positive Y belt end to front crossbeam inner edge",
+    "PS1 on pusher head; PS2 retained at original Y=-215; PS3 alone shifted +50mm from old Y=-5 to +45",
+    "previous 235mm outer span not imposed until the referenced pair and direction are reconciled",
+    "50mm inlet offset interpreted along front belt X; mounts and heights provisional",
+    "tool travel100 is not confirmation of actuator stroke or IO feedback",
+    "CAD update only; existing MuJoCo runs and Unity scene still use their old geometry"
+  ]
+}

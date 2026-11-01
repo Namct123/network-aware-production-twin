@@ -1,0 +1,537 @@
+{
+  "date": "2026-10-30",
+  "user_acceptance": "pending",
+  "user_authorization": "Continue project and update Markdown describing work, purposes and functions; not personal candidate acceptance.",
+  "image": {
+    "image_id": "sha256:1eaf75229e7080cb3ea585c846a9960bc246e37c7e4dc7b5b20228e552463200",
+    "tags": [
+      "production-twin-dt:candidate-20261030-reconfiguration"
+    ],
+    "architecture": "amd64",
+    "size_bytes": 735488226
+  },
+  "source_manifest": {
+    "python": "3.12.16",
+    "mujoco": "3.16.0",
+    "numpy": "2.5.4",
+    "review_status_at_build": "candidate-awaiting-human-validation",
+    "geometry": "parameterized user-reported envelope available; legacy baseline preserved; neither physically calibrated",
+    "files": {
+      "docker/snapshot.py": "667e13d64f94434b3b6062bd905f593d22fde749ba110389252b8150c0fcf6bb",
+      "launch.py": "28dd557c116b22b21a1374a07da741db6c3276ab366d4a69e6e8320da9484ee8",
+      "mujoco/README.md": "0cdcca45fdc8d441e57d941dc0952b645e3f2e58aa64a1a50f58c8ee0f06f5f5",
+      "mujoco/build_cell.py": "5057192cc11df84b813beba39e9f7349771352be289f6c16e7de6254f5f4dbe0",
+      "mujoco/calibrate.py": "f20f602a31aebc945d915038175325b48c339a88136b3ace69cca5dcf0a5b6fa",
+      "mujoco/check_measured.py": "bef4f7ee4f1c191888c454a92708979b407b979d3a21119648f19395a309b922",
+      "mujoco/check_observer.py": "5a1ba36707fbca6da8db344ce82447bab4eb88babc08d123e2ad6c1b43402368",
+      "mujoco/check_prediction.py": "5a12ab5a3f11483276e14e4b5fcc43b9eed6365587a06e617a90b2842b512821",
+      "mujoco/check_reconfiguration.py": "5d4ea6e881e68d596e11dd396bcea868425beeaf4276c2b0638cc43bb7ef87e5",
+      "mujoco/check_twin.py": "05556db2bba5adace4e51d30985be13ea505acf774df55d0796306485de8b6a3",
+      "mujoco/command_history.py": "71dac49e66677ee8628f517c8aa1401e5e83168358d6693c1c4afa886641e5bf",
+      "mujoco/config.py": "1d5cb0248a380761c4a7de043e8de54848d5ac013d9ef5458e4280b0252d4d28",
+      "mujoco/configs/README.md": "efb59639e21529bf1defbe73bfed3a1a79dea9c16f82fb436a8703adc65e5b06",
+      "mujoco/configs/measured_cell_20261030.json": "5b9f5bdc12d6adf032ff57523ee3bcc2cf645fde09678eb7c12d2bf3f682cb62",
+      "mujoco/configs/measurements_to_fill_20261030.csv": "0cb162b531d608ca9d1bf61b31a4eb0693ff5ba5d359f5a481487cfa7e46a792",
+      "mujoco/configs/observable_cell_20261030.json": "e2eb6ed1b20f4a99df0d2d193b7a84d2b871eb593a179f262ee80fad686077e3",
+      "mujoco/configs/observer_measurements_to_fill_20261030.csv": "4d9b6e1c7a155c86084480185af234029f4a7efabbcaf5b42efe0f71726541ae",
+      "mujoco/configs/physical_measurements.csv": "af2752917179e95111654484a7d74458db8b799194373477fbe09c96bb1b5bc3",
+      "mujoco/configs/predictive_demo.json": "40aa2e6916666f279d5682fcd3fd8c72c68cea68de6b973e1863a000b41a6eb2",
+      "mujoco/configs/reconfigurable_cell_20261030.json": "a875fecf1be13e913ea65c336b33d218573a680ad09a46007a8dbae52fd9f0b2",
+      "mujoco/configs/reconfiguration_parameters_to_fill_20261030.csv": "9656c80af2ea9e705e2b4bc548d648c10832875e8d306d1b2d306a3dfda4743b",
+      "mujoco/configs/simulation.json": "e21292b461f66b196a669c655e8dcf0fe8146139d5d1d4f6ecd01949e580e13b",
+      "mujoco/configs/slow_a2_demo.json": "6c5fcdb03ba14c0f75bdb4879e736b6c0fcf8ed33bc0b5e2f17ad8984e3cbbee",
+      "mujoco/configs/survey_20261028.json": "938c41f8d0a3708af693e9e22efb9121ce24e9986ecc282069baaed9b22142e5",
+      "mujoco/estimator.py": "b6a3755c039f44d5a539187b60a3931ce98e433fd772e5f6f61ef2343870916a",
+      "mujoco/evaluation.py": "11f6c99e7e6f3ad5159aacb1d3f53b67ab762a8e76bc96015bc76e80d3c48941",
+      "mujoco/experiment.py": "9e4f6e727c7824943b8ad6f7683b2c2e33deaac254782e1be718f7df0c3916fa",
+      "mujoco/health.py": "0c12111a3b3e935c40e1e3445a7443e7c2b3e974326cbd2e1f8e95ec05f9cb51",
+      "mujoco/model_profile.py": "3d745f1fe5288b1633783d2b7abc0204a856c9fe0f60e7dbc63a20991758a02a",
+      "mujoco/network.py": "620ed3e1a9292a997359a6f68dc87787eefe7f11106944834c1889a6fafd100c",
+      "mujoco/parametric_cell.py": "7125abc12d1439e48816aa70db95f2e5ebdac077f3f91974aba39e1ab53067e0",
+      "mujoco/predictor.py": "05a26ed28862413873387a1ec40865e2f4cbaf436d6dbf1608f6440ad5c4b740",
+      "mujoco/production_cell.urdf": "f878e782e4456a63755061b3b4ffa3c8469aafd61d1a01df639fe957eb9a7aaf",
+      "mujoco/production_cell.xml": "4bda92227b1146c3dae6b821604ff320be0d4cea3acf83579451b224d52b3072",
+      "mujoco/reconfiguration.py": "e195f82f17517980f36e58e2659def786f25a54c1bd950e3dd0c7d8f46047612",
+      "mujoco/record_signals.py": "4c901d28e179db2eb05598b4530c22569a3d71fb0cfeea28295ba8deef6718a9",
+      "mujoco/run_cell.py": "d14bc0220bdd4539e852212e69df48d416df6a3ac8be8b827aca3b9f73676b1a",
+      "mujoco/run_twin.py": "7975e131b3fbb325370cb42952f4a46d3603b61b3ff24b686dd7233b74fbb508",
+      "mujoco/sensor_model.py": "bea5a84a0b465f8df5b0a34df6d74a7a980d936522ff2515e0e9a2723f8f8ed5",
+      "mujoco/sequence.py": "78eebe00688a733d33083bfb30b312ae81f107aac2869597b69db7b660d40fd6",
+      "mujoco/signals.py": "317e1d2c94e50891a870665b730cc6105e061e1bcc67bb0b02a89050561e36e5",
+      "mujoco/supervisor.py": "d7cb84867e0c138a28fb3cb2f687f4c28d43b675904938e68152df88e0b4ecb6",
+      "mujoco/test_configuration.py": "cf96f1609093ed8bca0d45114edd48c2780cf496682b03ae5e81fa703f2282e4",
+      "mujoco/test_observer.py": "38d27a8663a4d3fd148cf5ce87bd0406cf663135c836a9cac7f807d28c93be61",
+      "mujoco/test_parametric.py": "6a9168188f35a477b5a14b904ae2d895951bdb845d1bf24976a84676f1112eaa",
+      "mujoco/test_prediction.py": "e1f86db3eba71824e03e6015e794694be22abb16b64fada05f1cb3ed24c58b9c",
+      "mujoco/test_reconfiguration.py": "40c171d87e6b63add2e4f6657abe7f978631dc24074d3f29e0a437a004783090",
+      "mujoco/test_sequence.py": "51b302294905f222788d9c565fb1e1a4b2283c6b40911598c59b846ef1422964",
+      "mujoco/test_signals.py": "f40601771b9a37c2420e8bba3f6cb562b668e4a187098978d58791b28ead4983",
+      "requirements.txt": "7a81185e73057b0bfeb4754f1cbb014664084ee7344c08c40d496cb89bc09432",
+      "unity/Assets/ProductionTwin/parts.csv": "343e695ebf469dd2a70392ca968ba2b4ed4b1fb71083a881ce5f16ad22b47afe"
+    }
+  },
+  "qualification": {
+    "tag": "candidate-20261030-reconfiguration",
+    "user_acceptance": "pending",
+    "checks": {
+      "tests": {
+        "exit_code": 0,
+        "log": "output/docker/qualification_20261030_reconfiguration/tests.log"
+      },
+      "reconfiguration-check": {
+        "exit_code": 0,
+        "log": "output/docker/qualification_20261030_reconfiguration/reconfiguration-check.log",
+        "output": "output/docker/reconfiguration-check_20261030T164444Z_83247804"
+      },
+      "observer-check": {
+        "exit_code": 0,
+        "log": "output/docker/qualification_20261030_reconfiguration/observer-check.log",
+        "output": "output/docker/observer-check_20261030T164356Z_af8b1f25"
+      },
+      "measured-check": {
+        "exit_code": 0,
+        "log": "output/docker/qualification_20261030_reconfiguration/measured-check.log",
+        "output": "output/docker/measured-check_20261030T164408Z_3f7ebb6b"
+      },
+      "predictive-check": {
+        "exit_code": 0,
+        "log": "output/docker/qualification_20261030_reconfiguration/predictive-check.log",
+        "output": "output/docker/predictive-check_20261030T164428Z_8092b0a2"
+      },
+      "demo": {
+        "exit_code": 0,
+        "log": "output/docker/qualification_20261030_reconfiguration/demo.log",
+        "output": "output/docker/demo_20261030T164545Z_59aeeedc"
+      },
+      "strict": {
+        "exit_code": 0,
+        "log": "output/docker/qualification_20261030_reconfiguration/strict.log",
+        "output": "output/docker/strict_20261030T164549Z_a5e94999"
+      }
+    },
+    "image_id": "sha256:1eaf75229e7080cb3ea585c846a9960bc246e37c7e4dc7b5b20228e552463200",
+    "source_mismatches": [],
+    "preserved_images": {
+      "accepted-20261030-core-v1": "sha256:23ba06be2d283f73032a7f27294cccb040a72142cc42f48f506bd0ecb6892bb8",
+      "candidate-20261030-parameters": "sha256:a4b738583d27b30d6adb814d845e064f825232bb656b79d5bd3c3ed1fb0ba0ed",
+      "candidate-20261030-observer-health": "sha256:ccdc62250152215b7fd44c5a7f7fbd266d68587cdf41df87186a4579bd769e0c"
+    }
+  },
+  "checks": {
+    "logic_in_container": 63,
+    "delivery_boundaries_host": 2,
+    "reconfiguration_cases_pass": 15,
+    "reconfiguration_cases_total": 15,
+    "observer_cases_pass": 13,
+    "measured_functional_1s_cases_pass": 18,
+    "legacy_predictive_cases_pass": 10,
+    "default_demo_state": "DONE",
+    "default_demo_placement": true,
+    "strict_reason": "unconfirmed_xy_a2_midstroke_and_vacuum",
+    "source_hashes_match_workspace": true
+  },
+  "parameter_count": 202,
+  "comparison": {
+    "delay_20ms_enabled_state": "DONE",
+    "delay_20ms_disabled_state": "HOLD",
+    "delay_20ms_disabled_reason": "pick_uncertainty_exceeded",
+    "delay_20ms_vs_fixed_slow_cycle_difference_s": 0.0,
+    "pickup_missing_earlier_hold_s": 0.6199999999999317,
+    "scope": "paired functional fixtures, budget 1s; slower operation is intentional; no physical or statistical reliability claim"
+  },
+  "reconfiguration_results": [
+    {
+      "case": "nominal",
+      "pass": true,
+      "state": "DONE",
+      "reason": "",
+      "time_s": 13.920000000001318,
+      "hold_time_s": null,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 13.920000000001318,
+          "mode": "COMPLETE",
+          "phase": "DONE",
+          "reason": "cycle_complete",
+          "observation_age_s": 0.0,
+          "warning_ticks": 0,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "delay_20ms",
+      "pass": true,
+      "state": "DONE",
+      "reason": "",
+      "time_s": 14.600000000001545,
+      "hold_time_s": null,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 0.04000000000000002,
+          "mode": "DEGRADED",
+          "phase": "FEED",
+          "reason": "persistent_telemetry_warning",
+          "observation_age_s": 0.020000000000000018,
+          "warning_ticks": 2,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        },
+        {
+          "previous_mode": "DEGRADED",
+          "time_s": 14.600000000001545,
+          "mode": "COMPLETE",
+          "phase": "DONE",
+          "reason": "cycle_complete",
+          "observation_age_s": 0.02000000000000668,
+          "warning_ticks": 2,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "delay_20ms_baseline",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "pick_uncertainty_exceeded",
+      "time_s": 7.019999999999449,
+      "hold_time_s": 6.699999999999484,
+      "events": []
+    },
+    {
+      "case": "delay_20ms_fixed_slow",
+      "pass": true,
+      "state": "DONE",
+      "reason": "",
+      "time_s": 14.600000000001545,
+      "hold_time_s": null,
+      "events": []
+    },
+    {
+      "case": "delay_40ms",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "pick_uncertainty_exceeded",
+      "time_s": 7.719999999999372,
+      "hold_time_s": 7.399999999999407,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 0.06000000000000004,
+          "mode": "DEGRADED",
+          "phase": "FEED",
+          "reason": "persistent_telemetry_warning",
+          "observation_age_s": 0.040000000000000036,
+          "warning_ticks": 2,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        },
+        {
+          "previous_mode": "DEGRADED",
+          "time_s": 7.399999999999407,
+          "mode": "HOLD",
+          "phase": "HOLD",
+          "reason": "pick_uncertainty_exceeded",
+          "observation_age_s": 0.039999999999995595,
+          "warning_ticks": 2,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "delayed_acceleration",
+      "pass": true,
+      "state": "DONE",
+      "reason": "",
+      "time_s": 14.600000000001545,
+      "hold_time_s": null,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 0.04000000000000002,
+          "mode": "DEGRADED",
+          "phase": "FEED",
+          "reason": "persistent_telemetry_warning",
+          "observation_age_s": 0.020000000000000018,
+          "warning_ticks": 2,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        },
+        {
+          "previous_mode": "DEGRADED",
+          "time_s": 14.600000000001545,
+          "mode": "COMPLETE",
+          "phase": "DONE",
+          "reason": "cycle_complete",
+          "observation_age_s": 0.02000000000000668,
+          "warning_ticks": 2,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "delayed_stop_resume",
+      "pass": true,
+      "state": "DONE",
+      "reason": "",
+      "time_s": 14.800000000001612,
+      "hold_time_s": null,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 0.04000000000000002,
+          "mode": "DEGRADED",
+          "phase": "FEED",
+          "reason": "persistent_telemetry_warning",
+          "observation_age_s": 0.020000000000000018,
+          "warning_ticks": 2,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        },
+        {
+          "previous_mode": "DEGRADED",
+          "time_s": 14.800000000001612,
+          "mode": "COMPLETE",
+          "phase": "DONE",
+          "reason": "cycle_complete",
+          "observation_age_s": 0.02000000000000668,
+          "warning_ticks": 2,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "pickup_missing",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "reconfiguration:expected_edge_missing",
+      "time_s": 7.27999999999942,
+      "hold_time_s": 6.9599999999994555,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 6.9599999999994555,
+          "mode": "HOLD",
+          "phase": "HOLD",
+          "reason": "reconfiguration:expected_edge_missing",
+          "observation_age_s": 0.0,
+          "warning_ticks": 0,
+          "evidence_codes": [
+            "expected_edge_missing"
+          ],
+          "requested_long_speed_m_s": 0.16,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "pickup_missing_baseline",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "timeout:TRACK:ps2",
+      "time_s": 7.899999999999352,
+      "hold_time_s": 7.579999999999387,
+      "events": []
+    },
+    {
+      "case": "upstream_missing",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "ps2_without_ps1",
+      "time_s": 6.9599999999994555,
+      "hold_time_s": 6.639999999999491,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 6.639999999999491,
+          "mode": "HOLD",
+          "phase": "HOLD",
+          "reason": "ps2_without_ps1",
+          "observation_age_s": 0.0,
+          "warning_ticks": 0,
+          "evidence_codes": [
+            "unmatched_pickup_observation"
+          ],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "pusher_missing",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "timeout:FEED:transfer_present",
+      "time_s": 2.5599999999999397,
+      "hold_time_s": 2.239999999999975,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 2.239999999999975,
+          "mode": "HOLD",
+          "phase": "HOLD",
+          "reason": "timeout:FEED:transfer_present",
+          "observation_age_s": 0.0,
+          "warning_ticks": 0,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "initial_pickup_high",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "initial_state_not_confirmed",
+      "time_s": 0.3000000000000002,
+      "hold_time_s": 0.0,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 0.0,
+          "mode": "HOLD",
+          "phase": "HOLD",
+          "reason": "initial_state_not_confirmed",
+          "observation_age_s": 0.0,
+          "warning_ticks": 0,
+          "evidence_codes": [
+            "unmatched_pickup_observation"
+          ],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "loss_all",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "telemetry_timeout",
+      "time_s": 0.4000000000000003,
+      "hold_time_s": 0.10000000000000007,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 0.10000000000000007,
+          "mode": "HOLD",
+          "phase": "HOLD",
+          "reason": "telemetry_timeout",
+          "observation_age_s": null,
+          "warning_ticks": 0,
+          "evidence_codes": [
+            "telemetry_silence"
+          ],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "seeded_loss",
+      "pass": true,
+      "state": "HOLD",
+      "reason": "sampling_gap",
+      "time_s": 6.339999999999524,
+      "hold_time_s": 6.019999999999559,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 0.4200000000000003,
+          "mode": "DEGRADED",
+          "phase": "FEED",
+          "reason": "persistent_telemetry_warning",
+          "observation_age_s": 0.0,
+          "warning_ticks": 2,
+          "evidence_codes": [
+            "observation_sequence_gap"
+          ],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        },
+        {
+          "previous_mode": "DEGRADED",
+          "time_s": 6.019999999999559,
+          "mode": "HOLD",
+          "phase": "HOLD",
+          "reason": "sampling_gap",
+          "observation_age_s": 0.0,
+          "warning_ticks": 2,
+          "evidence_codes": [
+            "observation_sequence_gap",
+            "observation_time_gap"
+          ],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    },
+    {
+      "case": "runtime_20ms",
+      "pass": true,
+      "state": "DONE",
+      "reason": "",
+      "time_s": 13.920000000001318,
+      "hold_time_s": null,
+      "events": [
+        {
+          "previous_mode": "NORMAL",
+          "time_s": 13.920000000001318,
+          "mode": "COMPLETE",
+          "phase": "DONE",
+          "reason": "cycle_complete",
+          "observation_age_s": 0.0,
+          "warning_ticks": 0,
+          "evidence_codes": [],
+          "requested_long_speed_m_s": 0.0,
+          "selected_long_speed_m_s": 0.0,
+          "speed_cap_applied": false
+        }
+      ]
+    }
+  ],
+  "development_trials_retained": [
+    "output/reconfiguration_dev_20261030_a",
+    "output/reconfiguration_dev_20261030_b"
+  ],
+  "limitations": [
+    "One-product shared-clock simulation, no physical/PLC validation.",
+    "Speed cap is a configured rule, not an optimizer or ML/RL.",
+    "No sensor bypass, automatic HOLD reset, state resynchronization or continuous production.",
+    "Functional fixtures use 1s compute budget; runtime 20ms fixtures do not guarantee deadlines. Prior observer timing misses retained.",
+    "CAD V5 and functional MuJoCo plant not fully synchronized.",
+    "Accepted/previous candidate images preserved, no public registry push."
+  ]
+}

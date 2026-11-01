@@ -1,0 +1,16 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Theo dõi dự án bản sao số</title><style>
+:root{font-family:system-ui,sans-serif;color:#173044;background:#edf3f7}body{max-width:1180px;margin:auto;padding:28px}h1{font-size:clamp(26px,5vw,42px);margin:12px 0}h2{font-size:22px}p{line-height:1.65}.note{border-left:4px solid #098777;background:#fff;padding:14px 18px;border-radius:8px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}.card{background:white;padding:20px;border:1px solid #d6e2e9;border-radius:14px;margin:12px 0}.pill{display:inline-block;background:#e0f3ec;color:#075a49;padding:5px 10px;border-radius:20px;font-size:14px}button,input{font:inherit}button{padding:10px 16px;border:0;border-radius:8px;background:#086c77;color:#fff;cursor:pointer}button:focus-visible,input:focus-visible{outline:3px solid #dc8b20;outline-offset:3px}.table{overflow:auto}table{width:100%;border-collapse:collapse;font-size:14px}td,th{text-align:left;padding:12px;border-bottom:1px solid #e4ebef;min-width:110px}.muted{color:#536d7e}pre{white-space:pre-wrap;word-break:break-word;line-height:1.6;font-family:inherit;font-size:14px}.warn{color:#9b4308}a{color:#076c77}.small{font-size:13px}
+</style></head><body>
+<span class="pill">Chỉ đọc dữ liệu · không điều khiển máy</span><h1>Hệ thống đang làm gì?</h1>
+<p class="muted">Theo dõi phần đã viết, trạng thái kiểm tra, lượt mô phỏng gần đây và nhật ký từng mục.</p>
+<p class="note">Màu/trạng thái trên trang chỉ mô tả nhật ký phần mềm. <strong>HOLD nghĩa là dừng chờ.</strong> Dữ liệu trở lại không tự cho phép máy thật chạy. Một lượt dừng đúng yêu cầu không phải một sản phẩm đã hoàn tất.</p>
+<div class="card"><button id="refresh">Đọc lại dữ liệu</button> <a href="index.html">Mở sơ đồ chuyển động trước đây</a>
+<p id="connection" aria-live="polite">Đang tìm bộ đọc nhật ký trên máy này…</p>
+<label for="files">Hoặc tự chọn tệp summary.json, receipt.json, report.json, implementation_manifest.json và nhật ký .md trên máy:</label><p><input id="files" type="file" accept=".json,.md" multiple></p><p class="small muted">Các tệp được đọc ngay trong trình duyệt, không tải lên dịch vụ bên ngoài.</p></div>
+<h2>1. Các mục triển khai</h2><div id="modules" class="grid"></div>
+<h2>2. Kết quả gần đây</h2><p class="small muted">Đây là kết quả đã lưu, không phải kết nối trực tiếp với PLC (bộ điều khiển máy).</p>
+<div class="card table"><table><thead><tr><th>Lượt</th><th>Trạng thái</th><th>Thời gian mô phỏng</th><th>Đặt phôi</th><th>Dữ liệu cũ bị loại</th><th>Phiên / lần khởi tạo</th><th>Lý do dừng</th></tr></thead><tbody id="runs"></tbody></table></div>
+<h2>3. Nhật ký đã làm từng mục</h2><div class="card"><pre id="journal">Chưa có nhật ký được nạp.</pre></div>
+<h2>4. Chi tiết tệp bạn đã chọn</h2><div class="card"><pre id="detail">Chưa chọn tệp.</pre></div>
+<script src="tong_quan.js"></script></body></html>

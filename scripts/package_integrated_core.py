@@ -1,0 +1,36 @@
+"""Package allowlisted integrated source and easy Vietnamese instructions, no experiment execution."""
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import zipfile
+
+ROOT=Path(__file__).resolve().parent.parent
+
+def package(target):
+    target=Path(target)
+    if target.exists(): raise FileExistsError('Không ghi đè gói đã có; chọn tên mới.')
+    files=[]
+    for folder,extensions in [('mujoco',{'.py','.json','.xml','.urdf','.csv','.md'}),('web',{'.py','.js','.html','.css','.json','.md','.cmd'})]:
+        files += [p for p in (ROOT/folder).rglob('*') if p.is_file() and not p.is_symlink() and '__pycache__' not in p.parts and p.suffix in extensions]
+    docs=['bao_cao_tich_hop_so1.md','nhat_ky_cong_viec.md','ban_tich_hop_phan_mem.md','bao_cao_tien_do_de_hieu.md','modular_twin.md','parameterized_core.md','docker.md']
+    files += [ROOT/'docs'/n for n in docs]
+    files += [ROOT/p for p in ['scripts/docker_dt.ps1','scripts/portable_bundle/launch.py','docker/Dockerfile','docker/build_image.py',
+        'docker/snapshot.py','docker/requirements.lock','docker/RELEASES.md','docker/evidence/candidate-20261031-integrated-core-v1.json',
+        'compose.yaml','.dockerignore','AGENTS.md','scripts/package_integrated_core.py','unity/Assets/ProductionTwin/parts.csv']]
+    manifest={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(files))}
+    target.parent.mkdir(parents=True,exist_ok=True)
+    with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED) as z:
+        for name in manifest: z.write(ROOT/name,'DT_Core/'+name)
+        z.writestr('DT_Core/GOI_MA_NGUON.json',json.dumps(manifest,indent=2))
+        z.writestr('DT_Core/DOC_TRUOC.txt','Bản ghép phần mềm số 1.\nĐọc docs/ban_tich_hop_phan_mem.md và docs/nhat_ky_cong_viec.md.\n'
+            'Trang theo dõi: mở web/tong_quan.html hoặc chạy web/server.py rồi vào /tong_quan.html.\n'
+            'Mô phỏng cần MuJoCo hoặc Docker. Không có kết nối điều khiển PLC thật.\n'
+            'Không coi mã đã đóng gói là đã đo/hiệu chuẩn hoặc được người dùng nghiệm thu.\n')
+    with zipfile.ZipFile(target) as z:
+        if z.testzip() is not None: raise ValueError('ZIP integrity check failed')
+    return {'file':str(target),'files':len(manifest),'sha256':hashlib.sha256(target.read_bytes()).hexdigest()}
+
+if __name__=='__main__':
+    p=argparse.ArgumentParser(); p.add_argument('--output',type=Path,required=True)
+    print(json.dumps(package(p.parse_args().output),ensure_ascii=False))

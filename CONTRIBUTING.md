@@ -5,9 +5,16 @@
 - Hình học và kích thước ước lượng: `fusion/ProductionTwin_V0/ProductionTwin_V0.py`.
 - Scene, vật liệu, chuyển động minh họa: `unity/Assets/ProductionTwin`.
 - Tín hiệu I/O dự kiến theo sơ đồ: mục “Tín hiệu dự kiến để nối digital twin” trong `unity/README.md`. Địa chỉ này **chưa xác nhận đấu dây thực**.
+- Giao diện tín hiệu MuJoCo hiện tại: `mujoco/signals.py`, `mujoco/sensor_model.py` và bảng trong `docs/dt_core_progress.md`. Tín hiệu chưa có nguồn dùng `null/unavailable`; không thay bằng `false`. Dữ liệu chuẩn của bộ mô phỏng chỉ đi vào log đánh giá riêng.
+- Thông số vận hành: profile JSON trong `mujoco/configs/`; sửa giá trị bằng profile mới/CSV số đo, không rải hằng số vào thuật toán. Đơn vị SI, trạng thái nguồn gốc và cách nghiệm thu ở `docs/modular_twin.md`. Đổi schema phải cập nhật loader, các nơi sử dụng và kiểm tra cùng lúc.
 - Đơn vị: CAD/CSV dùng mm; Unity dùng m (`1 unit = 1 m`). Trục CAD `(X,Y,Z)` chuyển sang Unity `(X,Z,Y)`.
 
 ## Quy trình đóng góp
+
+**Docker:** hạng mục chỉ trở thành bản được chấp thuận sau khi người dùng trực tiếp
+kiểm nghiệm và xác nhận đạt. Sau xác nhận, cập nhật Docker ngay, chạy kiểm tra và
+ghi image ID/hash/nguồn xác nhận trong `docker/RELEASES.md`. Bản chờ kiểm nghiệm
+mang tag candidate; không tự gắn stable/latest. Xem [hướng dẫn](docs/docker.md).
 
 1. Tạo nhánh riêng cho phần CAD, Unity, PLC hoặc digital twin.
 2. Khi đổi tên một tín hiệu, trục, đơn vị hoặc giới hạn chuyển động, cập nhật tài liệu và phần nhận dữ liệu cùng lúc trong pull request.

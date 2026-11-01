@@ -1,0 +1,84 @@
+{
+  "purpose": "unverified_physical_mapping",
+  "clock": {
+    "source_scale_s": 0.001,
+    "source_to_local_offset_s": 0.0,
+    "uncertainty_s": null,
+    "max_uncertainty_s": 0.01,
+    "verified": false
+  },
+  "signals": {
+    "transfer_present": {
+      "input_key": "PS1_pusher",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "ps1": {
+      "input_key": "PS2_upstream",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "ps2": {
+      "input_key": "PS3_pickup",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "a1_retracted": {
+      "input_key": "A1_back",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "a1_extended": {
+      "input_key": "A1_front",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "a2_retracted": {
+      "input_key": "A2_up",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "a2_extended": {
+      "input_key": "A2_down",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "home_x": {
+      "input_key": "Home_X",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "home_y1": {
+      "input_key": "Home_Y1",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "home_y2": {
+      "input_key": "Home_Y2",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "vacuum_ok": {
+      "input_key": "Vacuum_OK",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    },
+    "e_stop_clear": {
+      "input_key": "Emergency_Clear",
+      "active_high": true,
+      "verified": false,
+      "plc_address": null
+    }
+  }
+}

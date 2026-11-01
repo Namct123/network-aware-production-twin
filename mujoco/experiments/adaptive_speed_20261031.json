@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "name": "adaptive_speed_20261031",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "compute_budget_s": 1.0,
+  "scenarios": [
+    {
+      "name": "nominal",
+      "patch": {},
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "delay20",
+      "patch": {
+        "network.delay_s": 0.02
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "delay40",
+      "patch": {
+        "network.delay_s": 0.04
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "jitter",
+      "patch": {
+        "network.delay_s": 0.01,
+        "network.jitter_s": 0.015
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "loss5",
+      "patch": {
+        "network.drop_probability": 0.05
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "combined",
+      "patch": {
+        "network.delay_s": 0.02,
+        "network.jitter_s": 0.01,
+        "network.drop_probability": 0.05
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "loss_all",
+      "patch": {
+        "network.drop_probability": 1
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "old_data",
+      "patch": {
+        "network.delay_s": 0.12
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "belt_scale90",
+      "patch": {
+        "plant.belt_speed_scale.long": 0.9
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "belt_scale110",
+      "patch": {
+        "plant.belt_speed_scale.long": 1.1
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "mass150",
+      "patch": {
+        "plant.product_mass_kg": 0.03
+      },
+      "fault": "none",
+      "fault_start_s": 0
+    },
+    {
+      "name": "pickup_missing",
+      "patch": {},
+      "fault": "ps2_stuck_low",
+      "fault_start_s": 0
+    },
+    {
+      "name": "upstream_missing",
+      "patch": {},
+      "fault": "ps1_stuck_low",
+      "fault_start_s": 0
+    }
+  ],
+  "policies": [
+    "disabled",
+    "enabled",
+    "adaptive"
+  ]
+}

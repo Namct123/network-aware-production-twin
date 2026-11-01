@@ -1,0 +1,1814 @@
+[
+  {
+    "case": "bin_1",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 15.460000000001832,
+    "samples": 774,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.15878378378380129,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 774,
+      "dropped": 0,
+      "delivered": 774,
+      "accepted": 774,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.319999999999416,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 8.079999999999368,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.339999999999455,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.839999999999621,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 11.32000000000045,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 12.080000000000704,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.480000000000837,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.980000000001004,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 15.460000000001832,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 108,
+    "y_error_rmse_m": 0.0007302415717394451,
+    "y_error_p95_abs_m": 0.0011592938741857572,
+    "y_error_max_abs_m": 0.0014208574327439494
+  },
+  {
+    "case": "bin_2",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 17.380000000001246,
+    "samples": 870,
+    "bin": 2,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.15878378378380129,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 870,
+      "dropped": 0,
+      "delivered": 870,
+      "accepted": 870,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.319999999999416,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 8.079999999999368,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.339999999999455,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.839999999999621,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.28000000000077,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 13.040000000001024,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 13.440000000001158,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 13.940000000001325,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 17.380000000001246,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 108,
+    "y_error_rmse_m": 0.0007302415717394451,
+    "y_error_p95_abs_m": 0.0011592938741857572,
+    "y_error_max_abs_m": 0.0014208574327439494
+  },
+  {
+    "case": "bin_3",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 15.460000000001832,
+    "samples": 774,
+    "bin": 3,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.15878378378380129,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 774,
+      "dropped": 0,
+      "delivered": 774,
+      "accepted": 774,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.319999999999416,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 8.079999999999368,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.339999999999455,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.839999999999621,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 11.32000000000045,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 12.080000000000704,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.480000000000837,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.980000000001004,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 15.460000000001832,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 108,
+    "y_error_rmse_m": 0.0007302415717394451,
+    "y_error_p95_abs_m": 0.0011592938741857572,
+    "y_error_max_abs_m": 0.0014208574327439494
+  },
+  {
+    "case": "bin_4",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 17.380000000001246,
+    "samples": 870,
+    "bin": 4,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.15878378378380129,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 870,
+      "dropped": 0,
+      "delivered": 870,
+      "accepted": 870,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.319999999999416,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 8.079999999999368,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.339999999999455,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.839999999999621,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.28000000000077,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 13.040000000001024,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 13.440000000001158,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 13.940000000001325,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 17.380000000001246,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 108,
+    "y_error_rmse_m": 0.0007302415717394451,
+    "y_error_p95_abs_m": 0.0011592938741857572,
+    "y_error_max_abs_m": 0.0014208574327439494
+  },
+  {
+    "case": "bin_5",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 15.460000000001832,
+    "samples": 774,
+    "bin": 5,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.15878378378380129,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 774,
+      "dropped": 0,
+      "delivered": 774,
+      "accepted": 774,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.319999999999416,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 8.079999999999368,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.339999999999455,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.839999999999621,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 11.32000000000045,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 12.080000000000704,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.480000000000837,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.980000000001004,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 15.460000000001832,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 108,
+    "y_error_rmse_m": 0.0007302415717394451,
+    "y_error_p95_abs_m": 0.0011592938741857572,
+    "y_error_max_abs_m": 0.0014208574327439494
+  },
+  {
+    "case": "bin_6",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 17.380000000001246,
+    "samples": 870,
+    "bin": 6,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.15878378378380129,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 870,
+      "dropped": 0,
+      "delivered": 870,
+      "accepted": 870,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.319999999999416,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 8.079999999999368,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.339999999999455,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.839999999999621,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.28000000000077,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 13.040000000001024,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 13.440000000001158,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 13.940000000001325,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 17.380000000001246,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 108,
+    "y_error_rmse_m": 0.0007302415717394451,
+    "y_error_p95_abs_m": 0.0011592938741857572,
+    "y_error_max_abs_m": 0.0014208574327439494
+  },
+  {
+    "case": "speed_low",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 17.020000000001446,
+    "samples": 852,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.1,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.1004273504273573,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "07e87014130e987c00282e630afc1c831ce8353610156324a3f961b0f4304ded",
+    "network": {
+      "sent": 852,
+      "dropped": 0,
+      "delivered": 852,
+      "accepted": 852,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 8.219999999999414,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 8.879999999999635,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 9.639999999999889,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 9.899999999999975,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 10.400000000000142,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.88000000000097,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 13.640000000001224,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 14.040000000001358,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 14.540000000001525,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 17.020000000001446,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 151,
+    "y_error_rmse_m": 0.0008174625079958738,
+    "y_error_p95_abs_m": 0.0014437400525386945,
+    "y_error_max_abs_m": 0.0015163093703527142
+  },
+  {
+    "case": "speed_high",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 14.600000000001545,
+    "samples": 731,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.24,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.23979591836737335,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "c279b4a27b3c4f1540a7771ebacda21b908031d0a6be90fcb2d873852139e9a4",
+    "network": {
+      "sent": 731,
+      "dropped": 0,
+      "delivered": 731,
+      "accepted": 731,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 5.7799999999995855,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 6.459999999999511,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 7.219999999999427,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 7.479999999999398,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 7.979999999999343,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 10.460000000000163,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 11.220000000000416,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 11.62000000000055,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.120000000000717,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 14.600000000001545,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 84,
+    "y_error_rmse_m": 0.0009129987270512682,
+    "y_error_p95_abs_m": 0.0013704043502917596,
+    "y_error_max_abs_m": 0.001370407464511253
+  },
+  {
+    "case": "strict",
+    "pass": true,
+    "controller_state": "HOLD",
+    "hold_reason": "unconfirmed_xy_a2_midstroke_and_vacuum",
+    "simulation_time_s": 6.979999999999453,
+    "samples": 350,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": false,
+    "hold_time_s": 6.6599999999994886,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.15878378378380129,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 350,
+      "dropped": 0,
+      "delivered": 350,
+      "accepted": 350,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "HOLD",
+        "reason": "unconfirmed_xy_a2_midstroke_and_vacuum"
+      }
+    ],
+    "placement_pass_evaluator_only": null,
+    "hold_product_supported_evaluator_only": true,
+    "y_error_samples": 75,
+    "y_error_rmse_m": 0.00042189536291042435,
+    "y_error_p95_abs_m": 0.0003913049450448014,
+    "y_error_max_abs_m": 0.0014208574327439494
+  },
+  {
+    "case": "missing_ps1",
+    "pass": true,
+    "controller_state": "HOLD",
+    "hold_reason": "ps2_without_ps1",
+    "simulation_time_s": 6.979999999999453,
+    "samples": 350,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "ps1_stuck_low",
+    "assume_open_loop": true,
+    "hold_time_s": 6.6599999999994886,
+    "observed_anchor_count": 0,
+    "estimated_transit_speed_m_s": null,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 350,
+      "dropped": 0,
+      "delivered": 350,
+      "accepted": 350,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "HOLD",
+        "reason": "ps2_without_ps1"
+      }
+    ],
+    "placement_pass_evaluator_only": null,
+    "hold_product_supported_evaluator_only": true,
+    "y_error_samples": 0,
+    "y_error_rmse_m": null,
+    "y_error_p95_abs_m": null,
+    "y_error_max_abs_m": null
+  },
+  {
+    "case": "missing_ps2",
+    "pass": true,
+    "controller_state": "HOLD",
+    "hold_reason": "timeout:TRACK:ps2",
+    "simulation_time_s": 7.079999999999442,
+    "samples": 355,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "ps2_stuck_low",
+    "assume_open_loop": true,
+    "hold_time_s": 6.7599999999994775,
+    "observed_anchor_count": 1,
+    "estimated_transit_speed_m_s": 0.16,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 355,
+      "dropped": 0,
+      "delivered": 355,
+      "accepted": 355,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.7599999999994775,
+        "from": "TRACK",
+        "to": "HOLD",
+        "reason": "timeout:TRACK:ps2"
+      }
+    ],
+    "placement_pass_evaluator_only": null,
+    "hold_product_supported_evaluator_only": true,
+    "y_error_samples": 80,
+    "y_error_rmse_m": 0.00039130483261079653,
+    "y_error_p95_abs_m": 0.0003913049390012399,
+    "y_error_max_abs_m": 0.00039130495120875963
+  },
+  {
+    "case": "missing_a1_end",
+    "pass": true,
+    "controller_state": "HOLD",
+    "hold_reason": "timeout:PUSH:a1_extended",
+    "simulation_time_s": 4.699999999999704,
+    "samples": 236,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "a1_extended_stuck_low",
+    "assume_open_loop": true,
+    "hold_time_s": 4.37999999999974,
+    "observed_anchor_count": 0,
+    "estimated_transit_speed_m_s": null,
+    "profile_name": "simulation_estimated_v1",
+    "profile_status": "unmeasured",
+    "config_sha256": "4258c9de92a8e3682faa146b2bb40f44e0fc4935c499f03651c758eea0cd7f24",
+    "network": {
+      "sent": 236,
+      "dropped": 0,
+      "delivered": 236,
+      "accepted": 236,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 4.37999999999974,
+        "from": "PUSH",
+        "to": "HOLD",
+        "reason": "timeout:PUSH:a1_extended"
+      }
+    ],
+    "placement_pass_evaluator_only": null,
+    "hold_product_supported_evaluator_only": true,
+    "y_error_samples": 0,
+    "y_error_rmse_m": null,
+    "y_error_p95_abs_m": null,
+    "y_error_max_abs_m": null
+  },
+  {
+    "case": "profile_geometry",
+    "pass": false,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 15.460000000001832,
+    "samples": 774,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.1597222222222398,
+    "profile_name": "profile_geometry_synthetic_test",
+    "profile_status": "unmeasured",
+    "config_sha256": "c2fb446fadc4f1c4388be71c1c23b3dc0bd59d622cf671e837601bc574e77fef",
+    "network": {
+      "sent": 774,
+      "dropped": 0,
+      "delivered": 774,
+      "accepted": 774,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.619999999999493,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.239999999999425,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 7.999999999999341,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.259999999999428,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.759999999999595,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 11.280000000000436,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 12.04000000000069,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.440000000000824,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.94000000000099,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 15.460000000001832,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": false,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 104,
+    "y_error_rmse_m": 0.0003536818935834798,
+    "y_error_p95_abs_m": 0.00039130493601200605,
+    "y_error_max_abs_m": 0.00039130495120875963
+  },
+  {
+    "case": "profile_dynamics",
+    "pass": false,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 16.22000000000189,
+    "samples": 812,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.15878378378380129,
+    "profile_name": "profile_dynamics_synthetic_test",
+    "profile_status": "unmeasured",
+    "config_sha256": "373d1b13fae67241a7b7306b76a42703ef1762fd25e667e081efc650708ae624",
+    "network": {
+      "sent": 812,
+      "dropped": 0,
+      "delivered": 812,
+      "accepted": 812,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.0,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3599999999999617,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.1799999999998714,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 3.999999999999781,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.6599999999994886,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.319999999999416,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 8.079999999999368,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.339999999999455,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.839999999999621,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 11.700000000000577,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 12.46000000000083,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.860000000000964,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 13.360000000001131,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 16.22000000000189,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": false,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 108,
+    "y_error_rmse_m": 0.0007710500656372133,
+    "y_error_p95_abs_m": 0.0007940649497224228,
+    "y_error_max_abs_m": 0.0010556285086893158
+  },
+  {
+    "case": "network_delay_20ms",
+    "pass": true,
+    "controller_state": "DONE",
+    "hold_reason": "",
+    "simulation_time_s": 15.600000000001879,
+    "samples": 781,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": null,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.16095890410960678,
+    "profile_name": "network_delay_20ms_synthetic_test",
+    "profile_status": "unmeasured",
+    "config_sha256": "0399761975ce28532c6c4587d538a7030e4eef471aa9eaf6317b30e30e09e9ea",
+    "network": {
+      "sent": 781,
+      "dropped": 0,
+      "delivered": 780,
+      "accepted": 780,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.020000000000000004,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3799999999999595,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.219999999999867,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 4.059999999999775,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.719999999999482,
+        "from": "TRACK",
+        "to": "ALIGN",
+        "reason": ""
+      },
+      {
+        "time_s": 7.419999999999405,
+        "from": "ALIGN",
+        "to": "LOWER",
+        "reason": ""
+      },
+      {
+        "time_s": 8.179999999999401,
+        "from": "LOWER",
+        "to": "GRIP",
+        "reason": ""
+      },
+      {
+        "time_s": 8.439999999999488,
+        "from": "GRIP",
+        "to": "LIFT",
+        "reason": ""
+      },
+      {
+        "time_s": 8.959999999999662,
+        "from": "LIFT",
+        "to": "MOVE",
+        "reason": ""
+      },
+      {
+        "time_s": 11.44000000000049,
+        "from": "MOVE",
+        "to": "LOWER_BIN",
+        "reason": ""
+      },
+      {
+        "time_s": 12.200000000000744,
+        "from": "LOWER_BIN",
+        "to": "RELEASE",
+        "reason": ""
+      },
+      {
+        "time_s": 12.600000000000877,
+        "from": "RELEASE",
+        "to": "RAISE",
+        "reason": ""
+      },
+      {
+        "time_s": 13.12000000000105,
+        "from": "RAISE",
+        "to": "RETURN",
+        "reason": ""
+      },
+      {
+        "time_s": 15.600000000001879,
+        "from": "RETURN",
+        "to": "DONE",
+        "reason": ""
+      }
+    ],
+    "placement_pass_evaluator_only": true,
+    "hold_product_supported_evaluator_only": null,
+    "y_error_samples": 109,
+    "y_error_rmse_m": 0.0012610584052905453,
+    "y_error_p95_abs_m": 0.002091992049040675,
+    "y_error_max_abs_m": 0.0021815998521246827
+  },
+  {
+    "case": "network_stale",
+    "pass": true,
+    "controller_state": "HOLD",
+    "hold_reason": "invalid_or_stale:ps1",
+    "simulation_time_s": 0.3800000000000003,
+    "samples": 20,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": 0.08000000000000006,
+    "observed_anchor_count": 0,
+    "estimated_transit_speed_m_s": null,
+    "profile_name": "network_stale_synthetic_test",
+    "profile_status": "unmeasured",
+    "config_sha256": "e8c09daa9467f198a324c0fba75e1284e3ef9cd6d552f19f895f571ab7fe340c",
+    "network": {
+      "sent": 20,
+      "dropped": 0,
+      "delivered": 16,
+      "accepted": 16,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.08000000000000006,
+        "from": "INIT",
+        "to": "HOLD",
+        "reason": "invalid_or_stale:ps1"
+      }
+    ],
+    "placement_pass_evaluator_only": null,
+    "hold_product_supported_evaluator_only": true,
+    "y_error_samples": 0,
+    "y_error_rmse_m": null,
+    "y_error_p95_abs_m": null,
+    "y_error_max_abs_m": null
+  },
+  {
+    "case": "network_loss_all",
+    "pass": true,
+    "controller_state": "HOLD",
+    "hold_reason": "telemetry_timeout",
+    "simulation_time_s": 0.4000000000000003,
+    "samples": 21,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": 0.10000000000000007,
+    "observed_anchor_count": 0,
+    "estimated_transit_speed_m_s": null,
+    "profile_name": "network_loss_all_synthetic_test",
+    "profile_status": "unmeasured",
+    "config_sha256": "7fa51f280e170946fa3a1d2ba2a8d4021755ebfffd3e3ef54b11b6477e3dc156",
+    "network": {
+      "sent": 21,
+      "dropped": 21,
+      "delivered": 0,
+      "accepted": 0,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.10000000000000007,
+        "from": "INIT",
+        "to": "HOLD",
+        "reason": "telemetry_timeout"
+      }
+    ],
+    "placement_pass_evaluator_only": null,
+    "hold_product_supported_evaluator_only": true,
+    "y_error_samples": 0,
+    "y_error_rmse_m": null,
+    "y_error_p95_abs_m": null,
+    "y_error_max_abs_m": null
+  },
+  {
+    "case": "network_pick_age",
+    "pass": true,
+    "controller_state": "HOLD",
+    "hold_reason": "pick_uncertainty_exceeded",
+    "simulation_time_s": 7.119999999999438,
+    "samples": 357,
+    "bin": 1,
+    "commanded_long_belt_speed_m_s": 0.16,
+    "fault_fixture": "none",
+    "assume_open_loop": true,
+    "hold_time_s": 6.799999999999473,
+    "observed_anchor_count": 2,
+    "estimated_transit_speed_m_s": 0.16095890410960678,
+    "profile_name": "network_pick_age_synthetic_test",
+    "profile_status": "unmeasured",
+    "config_sha256": "d224e65d01bcaa85b7e943ad3b3cb5cd265acd5fc73567f93412b2840b296a13",
+    "network": {
+      "sent": 357,
+      "dropped": 0,
+      "delivered": 355,
+      "accepted": 355,
+      "out_of_order_ignored": 0,
+      "coalesced": 0
+    },
+    "error_scope": "source-time-aligned estimates after PS1 in TRACK/ALIGN, one product, not all-axis accuracy",
+    "assumptions": [
+      "single product and known simulation reset; timed front admission",
+      "constant long belt command between matched optical edges; known product length and lane",
+      "XY/intermediate A2 timed and suction unconfirmed if opt-in enabled",
+      "shared simulation clock; no physical PLC clock synchronization"
+    ],
+    "transitions": [
+      {
+        "time_s": 0.04000000000000002,
+        "from": "INIT",
+        "to": "FEED",
+        "reason": ""
+      },
+      {
+        "time_s": 2.3999999999999573,
+        "from": "FEED",
+        "to": "PUSH",
+        "reason": ""
+      },
+      {
+        "time_s": 3.2599999999998626,
+        "from": "PUSH",
+        "to": "RETRACT",
+        "reason": ""
+      },
+      {
+        "time_s": 4.119999999999768,
+        "from": "RETRACT",
+        "to": "TRACK",
+        "reason": ""
+      },
+      {
+        "time_s": 6.799999999999473,
+        "from": "TRACK",
+        "to": "HOLD",
+        "reason": "pick_uncertainty_exceeded"
+      }
+    ],
+    "placement_pass_evaluator_only": null,
+    "hold_product_supported_evaluator_only": true,
+    "y_error_samples": 74,
+    "y_error_rmse_m": 0.000800354306049581,
+    "y_error_p95_abs_m": 0.000802680720541113,
+    "y_error_max_abs_m": 0.0008026807295470201
+  }
+]

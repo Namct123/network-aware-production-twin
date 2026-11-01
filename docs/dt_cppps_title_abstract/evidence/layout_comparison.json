@@ -1,0 +1,160 @@
+{
+  "date": "2026-10-27",
+  "reference": {
+    "path": "D:\\hoctap\\hybird control system.pdf",
+    "pages": 22,
+    "page_sizes_pdfpt": [
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ],
+      [
+        595.276,
+        793.701
+      ]
+    ],
+    "first_page_fonts": {
+      "NJVVFY+CharisSIL": 4486,
+      "EJTFFF+CharisSIL-Italic": 296,
+      "NUADKC+CharisSIL-Bold": 14,
+      "IGPRWT+Univers": 70,
+      "NOEQWB+CharisSIL": 160,
+      "AAAEJD+CharisSIL": 82
+    },
+    "first_page_sizes_pdfpt": {
+      "13.4495": 139,
+      "10.5604": 75,
+      "7.0395": 8,
+      "4.4603": 3,
+      "6.3759": 384,
+      "6.9737": 20,
+      "7.173": 1755,
+      "7.9701": 2702,
+      "13.9475": 22
+    }
+  },
+  "draft": {
+    "path": "C:\\Users\\Admin\\Documents\\ChatGPT\\plc\\output\\pdf\\dt_cppps_title_abstract_introduction.pdf",
+    "pages": 2,
+    "page_sizes_pdfpt": [
+      [
+        595.28,
+        793.7
+      ],
+      [
+        595.28,
+        793.7
+      ]
+    ],
+    "first_page_fonts": {
+      "IHAIZV+CharisSIL-Italic": 63,
+      "BZIVMZ+CharisSIL": 6034,
+      "IXFAWU+CharisSIL-Bold": 14
+    },
+    "first_page_sizes_pdfpt": {
+      "6.3761": 138,
+      "13.4496": 107,
+      "6.9738": 19,
+      "7.1731": 1618,
+      "7.9701": 4229
+    }
+  },
+  "abstract_word_count": 223,
+  "body_columns": 2,
+  "configured_font_sizes_texpt": {
+    "title": 13.5,
+    "body": 8,
+    "abstract": 7.2,
+    "references": 7.2
+  },
+  "geometry_mm": {
+    "width": 210,
+    "height": 280,
+    "left": 13.26,
+    "right": 13.2,
+    "top": 19.5,
+    "bottom": 20
+  },
+  "column_gap_texpt": 18,
+  "caveat": "Production-style approximation, not a publisher-issued proof or a venue compliance certificate. No masthead, DOI, dates or authors from the reference are adopted."
+}

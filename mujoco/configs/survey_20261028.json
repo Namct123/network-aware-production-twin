@@ -1,0 +1,82 @@
+{
+  "kind": "preliminary_geometry_survey_not_a_runtime_profile",
+  "reported_on": "2026-10-28",
+  "source": "User-reported preliminary measurements in this conversation",
+  "units": "m",
+  "uncertainty_m": null,
+  "confirmed_references": {
+    "vertical_zero": "machine mounting base surface, not room floor",
+    "frame_460_axis": "along the belt under the suction cup",
+    "frame_465_axis": "perpendicular to the belt under the suction cup",
+    "offset_270": "belt end to the inner edge of the overhead robot crossbeam projected down onto the belt plane, along the belt; absolute coordinates not yet fixed",
+    "sensor_span_235": "outer edge to outer edge of the two belt optical sensor faces",
+    "pusher_sensor": "a distinct third optical sensor; channel and beam position not yet measured"
+  },
+  "measurements": {
+    "aluminium_profile_section_m": [0.020, 0.020],
+    "inner_frame_parallel_direction_m": 0.460,
+    "inner_frame_perpendicular_direction_m": 0.465,
+    "reported_floor_to_moving_beam_underside_m": 0.325,
+    "cup_to_beam_underside_retracted_m": 0.120,
+    "cup_to_beam_underside_extended_m": 0.200,
+    "cup_retracted_height_above_base_direct_m": 0.230,
+    "cup_extended_height_above_base_direct_m": 0.130,
+    "belt_surface_height_above_base_direct_m": 0.100,
+    "first_belt_sensor_face_center_from_effective_belt_start_m": 0.050,
+    "effective_belt_width_m": 0.080,
+    "product_size_m": [0.060, 0.060, 0.060],
+    "belt_under_cup_length_m": 0.530,
+    "other_belt_length_m": 0.470,
+    "reported_inner_belt_end_to_frame_inner_edge_m": 0.270,
+    "optical_faces_outermost_span_m": 0.235,
+    "single_optical_face_maximum_span_m": 0.025,
+    "optical_sensor_on_pusher_head_present": true,
+    "optical_sensor_count": 3
+  },
+  "derived": {
+    "cup_vertical_travel_m": 0.080,
+    "cup_retracted_height_above_same_reported_floor_m": 0.205,
+    "cup_extended_height_above_same_reported_floor_m": 0.125,
+    "conditional_equal_sensor_center_separation_m": 0.210
+  },
+  "latest_interpretation": {
+    "preferred_retracted_cup_height_above_base_m": 0.230,
+    "preferred_height_basis": "Latest direct height supplied by user; earlier indirect 205 mm estimate retained only for discrepancy tracking",
+    "vertical_discrepancy_m": 0.025,
+    "conditional_second_sensor_center_from_same_belt_start_m": 0.260,
+    "preferred_extended_cup_height_above_base_m": 0.130,
+    "preferred_belt_surface_height_above_base_m": 0.100,
+    "preferred_cup_vertical_travel_m": 0.100,
+    "fully_extended_cup_clearance_above_belt_m": 0.030,
+    "product_top_height_on_belt_m": 0.160,
+    "conditional_cup_descent_to_product_contact_m": 0.070,
+    "full_extension_below_product_top_m": 0.030,
+    "nominal_lateral_clearance_each_side_if_centered_m": 0.010,
+    "extended_cup_height_confirmed": true,
+    "travel_basis": "Difference of latest direct endpoint heights; tool travel, not confirmed cylinder nameplate stroke",
+    "earlier_derived_values_status": "Historical beam-relative derivations, superseded for cup endpoints by latest direct base-relative measurements"
+  },
+  "pending": [
+    "Confirm cup tip/contact datum and actual actuator stroke; 80 mm inferred cup travel differs from prior nominal 75 mm.",
+    "Confirm whether belt lengths refer to effective straight top runs or overall conveyor assemblies.",
+    "Resolve absolute XY origin and signed belt-end/crossbeam coordinates from the confirmed projected 270 mm relation.",
+    "Verify optical beam spacing: nominal equal 25 mm face widths imply 210 mm centers from the confirmed 235 mm outer span; effective detection locations may differ.",
+    "Verify cup contact datum and actuator linkage: latest heights imply 100 mm tool travel, earlier beam-relative offsets imply 80 mm, and prior nominal cylinder stroke was 75 mm.",
+    "Measure actual product height and cup contact geometry; full extension leaves 30 mm above the belt surface.",
+    "Locate the confirmed third optical sensor beam on the pusher and determine its role and actual PLC channel."
+  ],
+  "runtime_applied": false
+  ,"latest_sensor_correction": {
+    "confirmed_by_user": "PS1 on pusher head; PS2 stays at its original long-belt position; PS3 alone shifts 50 mm downstream from its own original position, NOT 50 mm from PS2",
+    "first_sensor_mount": "on top of pusher head",
+    "first_sensor_scan_axis": "parallel to and in the same direction as cylinder push; CAD +Y",
+    "sensor_3_translation_from_own_old_pose_m": 0.050,
+    "cad_sensor_2_world_y_m": -0.215,
+    "cad_sensor_3_old_world_y_m": -0.005,
+    "cad_sensor_3_world_y_m": 0.045,
+    "sensor_2_absolute_location_status": "restored original long-belt first-sensor location, labeled PS2 after counting the pusher sensor as PS1",
+    "sensor_1_50mm_reference_in_cad": "interpreted from effective front belt -X end to face center along X; this axis assignment remains an assumption",
+    "previous_235mm_span_status": "historical measurement retained; referenced pair/direction must be reconciled with latest layout before use by estimator",
+    "previous_belt_first_sensor_50mm_interpretation_status": "superseded: first sensor belongs to pusher head, not separate long-belt side bracket"
+  }
+}

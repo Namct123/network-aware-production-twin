@@ -1,0 +1,81 @@
+{
+  "batch_id": "integrated-core-v1-20261031",
+  "phase": "implementation_complete_validation_pending",
+  "user_acceptance": "pending",
+  "items": [
+    {
+      "id": "M01",
+      "title_vi": "Chặn nhầm phiên và lượt cũ",
+      "status": "implemented",
+      "files": [
+        "mujoco/session.py",
+        "mujoco/test_integration_core.py"
+      ]
+    },
+    {
+      "id": "M02",
+      "title_vi": "Chuẩn hóa dữ liệu và đồng hồ",
+      "status": "implemented",
+      "files": [
+        "mujoco/io_adapter.py",
+        "mujoco/configs/recording_map_unverified.json",
+        "mujoco/configs/recording_map_example.json"
+      ]
+    },
+    {
+      "id": "M03",
+      "title_vi": "Lõi xử lý chung và đọc lại dữ liệu",
+      "status": "implemented",
+      "files": [
+        "mujoco/runtime.py",
+        "mujoco/experiment.py",
+        "mujoco/replay_input.py",
+        "mujoco/check_reset.py"
+      ]
+    },
+    {
+      "id": "M04",
+      "title_vi": "Dự báo cơ học băng và phôi",
+      "status": "implemented",
+      "files": [
+        "mujoco/physics_predictor.py",
+        "mujoco/supervisor.py",
+        "mujoco/config.py",
+        "mujoco/configs/physics_predictive_cell_20261031.json"
+      ]
+    },
+    {
+      "id": "M05",
+      "title_vi": "Trang tổng quan và nhật ký",
+      "status": "implemented",
+      "files": [
+        "web/project_status.py",
+        "web/tong_quan.html",
+        "web/tong_quan.js",
+        "web/server.py"
+      ]
+    },
+    {
+      "id": "M06",
+      "title_vi": "Ghép, hướng dẫn và bàn giao",
+      "status": "implemented",
+      "files": [
+        "mujoco/assemble.py",
+        "mujoco/check_integration.py",
+        "scripts/package_integrated_core.py",
+        "docs/ban_tich_hop_phan_mem.md",
+        "docker/build_image.py",
+        "docker/Dockerfile",
+        "docker/snapshot.py",
+        "scripts/portable_bundle/launch.py",
+        "scripts/docker_dt.ps1"
+      ]
+    }
+  ],
+  "limits": [
+    "Một phôi mỗi chu trình; chưa có điều khiển PLC thật.",
+    "CAD V5 và cảnh MuJoCo chưa đồng bộ đầy đủ.",
+    "Chưa hiệu chuẩn vật lý hoặc chứng minh thời gian thực.",
+    "Đặt lại chuẩn bị chu trình mới, không phục hồi phôi cũ."
+  ]
+}

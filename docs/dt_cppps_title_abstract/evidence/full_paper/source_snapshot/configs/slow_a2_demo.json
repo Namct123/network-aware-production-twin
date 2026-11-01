@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "profile": {
+    "name": "slow_a2_simulation_demo",
+    "status": "unmeasured",
+    "units": "SI: m, s, kg, N",
+    "notes": "Synthetic demonstration: slower A2 for provisional contact adhesion. Not a physical measurement or calibration.",
+    "measurements": []
+  },
+  "geometry": {
+    "robot_origin_xy_m": [
+      -0.18,
+      0.12
+    ],
+    "joint_limits_m": {
+      "x_joint": [
+        0.0,
+        0.4
+      ],
+      "y_joint": [
+        -0.05,
+        0.22
+      ],
+      "a1_joint": [
+        0.0,
+        0.11
+      ],
+      "a2_joint": [
+        0.0,
+        0.075
+      ]
+    },
+    "ps_y_m": {
+      "ps1": -0.065,
+      "ps2": 0.17
+    },
+    "optical_xz_m": [
+      -0.236,
+      0.065
+    ],
+    "product_size_m": [
+      0.022,
+      0.022,
+      0.022
+    ],
+    "product_initial_xyz_m": [
+      0.2,
+      -0.325,
+      0.06
+    ],
+    "lane_x_m": -0.18,
+    "long_belt_y_m": [
+      -0.265,
+      0.225
+    ],
+    "bin_centers_xy_m": [
+      [
+        0.08,
+        0.075
+      ],
+      [
+        0.195,
+        0.075
+      ],
+      [
+        0.08,
+        0.19
+      ],
+      [
+        0.195,
+        0.19
+      ],
+      [
+        0.08,
+        0.305
+      ],
+      [
+        0.195,
+        0.305
+      ]
+    ],
+    "bin_inner_size_xy_m": [
+      0.096,
+      0.096
+    ],
+    "placement_z_m": [
+      0.02,
+      0.06
+    ],
+    "hold_z_m": [
+      0.045,
+      0.085
+    ],
+    "hold_lane_tolerance_m": 0.04,
+    "front_belt_xy_m": [
+      [
+        -0.335,
+        0.255
+      ],
+      [
+        -0.3615,
+        -0.2885
+      ]
+    ]
+  },
+  "plant": {
+    "product_mass_kg": 0.02,
+    "product_friction": [
+      1.2,
+      0.005,
+      0.0001
+    ],
+    "belt_friction": [
+      1.4,
+      0.005,
+      0.0001
+    ],
+    "cup_friction": [
+      1.2,
+      0.01,
+      0.0001
+    ],
+    "vacuum_adhesion_n": 5.0,
+    "belt_speed_scale": {
+      "front": 1.0,
+      "long": 1.0
+    },
+    "joint_damping": 0.3,
+    "position_kp": {
+      "x_joint": 250.0,
+      "y_joint": 250.0,
+      "a1_joint": 600.0,
+      "a2_joint": 5000.0
+    },
+    "dampratio": 1.0,
+    "link_inertials": {
+      "x_beam_link": {
+        "mass_kg": 0.7,
+        "com_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diagonal_kg_m2": [
+          0.0110745833,
+          7.29167e-05,
+          0.0110745833
+        ]
+      },
+      "y_carriage_link": {
+        "mass_kg": 0.45,
+        "com_m": [
+          0.0,
+          0.0,
+          -0.06
+        ],
+        "diagonal_kg_m2": [
+          0.0006693375,
+          0.0006400875,
+          0.00031755
+        ]
+      },
+      "cup_link": {
+        "mass_kg": 0.15,
+        "com_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diagonal_kg_m2": [
+          3.125e-05,
+          4.42e-05,
+          3.545e-05
+        ]
+      },
+      "pusher_link": {
+        "mass_kg": 0.18,
+        "com_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "diagonal_kg_m2": [
+          1.404e-05,
+          8.7e-05,
+          7.404e-05
+        ]
+      }
+    }
+  },
+  "motion": {
+    "front_speed_m_s": 0.16,
+    "long_speed_m_s": 0.16,
+    "test_speed_range_m_s": [
+      0.1,
+      0.24
+    ],
+    "rates_m_s": {
+      "x_joint": 0.12,
+      "y_joint": 0.12,
+      "a1_joint": 0.14,
+      "a2_joint": 0.06
+    },
+    "home_xy_m": [
+      0.0,
+      0.0
+    ],
+    "a2_pick_m": 0.06,
+    "feed_distance_m": 0.375,
+    "feed_startup_s": 0.015,
+    "axis_settle_s": 0.3,
+    "a2_settle_s": 0.25,
+    "grip_wait_s": 0.25,
+    "release_wait_s": 0.4
+  },
+  "sensors": {
+    "end_switch_tolerance_m": 0.002,
+    "optical_detection_range_m": 0.075
+  },
+  "estimator": {
+    "stop_coast_m": 0.002,
+    "anchor_tolerance_m": 0.002,
+    "drift_m_s": 0.02,
+    "transit_speed_range_m_s": [
+      0.04,
+      0.4
+    ],
+    "pick_uncertainty_limit_m": 0.01
+  },
+  "timing": {
+    "physics_step_s": 0.002,
+    "sample_steps": 10,
+    "max_age_s": 0.1,
+    "max_sample_gap_s": 0.061,
+    "silence_timeout_s": 0.1,
+    "cylinder_timeout_s": 2.0,
+    "track_timeout_max_s": 6.0,
+    "track_travel_budget_m": 0.44,
+    "run_budget_s": 40.0,
+    "hold_settle_s": 0.3
+  },
+  "network": {
+    "delay_s": 0.0,
+    "jitter_s": 0.0,
+    "drop_probability": 0.0,
+    "seed": 0
+  }
+}

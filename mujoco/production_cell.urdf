@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!--
+  robot: production_cell | consumers: MuJoCo, CAD Viewer, ROS robot_state_publisher
+  units: metres, kilograms, seconds, radians | frames: Fusion +X right, +Y toward six bins, +Z up
+  root: base_link at centre of the base-board lower face
+  source: fusion/ProductionTwin_V0/ProductionTwin_V0.py via unity/Assets/ProductionTwin/parts.csv
+  geometry: primitive reductions of the Fusion layout; source CSV dimensions are millimetres
+  links: base_link = static cell; x_beam_link = moving transverse rail;
+         y_carriage_link = carriage plus A2 body; cup_link = A2 moving rods and suction cup;
+         pusher_link = A1 moving rod and plate
+  joints: x_joint +X from x=-0.180, range 0..0.400 m;
+          y_joint +Y from y=0.120, range -0.050..0.220 m;
+          a2_joint -Z from cup-link z=0.143, range 0..0.075 m;
+          a1_joint +Y from plate y=-0.377, range 0..0.110 m
+  inertials: assumed masses and box-envelope COM/tensors, computed with
+             Ixx=m(y^2+z^2)/12, Iyy=m(x^2+z^2)/12, Izz=m(x^2+y^2)/12;
+             these are placeholders, not CAD mass properties
+  assumptions:
+  - All machine dimensions are estimates from images, not measured geometry.
+  - X and Y ranges are provisional drawing-workspace limits, not hardware limits.
+  - A1 stroke 110 mm is provisional; A2 75 mm comes from the TN10X75-S label.
+  - Z motion is a pneumatic binary stroke, even though modeled as a prismatic joint.
+  - Root inertia approximates the whole fixed cell as a 0.76x1.00x0.34 m box of 7 kg.
+  - Moving-link masses 0.70, 0.45, 0.15, 0.18 kg are assumed for simulation only.
+  - Pusher inertia approximates the plate alone; the visible rod mass is not separately identified.
+  - Static details, two moving belt surfaces, sensors, bins, and free products are completed in MJCF.
+-->
+<robot name="production_cell">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0.17" rpy="0 0 0" />
+      <mass value="7" />
+      <inertia ixx="0.6507666667" ixy="0" ixz="0" iyy="0.4043666667" iyz="0" izz="0.9202666667" />
+    </inertial>
+    <visual name="base_board">
+      <origin xyz="0 0 0.006" rpy="0 0 0" />
+      <geometry><box size="0.760 1.000 0.012" /></geometry>
+    </visual>
+    <visual name="front_conveyor">
+      <origin xyz="-0.040 -0.325 0.0355" rpy="0 0 0" />
+      <geometry><box size="0.610 0.095 0.019" /></geometry>
+    </visual>
+    <visual name="long_conveyor">
+      <origin xyz="-0.180 -0.020 0.0355" rpy="0 0 0" />
+      <geometry><box size="0.100 0.510 0.019" /></geometry>
+    </visual>
+    <visual name="gantry_front_rail">
+      <origin xyz="0 0.010 0.310" rpy="0 0 0" />
+      <geometry><box size="0.630 0.020 0.020" /></geometry>
+    </visual>
+    <visual name="gantry_rear_rail">
+      <origin xyz="0 0.425 0.310" rpy="0 0 0" />
+      <geometry><box size="0.630 0.020 0.020" /></geometry>
+    </visual>
+    <collision name="base_board_collision">
+      <origin xyz="0 0 0.006" rpy="0 0 0" />
+      <geometry><box size="0.760 1.000 0.012" /></geometry>
+    </collision>
+    <collision name="front_belt_collision">
+      <origin xyz="-0.040 -0.325 0.047" rpy="0 0 0" />
+      <geometry><box size="0.590 0.073 0.004" /></geometry>
+    </collision>
+    <collision name="long_belt_collision">
+      <origin xyz="-0.180 -0.020 0.047" rpy="0 0 0" />
+      <geometry><box size="0.078 0.490 0.004" /></geometry>
+    </collision>
+  </link>
+  <link name="x_beam_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.70" />
+      <inertia ixx="0.0110745833" ixy="0" ixz="0" iyy="0.0000729167" iyz="0" izz="0.0110745833" />
+    </inertial>
+    <visual name="moving_y_rail">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><box size="0.025 0.435 0.025" /></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><box size="0.025 0.435 0.025" /></geometry>
+    </collision>
+  </link>
+  <link name="y_carriage_link">
+    <inertial>
+      <origin xyz="0 0 -0.060" rpy="0 0 0" />
+      <mass value="0.45" />
+      <inertia ixx="0.0006693375" ixy="0" ixz="0" iyy="0.0006400875" iyz="0" izz="0.00031755" />
+    </inertial>
+    <visual name="carriage">
+      <origin xyz="0 0 0.015" rpy="0 0 0" />
+      <geometry><box size="0.062 0.068 0.030" /></geometry>
+    </visual>
+    <visual name="a2_body">
+      <origin xyz="0 0 -0.1125" rpy="0 0 0" />
+      <geometry><box size="0.045 0.032 0.115" /></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.1125" rpy="0 0 0" />
+      <geometry><box size="0.045 0.032 0.115" /></geometry>
+    </collision>
+  </link>
+  <link name="cup_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.15" />
+      <inertia ixx="0.00003125" ixy="0" ixz="0" iyy="0.0000442" iyz="0" izz="0.00003545" />
+    </inertial>
+    <visual name="a2_end_plate">
+      <origin xyz="0 0 0.004" rpy="0 0 0" />
+      <geometry><box size="0.044 0.030 0.008" /></geometry>
+    </visual>
+    <visual name="suction_cup">
+      <origin xyz="0 0 -0.008" rpy="0 0 0" />
+      <geometry><cylinder radius="0.011" length="0.016" /></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -0.008" rpy="0 0 0" />
+      <geometry><cylinder radius="0.011" length="0.016" /></geometry>
+    </collision>
+  </link>
+  <link name="pusher_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <mass value="0.18" />
+      <inertia ixx="0.00001404" ixy="0" ixz="0" iyy="0.000087" iyz="0" izz="0.00007404" />
+    </inertial>
+    <visual name="a1_rod">
+      <origin xyz="0 -0.054 -0.0045" rpy="0 0 0" />
+      <geometry><box size="0.009 0.108 0.009" /></geometry>
+    </visual>
+    <visual name="a1_plate">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><box size="0.070 0.006 0.030" /></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry><box size="0.070 0.006 0.030" /></geometry>
+    </collision>
+  </link>
+  <joint name="x_joint" type="prismatic">
+    <parent link="base_link" />
+    <child link="x_beam_link" />
+    <origin xyz="-0.180 0.217 0.320" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="0" upper="0.400" effort="100" velocity="0.4" />
+  </joint>
+  <joint name="y_joint" type="prismatic">
+    <parent link="x_beam_link" />
+    <child link="y_carriage_link" />
+    <origin xyz="0 -0.097 0.025" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="-0.050" upper="0.220" effort="100" velocity="0.4" />
+  </joint>
+  <joint name="a2_joint" type="prismatic">
+    <parent link="y_carriage_link" />
+    <child link="cup_link" />
+    <origin xyz="0 0 -0.202" rpy="0 0 0" />
+    <axis xyz="0 0 -1" />
+    <limit lower="0" upper="0.075" effort="100" velocity="0.2" />
+  </joint>
+  <joint name="a1_joint" type="prismatic">
+    <parent link="base_link" />
+    <child link="pusher_link" />
+    <origin xyz="-0.180 -0.377 0.064" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit lower="0" upper="0.110" effort="100" velocity="0.2" />
+  </joint>
+</robot>

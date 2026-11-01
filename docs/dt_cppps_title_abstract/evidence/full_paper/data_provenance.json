@@ -1,0 +1,125 @@
+{
+  "date": "2026-10-27",
+  "source_snapshots": [
+    {
+      "source": "mujoco\\build_cell.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\build_cell.py",
+      "sha256": "5057192cc11df84b813beba39e9f7349771352be289f6c16e7de6254f5f4dbe0"
+    },
+    {
+      "source": "mujoco\\calibrate.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\calibrate.py",
+      "sha256": "4649c881df73ece47eca74e49b53942bd51b27117dfc10f1e5779dad424b926d"
+    },
+    {
+      "source": "mujoco\\check_twin.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\check_twin.py",
+      "sha256": "05556db2bba5adace4e51d30985be13ea505acf774df55d0796306485de8b6a3"
+    },
+    {
+      "source": "mujoco\\config.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\config.py",
+      "sha256": "fc3cf97843a9861c997ae99651b95734d106b99f0cc3eb0d86af0a2500e0e00d"
+    },
+    {
+      "source": "mujoco\\estimator.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\estimator.py",
+      "sha256": "f6744bf0c8814332b12e00aaf32d9dc76f80f03bb7a8d6e554fdbe8460eadcd0"
+    },
+    {
+      "source": "mujoco\\evaluation.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\evaluation.py",
+      "sha256": "99c47fe1a6771bca597c685959b0eb124a6fc6c85c9ffdc1d8e1f4137ee418fc"
+    },
+    {
+      "source": "mujoco\\experiment.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\experiment.py",
+      "sha256": "b35475bb83428bd2a7fe0063f807fda5c6317353cd8dd8e168b79f4fcac21a52"
+    },
+    {
+      "source": "mujoco\\model_profile.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\model_profile.py",
+      "sha256": "4ca36ff7f7a2cf1ef814d1c3c2fca07300574c37234089b9f29ebffe0b0bcd96"
+    },
+    {
+      "source": "mujoco\\network.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\network.py",
+      "sha256": "620ed3e1a9292a997359a6f68dc87787eefe7f11106944834c1889a6fafd100c"
+    },
+    {
+      "source": "mujoco\\record_signals.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\record_signals.py",
+      "sha256": "4c901d28e179db2eb05598b4530c22569a3d71fb0cfeea28295ba8deef6718a9"
+    },
+    {
+      "source": "mujoco\\run_cell.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\run_cell.py",
+      "sha256": "19574f844e98c2ff10dc45f15cc24ab4ff9b72e6ac3714d1f583d57c641f53ec"
+    },
+    {
+      "source": "mujoco\\run_twin.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\run_twin.py",
+      "sha256": "6ae528a5c973dadb9f11027c4ddd9164ce8b08e8694732f51fbcbcd91fe2e357"
+    },
+    {
+      "source": "mujoco\\sensor_model.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\sensor_model.py",
+      "sha256": "86e97962bc20be2cb814f1dac9d543cd107b4eba888a70eba377ca02d48439e8"
+    },
+    {
+      "source": "mujoco\\sequence.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\sequence.py",
+      "sha256": "94ed412f8f50f1cc591ba1f32d6bafea4bb52cf001f24aa47591adadfe68b4c3"
+    },
+    {
+      "source": "mujoco\\signals.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\signals.py",
+      "sha256": "317e1d2c94e50891a870665b730cc6105e061e1bcc67bb0b02a89050561e36e5"
+    },
+    {
+      "source": "mujoco\\test_configuration.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\test_configuration.py",
+      "sha256": "bf1bbaad7c78bd2c7c40229a54e2dc2e2f2e5d0e69d74f1b15791b1898975bb2"
+    },
+    {
+      "source": "mujoco\\test_sequence.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\test_sequence.py",
+      "sha256": "51b302294905f222788d9c565fb1e1a4b2283c6b40911598c59b846ef1422964"
+    },
+    {
+      "source": "mujoco\\test_signals.py",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\test_signals.py",
+      "sha256": "f40601771b9a37c2420e8bba3f6cb562b668e4a187098978d58791b28ead4983"
+    },
+    {
+      "source": "mujoco\\production_cell.xml",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\production_cell.xml",
+      "sha256": "4bda92227b1146c3dae6b821604ff320be0d4cea3acf83579451b224d52b3072"
+    },
+    {
+      "source": "mujoco\\configs\\simulation.json",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\configs\\simulation.json",
+      "sha256": "73d44ed5d1f0a9cdfc4cd1f4a0c3de7d82492ffd3bfcca3f57432f636f0a2d42"
+    },
+    {
+      "source": "mujoco\\configs\\slow_a2_demo.json",
+      "snapshot": "evidence\\full_paper\\source_snapshot\\configs\\slow_a2_demo.json",
+      "sha256": "a334d7333783c79ebcc38fa095eff45cf1c1bbbe56d2d1d1c773525b0d322d95"
+    }
+  ],
+  "final_suite": "output\\dt_modular_acceptance_20261027_02",
+  "development_suite": "output\\dt_modular_acceptance_20261027_01",
+  "probes": "output\\dt_modular_grip_probes",
+  "final_cases": 18,
+  "production_completed": 11,
+  "intentional_holds": 7,
+  "unit_checks": 25,
+  "analysis": "descriptive engineering development; post-hoc selection; no held-out or physical validation",
+  "front_matter": {
+    "title": "Network-Aware Predictive Digital Twin Framework for Resilient and Self-Reconfigurable Cyber-Physical Production Systems",
+    "abstract_words": 223,
+    "retained_without_rewriting": true
+  },
+  "human_verification": "pending",
+  "submission_ready": false
+}

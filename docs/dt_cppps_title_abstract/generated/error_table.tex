@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering\small
+\caption{Source-time-aligned Y-estimation errors in selected completed runs. $n_e$ counts error samples, not independent trials. The nominal row uses box 1; its pre-transfer trace is repeated across the six nominal destinations.}
+\label{tab:errors}
+\begin{tabular}{@{}p{.34\columnwidth}rrrr@{}}\toprule
+Condition & $n_e$ & RMSE & $Q_{.95}$ & Max\\
+& & \multicolumn{3}{c}{Absolute-error units: mm}\\\midrule
+Nominal, 0.10 m/s & 151 & 0.817 & 1.444 & 1.516\\
+Nominal, 0.16 m/s & 108 & 0.730 & 1.159 & 1.421\\
+Nominal, 0.24 m/s & 84 & 0.913 & 1.370 & 1.370\\
+20 ms delay & 109 & 1.261 & 2.092 & 2.182\\
+Geometry + slow A2 & 104 & 0.354 & 0.391 & 0.391\\
+Dynamics + slow A2 & 108 & 0.771 & 0.794 & 1.056\\
+\bottomrule\end{tabular}
+\end{table}

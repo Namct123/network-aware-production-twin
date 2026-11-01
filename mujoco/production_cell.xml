@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<mujoco model="production_cell">
+  <compiler angle="radian" autolimits="true" />
+  <option timestep="0.002" gravity="0 0 -9.81" integrator="implicitfast" />
+  <size memory="16M" />
+  <visual>
+    <global offwidth="1200" offheight="900" />
+  </visual>
+  <worldbody>
+    <light pos="0 -0.5 1.5" dir="0 0 -1" diffuse="0.9 0.9 0.9" />
+    <camera name="overview" pos="1.15 -1.35 1.15" xyaxes="0.76 0.65 0 -0.34 0.4 0.85" />
+    <body name="x_beam_link" pos="-0.18 0.217 0.32">
+      <joint name="x_joint" type="slide" axis="1 0 0" range="0 0.400" damping="0.3" />
+      <inertial pos="0 0 0" mass="0.70" diaginertia="0.0110745833 0.0000729167 0.0110745833" />
+      <body name="y_carriage_link" pos="0 -0.097 0.025">
+        <joint name="y_joint" type="slide" axis="0 1 0" range="-0.050 0.220" damping="0.3" />
+        <inertial pos="0 0 -0.060" mass="0.45" diaginertia="0.0006693375 0.0006400875 0.00031755" />
+        <body name="cup_link" pos="0 0 -0.202">
+          <joint name="a2_joint" type="slide" axis="0 0 -1" range="0 0.075" damping="0.3" />
+          <inertial pos="0 0 0" mass="0.15" diaginertia="0.00003125 0.0000442 0.00003545" />
+          <geom name="a2_rod_at_x_191" type="cylinder" pos="-0.011 0 0.0575" size="0.004 0.0495" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+          <geom name="a2_rod_at_x_169" type="cylinder" pos="0.011 0 0.0575" size="0.004 0.0495" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+          <geom name="a2_rod_end_plate" type="box" pos="0 0 0.004" size="0.022 0.015 0.004" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+          <geom name="vacuum_cup" type="cylinder" pos="0 0 -0.008" size="0.011 0.008" friction="1.2 0.01 0.0001" adhesion="0" gap="0.003" rgba="0.66 0.7 0.73 1" />
+          <geom name="vacuum_cup_stem" type="cylinder" pos="0 0 0.016" size="0.004 0.008" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+        </body>
+        <geom name="pick_carriage" type="box" pos="0 0 0.015" size="0.031 0.034 0.015" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+        <geom name="a2_carriage_mount" type="box" pos="0 0 -0.0275" size="0.0225 0.016 0.0275" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+        <geom name="a2_tn10x75_s_twin_rod_body" type="box" pos="0 0 -0.1125" size="0.0225 0.016 0.0575" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+        <geom name="s3_a2_upper_proximity_switch_code_pending" type="box" pos="-0.027 0 -0.0835" size="0.004 0.011 0.0065" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+        <geom name="s4_a2_lower_proximity_switch_code_pending" type="box" pos="-0.027 0 -0.1535" size="0.004 0.011 0.0065" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+      </body>
+      <geom name="moving_y_rail" type="box" pos="0 0 0.0125" size="0.0125 0.2175 0.0125" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+      <geom name="moving_y_rail_lower_guide" type="box" pos="0 0 -0.009" size="0.0125 0.2175 0.006" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+      <geom name="motor_y_carriage" type="box" pos="0 0.218 0.023" size="0.0225 0.0225 0.023" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    </body>
+    <body name="pusher_link" pos="-0.18 -0.377 0.064">
+      <joint name="a1_joint" type="slide" axis="0 1 0" range="0 0.110" damping="0.3" />
+      <inertial pos="0 0 0" mass="0.18" diaginertia="0.00001404 0.000087 0.00007404" />
+      <geom name="a1_pusher_rod" type="box" pos="0 -0.054 -0.0045" size="0.0045 0.054 0.0045" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+      <geom name="a1_pusher_plate" type="box" pos="0 0 0" size="0.035 0.003 0.015" rgba="0.66 0.7 0.73 1" />
+    </body>
+    <geom name="base_board" type="box" pos="0 0 0.006" size="0.38 0.5 0.006" rgba="0.22 0.25 0.28 1" />
+    <geom name="long_conveyor_chassis" type="box" pos="-0.18 -0.02 0.0355" size="0.05 0.255 0.0095" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="long_green_belt" type="box" pos="-0.18 -0.02 0.047" size="0.039 0.245 0.002" friction="1.4 0.005 0.0001" surfacevel="0 0 0 0 0 0" rgba="0.06 0.45 0.19 1" />
+    <geom name="front_conveyor_chassis" type="box" pos="-0.04 -0.325 0.0355" size="0.305 0.0475 0.0095" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="front_green_belt" type="box" pos="-0.04 -0.325 0.047" size="0.295 0.0365 0.002" friction="1.4 0.005 0.0001" surfacevel="0 0 0 0 0 0" rgba="0.06 0.45 0.19 1" />
+    <geom name="long_conveyor_side_rail_1" type="box" pos="-0.227 -0.02 0.041" size="0.003 0.255 0.01" rgba="0.66 0.7 0.73 1" />
+    <geom name="front_conveyor_side_rail_1_left" type="box" pos="-0.2875 -0.369 0.041" size="0.0575 0.003 0.01" rgba="0.66 0.7 0.73 1" />
+    <geom name="front_conveyor_side_rail_1_right" type="box" pos="0.0675 -0.369 0.041" size="0.1975 0.003 0.01" rgba="0.66 0.7 0.73 1" />
+    <geom name="long_conveyor_side_rail_1_8" type="box" pos="-0.133 -0.02 0.041" size="0.003 0.255 0.01" rgba="0.66 0.7 0.73 1" />
+    <geom name="front_conveyor_side_rail_1_left_9" type="box" pos="-0.2875 -0.281 0.041" size="0.0575 0.003 0.01" rgba="0.66 0.7 0.73 1" />
+    <geom name="front_conveyor_side_rail_1_right_10" type="box" pos="0.0675 -0.281 0.041" size="0.1975 0.003 0.01" rgba="0.66 0.7 0.73 1" />
+    <geom name="front_conveyor_roller_330" type="cylinder" pos="-0.33 -0.3245 0.029" size="0.012 0.0375" quat="0.70710678 -0.70710678 0 0" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="front_conveyor_roller_250" type="cylinder" pos="0.25 -0.3245 0.029" size="0.012 0.0375" quat="0.70710678 -0.70710678 0 0" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="long_conveyor_roller_265" type="cylinder" pos="-0.18 -0.265 0.029" size="0.012 0.039" quat="0.70710678 0 0.70710678 0" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="long_conveyor_roller_225" type="cylinder" pos="-0.18 0.225 0.029" size="0.012 0.039" quat="0.70710678 0 0.70710678 0" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="front_conveyor_dc_motor" type="box" pos="0.285 -0.325 0.042" size="0.028 0.018 0.018" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="long_conveyor_dc_motor" type="box" pos="-0.18 0.259 0.042" size="0.02 0.028 0.018" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="l_transfer_guide" type="box" pos="-0.18 -0.282 0.047" size="0.044 0.028 0.002" rgba="0.66 0.7 0.73 1" />
+    <geom name="gantry_post_left_front" type="box" pos="-0.305 0.01 0.156" size="0.01 0.01 0.144" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="gantry_post_left_rear" type="box" pos="-0.305 0.425 0.156" size="0.01 0.01 0.144" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="gantry_post_right_front" type="box" pos="0.305 0.01 0.156" size="0.01 0.01 0.144" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="gantry_post_right_rear" type="box" pos="0.305 0.425 0.156" size="0.01 0.01 0.144" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="gantry_x_rail_front" type="box" pos="0 0.01 0.31" size="0.315 0.01 0.01" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="gantry_x_rail_rear" type="box" pos="0 0.425 0.31" size="0.315 0.01 0.01" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="right_y_guide" type="box" pos="0.305 0.217 0.33" size="0.01 0.2175 0.01" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="motor_x_rear" type="box" pos="0.33 0.425 0.343" size="0.0225 0.0225 0.023" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="motor_x_front" type="box" pos="0.33 0.01 0.343" size="0.0225 0.0225 0.023" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="bin_r1c1_floor" type="box" pos="0.08 0.075 0.014" size="0.052 0.052 0.002" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c1_side_wall_1" type="box" pos="0.03 0.075 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c1_end_wall_1" type="box" pos="0.08 0.025 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c1_side_wall_1_43" type="box" pos="0.13 0.075 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c1_end_wall_1_44" type="box" pos="0.08 0.125 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c2_floor" type="box" pos="0.195 0.075 0.014" size="0.052 0.052 0.002" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c2_side_wall_1" type="box" pos="0.145 0.075 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c2_end_wall_1" type="box" pos="0.195 0.025 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c2_side_wall_1_48" type="box" pos="0.245 0.075 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r1c2_end_wall_1_49" type="box" pos="0.195 0.125 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c1_floor" type="box" pos="0.08 0.19 0.014" size="0.052 0.052 0.002" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c1_side_wall_1" type="box" pos="0.03 0.19 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c1_end_wall_1" type="box" pos="0.08 0.14 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c1_side_wall_1_53" type="box" pos="0.13 0.19 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c1_end_wall_1_54" type="box" pos="0.08 0.24 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c2_floor" type="box" pos="0.195 0.19 0.014" size="0.052 0.052 0.002" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c2_side_wall_1" type="box" pos="0.145 0.19 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c2_end_wall_1" type="box" pos="0.195 0.14 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c2_side_wall_1_58" type="box" pos="0.245 0.19 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r2c2_end_wall_1_59" type="box" pos="0.195 0.24 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c1_floor" type="box" pos="0.08 0.305 0.014" size="0.052 0.052 0.002" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c1_side_wall_1" type="box" pos="0.03 0.305 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c1_end_wall_1" type="box" pos="0.08 0.255 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c1_side_wall_1_63" type="box" pos="0.13 0.305 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c1_end_wall_1_64" type="box" pos="0.08 0.355 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c2_floor" type="box" pos="0.195 0.305 0.014" size="0.052 0.052 0.002" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c2_side_wall_1" type="box" pos="0.145 0.305 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c2_end_wall_1" type="box" pos="0.195 0.255 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c2_side_wall_1_68" type="box" pos="0.245 0.305 0.051" size="0.002 0.052 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="bin_r3c2_end_wall_1_69" type="box" pos="0.195 0.355 0.051" size="0.048 0.002 0.039" rgba="0.82 0.79 0.91 1" />
+    <geom name="ps1_bracket_foot" type="box" pos="-0.246 -0.065 0.024" size="0.0175 0.012 0.002" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps1_bracket_upright" type="box" pos="-0.242 -0.065 0.054" size="0.0025 0.012 0.028" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps1_yf_kj_e3f_ds30c4_m18_body" type="cylinder" pos="-0.273 -0.065 0.065" size="0.009 0.029" quat="0.70710678 0 0.70710678 0" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps1_locking_ring" type="cylinder" pos="-0.24 -0.065 0.065" size="0.012 0.004" quat="0.70710678 0 0.70710678 0" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps1_optical_face" type="cylinder" pos="-0.2345 -0.065 0.065" size="0.009 0.0015" quat="0.70710678 0 0.70710678 0" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps2_bracket_foot" type="box" pos="-0.246 0.17 0.024" size="0.0175 0.012 0.002" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps2_bracket_upright" type="box" pos="-0.242 0.17 0.054" size="0.0025 0.012 0.028" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps2_yf_kj_e3f_ds30c4_m18_body" type="cylinder" pos="-0.273 0.17 0.065" size="0.009 0.029" quat="0.70710678 0 0.70710678 0" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps2_locking_ring" type="cylinder" pos="-0.24 0.17 0.065" size="0.012 0.004" quat="0.70710678 0 0.70710678 0" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="ps2_optical_face" type="cylinder" pos="-0.2345 0.17 0.065" size="0.009 0.0015" quat="0.70710678 0 0.70710678 0" contype="0" conaffinity="0" rgba="0.95 0.68 0.08 1" />
+    <geom name="a1_front_pusher_cylinder" type="box" pos="-0.18 -0.435 0.041" size="0.018 0.06 0.021" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="s1_a1_retracted_switch_code_pending" type="box" pos="-0.206 -0.48 0.0425" size="0.0045 0.008 0.0055" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="s2_a1_extended_switch_code_pending" type="box" pos="-0.206 -0.39 0.0425" size="0.0045 0.008 0.0055" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_4v210_08_manifold" type="box" pos="0 -0.455 0.02" size="0.065 0.0165 0.008" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_4v210_08_aluminum_body" type="box" pos="-0.022 -0.455 0.04" size="0.0335 0.011 0.012" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_spring_cap" type="box" pos="-0.064 -0.455 0.04" size="0.0085 0.011 0.012" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_pilot_and_manual_override" type="box" pos="0.023 -0.455 0.04" size="0.0115 0.011 0.012" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_dc24v_4_8w_200ma_coil" type="box" pos="0.055 -0.455 0.042" size="0.02 0.012 0.014" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_din_plug" type="box" pos="0.055 -0.455 0.065" size="0.016 0.012 0.009" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_manual_button" type="cylinder" pos="0.023 -0.455 0.055" size="0.0035 0.003" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_port_a_fitting" type="cylinder" pos="-0.043 -0.455 0.0575" size="0.0065 0.0055" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_port_a_collet" type="cylinder" pos="-0.043 -0.455 0.0645" size="0.004 0.0015" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_port_b_fitting" type="cylinder" pos="-0.004 -0.455 0.0575" size="0.0065 0.0055" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y1_port_b_collet" type="cylinder" pos="-0.004 -0.455 0.0645" size="0.004 0.0015" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_4v210_08_manifold" type="box" pos="0 -0.415 0.02" size="0.065 0.0165 0.008" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_4v210_08_aluminum_body" type="box" pos="-0.022 -0.415 0.04" size="0.0335 0.011 0.012" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_spring_cap" type="box" pos="-0.064 -0.415 0.04" size="0.0085 0.011 0.012" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_pilot_and_manual_override" type="box" pos="0.023 -0.415 0.04" size="0.0115 0.011 0.012" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_dc24v_4_8w_200ma_coil" type="box" pos="0.055 -0.415 0.042" size="0.02 0.012 0.014" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_din_plug" type="box" pos="0.055 -0.415 0.065" size="0.016 0.012 0.009" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_manual_button" type="cylinder" pos="0.023 -0.415 0.055" size="0.0035 0.003" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_port_a_fitting" type="cylinder" pos="-0.043 -0.415 0.0575" size="0.0065 0.0055" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_port_a_collet" type="cylinder" pos="-0.043 -0.415 0.0645" size="0.004 0.0015" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_port_b_fitting" type="cylinder" pos="-0.004 -0.415 0.0575" size="0.0065 0.0055" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="y2_port_b_collet" type="cylinder" pos="-0.004 -0.415 0.0645" size="0.004 0.0015" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="plc_1214c_envelope" type="box" pos="0.32 0.19 0.0545" size="0.045 0.0775 0.0425" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="button_station_envelope" type="box" pos="0.32 -0.2 0.0295" size="0.0375 0.09 0.0175" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="button_estop" type="cylinder" pos="0.32 -0.135 0.053" size="0.0145 0.005" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="button_reset" type="cylinder" pos="0.32 -0.178 0.053" size="0.01 0.005" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="button_stop" type="cylinder" pos="0.32 -0.221 0.053" size="0.01 0.005" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <geom name="button_start" type="cylinder" pos="0.32 -0.264 0.053" size="0.01 0.005" contype="0" conaffinity="0" rgba="0.66 0.7 0.73 1" />
+    <body name="product" pos="0.20 -0.325 0.060">
+      <freejoint name="product_free" />
+      <geom name="product_box" type="box" size="0.011 0.011 0.011" mass="0.02" friction="1.2 0.005 0.0001" rgba="0.72 0.42 0.20 1" />
+    </body>
+    <site name="ps1_beam" pos="-0.236 -0.065 0.065" quat="0.70710678 0 0.70710678 0" size="0.003" rgba="1 0.2 0.1 0.8" />
+    <site name="ps2_beam" pos="-0.236 0.17 0.065" quat="0.70710678 0 0.70710678 0" size="0.003" rgba="1 0.2 0.1 0.8" />
+  </worldbody>
+  <actuator>
+    <position name="x_joint_target" joint="x_joint" kp="250" dampratio="1" ctrlrange="0 0.400" />
+    <position name="y_joint_target" joint="y_joint" kp="250" dampratio="1" ctrlrange="-0.050 0.220" />
+    <position name="a2_joint_target" joint="a2_joint" kp="5000" dampratio="1" ctrlrange="0 0.075" />
+    <position name="a1_joint_target" joint="a1_joint" kp="600" dampratio="1" ctrlrange="0 0.110" />
+  </actuator>
+  <sensor>
+    <jointpos name="x_joint_pos" joint="x_joint" />
+    <jointpos name="y_joint_pos" joint="y_joint" />
+    <jointpos name="a2_joint_pos" joint="a2_joint" />
+    <jointpos name="a1_joint_pos" joint="a1_joint" />
+    <rangefinder name="ps1_range" site="ps1_beam" />
+    <rangefinder name="ps2_range" site="ps2_beam" />
+    <framepos name="product_position" objtype="body" objname="product" />
+  </sensor>
+</mujoco>

@@ -1,0 +1,153 @@
+{
+  "date": "2026-10-29",
+  "user_acceptance": "pending",
+  "image": {
+    "image_id": "sha256:23ba06be2d283f73032a7f27294cccb040a72142cc42f48f506bd0ecb6892bb8",
+    "size_bytes": 735240608,
+    "tags": [
+      "production-twin-dt:candidate-20261029"
+    ],
+    "labels": {
+      "org.opencontainers.image.title": "Production Twin DT Core",
+      "org.opencontainers.image.version": "candidate-20261029",
+      "vn.production-twin.review-status-at-build": "candidate-awaiting-human-validation"
+    },
+    "os": "linux",
+    "architecture": "amd64"
+  },
+  "source_manifest": {
+    "python": "3.12.16",
+    "mujoco": "3.16.0",
+    "numpy": "2.5.4",
+    "review_status_at_build": "candidate-awaiting-human-validation",
+    "geometry": "uncalibrated simulation baseline; not measured CAD V5",
+    "files": {
+      "docker/snapshot.py": "1ed1c378b931254843ecab514374cf6086c4e0c4ce98a3c81322be4f337f9afc",
+      "launch.py": "af6be88c2de61f1a8208e2f5f41f12a5291e22626669eba409ba696c22103e94",
+      "mujoco/README.md": "8281cbdaceb51e4da5639051bcf2ab6397bb87c89131713a27aac5f8c3d2ea43",
+      "mujoco/build_cell.py": "5057192cc11df84b813beba39e9f7349771352be289f6c16e7de6254f5f4dbe0",
+      "mujoco/calibrate.py": "4649c881df73ece47eca74e49b53942bd51b27117dfc10f1e5779dad424b926d",
+      "mujoco/check_prediction.py": "5a12ab5a3f11483276e14e4b5fcc43b9eed6365587a06e617a90b2842b512821",
+      "mujoco/check_twin.py": "05556db2bba5adace4e51d30985be13ea505acf774df55d0796306485de8b6a3",
+      "mujoco/config.py": "82c957fefd4ed07cac2274a313d8ccb7f09ca9a55323eb8586d5e6b253b5740a",
+      "mujoco/configs/README.md": "efb59639e21529bf1defbe73bfed3a1a79dea9c16f82fb436a8703adc65e5b06",
+      "mujoco/configs/physical_measurements.csv": "af2752917179e95111654484a7d74458db8b799194373477fbe09c96bb1b5bc3",
+      "mujoco/configs/predictive_demo.json": "40aa2e6916666f279d5682fcd3fd8c72c68cea68de6b973e1863a000b41a6eb2",
+      "mujoco/configs/simulation.json": "e21292b461f66b196a669c655e8dcf0fe8146139d5d1d4f6ecd01949e580e13b",
+      "mujoco/configs/slow_a2_demo.json": "6c5fcdb03ba14c0f75bdb4879e736b6c0fcf8ed33bc0b5e2f17ad8984e3cbbee",
+      "mujoco/configs/survey_20261028.json": "938c41f8d0a3708af693e9e22efb9121ce24e9986ecc282069baaed9b22142e5",
+      "mujoco/estimator.py": "82670458706395840b96b266fc9a8b40747830119b4e4da09a6ebe5604cef08d",
+      "mujoco/evaluation.py": "11f6c99e7e6f3ad5159aacb1d3f53b67ab762a8e76bc96015bc76e80d3c48941",
+      "mujoco/experiment.py": "96beedebf7b7e61f52bd6687d65318c8b580c83a155a3308868dc93341d38098",
+      "mujoco/model_profile.py": "4ca36ff7f7a2cf1ef814d1c3c2fca07300574c37234089b9f29ebffe0b0bcd96",
+      "mujoco/network.py": "620ed3e1a9292a997359a6f68dc87787eefe7f11106944834c1889a6fafd100c",
+      "mujoco/predictor.py": "05a26ed28862413873387a1ec40865e2f4cbaf436d6dbf1608f6440ad5c4b740",
+      "mujoco/production_cell.urdf": "f878e782e4456a63755061b3b4ffa3c8469aafd61d1a01df639fe957eb9a7aaf",
+      "mujoco/production_cell.xml": "4bda92227b1146c3dae6b821604ff320be0d4cea3acf83579451b224d52b3072",
+      "mujoco/record_signals.py": "4c901d28e179db2eb05598b4530c22569a3d71fb0cfeea28295ba8deef6718a9",
+      "mujoco/run_cell.py": "19574f844e98c2ff10dc45f15cc24ab4ff9b72e6ac3714d1f583d57c641f53ec",
+      "mujoco/run_twin.py": "6ae528a5c973dadb9f11027c4ddd9164ce8b08e8694732f51fbcbcd91fe2e357",
+      "mujoco/sensor_model.py": "86e97962bc20be2cb814f1dac9d543cd107b4eba888a70eba377ca02d48439e8",
+      "mujoco/sequence.py": "b532c92e180a5ea0d78bb7118f99a9ae8d591024d85590248146c0e73cf6be3d",
+      "mujoco/signals.py": "317e1d2c94e50891a870665b730cc6105e061e1bcc67bb0b02a89050561e36e5",
+      "mujoco/supervisor.py": "a7619e663cbed22b1301d650f97e7792d7dc2b975f3b5054ec039fca4bee56ca",
+      "mujoco/test_configuration.py": "cf96f1609093ed8bca0d45114edd48c2780cf496682b03ae5e81fa703f2282e4",
+      "mujoco/test_prediction.py": "e1f86db3eba71824e03e6015e794694be22abb16b64fada05f1cb3ed24c58b9c",
+      "mujoco/test_sequence.py": "51b302294905f222788d9c565fb1e1a4b2283c6b40911598c59b846ef1422964",
+      "mujoco/test_signals.py": "f40601771b9a37c2420e8bba3f6cb562b668e4a187098978d58791b28ead4983",
+      "requirements.txt": "7a81185e73057b0bfeb4754f1cbb014664084ee7344c08c40d496cb89bc09432",
+      "unity/Assets/ProductionTwin/parts.csv": "343e695ebf469dd2a70392ca968ba2b4ed4b1fb71083a881ce5f16ad22b47afe"
+    }
+  },
+  "checks": {
+    "delivery_boundaries": {
+      "passed": 2,
+      "scope": "host stdlib tests"
+    },
+    "logic_in_container": {
+      "passed": 36,
+      "scope": "observed unittest run inside final image"
+    },
+    "baseline_acceptance": {
+      "passed": 12,
+      "cases": [
+        {
+          "case": "bin_1",
+          "pass": true
+        },
+        {
+          "case": "bin_2",
+          "pass": true
+        },
+        {
+          "case": "bin_3",
+          "pass": true
+        },
+        {
+          "case": "bin_4",
+          "pass": true
+        },
+        {
+          "case": "bin_5",
+          "pass": true
+        },
+        {
+          "case": "bin_6",
+          "pass": true
+        },
+        {
+          "case": "speed_low",
+          "pass": true
+        },
+        {
+          "case": "speed_high",
+          "pass": true
+        },
+        {
+          "case": "strict",
+          "pass": true
+        },
+        {
+          "case": "missing_ps1",
+          "pass": true
+        },
+        {
+          "case": "missing_ps2",
+          "pass": true
+        },
+        {
+          "case": "missing_a1_end",
+          "pass": true
+        }
+      ]
+    },
+    "predictive_acceptance": {
+      "passed": 10,
+      "comparison": {
+        "missing_ps2_earlier_hold_s": 0.039999999999995595,
+        "scope": "one deterministic matched fault fixture; not general fault-detection accuracy or safety proof",
+        "all_cases_pass": true
+      }
+    },
+    "mounted_profile_demo": {
+      "state": "DONE",
+      "placement_pass": true,
+      "profile": "slow_a2_simulation_demo",
+      "bin": 3
+    },
+    "source_hashes_match_workspace": true
+  },
+  "evidence_paths": [
+    "output/docker/acceptance_20261029T164146Z_68f71cca/results.json",
+    "output/docker/predictive-check_20261029T164240Z_180e8ff8/results.json",
+    "output/docker/predictive-check_20261029T164240Z_180e8ff8/comparison.json",
+    "output/docker/demo_20261029T164359Z_c3d6b6f0/summary.json"
+  ],
+  "limitations": [
+    "headless only",
+    "uncalibrated simulation baseline, not CAD V5",
+    "no live PLC",
+    "not a second-host validation",
+    "remote GitHub Actions not executed"
+  ]
+}

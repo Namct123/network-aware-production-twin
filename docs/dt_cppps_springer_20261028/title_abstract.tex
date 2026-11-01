@@ -1,0 +1,13 @@
+% Original project title retained; this draft reports a simulation-stage framework.
+\title{Network-Aware Predictive Digital Twin Framework for Resilient and Self-Reconfigurable Cyber-Physical Production Systems}
+\titlerunning{Network-Aware Predictive Digital Twin Framework}
+% Author names and affiliation await the human authors; do not copy sample names.
+\author{\mbox{}}
+\authorrunning{}
+\institute{\mbox{}}
+\maketitle
+
+\begin{abstract}
+Sensor faults and delayed observations can make supervisory decisions inconsistent with the evolving state of a production cell. This paper presents a network-aware predictive digital twin framework and its simulation-stage implementation for a conveyor-based sorting and pick-and-place system. The architecture separates a MuJoCo plant, timestamped sensor observations, a communication model, state estimation, sequence control, and independent evaluation. A supervisory predictor propagates position uncertainty and observation age through 54 candidate one-dimensional stopping trajectories over a 0.5~s horizon. It selects whether to continue for one 20~ms control interval or request a latched hold; incomplete predictions are rejected when their computation budget is exceeded. Four end-to-end acceptance cases, comprising seven simulation runs, exercise nominal operation, a photoelectric sensor stuck low, insufficient motion feedback, and complete telemetry loss. In the matched sensor-fault case, predictive supervision requests a hold 40~ms earlier than the sequence-control baseline. Both nominal runs complete placement in 15.46~s of simulated time, providing no observed cycle-time improvement in that comparison. These results demonstrate an executable, traceable basis for investigating software-level supervisory adaptation. They do not establish fault-diagnosis accuracy, physical safety, or autonomous recovery. Physical calibration, live programmable logic controller integration, and recovery-policy validation remain necessary before deployment as a production digital twin.
+\keywords{Digital twin \and Networked control \and State estimation \and Predictive supervision}
+\end{abstract}
