@@ -143,3 +143,21 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Chuẩn bị các gói bàn giao ở Releases; giữ tệp tạm, môi trường cài đặt, khóa truy cập
   và dữ liệu chạy thô ngoài kho nguồn. Bằng chứng kiểm tra đã chọn vẫn có trong docker/evidence.
 - Việc công khai mã không thay thế nghiệm thu kỹ thuật; Docker mới vẫn là candidate.
+
+### 013 — Đã công bố GitHub (01/11/2026)
+
+- Đã đẩy bản tích hợp cùng CAD V5, Unity, mã LaTeX, PDF và tài liệu lên nhánh main.
+- Kho https://github.com/Namct123/network-aware-production-twin đã chuyển sang công khai;
+  kiểm tra GitHub API không dùng thông tin đăng nhập xác nhận truy cập được.
+- Commit công bố: `10c3ccf066a9af8f450c1832e0de4f0eef289756`, tác giả Namct123,
+  email namface561@gmail.com theo yêu cầu người dùng.
+- Releases: https://github.com/Namct123/network-aware-production-twin/releases/tag/candidate-20261101-public-handoff
+- Đã đăng 9 tệp tải xuống: 8 gói ZIP và SHA256SUMS.txt. Gói nguồn đầy đủ chứa
+  đúng mã của commit công bố; các gói có tên/ngày cũ là bản lịch sử, không tự đồng bộ.
+- Đã kiểm tra các phiên bản Actions được tham chiếu tồn tại trên kho chính thức;
+  kiểm tra đóng gói cục bộ đạt 2/2. Có lượt Actions đang chạy tại thời điểm xác minh,
+  không coi kết quả cục bộ là bằng chứng lượt trực tuyến đó đã xong.
+- Mẫu khóa truy cập không được phát hiện trong các tệp đã rà soát. Không đẩy .env,
+  môi trường cài đặt hoặc toàn bộ log thô. Bằng chứng đã chọn và dữ liệu minh họa
+  được giữ trong kho; không đăng ảnh Docker nhị phân lên một dịch vụ khác.
+- Giữ Docker mới ở trạng thái candidate, việc cho phép công khai không phải nghiệm thu máy thật.
