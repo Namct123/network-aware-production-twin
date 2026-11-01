@@ -49,10 +49,6 @@ jobs:
       - name: Check Unity handoff files
         run: |
           python -c "from pathlib import Path; p=Path('unity/Assets/ProductionTwin'); required=['ProductionTwin.unity','ProductionTwin.unity.meta','parts.csv','static.obj','x.obj','y.obj','z.obj','pusher.obj','Editor/ProductionTwinBuilder.cs','ProductionTwinRuntime.cs','ProductionTwinDemo.cs']; missing=[name for name in required if not (p/name).is_file()]; assert not missing, f'Missing Unity files: {missing}'"
-      - name: Test Factory I/O bridge
-        run: |
-          python -m pip install -e '.[dev]'
-          python -m pytest -q
       - name: Test Digital Twin signal contract and replay
         run: python mujoco/test_signals.py
       - name: Test Digital Twin estimator and sequence

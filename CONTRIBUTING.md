@@ -2,7 +2,7 @@
 
 ## Nguồn chuẩn hiện tại
 
-- Hình học và kích thước ước lượng: `fusion/ProductionTwin_V0/ProductionTwin_V0.py`.
+- Hình học CAD hiện tại: `fusion/ProductionTwin_V5/ProductionTwin_V5.py` và bản tham chiếu `cad_reference/production_twin_v5.step`. Một số kích thước đã có số đo sơ bộ; hình học CAD V5 chưa đồng bộ đầy đủ với cảnh MuJoCo. V0/V4 chỉ giữ làm lịch sử.
 - Scene, vật liệu, chuyển động minh họa: `unity/Assets/ProductionTwin`.
 - Tín hiệu I/O dự kiến theo sơ đồ: mục “Tín hiệu dự kiến để nối digital twin” trong `unity/README.md`. Địa chỉ này **chưa xác nhận đấu dây thực**.
 - Giao diện tín hiệu MuJoCo hiện tại: `mujoco/signals.py`, `mujoco/sensor_model.py` và bảng trong `docs/dt_core_progress.md`. Tín hiệu chưa có nguồn dùng `null/unavailable`; không thay bằng `false`. Dữ liệu chuẩn của bộ mô phỏng chỉ đi vào log đánh giá riêng.

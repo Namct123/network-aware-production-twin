@@ -2,7 +2,7 @@
 
 Kho công khai: https://github.com/Namct123/network-aware-production-twin
 
-Gói tải xuống: https://github.com/Namct123/network-aware-production-twin/releases/tag/candidate-20261101-public-handoff
+Gói tải xuống: https://github.com/Namct123/network-aware-production-twin/releases/tag/candidate-20261101-focused-handoff
 
 ## Cách lấy dự án
 
@@ -13,8 +13,9 @@ git clone https://github.com/Namct123/network-aware-production-twin.git
 ```
 
 Đọc README.md, sau đó docs/ban_tich_hop_phan_mem.md. Các báo cáo PDF và bản thảo
-ở reports. Releases có 8 gói ZIP theo phiên bản và SHA256SUMS.txt để đối chiếu.
-Gói ProductionTwin_Full_Source_20261101.zip chụp nguồn commit `10c3ccf066a9af8f450c1832e0de4f0eef289756`.
+ở reports. Bản tải nguồn hiện tại là `ProductionTwin_Focused_Source_20261101.zip`
+trong Releases, đi kèm SHA256SUMS.txt để đối chiếu. Bản này đã gỡ cầu nối và scene
+Factory I/O; bản nguồn đầy đủ cũ được thay khỏi mục tải xuống để tránh lấy nhầm.
 Các gói cũ có cấu hình và hình học riêng, không được gọi là đã đồng bộ với bản mới.
 
 Mã Docker và cấu hình dựng ảnh có trong kho, không tải ảnh nhị phân lên dịch vụ

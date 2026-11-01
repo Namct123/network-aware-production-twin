@@ -7,6 +7,5 @@
 *.f3d binary
 *.zip binary
 *.ttf binary
-*.factoryio binary
 *.step -text
 *.stp -text

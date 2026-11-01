@@ -161,3 +161,26 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   môi trường cài đặt hoặc toàn bộ log thô. Bằng chứng đã chọn và dữ liệu minh họa
   được giữ trong kho; không đăng ảnh Docker nhị phân lên một dịch vụ khác.
 - Giữ Docker mới ở trạng thái candidate, việc cho phép công khai không phải nghiệm thu máy thật.
+
+### 014 — Dọn phần không còn dùng (01/11/2026)
+
+- Theo yêu cầu người dùng, gỡ cầu nối Factory I/O, scene mẫu và bảng địa chỉ,
+  ba script dựng/kiểm tra cầu nối, cùng kiểm tra riêng và pyproject chỉ phục vụ cầu nối.
+- Gỡ bước cài mcp/pymodbus/pytest và chạy cầu nối khỏi GitHub Actions; các kiểm tra
+  lõi hiện dùng unittest có sẵn, thư viện MuJoCo giữ trong tệp yêu cầu Docker.
+- Dọn hướng dẫn cũ trong README, cập nhật liên kết nguồn CAD V5 và cách chạy kiểm tra.
+- Giữ mã PLC tương lai, mô hình CAD, Unity, MuJoCo, tài liệu bài báo và bằng chứng
+  kiểm tra vì còn liên quan trực tiếp đến hệ thống. Không viết lại lịch sử Git.
+- Chuẩn bị gói nguồn mới và cập nhật Releases để không tiếp tục phát gói nguồn
+  chứa cầu nối cũ. Bản Docker lõi không đổi vì phần vừa gỡ chưa nằm trong ảnh đó.
+
+### 015 — Kiểm tra sau khi dọn
+
+- 93 kiểm tra lõi DT, 8 kiểm tra web và 2 kiểm tra đóng gói đều đạt trong WSL.
+- Rà lại mã chạy không còn import, địa chỉ hoặc lệnh gọi cầu nối đã gỡ.
+- Các tệp lõi DT, cảnh Unity và STEP CAD V5 vẫn có đủ. Chưa đổi thuật toán,
+  tham số vật lý hoặc nguồn đóng ảnh Docker nên giữ nguyên ảnh lõi hiện tại.
+- Nguồn công khai mới dùng gói ProductionTwin_Focused_Source_20261101.zip;
+  gỡ gói nguồn công khai cũ có chứa cầu nối khỏi Releases và cập nhật mã kiểm tra tệp.
+- Các commit cũ vẫn là lịch sử; thao tác dọn không xóa bằng chứng kiểm tra hay
+  đổi các tag Docker đã được nghiệm thu.
