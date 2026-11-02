@@ -32,6 +32,7 @@ jobs:
           docker compose run --rm dt recovery-check
           docker compose run --rm dt reset-check
           docker compose run --rm dt integration-check
+          docker compose run --rm dt qualification-check
       - name: Preserve simulation evidence
         if: always()
         uses: actions/upload-artifact@v7

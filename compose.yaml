@@ -1,7 +1,7 @@
 name: production-twin
 services:
   dt:
-    image: production-twin-dt:${DT_IMAGE_TAG:-candidate-20261031-integrated-core-v1}
+    image: production-twin-dt:${DT_IMAGE_TAG:-candidate-20261102-qualification}
     init: true
     network_mode: none
     read_only: true

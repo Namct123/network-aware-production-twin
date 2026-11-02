@@ -18,11 +18,17 @@ class ProjectStatus:
         if self.cached is not None and time.monotonic()-self.updated<3: return self.cached
         manifest=self.root/'mujoco/implementation_manifest.json'
         state=self._json(manifest) if manifest.exists() else {'phase':'unknown','items':[]}
-        output=self.root/'output/docker'; runs=[]
+        output=self.root/'output/docker'; runs=[]; qualifications=[]
         if output.exists():
             directories=sorted((p for p in output.iterdir() if p.is_dir() and not p.is_symlink() and not p.name.startswith('qualification_')),
                                key=lambda p:p.stat().st_mtime,reverse=True)[:24]
             for directory in directories:
+                qualification=directory/'qualification.json'
+                if qualification.is_file():
+                    try:
+                        q=self._json(qualification)
+                        if q.get('kind')=='qualification_v1': qualifications.append({'name':directory.name,**q})
+                    except (OSError,ValueError,TypeError): pass
                 candidates=[directory/'summary.json']
                 candidates += [p/'summary.json' for p in list(directory.iterdir())[:200] if p.is_dir() and not p.is_symlink()]
                 for path in candidates:
@@ -39,6 +45,6 @@ class ProjectStatus:
                 if len(runs)>=30: break
         journal=self.root/'docs/nhat_ky_cong_viec.md'
         text=journal.read_text(encoding='utf-8') if journal.exists() and journal.stat().st_size<300000 else ''
-        self.cached={'implementation':state,'runs':runs[:30],'journal':text,'physical_connection':False,
+        self.cached={'implementation':state,'runs':runs[:30],'qualifications':qualifications[:5],'journal':text,'physical_connection':False,
                      'scope':'chỉ đọc nhật ký và kết quả; không điều khiển máy hoặc chạy thí nghiệm'}
         self.updated=time.monotonic(); return self.cached

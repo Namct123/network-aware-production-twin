@@ -13,10 +13,10 @@ def package(target):
     files=[]
     for folder,extensions in [('mujoco',{'.py','.json','.xml','.urdf','.csv','.md'}),('web',{'.py','.js','.html','.css','.json','.md','.cmd'})]:
         files += [p for p in (ROOT/folder).rglob('*') if p.is_file() and not p.is_symlink() and '__pycache__' not in p.parts and p.suffix in extensions]
-    docs=['bao_cao_tich_hop_so1.md','nhat_ky_cong_viec.md','ban_tich_hop_phan_mem.md','bao_cao_tien_do_de_hieu.md','modular_twin.md','parameterized_core.md','docker.md']
+    docs=['bao_cao_danh_gia_20261102.md','danh_gia_co_doi_chung.md','bao_cao_tich_hop_so1.md','nhat_ky_cong_viec.md','ban_tich_hop_phan_mem.md','bao_cao_tien_do_de_hieu.md','modular_twin.md','parameterized_core.md','docker.md']
     files += [ROOT/'docs'/n for n in docs]
     files += [ROOT/p for p in ['scripts/docker_dt.ps1','scripts/portable_bundle/launch.py','docker/Dockerfile','docker/build_image.py',
-        'docker/snapshot.py','docker/requirements.lock','docker/RELEASES.md','docker/evidence/candidate-20261031-integrated-core-v1.json',
+        'docker/snapshot.py','docker/requirements.lock','docker/RELEASES.md','docker/evidence/candidate-20261031-integrated-core-v1.json','docker/evidence/candidate-20261102-qualification.json',
         'compose.yaml','.dockerignore','AGENTS.md','scripts/package_integrated_core.py','unity/Assets/ProductionTwin/parts.csv']]
     manifest={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(files))}
     target.parent.mkdir(parents=True,exist_ok=True)

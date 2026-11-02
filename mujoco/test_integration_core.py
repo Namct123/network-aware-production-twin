@@ -58,8 +58,10 @@ class IntegratedCoreTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp); (root/'output/docker/example').mkdir(parents=True)
             (root/'output/docker/example/summary.json').write_text(json.dumps({'controller_state':'HOLD'}))
+            (root/'output/docker/example/qualification.json').write_text(json.dumps({'kind':'qualification_v1','completed_runs':24}))
             result=module.ProjectStatus(root).read()
             self.assertFalse(result['physical_connection'])
             self.assertEqual(result['runs'][0]['state'],'HOLD')
+            self.assertEqual(result['qualifications'][0]['completed_runs'],24)
 
 if __name__=='__main__': unittest.main()

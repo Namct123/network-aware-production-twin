@@ -285,3 +285,8 @@ dừng 1D, chưa phải nhiều rollout tiếp xúc của plant.
 ## Bản tích hợp phần mềm số 1 — 31/10/2026
 
 Đã ghép sáu mục trước khi kiểm tra chung. Xem [hướng dẫn](ban_tich_hop_phan_mem.md) và [nhật ký từng mục](nhat_ky_cong_viec.md). Trang theo dõi: `/tong_quan.html`. Chưa nghiệm thu máy thật.
+
+
+## 02/11/2026 — Bộ đánh giá có đối chứng
+
+Đã bổ sung phép đo hai nhánh dự báo, kế hoạch 24 lượt thử từng yếu tố và bảng thời gian trên trang tổng quan. Không đổi thuật toán điều khiển/giá trị đo. [Chức năng và cách chạy](danh_gia_co_doi_chung.md); [kết quả và giới hạn](bao_cao_danh_gia_20261102.md). Ảnh thử nghiệm mới chờ nghiệm thu.

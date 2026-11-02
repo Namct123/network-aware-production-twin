@@ -1,12 +1,12 @@
 param(
-    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','manifest')]
+    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','manifest')]
     [string]$Mode = 'demo',
     [string]$Config = '',
     [string]$Plan = '',
     [string]$ResetSettings = '',
     [ValidateRange(1,6)][int]$Bin = 1,
     [ValidatePattern('^[a-zA-Z0-9_][a-zA-Z0-9_.-]{0,127}$')]
-    [string]$Tag = 'candidate-20261031-integrated-core-v1'
+    [string]$Tag = 'candidate-20261102-qualification'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
@@ -18,7 +18,7 @@ $dockerArgs = switch ($Mode) {
 }
 if ($Mode -in @('demo','fault','strict')) { $dockerArgs += @('--bin', "$Bin") }
 if ($Config) {
-    if ($Mode -notin @('demo','fault','strict','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check')) {
+    if ($Mode -notin @('demo','fault','strict','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','qualification-check')) {
         throw '-Config applies only to simulation modes.'
     }
     # Config is a filename under the read-only mounted profile directory.
@@ -31,7 +31,7 @@ if ($Config) {
     $dockerArgs += @('--config', "/profiles/$Config")
 }
 if ($Plan) {
-    if ($Mode -notin @('robustness-check','adaptive-check')) { throw '-Plan requires robustness-check or adaptive-check.' }
+    if ($Mode -notin @('robustness-check','adaptive-check','qualification-check')) { throw '-Plan requires robustness-check, adaptive-check or qualification-check.' }
     if ([IO.Path]::GetFileName($Plan) -ne $Plan -or $Plan -match '[/\\:]') {
         throw 'Use only a plan filename under mujoco/experiments.'
     }

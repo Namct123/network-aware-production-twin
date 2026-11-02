@@ -1,3 +1,22 @@
+## candidate-20261102-qualification — checked 2026-11-02
+
+- Scope: configurable timing benchmark, 24 matched fault/network/plant-variation runs,
+  Vietnamese report and read-only dashboard timing table. Existing control parameters unchanged.
+- User acceptance: **pending**; no accepted/stable/latest tag assigned.
+- Image ID: `sha256:050de0d323a5230c824311f684f61653076ff753cca2abce7087b550cb613ed7`.
+- Container: 97 logic checks, qualification study 24/24 without verification failures,
+  integration strict/open-loop/replay/forecast/deadline checks all exit 0.
+- Additional host checks: 8 web checks, 2 delivery checks and JavaScript syntax passed.
+- Runtime source hashes matched; all previous accepted/candidate images preserved.
+- Evidence: [evidence/candidate-20261102-qualification.json](evidence/candidate-20261102-qualification.json).
+- Qualification output: `output/docker/qualification-check_20261102T164207Z_cd5d5129`.
+- Measured timings do not qualify hard realtime. MuJoCo incomplete at the configured
+  20 ms deadline in 15/15 measured calls; complete at the separate functional allowance.
+- Local WSL start failed while C: was nearly full. Transparent NTFS compression of
+  generated results and the local environment retained file paths/data, then WSL and Docker ran.
+  Low disk capacity remains an operational limitation; no previous image was deleted.
+- CAD V5/full-cell geometry and hardware calibration limits remain unchanged.
+
 ## candidate-20261031-integrated-core-v1 — checked 2026-11-01
 
 - User acceptance: **pending**. No accepted/stable/latest tag assigned.

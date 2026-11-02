@@ -72,3 +72,10 @@ python docker/test_delivery.py
 
 Lõi hiện chưa có lệnh điều khiển PLC thật. Đọc lại dữ liệu chỉ tạo tệp lệnh để
 xem xét. Xem [phạm vi và hướng dẫn tích hợp](docs/ban_tich_hop_phan_mem.md).
+
+
+## Đánh giá có đối chứng
+
+[Bộ đo thời gian dự báo và 24 lượt lỗi/mạng/sai tham số](docs/danh_gia_co_doi_chung.md). Không thay ngưỡng điều khiển hoặc tự nghiệm thu theo kết quả.
+
+Kết quả 02/11/2026: [báo cáo dễ hiểu](docs/bao_cao_danh_gia_20261102.md). Docker thử nghiệm mới: `candidate-20261102-qualification`, chờ nghiệm thu; giữ nguyên hạn điều khiển.

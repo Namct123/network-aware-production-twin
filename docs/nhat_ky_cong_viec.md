@@ -184,3 +184,38 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   gỡ gói nguồn công khai cũ có chứa cầu nối khỏi Releases và cập nhật mã kiểm tra tệp.
 - Các commit cũ vẫn là lịch sử; thao tác dọn không xóa bằng chứng kiểm tra hay
   đổi các tag Docker đã được nghiệm thu.
+
+### 016 — Đợt đánh giá có đối chứng (02/11/2026)
+
+- Chốt ba mục: N01 đo thời gian hai nhánh dự báo; N02 ma trận lỗi từng yếu tố;
+  N03 ghép báo cáo, trang tổng quan và Docker thử nghiệm. Viết đủ trước khi chạy.
+- N01: thêm qualify.py, ghi thời gian ngoài hàm và bên trong, lượt làm nóng riêng,
+  khởi tạo riêng, trung vị/p95/lớn nhất và số lượt thiếu kịch bản/quá hạn.
+- N02: dùng lại bộ thử check_robustness, không viết một bộ điều khiển khác.
+  Có 6 tình huống × 2 seed × 2 chính sách = 24 lượt. So bật/tắt giới hạn tốc độ
+  cố định, không gọi là so với PLC tuần tự. Giữ kết quả không đạt để điều tra.
+- N03: ghép báo cáo tiếng Việt, bảng thời gian lên trang tổng quan, lựa chọn
+  qualification-check và tài liệu. Chuyển nhãn Docker xuống cuối tệp dựng để
+  phiên bản mới không bắt cài lại thư viện chỉ vì đổi nhãn.
+- Đến mốc này mới hoàn thiện triển khai và mã kiểm tra; chưa chạy thử đợt mới.
+
+### 017 — Kết quả đợt đánh giá
+
+- Kiểm tra logic đạt 97/97; web 8/8; đóng gói 2/2; cú pháp JavaScript đạt.
+- WSL và Docker cùng chạy đủ 24/24 lượt đối chứng, không vi phạm tiêu chí.
+  Trong mỗi ma trận: 18 lượt hoàn tất, 6 lượt dừng; không coi dừng là phôi đã sản xuất.
+- Đo đúng hạn cấu hình 20 ms: nhánh MuJoCo không tính đủ 15/15 lượt đo sau làm nóng.
+  Khi dùng hạn chức năng riêng 1 giây, tính đủ 15/15; không áp hạn rộng vào điều khiển.
+- Báo cáo tiếng Việt và bảng số đo gốc: docs/bao_cao_danh_gia_20261102.md,
+  output/docker/qualification-check_local_20261102 và đường dẫn trong docker/RELEASES.md.
+- Chưa đổi ngưỡng điều khiển; các số chỉ mô tả ma trận và môi trường lần này.
+
+### 018 — Môi trường và Docker thử nghiệm
+
+- Ổ C gần đầy làm WSL báo không khởi động/không tìm thấy root khi bắt đầu đóng Docker.
+- Dùng nén tại chỗ NTFS cho output và .venv: giữ nguyên tên/đường dẫn/nội dung,
+  tiết kiệm khoảng 1,11 GB; không xóa kết quả hoặc ảnh Docker cũ. WSL chạy lại được.
+- Ảnh candidate-20261102-qualification đã dựng; kiểm tra trong ảnh đạt và dấu kiểm tra
+  nguồn khớp bản đang làm. Mã ảnh và bằng chứng lưu trong docker/RELEASES.md.
+- Ảnh vẫn chờ người dùng nghiệm thu. Chưa có thay đổi hình học/hiệu chuẩn máy thật.
+- Sau khi dựng ảnh, ổ C vẫn chỉ còn vài chục MB; cần giải phóng thêm trước đợt chạy lớn.
