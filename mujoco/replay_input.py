@@ -21,29 +21,33 @@ def replay(source,mapping,config,output,allow_open_loop=False):
     first=prepared[0][0]
     core=RuntimeCore(config,assume_open_loop=allow_open_loop,
                      session_context={'session_id':first.session_id,'generation':first.generation},clock_domain='mapped_recording')
-    output.mkdir(parents=True,exist_ok=False)
-    write_json(output/'mapping.json',adapter.settings); write_json(output/'effective_config.json',config)
-    with (output/'normalized.jsonl').open('w',encoding='utf-8') as normalized, (output/'commands_dry_run.jsonl').open('w',encoding='utf-8') as commands:
-        for message,notes in prepared:
-            step=core.step(message,message.received_time_s)
-            normalized.write(json.dumps({'message':message.as_dict(),'notes':notes,'guard':step['input_guard']},ensure_ascii=False)+'\n')
-            commands.write(json.dumps({'command_message':step['command_message'],'physical_output':False},ensure_ascii=False)+'\n')
-        if core.controller.phase!='DONE':
-            at=core.last_now+config['timing']['physics_step_s']*config['timing']['sample_steps']
-            core.stop('recording_finished',at)
-            step=core.step(None,at)
-            commands.write(json.dumps({'command_message':step['command_message'],'physical_output':False},ensure_ascii=False)+'\n')
-    summary={'controller_state':core.controller.phase,'hold_reason':core.controller.reason,'session':core.context,
-        'rows':len(prepared),'physical_output_supported':False,'mapping_readiness':readiness(adapter.settings),
-        'input_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'mapping_sha256':hashlib.sha256(Path(mapping).read_bytes()).hexdigest(),
-        'message_guard':{'accepted':core.guard.accepted,'rejected':core.guard.rejected},
-        'scope':'recorded-input dry run only; no plant ground truth, placement grading or hardware actuation'}
-    write_json(output/'summary.json',summary)
-    (output/'report.md').write_text('# Đọc lại dữ liệu đã ghi\n\n'
-        f"Đã nhận {len(prepared)} dòng. Trạng thái cuối: {core.controller.phase} (HOLD nghĩa là dừng chờ).\n\n"
-        'Các lệnh chỉ được ghi vào tệp, không gửi tới máy thật. Không có đáp án vị trí thật để chấm việc đặt phôi.\n\n'
-        'Tín hiệu hoặc đồng hồ chưa được xác nhận sẽ giữ trạng thái chưa có nguồn dùng được. Kết thúc bản ghi không đồng nghĩa hoàn tất chu trình.\n',encoding='utf-8')
-    return summary
+    try:
+        output.mkdir(parents=True,exist_ok=False)
+        write_json(output/'mapping.json',adapter.settings); write_json(output/'effective_config.json',config)
+        with (output/'normalized.jsonl').open('w',encoding='utf-8') as normalized, (output/'commands_dry_run.jsonl').open('w',encoding='utf-8') as commands:
+            for message,notes in prepared:
+                step=core.step(message,message.received_time_s)
+                normalized.write(json.dumps({'message':message.as_dict(),'notes':notes,'guard':step['input_guard']},ensure_ascii=False)+'\n')
+                commands.write(json.dumps({'command_message':step['command_message'],'physical_output':False},ensure_ascii=False)+'\n')
+            if core.controller.phase!='DONE':
+                at=core.last_now+config['timing']['physics_step_s']*config['timing']['sample_steps']
+                core.stop('recording_finished',at)
+                step=core.step(None,at)
+                commands.write(json.dumps({'command_message':step['command_message'],'physical_output':False},ensure_ascii=False)+'\n')
+        core.close()
+        summary={'controller_state':core.controller.phase,'hold_reason':core.controller.reason,'session':core.context,
+            'rows':len(prepared),'physical_output_supported':False,'mapping_readiness':readiness(adapter.settings),
+            'input_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'mapping_sha256':hashlib.sha256(Path(mapping).read_bytes()).hexdigest(),
+            'message_guard':{'accepted':core.guard.accepted,'rejected':core.guard.rejected},
+            'scope':'recorded-input dry run only; no plant ground truth, placement grading or hardware actuation'}
+        write_json(output/'summary.json',summary)
+        (output/'report.md').write_text('# Đọc lại dữ liệu đã ghi\n\n'
+            f"Đã nhận {len(prepared)} dòng. Trạng thái cuối: {core.controller.phase} (HOLD nghĩa là dừng chờ).\n\n"
+            'Các lệnh chỉ được ghi vào tệp, không gửi tới máy thật. Không có đáp án vị trí thật để chấm việc đặt phôi.\n\n'
+            'Tín hiệu hoặc đồng hồ chưa được xác nhận sẽ giữ trạng thái chưa có nguồn dùng được. Kết thúc bản ghi không đồng nghĩa hoàn tất chu trình.\n',encoding='utf-8')
+        return summary
+    finally:
+        core.close()
 
 if __name__=='__main__':
     p=argparse.ArgumentParser(description=__doc__); p.add_argument('--input',type=Path,required=True)

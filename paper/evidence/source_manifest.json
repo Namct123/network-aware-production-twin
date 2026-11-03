@@ -4,6 +4,7 @@
   "physical_evidence": null,
   "baseline_artifact_commit": "93d60ca",
   "native_candidate_image": "sha256:d7458ca5cc4766b8a537aa80b77b48bcf6e32096c49574f2a42606132f22aa27",
+  "background_candidate_image": "sha256:6b492b8a086469154e4853bc50161672db58eb8633a8645c8bbf24b629e0e914",
   "author_approval": false,
   "sources": {
     "E001": [
@@ -15,7 +16,7 @@
     "E002": [
       {
         "path": "mujoco/runtime.py",
-        "sha256": "e02297a4cc70894271aa3bc9fbda8be6bd5784456cdb1f48b8831508f76be45d"
+        "sha256": "37670d233f965545f10a9c821a95252fe15daaacd310716f159d03ad21acfe64"
       },
       {
         "path": "mujoco/estimator.py",
@@ -64,6 +65,24 @@
       {
         "path": "mujoco/check_physics_optimization.py",
         "sha256": "803a8249c3984bcf127f2aa12bdc5e3c7fe3ff75fbf942a444d481802fba8b2e"
+      }
+    ],
+    "E005": [
+      {
+        "path": "docker/evidence/candidate-20261103-background-observer.json",
+        "sha256": "50fe081b101752b13879f1bd08cfcd39b01b667695e4442b73687062178bd6d2"
+      },
+      {
+        "path": "mujoco/background_forecast.py",
+        "sha256": "a5113f4ce76a69d1200585dddc9422ee89eadafeb31d1d241577e69a679a0868"
+      },
+      {
+        "path": "mujoco/check_background.py",
+        "sha256": "da30e7997c5498f55c22c9e0eb43996ab1f3e09517ade599ba451b001951fa5f"
+      },
+      {
+        "path": "mujoco/configs/background_observer_20261103.json",
+        "sha256": "5a0b2a450b0ffe6bf92a54093e29cecfac886d9daa5fa61d40d95bb6406fc021"
       }
     ]
   }

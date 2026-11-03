@@ -5,6 +5,12 @@ giàn XY và đầu hút. Gồm nguồn CAD, Unity, lõi DT chạy MuJoCo, Docke
 trình bày và tài liệu. Một số kích thước đã cập nhật theo số đo sơ bộ người dùng;
 động lực học chưa hiệu chuẩn và chưa kết nối điều khiển PLC thật.
 
+**Bổ sung 03/11 — dự báo MuJoCo chạy nền:**
+[cách chạy](docs/du_bao_nen_quan_sat.md),
+[báo cáo đối chứng](docs/bao_cao_du_bao_nen_20261103.md).
+Nhánh 1D vẫn quyết định lệnh; MuJoCo nền chỉ ghi quan sát, chưa được cho phép
+chạy/dừng/đặt lại máy. Ảnh `candidate-20261103-background-observer` chờ nghiệm thu.
+
 **Bản tích hợp phần mềm số 1 — 01/11/2026:**
 [hướng dẫn mở](docs/ban_tich_hop_phan_mem.md),
 [báo cáo dễ hiểu](docs/bao_cao_tich_hop_so1.md),

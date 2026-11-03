@@ -17,9 +17,10 @@ if __name__ == "__main__":
                                            "ps1_stuck_high", "ps2_stuck_high", "a1_extended_stuck_low", "transfer_present_stuck_low", "transfer_present_stuck_high"), default="none")
     parser.add_argument('--fault-start-s',type=float,default=0.0,help='Simulation fixture onset in shared simulation seconds')
     parser.add_argument("--view", action="store_true")
+    parser.add_argument("--pace-wall-time",action="store_true",help="Simulation pacing only; not physical clock synchronization")
     parser.add_argument("--config", type=Path, help="SI machine profile JSON")
     args = parser.parse_args()
-    result = run(args.output, args.bin, args.speed, args.assume_open_loop, args.fault, args.view, config=load_config(args.config),fault_start_s=args.fault_start_s)
+    result = run(args.output, args.bin, args.speed, args.assume_open_loop, args.fault, args.view, config=load_config(args.config),fault_start_s=args.fault_start_s,pace_wall_time=args.pace_wall_time)
     print(json.dumps(result, indent=2))
     if result["placement_pass_evaluator_only"] is False:
         raise SystemExit(1)

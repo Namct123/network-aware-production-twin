@@ -1,12 +1,12 @@
 param(
-    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','physics-check','manifest')]
+    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','physics-check','background-check','manifest')]
     [string]$Mode = 'demo',
     [string]$Config = '',
     [string]$Plan = '',
     [string]$ResetSettings = '',
     [ValidateRange(1,6)][int]$Bin = 1,
     [ValidatePattern('^[a-zA-Z0-9_][a-zA-Z0-9_.-]{0,127}$')]
-    [string]$Tag = 'candidate-20261103-native-physics'
+    [string]$Tag = 'candidate-20261103-background-observer'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
@@ -18,7 +18,7 @@ $dockerArgs = switch ($Mode) {
 }
 if ($Mode -in @('demo','fault','strict')) { $dockerArgs += @('--bin', "$Bin") }
 if ($Config) {
-    if ($Mode -notin @('demo','fault','strict','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','qualification-check','physics-check')) {
+    if ($Mode -notin @('demo','fault','strict','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','qualification-check','physics-check','background-check')) {
         throw '-Config applies only to simulation modes.'
     }
     # Config is a filename under the read-only mounted profile directory.

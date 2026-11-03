@@ -61,6 +61,14 @@ Method clarification: the study toggles reconfiguration.enabled, which includes 
 
 ## Native optimization addendum — 2026-11-03
 
+The later E005 background-observer evidence is separate from the native timing
+campaign. It records three paced virtual cycles, one per condition, identical
+compared traces, admitted observations and discarded incomplete output. Foreground
+step timing excludes plant integration and I/O. Background results cannot actuate.
+The worker-termination probe checks a foreground call, not a physical recovery.
+Source hashes and candidate image ID are bound in source_manifest.json. Human
+claim verification and submission approval remain pending.
+
 E004: docker/evidence/candidate-20261103-native-physics.json, copied as native_20261103.json;
 only the final-image optimization object is used in the new table. Its 12 fixtures are each checked
 at 1/4/8 workers, not treated as independent physical trials. Prior 2 November timing/outcome tables

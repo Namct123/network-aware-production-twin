@@ -5,7 +5,7 @@
 không phải bài đã được xuất bản hay kết quả được hội nghị chấp nhận.
 Một số báo cáo cũ mô tả phiên bản và giả định cũ.
 
-Trạng thái phần mềm mới nhất: [báo cáo bản tích hợp](../docs/bao_cao_tich_hop_so1.md).
+Trạng thái phần mềm mới nhất: [báo cáo dự báo nền](../docs/bao_cao_du_bao_nen_20261103.md).
 Xem [nhật ký](../docs/nhat_ky_cong_viec.md) để phân biệt triển khai, kiểm tra tự động,
 hiệu chuẩn máy thật và nghiệm thu của người dùng. Chưa có kết quả đo máy thật xác nhận.
 

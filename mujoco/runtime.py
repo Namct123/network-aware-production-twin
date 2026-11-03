@@ -1,5 +1,6 @@
 """Shared controller path for simulation and recorded input; no plant truth input."""
 import uuid
+import time
 from copy import deepcopy
 from command_history import CommandHistory
 from sequence import Sequence
@@ -24,6 +25,19 @@ class RuntimeCore:
         self.guard=MessageGuard(ctx['session_id'],ctx['generation'],clock_domain)
         self.gate=CommandGate(config); self.tick_count=0; self.last_now=None
         self.schedule_index=0; self.schedule_events=[]
+        self.closed=False
+        self.background=None
+        if config['prediction'].get('background',{}).get('enabled'):
+            from background_forecast import BackgroundForecast
+            self.background=BackgroundForecast(config,self.context,clock_domain)
+
+    def close(self):
+        self.closed=True
+        if self.background is not None:self.background.close()
+
+    def __enter__(self):return self
+
+    def __exit__(self,*args):self.close()
 
     def wrap(self,frame): return Envelope.signal(frame,**self.context)
 
@@ -33,6 +47,8 @@ class RuntimeCore:
         self.controller.command=self.gate.stop()
 
     def step(self,message,now):
+        if self.closed:raise RuntimeError('runtime closed; start a new runtime/session')
+        started=time.perf_counter()
         number(now,'runtime time',0)
         if self.last_now is not None and now<self.last_now: raise ValueError('runtime clock moved backwards')
         self.last_now=now
@@ -76,7 +92,12 @@ class RuntimeCore:
         outgoing_check=self.guard.accept(outgoing,now,'command')
         if not outgoing_check['accepted']: raise ValueError('internal command ordering failure')
         self.history.record(now,command['long']); self.front_history.record(now,command['front']); self.tick_count+=1
+        background=None
+        if self.background is not None:
+            estimate=ctl.estimator.estimate.as_dict()
+            if ctl.estimator.history_mode:estimate['velocity_m_s']=ctl.prediction_speed_bound_m_s
+            background=self.background.tick(estimate,ctl.estimate_sequence,ctl.last_time,ctl.phase,command,now)
         return {'frame':frame,'before_phase':before,'command':command,'prediction':prediction,'health':h,'policy':policy,
                 'recovery':review,'received_message':message.as_dict() if message is not None else None,
                 'input_guard':receipt,'output_guard':outgoing_check,'command_message':outgoing.as_dict(),
-                'command_error':command_error}
+                'command_error':command_error,'background':background,'step_compute_ms':1000*(time.perf_counter()-started)}

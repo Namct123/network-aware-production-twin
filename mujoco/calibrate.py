@@ -83,7 +83,7 @@ def parameter_units(config):
                 unit='1' if path[-1]=='0' else 'm'
             elif name in {'schema_version','plant.dampratio','network.seed','network.drop_probability',
                           'timing.sample_steps','mechanics.cup_contact_dimension','reconfiguration.warning_ticks','recovery.fresh_samples',
-                          'prediction.native_threads'} or path[:2] in (
+                          'prediction.native_threads','prediction.background.max_lag_sequences'} or path[:2] in (
                           ['plant','belt_speed_scale'],['prediction','position_offsets']):
                 unit='1'
             elif path[:2]==['estimator','command_gain_range']:

@@ -65,6 +65,22 @@ def prepare():
         lines.append(f"{label} & {full['median_ms']:.2f} & {full['p95_ms']:.2f} & {deadline['complete']} & {full['complete']}"+r'\\')
     lines += [r'\bottomrule',r'\end{tabular}',r'\end{table}']
     (output/'native_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    background_path=ROOT/'docker/evidence/candidate-20261103-background-observer.json'
+    background_evidence=json.loads(background_path.read_text(encoding='utf-8'))
+    background=background_evidence['background_observer']
+    assert background['passed'] and not background['physical_validation'] and not background['control_applied']
+    assert all(background['checks'].values())
+    (HERE/'evidence/background_20261103.json').write_bytes(background_path.read_bytes())
+    lines=[r'\begin{table}[t]',r'\caption{Paced observation-only Docker cycles on 3 November; foreground runtime-call timing, not end-to-end latency}',
+           r'\label{tab:background}',r'\centering\small',r'\begin{tabular}{lrrrrr}',r'\toprule',
+           r'Condition & Steps & Median & p95 & Maximum & Over 20 ms\\',r' & & (ms) & (ms) & (ms) & (steps)\\',r'\midrule']
+    for key,label in [('baseline','Disabled'),('observer','Observation only'),('incomplete_worker','Incomplete worker')]:
+        g=background['latency'][key]
+        lines.append(f"{label} & {g['samples']} & {g['median_ms']:.2f} & {g['p95_ms']:.2f} & {g['max_ms']:.2f} & {g['observed_over_20ms']}"+r'\\')
+    observer=background['summaries']['observer']['background_forecast']
+    missing=background['summaries']['incomplete_worker']['background_forecast']['discard_reasons']['prediction_incomplete']
+    lines += [r'\bottomrule',r'\end{tabular}',r'\par\smallskip\footnotesize '+f"Observation-only cycle: {observer['submitted']} requests, {observer['accepted_observations']} admitted observations, {observer['discarded']} discarded. Incomplete-worker cycle: {missing} incomplete forecasts rejected.",r'\end{table}']
+    (output/'background_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     abstract=(HERE/'title_abstract.tex').read_text(encoding='utf-8')
     words=re.search(r'\\begin\{abstract\}(.*?)\\keywords',abstract,re.S)[1].split()
     assert 150<=len(words)<=250, len(words)
@@ -78,9 +94,11 @@ def prepare():
     assert r'\author{\mbox{}}' in abstract and r'\institute{\mbox{}}' in abstract
     sources={'E001':[evidence],'E002':[ROOT/'mujoco'/name for name in ['runtime.py','estimator.py','predictor.py','physics_predictor.py','sequence.py','reconfiguration.py','check_robustness.py','qualify.py']],
              'E003':[ROOT/'mujoco/configs/reconfigurable_cell_20261030.json',ROOT/'mujoco/experiments/qualification_20261102.json'],
-             'E004':[native_path,ROOT/'mujoco/check_physics_optimization.py']}
+             'E004':[native_path,ROOT/'mujoco/check_physics_optimization.py'],
+             'E005':[background_path,ROOT/'mujoco/background_forecast.py',ROOT/'mujoco/check_background.py',ROOT/'mujoco/configs/background_observer_20261103.json']}
     manifest={'prepared_on':'2026-11-03','status':'working_draft_human_verification_pending','physical_evidence':None,
-        'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],'author_approval':False,
+        'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],
+        'background_candidate_image':background_evidence['image_id'],'author_approval':False,
         'sources':{key:[{'path':p.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths] for key,paths in sources.items()}}
     (HERE/'evidence/source_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     claims=[]

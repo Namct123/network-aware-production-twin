@@ -1,9 +1,10 @@
 {
-  "pages": 10,
+  "pages": 11,
   "page_size": "A4",
   "unresolved_references": false,
   "overfull_boxes": false,
   "physical_sections_unfilled": true,
   "human_review": "pending",
-  "pdf_sha256": "84083d75fbe0c468e14ff36063b8848c1dfffadf3d7cebd325172a3e7f8a5797"
+  "assistant_visual_review": "11-page montage and background-table page inspected",
+  "pdf_sha256": "c6bff73cf088e7bbb46e487b8ab104c176f07cf1855325e19b4d126a1a30397e"
 }

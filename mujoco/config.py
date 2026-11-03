@@ -67,7 +67,7 @@ def validate_config(c):
         raise ValueError("unsupported schema_version")
     for section, keys in KEYS.items():
         optional={'estimator':('command_history_enabled','command_gain_range','command_response_uncertainty_s'),
-                  'motion':('long_speed_schedule',),'network':('outage_windows_s',),'prediction':('backend','native_threads')}.get(section,())
+                  'motion':('long_speed_schedule',),'network':('outage_windows_s',),'prediction':('backend','native_threads','background')}.get(section,())
         exact_keys(c[section], [*keys.split(),*[k for k in optional if k in c[section]]], section)
     meta = c["profile"]
     if not all(isinstance(meta[k], str) and meta[k] for k in ("name", "status", "units", "notes")):
@@ -181,6 +181,16 @@ def validate_config(c):
     pred=c["prediction"]
     if pred.get('backend','numeric_1d') not in {'numeric_1d','mujoco_belt'}: raise ValueError('unsupported prediction backend')
     if type(pred.get('native_threads',1)) is not int or not 1<=pred.get('native_threads',1)<=16: raise ValueError('native_threads must be an integer in 1..16')
+    if 'background' in pred:
+        bg=pred['background']
+        exact_keys(bg,('enabled','mode','compute_budget_s','max_sim_age_s','max_wall_age_s','max_lag_sequences','worker_timeout_s','startup_timeout_s','close_timeout_s'),'background forecast')
+        if type(bg['enabled']) is not bool or bg['mode']!='observe_only':raise ValueError('background supports observe_only only')
+        for key in ('compute_budget_s','max_sim_age_s','max_wall_age_s','worker_timeout_s','startup_timeout_s','close_timeout_s'):number(bg[key],'background.'+key,0,True)
+        if type(bg['max_lag_sequences']) is not int or not 1<=bg['max_lag_sequences']<=1000:raise ValueError('background max_lag_sequences outside 1..1000')
+        if bg['worker_timeout_s']<max(bg['compute_budget_s'],bg['max_wall_age_s']) or bg['startup_timeout_s']>60 or bg['close_timeout_s']>5:raise ValueError('invalid background timeout bounds')
+        if bg['max_sim_age_s']+period+max(pred['reaction_delays_s'])>pred['horizon_s']:raise ValueError('background results must retain a forecast horizon')
+        if bg['enabled'] and pred.get('backend','numeric_1d')!='numeric_1d':raise ValueError('background requires numeric_1d foreground')
+        if bg['enabled'] and pred['enabled'] is not True:raise ValueError('background requires an enabled fast supervisor')
     if type(pred["enabled"]) is not bool:
         raise ValueError("prediction.enabled must be bool")
     for key in ("horizon_s","step_s","wall_budget_s"):

@@ -307,3 +307,51 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   tính đầy đủ và chưa có lượt native tính đủ trong 20 ms. Bốn mục vật lý vẫn trống.
 - Tác giả/đơn vị/công bố cần xác nhận vẫn chưa điền. Các nhận định mới gắn E004,
   nguồn API gắn E107; chưa tự đánh dấu được tác giả thẩm định hoặc sẵn sàng nộp.
+
+### 027 — Viết đủ bộ dự báo nền trước khi thử (03/11/2026)
+
+- B01: tạo một tiến trình MuJoCo riêng, chỉ một yêu cầu đang xử lý; hàng đợi có
+  giới hạn. Bước điều khiển không đợi khởi tạo, kết quả, kết thúc hoặc đặt lại tiến trình.
+- B02: gắn phiên/lượt khởi tạo, mã hồ sơ, ảnh chụp đầu vào, thứ tự mẫu và lần đổi lệnh;
+  kiểm tra tuổi theo đồng hồ mô phỏng và theo đồng hồ cha riêng biệt. Chỉ nhận để quan sát.
+- B03: ghép sau chặn lệnh của RuntimeCore, thêm log riêng và đảm bảo đóng tiến trình
+  kể cả khi mô phỏng/đọc lại tệp bị lỗi. Nhánh nhanh vẫn quyết định; chưa áp lời khuyên nền.
+- B04: viết kiểm tra giả lập định danh/tuổi/trạng thái, hàng đợi và lỗi; bộ thử chu trình
+  có nhịp thời gian, đối chứng không chạy nền và trường hợp nền tính thiếu. Chưa chạy tại mốc này.
+- Hồ sơ và thời gian giới hạn đều nhập được; không đổi hình học, ma sát, tốc độ máy
+  hoặc hạn 20 ms của nhánh điều khiển. Kết quả nền chưa có quyền điều khiển/reset.
+
+### 028 — Thử đối chứng tại WSL sau khi viết đủ các mục
+
+- Đạt 110 kiểm tra logic và 2 kiểm tra ranh giới đóng gói.
+- Ba chu trình có nhịp thời gian (tắt nền/bật nền/nền tính thiếu) đều đặt phôi;
+  dấu vết thời gian mô phỏng, pha, lệnh và ước lượng giống nhau, mỗi chu trình 697 mẫu.
+- Lần WSL: nhận 27 kết quả nền để quan sát; trường hợp ép tính thiếu có 81 kết quả
+  bị loại vì thiếu. Bước lõi khi bật nền có p95 3,187 ms, lớn nhất 4,151 ms;
+  không mẫu nào vượt 20 ms trong lần đo này. Không suy thành bảo đảm thời gian thực.
+- Dừng cưỡng bức tiến trình nền trong bộ thử vẫn gọi được bước nhánh nhanh;
+  các tiến trình đều đóng khi kết thúc. Tệp gốc ở output/docker/background-check_local_20261103.
+
+### 029 — Kiểm tra trong Docker và lưu hồ sơ bản giao
+
+- Ảnh candidate-20261103-background-observer đạt 110 kiểm tra lõi, bộ tích hợp,
+  đặt lại (15 trường hợp bản tin, 2 lượt MuJoCo) và 24 lượt hồi quy, không lỗi tiêu chí.
+- Ba chu trình Docker đều đặt phôi, dấu vết đối chiếu giống nhau. Nhận 34/35 yêu cầu
+  nền để quan sát; 1 kết quả bị loại vì trạng thái vận hành đã đổi. Nền ép tính thiếu
+  có 81 dự báo thiếu bị loại và 1 kết quả bị loại vì trạng thái đã đổi.
+- Bước lõi bật nền p95 3,505 ms, lớn nhất 12,629 ms, 0/697 mẫu vượt 20 ms.
+  Chỉ là số đo một lần chạy, không gồm cơ học/I/O/khởi tạo và không bảo đảm thời gian thực.
+- Giữ nguyên mã ảnh đã nghiệm thu và các candidate trước. Mã băm nguồn khớp ảnh;
+  RELEASES.md lưu mã ảnh và bằng chứng. Ảnh mới vẫn chờ người dùng nghiệm thu.
+- Có báo cáo dễ đọc, hướng dẫn chạy, tham số sửa được, và thêm chế độ kiểm tra vào
+  GitHub Actions. Chưa kết luận một lượt CI từ xa đã đạt nếu chưa đọc kết quả từ xa.
+
+### 030 — Bổ sung bản thảo và tài liệu bàn giao
+
+- Giữ nguyên tệp title/abstract riêng. Bổ sung mục dự báo nền chỉ quan sát và bảng
+  sinh từ hồ sơ Docker mới, gắn nguồn E005. Bản PDF hiện 11 trang A4, abstract 225 từ.
+- Các mục kiểm chứng máy thật vẫn trống. Nêu rõ mỗi điều kiện chỉ có một chu trình;
+  697 bước không phải 697 lượt sản xuất độc lập. Chưa ghi tốc độ/độ chính xác vật lý.
+- Đã kết xuất và xem bố cục các trang; sửa dòng tràn lề, kiểm tra tham chiếu LaTeX.
+  Tác giả/đơn vị và xác nhận học thuật vẫn chờ người chịu trách nhiệm điền.
+- Gói nguồn kèm hồ sơ, báo cáo, hướng dẫn và mã băm; không thay ảnh đã nghiệm thu.

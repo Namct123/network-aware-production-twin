@@ -40,7 +40,8 @@ phải tự quyết định việc gửi bản thảo chưa công bố ra dịch
 - So bật/tắt giới hạn tốc độ tái cấu hình, không phải PLC tuần tự đối đầu DT.
 - Nhánh MuJoCo chưa đạt hạn 20 ms; kết quả không đạt vẫn được nêu trong bài.
 - Mô hình toán là mô tả thuật toán/giả thiết; chưa chứng minh ổn định hoặc an toàn vật lý.
-- Tối ưu MuJoCo là hạng mục tiếp theo; chưa ghi nhận một kết quả tối ưu mới trong bài.
+- Tối ưu native MuJoCo và chạy nền có bằng chứng riêng ngày 03/11; không trộn
+  với bảng thời gian ngày 02/11. Chạy nền chỉ quan sát, chưa điều khiển.
 
 ## Các phần cố ý chưa điền
 
@@ -59,3 +60,7 @@ Không suy việc dùng template LNCS thành bài đã được Springer chấp 
 
 
 Bổ sung 03/11: body.tex có phần tối ưu native rollout. Bảng cũ 02/11 được giữ riêng; bảng mới lấy từ candidate-20261103-native-physics. Không biến thể nào tính đủ trong hạn 20 ms ở các mẫu mới; các mục vật lý vẫn trống.
+
+Bổ sung tiếp: phần Observation-Only Background Forecasts gắn E005, lấy từ ảnh
+candidate-20261103-background-observer. So sánh ba chu trình có nhịp thời gian;
+không diễn giải thành kiểm chứng thời gian thực hoặc năng lực điều khiển từ dự báo cũ.

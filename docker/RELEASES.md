@@ -1,3 +1,14 @@
+## candidate-20261103-background-observer
+
+- User acceptance: **pending**. Observation-only MuJoCo worker; the numeric 1D supervisor retains command authority.
+- Image ID: `sha256:6b492b8a086469154e4853bc50161672db58eb8633a8645c8bbf24b629e0e914`.
+- PASS: 110 image logic tests, 2 host delivery tests, integration, reset (15 message cases and 2 MuJoCo runs), and 24-run regression (zero verification failures).
+- Three paced cycles have identical compared traces and evaluator-confirmed placement. Complete observations are received; incomplete replies are discarded. Worker-termination probe returns through the foreground path, and workers close.
+- Foreground-call timing excludes physics, file output, pacing, initialization and shutdown; no hard realtime or physical validation claim. See the timing table and observation counts in the evidence.
+- Source hashes matched. All prior image IDs including accepted-core-v1 and native-physics are unchanged. No accepted/stable/latest tag or registry push.
+- CAD V5 remains distinct from the evaluated MuJoCo representation. No physical calibration claim.
+- Evidence: [candidate record](evidence/candidate-20261103-background-observer.json); [Vietnamese report](../docs/bao_cao_du_bao_nen_20261103.md).
+
 ## candidate-20261103-native-physics — checked 2026-11-03
 
 - User acceptance: **pending**. No accepted/stable/latest tag assigned.
