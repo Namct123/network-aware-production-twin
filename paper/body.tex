@@ -1,0 +1,159 @@
+% Active manuscript body. Physical data are deliberately not supplied.
+\section{Introduction}
+% [claim:C002] [evidence:E101,E102,E103]
+A geometric representation alone does not establish that a digital twin can support production decisions. Kritzinger et al.~\cite{Kritzinger2018} distinguish digital models, shadows, and twins according to data integration. For a moving workpiece, a decision additionally depends on when an observation was generated and what motion occurred before its reception. Communication delay and packet loss are established concerns in networked control~\cite{Hespanha2007}; the age of timestamped information provides a representation of freshness~\cite{Yates2021}. Here, digital twin framework denotes the intended architecture. Its reported implementation is a simulation testbed, not an already synchronized physical twin.
+
+\subsection{Related Research and Remaining Development Needs}
+% [claim:C003] [evidence:E104,E105]
+Ademujimi and Prabhu~\cite{Ademujimi2022} combined equipment and discrete-event simulation to generate interventions for learning Bayesian-network structures for manufacturing fault diagnostics. This provides a precedent for exploiting virtual faults when physical fault data are limited. The present objective is different: an unresolved observation must lead to a continue-or-hold decision while a workpiece is moving. A unique physical fault cause cannot simply be assumed from one missing binary transition.
+
+Fu et al.~\cite{Fu2025} developed a digital-twin-based framework that monitors disturbances, optimizes manufacturing-line configurations, and evaluates alternatives through generated simulation. Their work addresses line-level configuration and disturbance handling. We instead fix the equipment arrangement and investigate software actions: limiting conveyor speed or requesting a hold. The resulting evaluation must distinguish continued production from interruption and must not count a supported hold as a completed product.
+
+% [claim:C004] [evidence:E002,E106]
+MuJoCo supplies multibody and contact dynamics for model-based control~\cite{Todorov2012}. Engine selection alone does not establish calibrated pneumatics or guarantee that an online forecast finishes before the next decision. We therefore separate plant simulation from two supervisory prediction alternatives and measure computation time explicitly. The focused research question is whether timestamped observations and bounded motion forecasts support traceable decisions under controlled disturbances without exposing simulator ground truth to the supervisor. This synthesis of selected relevant studies is not a systematic review or evidence that the complete literature lacks such integration.
+
+\subsection{Scope and Contributions}
+% [claim:C005] [evidence:E001,E002,E003]
+The implemented contributions are an observation-constrained modular architecture; a command-history estimator and continue-or-hold supervisor; a cycle-latched speed-degradation policy; and reproducible virtual experiments with separate timing measurements. Resilience is examined through terminal support and completion in specified fixtures, not through a general resilience index. Self-reconfiguration refers to the software speed limit and hold, not mechanical rearrangement, sensor replacement, or autonomous recovery. Physical-validation sections remain intentionally unfilled.
+
+\section{System and Information Boundaries}
+\subsection{Cell and Hybrid Representation}
+% [claim:C006] [evidence:E002,E003]
+The cell comprises two conveyors, a transfer pusher, three photoelectric-sensor roles, an XY gantry, a vertical actuator, and a vacuum gripper. It handles one workpiece per reset. Nominal workpiece dimensions are $60\times60\times60$~mm in the parameterized profile; these are preliminary user-reported dimensions, not a physical measurement campaign reported here. CAD V5 and the functional MuJoCo scene are not claimed to be fully synchronized. Mass, friction, suction-related quantities, and motion response remain engineering assumptions awaiting identification.
+
+The hybrid architecture can be written as
+\begin{equation}
+ x_{k+1}=F_\theta(x_k,u_k,q_k),\qquad
+ q_{k+1}=G(q_k,z_{\leq k},\widehat x_k),
+ \label{eq:hybrid}
+\end{equation}
+where $x_k$ denotes continuous simulated states, $q_k$ the sequence phase, $u_k$ actuator requests, and $\theta$ the parameter profile. Equation~\eqref{eq:hybrid} describes the software architecture, not a newly identified physical state equation. The sequence covers admission, pushing, transport, alignment, pickup, transfer, release, return, completion, and latched hold. Endpoint switches support cylinder transitions. Independently observed feedback for XY completion, intermediate vertical positioning, and vacuum confirmation is not fully available in the evaluated configuration.
+
+\subsection{Observation-Constrained Decisions}
+% [claim:C007] [evidence:E002]
+Figure~\ref{fig:architecture} separates the decision path from evaluation. Simulated state supplies the sensor generator and an independent evaluator. The estimator receives only observations delivered through the communication model. Missing feedback remains unavailable rather than silently becoming a negative sensor reading. Messages carry session identity, reset generation, and sequence number; wrong-session, old-generation, and repeated messages are rejected. These local checks are not an authenticated industrial communication protocol.
+
+\begin{figure}[t]
+\centering\small
+\begin{tabular}{ccccc}
+\fbox{Plant simulation} & $\rightarrow$ & \fbox{Sensor generator} & $\rightarrow$ & \fbox{Communication}\\[5pt]
+\multicolumn{4}{c}{} & $\downarrow$\\[3pt]
+\fbox{Plant actuation} & $\leftarrow$ & \fbox{Sequence / supervisor} & $\leftarrow$ & \fbox{Estimator}\\[5pt]
+\multicolumn{5}{c}{Ground truth feeds evaluation only, never the decision interface}
+\end{tabular}
+\caption{Virtual information paths. Communication delivers observations to the estimator; true state is excluded from the decision interface.}
+\label{fig:architecture}
+\end{figure}
+
+\section{Estimation and Predictive Supervision}
+\subsection{Information Age and Motion Estimation}
+% [claim:C008] [evidence:E002,E103]
+Let an accepted observation have source time $\tau_i$ and reception time $r_i$. At decision time $t$, its information age is
+\begin{equation}
+ a(t)=t-\tau_{\ell(t)},\qquad r_{\ell(t)}\leq t,
+ \label{eq:age}
+\end{equation}
+where $\ell(t)$ indexes the newest accepted observation. Age concerns generation time, not simply time since reception~\cite{Yates2021}. Evaluation uses a shared simulation clock. Real PLC clock offset and synchronization uncertainty have not been measured.
+
+Between optical edges, the estimator integrates issued belt commands instead of reading simulator velocity. Let $D_i=\int_{\tau_{i-1}}^{\tau_i}u_b(t)\,dt$, $V_i$ be command-speed total variation, and $N_i$ count commanded stops. The implemented propagation is
+\begin{align}
+ \widehat y_i^- &=\widehat y_{i-1}+\widehat g D_i+N_i c_s,\\
+ b_i^- &=b_{i-1}+\rho(\tau_i-\tau_{i-1})+\tau_u V_i+N_i c_s.
+ \label{eq:propagation}
+\end{align}
+Here $\widehat g$ is an estimated command-to-motion gain, $c_s$ a stopping-coast allowance, $\rho$ drift allowance, and $\tau_u$ command-response uncertainty. The interval half-width $b_i$ is an engineering allowance, not a calibrated confidence interval.
+
+An optical rising edge refers to a leading face, not the center. With beam coordinate $p_j$, workpiece length $L$, and sample-window correction $h_i=\widehat gD_i/2$, the history-enabled estimator resets position and allowance as
+\begin{equation}
+ \widehat y_i=p_j-L/2+h_i,\quad
+ b_i=b_0+\max\{h_i,g_{\max}D_i+N_i c_s-h_i\}.
+ \label{eq:anchor}
+\end{equation}
+Gain is updated from commanded travel between belt-sensor edges, subject to plausibility checks. Commanded motion after the observation source time is accounted for separately when deciding whether pickup uncertainty is acceptable. Admission centering still depends on provisional geometry and commanded feed motion; arbitrary arrivals are outside the evaluated scope.
+
+\subsection{Finite-Scenario Continue-or-Hold Decision}
+% [claim:C009] [evidence:E002,E003]
+The reduced predictor uses estimated position $\widehat y$, velocity $\widehat v$, uncertainty $b$, and observation age $a$. For uncertainty offset $\epsilon$, velocity offset $\nu$, reaction delay $\delta$, and action $\ell\in\{0,1\}$, define $v_\nu=\max(0,\widehat v+\nu)$ and $b_a=b+\rho a$. The stopping surrogate is
+\begin{align}
+ y_{\ell,\epsilon,\nu,\delta}(s)
+ &=\widehat y+\epsilon b_a+v_\nu a
+   +v_\nu\min(s,\delta+\ell T)\nonumber\\
+ &\quad+c_s\operatorname{clip}\left(\frac{s-\delta-\ell T}{h},0,1\right),
+ \label{eq:rollout}
+\end{align}
+where $T$ is the control interval and $h$ the reduced prediction grid. In history-enabled operation, the supplied forecast speed is an upper bound derived from issued speed and allowed gain, rather than an independently measured belt velocity. Action $\ell=0$ requests hold now; $\ell=1$ allows one additional interval before stopping. The coast term is not identified braking physics. For forward limit $y_{\mathrm{lim}}=y_{\mathrm{end}}-L/2-d_{\mathrm{reserve}}$, the action margin is
+\begin{equation}
+ m_\ell=\min_{\epsilon,\nu,\delta,j}
+ \{y_{\mathrm{lim}}-y_{\ell,\epsilon,\nu,\delta}(jh)\}.
+ \label{eq:margin}
+\end{equation}
+Continuation requires a complete forecast, $m_1\geq0$, and completion within the computation allowance. Otherwise the supervisor requests hold. If $m_0<0$, holding is not thereby proved safe; the rule still rejects additional continuation. This is a supervisory screen, not an optimal-control or stability theorem.
+
+\subsection{Contact Forecast and Software Reconfiguration}
+% [claim:C010] [evidence:E002,E003]
+The alternative predictor constructs an independent MuJoCo belt/workpiece scene from estimates and the profile, without cloning live plant state. It evaluates belt continuation and stopping and checks forward, lateral, and vertical margins. It excludes the full gantry, pressure dynamics, and calibrated suction failure. Its fixed-footprint checks are not a general rotated-body collision certificate. The two predictors thus have different model detail and numerical workloads.
+
+Repeated age warnings or observation gaps can latch NORMAL into DEGRADED. In transport, the fixed policy issues
+\begin{equation}
+ u_b^{\mathrm{issued}}=\min\{u_b^{\mathrm{requested}},u_{\mathrm{cap}}\}.
+ \label{eq:cap}
+\end{equation}
+Unusable observations, contradictory endpoint switches, missing expected transitions, or supervisory violations can request HOLD. Belt requests then become zero while the existing vacuum request is retained; this does not confirm physical vacuum. Communication recovery does not clear the hold automatically. The implemented reset handshake prepares a fresh simulation cycle through distinct reset, acknowledgement, and start steps. It does not resume a previous suspended workpiece.
+
+\section{Virtual Evaluation Methods}
+\subsection{Settings and Timing Measurements}
+% [claim:C011] [evidence:E001,E002,E003]
+The profile uses a 2~ms physics step and a 20~ms control interval. Both predictors evaluate 54 trajectories: two actions, three position offsets, three velocity offsets, and three reaction delays. The horizon is 0.5~s. The reduced grid is 20~ms, while contact integration uses 2~ms; equal scenario counts do not imply equal work. Nominal and degraded transport commands are 0.16 and 0.12~m/s. They are selected simulation settings, not measured physical capacities.
+
+Three synthetic estimated states are used for timing. Each receives one warm-up call and five measured calls per predictor and allowance, yielding 15 measured calls per group. Initialization is recorded separately and warm-up samples are retained outside the summaries. External elapsed time includes the invocation wrapper and result creation. We report medians, nearest-rank empirical p95, completion counts, and observed deadline exceedances. The configured allowance is 20~ms; a separate 1~s functional allowance permits inspection of complete forecasts without replacing the configured deadline.
+
+The recorded Docker environment contains Python 3.12.16, MuJoCo 3.16.0, and NumPy 2.5.4 on WSL2 Linux. Processor identity and controlled background load were not recorded for this campaign. Timing is therefore descriptive, not a worst-case execution-time bound or a cross-platform benchmark.
+
+\subsection{Matched Disturbances and Evaluation Criteria}
+% [claim:C012] [evidence:E001,E003]
+Six scenarios vary one factor: nominal operation; pickup-sensor stuck low; 20~ms message delay; 5\% packet loss; and plant belt speed at 0.85 or 1.15 times its command. True plant-speed changes are not simultaneously supplied to the estimator as known gains. Each scenario uses two network seeds and two policy conditions, giving 24 runs. The conditions differ in whether the fixed-policy reconfiguration module, comprising the cycle-latched cap and health-triggered holds, is enabled. This is not an isolated speed-cap ablation. Both retain estimation and predictive supervision: this is not a sequential-PLC-versus-DT comparison. Changing seeds does not make deterministic scenarios independent replicates.
+
+Full-cycle trials explicitly enable open-loop assumptions for unconfirmed XY, intermediate vertical positioning, and vacuum feedback. Strict operation instead holds before these steps. Results under these assumptions do not demonstrate physical feedback control. A terminal criterion is met by evaluator-confirmed placement after completion or evaluator-confirmed support during hold. Speed-cap adherence and policy logging are also checked. Ground truth is restricted to evaluation. This study uses the 1~s functional prediction allowance, so terminal outcomes do not establish 20~ms operation. No threshold tuning is performed within the campaign.
+
+\section{Virtual Results}
+\subsection{Forecast Computation}
+% [claim:C013] [evidence:E001]
+Table~\ref{tab:timing} is generated from the recorded Docker evidence. The reduced predictor completes all 15 measured calls under the configured allowance, with p95 \NumericPninetyfive~ms. The contact predictor completes none of its 15 calls within that allowance. With the functional allowance, it completes all 15 with p95 \PhysicsPninetyfive~ms. Its incomplete 20~ms calls request hold; returning hold after an observed overrun is not a hard-deadline guarantee. The current contact predictor is not demonstrated to support a 20~ms supervisor on this host. The result does not show that the reduced model is physically more accurate.
+\input{generated/timing_table}
+
+\subsection{Disturbance Outcomes}
+% [claim:C014] [evidence:E001]
+All \StudyRuns{} runs meet the terminal, cap, and logging checks: \DoneCount{} complete placement and \HoldCount{} end in supported holds. Table~\ref{tab:study} preserves this distinction. In the two delayed-observation cases, enabling reconfiguration permits completion; disabling it produces holds for excessive pickup uncertainty. Both conditions hold when pickup detection is absent. These are fixture-level observations, not a diagnosis sensitivity, false-alarm rate, or throughput gain.
+\input{generated/study_table}
+
+The artifact also records \LogicTests{} logic checks and end-to-end integration checks for strict/open-loop operation, replay, prediction, and deadline handling. Check counts support implementation consistency; they are not performance sample sizes. Source and configuration provenance are identified in~\cite{SoftwareArtifact}. No physical result is inferred from passing these checks.
+
+\clearpage
+\section{Physical Validation}
+\label{sec:physical}
+\noindent\textit{Reserved: no physical measurements or validation results are reported.}
+\subsection{Physical Setup and Calibration}
+\vspace{12mm}
+\subsection{Live PLC Synchronization and Network Measurements}
+\vspace{12mm}
+\subsection{Physical Fault Trials and Placement Accuracy}
+\vspace{12mm}
+\subsection{Comparison with Sequential PLC Operation}
+\vspace{12mm}
+
+\section{Discussion and Limitations}
+% [claim:C015] [evidence:E001,E002,E003]
+The evidence supports an inspectable software testbed, not a closed-loop physical twin. A supported hold is a virtual terminal condition, not demonstrated process availability or guaranteed safety. A speed cap can preserve completion in a delayed-data fixture without improving nominal cycle time. Selecting only completions would conceal interruption costs; the tables retain all planned runs.
+
+The principal computation limitation is the gap between complete contact forecasts and the configured allowance. Optimization must preserve numerical behavior while being evaluated against actual elapsed time; increasing the allowance alone changes the question. Selected states and repeated host calls do not characterize worst-case scheduling. The engineering interval and stopping-coast assumptions require physical identification before quantified risk statements are justified.
+
+Sparse binary sensing leaves sensor, communication, and model errors partly ambiguous. Findings indicate suspicions rather than uniquely isolated physical failure causes. CAD-to-simulation consistency, sensor offsets, belt slip, vacuum holding, pneumatics, and axis feedback remain unvalidated. Simultaneous products and continuing an interrupted old workpiece are outside the demonstrated capability. Section~\ref{sec:physical} is left blank rather than substituting synthetic measurements.
+
+\section{Conclusion}
+% [claim:C016] [evidence:E001,E002]
+A modular network-aware supervisory framework has been implemented and examined virtually. The matched campaign demonstrates completion or supported interruption in its specified fixtures and makes information and computation boundaries explicit. The reduced predictor meets its allowance in the measured calls; the current independent MuJoCo predictor does not. Physical calibration, live integration, and a sequential-PLC comparison remain unreported. These limitations delimit further work, rather than supporting claims of verified physical resilience or general performance superiority.
+
+\section*{Declarations Awaiting Author Completion}
+\noindent Authors and affiliations: \hrulefill\par\medskip
+\noindent Funding and competing interests: \hrulefill\par\medskip
+\noindent Author-approved AI-use disclosure: \hrulefill

@@ -1,0 +1,20 @@
+{
+  "abstract_words": 207,
+  "citations": [
+    "Ademujimi2022",
+    "Fu2025",
+    "Hespanha2007",
+    "Kritzinger2018",
+    "SoftwareArtifact",
+    "Todorov2012",
+    "Yates2021"
+  ],
+  "physical_result_values": 0,
+  "authors_unfilled": true,
+  "study_runs": 24,
+  "done": 18,
+  "hold": 6,
+  "logic_checks": 97,
+  "human_verification": "pending",
+  "submission_ready": false
+}

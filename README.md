@@ -79,3 +79,8 @@ xem xét. Xem [phạm vi và hướng dẫn tích hợp](docs/ban_tich_hop_phan_
 [Bộ đo thời gian dự báo và 24 lượt lỗi/mạng/sai tham số](docs/danh_gia_co_doi_chung.md). Không thay ngưỡng điều khiển hoặc tự nghiệm thu theo kết quả.
 
 Kết quả 02/11/2026: [báo cáo dễ hiểu](docs/bao_cao_danh_gia_20261102.md). Docker thử nghiệm mới: `candidate-20261102-qualification`, chờ nghiệm thu; giữ nguyên hạn điều khiển.
+
+
+## Bài báo đang phát triển
+
+[Bản thảo LaTeX hiện tại](paper/README.md) và [PDF lý thuyết/kết quả ảo](reports/dt_cppps_manuscript_virtual.pdf). Phần kiểm chứng vật lý và thông tin tác giả chưa điền; đây là bản làm việc, chưa được tác giả duyệt để nộp.

@@ -1,17 +1,11 @@
-\documentclass[11pt,a4paper]{article}
+% Working draft: theory and virtual evidence only; authors intentionally blank.
+\documentclass[a4paper]{llncs}
 \usepackage[T1]{fontenc}
-\usepackage[margin=28mm]{geometry}
-\pagestyle{empty}
-
+\usepackage{amsmath,amssymb,graphicx,url,booktabs}
+\input{generated/values}
 \begin{document}
-
-\begin{center}
-{\Large\bfseries Toward a Network-Aware Predictive Digital Twin for a PLC-Based Sorting-and-Pick Cell\par}
-\end{center}
-\vspace{1em}
-
-\begin{abstract}
-Network-aware digital twins may help automated production cells maintain reliable decisions when sensor data or communications are delayed, but this requires an observable and validated plant model. This paper presents a simulation testbed for a sorting-and-pick cell with two conveyors, a transfer pusher, an XY gantry, a vertical actuator, photoelectric sensors, and a vacuum gripper. Geometry inferred from visual references was used to construct a Unity visualization and a MuJoCo contact model. In a scripted virtual commissioning cycle, one workpiece moves between conveyors, triggers the simulated sensors, is picked and placed in a selected bin, and the gantry returns home. The recorded trace contains sensor states and actuator positions, while the commissioning script checks sensor passage and final placement within the target bin. These observations establish a working baseline simulation; they do not validate physical performance. Geometric and dynamic parameters remain uncalibrated, and pickup alignment currently uses the workpiece position available inside the simulator. Live PLC connectivity, network-delay experiments, state estimation, prediction, and adaptive reconfiguration have not yet been evaluated. The testbed provides a reproducible starting point for these integrations and for comparing network-aware control with a conventional baseline.
-\end{abstract}
-
+\raggedbottom
+\input{title_abstract}
+\input{body}
+\input{references_list}
 \end{document}

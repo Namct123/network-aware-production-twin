@@ -219,3 +219,29 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   nguồn khớp bản đang làm. Mã ảnh và bằng chứng lưu trong docker/RELEASES.md.
 - Ảnh vẫn chờ người dùng nghiệm thu. Chưa có thay đổi hình học/hiệu chuẩn máy thật.
 - Sau khi dựng ảnh, ổ C vẫn chỉ còn vài chục MB; cần giải phóng thêm trước đợt chạy lớn.
+
+### 019 — Phát triển bài báo theo bằng chứng (03/11/2026)
+
+- Dùng scientific-writing để rà phạm vi và nguồn, giữ xác nhận tác giả ở trạng thái chờ.
+- Chuyển paper/ thành bản đang viết: main.tex ghép title_abstract.tex và body.tex.
+- Viết lý thuyết thời gian dữ liệu, ước lượng theo lịch sử lệnh, dự báo/dừng, giảm tốc;
+  bổ sung nghiên cứu trước, phương pháp và kết quả ảo dựa trên bằng chứng ngày 02/11.
+- Sinh bảng từ hồ sơ JSON đã lưu; 24 lượt gồm 18 hoàn tất và 6 dừng, không phải
+  24 phôi hoàn tất. Giữ kết quả MuJoCo chưa đạt hạn 20 ms, không điền hiệu năng tối ưu chưa chạy.
+- Bốn mục kiểm chứng vật lý chỉ có tiêu đề/khoảng trống. Tên tác giả, đơn vị, tài trợ,
+  xung đột lợi ích và phần công bố AI để người chịu trách nhiệm xác nhận.
+- Thay bộ xuất abstract cũ bằng biên dịch LaTeX cho bản đang viết; xuất PDF sau khi kiểm tra bố cục.
+
+### 020 — Rà soát bản thảo và PDF
+
+- Làm rõ đối chứng bật/tắt cả mô đun tái cấu hình, gồm giới hạn tốc độ và dừng theo
+  dấu hiệu bất thường; không mô tả là thí nghiệm chỉ thay riêng tốc độ.
+- Kiểm tra nguồn/nhận định, 7 khóa tài liệu tham khảo, số bảng và phương trình;
+  abstract 207 từ; thông tin tác giả và bốn mục vật lý chưa điền.
+- Biên dịch LaTeX thật bằng Tectonic, khổ A4 một cột, 9 trang. Đã dựng ảnh các trang
+  để xem bố cục; không có tham chiếu bỏ ngỏ hoặc khung chữ tràn lề trong log.
+- PDF: reports/dt_cppps_manuscript_virtual.pdf; nguồn chuẩn đang viết: paper/.
+  Bảng kết quả sinh từ bằng chứng đã lưu, không thay dữ liệu hay chạy lại để chọn số đẹp.
+- Để trạng thái chờ tác giả xác nhận và chưa sẵn sàng nộp. Chưa ghi kết quả tối ưu
+  MuJoCo mới vì hạng mục đó chưa có phép chạy hoàn tất bổ sung trong đợt viết bài này.
+- Chỉ cập nhật bài báo/tài liệu; không thay mã điều khiển, hồ sơ vật lý hoặc ảnh Docker lõi.

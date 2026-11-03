@@ -1,0 +1,59 @@
+{
+  "prepared_on": "2026-11-03",
+  "status": "working_draft_human_verification_pending",
+  "physical_evidence": null,
+  "source_artifact_commit": "93d60ca",
+  "author_approval": false,
+  "sources": {
+    "E001": [
+      {
+        "path": "docker/evidence/candidate-20261102-qualification.json",
+        "sha256": "6834465472411197a1f06632949d58889cefb5167fbe1f209abfe8ec69539939"
+      }
+    ],
+    "E002": [
+      {
+        "path": "mujoco/runtime.py",
+        "sha256": "e02297a4cc70894271aa3bc9fbda8be6bd5784456cdb1f48b8831508f76be45d"
+      },
+      {
+        "path": "mujoco/estimator.py",
+        "sha256": "b6a3755c039f44d5a539187b60a3931ce98e433fd772e5f6f61ef2343870916a"
+      },
+      {
+        "path": "mujoco/predictor.py",
+        "sha256": "05a26ed28862413873387a1ec40865e2f4cbaf436d6dbf1608f6440ad5c4b740"
+      },
+      {
+        "path": "mujoco/physics_predictor.py",
+        "sha256": "cef5f6b13441508eba1d330f6544ea25c77dfa7a8f867e557c051cb27ad59d35"
+      },
+      {
+        "path": "mujoco/sequence.py",
+        "sha256": "13a6fd4a6535667e6c9a420095e76a4d5d5b43b8d788891f1678e5e8e53b7b4e"
+      },
+      {
+        "path": "mujoco/reconfiguration.py",
+        "sha256": "48aaafc37ab0c18757e50d6bb268927c062003c6727671658d9834c623be31c1"
+      },
+      {
+        "path": "mujoco/check_robustness.py",
+        "sha256": "01b0aa364e76d281c7befc4b18aab88820588b20d5c9935fe14b3ba1098e6086"
+      },
+      {
+        "path": "mujoco/qualify.py",
+        "sha256": "d3caa09726081a5c4b3dd27de81a94309f8d42a4fa961ce9b342d063a2025dd3"
+      }
+    ],
+    "E003": [
+      {
+        "path": "mujoco/configs/reconfigurable_cell_20261030.json",
+        "sha256": "a875fecf1be13e913ea65c336b33d218573a680ad09a46007a8dbae52fd9f0b2"
+      },
+      {
+        "path": "mujoco/experiments/qualification_20261102.json",
+        "sha256": "5c453625c09582985949e17fda6d3e1c4f31664def78e03e856a8f6a7bb31e5d"
+      }
+    ]
+  }
+}
