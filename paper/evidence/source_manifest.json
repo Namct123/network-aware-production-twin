@@ -169,6 +169,28 @@
         "path": "mujoco/experiments/model_boundary_20261103.json",
         "sha256": "50eb8b56762a8dd8f1fcb4049454053d176b0a192cad49ea420b55b70cf5ebd7"
       }
+    ],
+    "E008": [
+      {
+        "path": "docker/evidence/candidate-20261103-software-v2.json",
+        "sha256": "6fd50586449815ba7fafc39610b2169098d75efb168bdab6ab8a9a1d3787cd85"
+      },
+      {
+        "path": "mujoco/stream_input.py",
+        "sha256": "94a82c74deca6da638e79a1ce283414943dc2fc344a420a041641dbc2c91525d"
+      },
+      {
+        "path": "mujoco/check_stream.py",
+        "sha256": "55fdc4f153d544c387d51b43905080c7efe0b00fc849652c219614ea8874c1d5"
+      },
+      {
+        "path": "mujoco/check_software.py",
+        "sha256": "f75e2fefb668153f7f340da8c52b71d818cc8ad044d6967762e9698c09941607"
+      },
+      {
+        "path": "mujoco/software_release_v2.json",
+        "sha256": "01c26d9ae76ee7d431f242bedfc66d80f6e82ff6e6b5609725c90abe84b1d77a"
+      }
     ]
   }
 }

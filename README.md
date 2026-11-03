@@ -5,6 +5,12 @@ giàn XY và đầu hút. Gồm nguồn CAD, Unity, lõi DT chạy MuJoCo, Docke
 trình bày và tài liệu. Một số kích thước đã cập nhật theo số đo sơ bộ người dùng;
 động lực học chưa hiệu chuẩn và chưa kết nối điều khiển PLC thật.
 
+**Bản phần mềm trước khi đo máy — v2:**
+[hướng dẫn và phạm vi](docs/phan_mem_truoc_khi_do_may.md).
+Có cổng dữ liệu mẫu liên tục, trang theo dõi và một lệnh kiểm tra toàn bộ nhóm mới:
+`./scripts/docker_dt.ps1 -Mode software-check`.
+Ảnh `candidate-20261103-software-v2` chờ nghiệm thu. Cổng mẫu chưa phải trình đọc S7.
+
 **Nghiên cứu giới hạn mô hình — 03/11:**
 [kế hoạch và cách chạy](docs/nghien_cuu_gioi_han_mo_hinh.md).
 Lưới vị trí/tốc độ/tuổi dữ liệu/ma sát so 1D với hai cách chấm MuJoCo;

@@ -1,12 +1,12 @@
 param(
-    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','physics-check','background-check','boundary-study','manifest')]
+    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','physics-check','background-check','boundary-study','stream-check','software-check','manifest')]
     [string]$Mode = 'demo',
     [string]$Config = '',
     [string]$Plan = '',
     [string]$ResetSettings = '',
     [ValidateRange(1,6)][int]$Bin = 1,
     [ValidatePattern('^[a-zA-Z0-9_][a-zA-Z0-9_.-]{0,127}$')]
-    [string]$Tag = 'candidate-20261103-boundary-study'
+    [string]$Tag = 'candidate-20261103-software-v2'
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent

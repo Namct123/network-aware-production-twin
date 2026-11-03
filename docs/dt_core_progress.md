@@ -307,3 +307,9 @@ hai mô hình từ cùng ảnh đầu vào và tách dự báo thiếu/kết qu�
 Đã có kế hoạch 144 đầu vào giả định và biến thể chỉ chấm biên dọc của cùng mô hình
 tiếp xúc. Mục đích là tìm miền khác biệt và kiểm tra độ nhạy bước tính, không đo
 độ chính xác máy thật hoặc tự khớp tham số. [Cách chạy](nghien_cuu_gioi_han_mo_hinh.md).
+
+## 03/11/2026 — Bản phần mềm trước khi đo máy v2
+
+Ghép cổng UDP nội bộ dùng bảng ánh xạ/lõi chung, theo dõi im lặng và đầu ra chỉ ghi
+tệp. Trang tổng quan đọc được báo cáo mới. software-check kiểm kê đủ sáu mục rồi
+chạy tám nhóm kiểm tra; Docker cuối đạt. [Hướng dẫn và giới hạn](phan_mem_truoc_khi_do_may.md).

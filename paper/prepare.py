@@ -117,7 +117,8 @@ def prepare():
              'E004':[native_path,ROOT/'mujoco/check_physics_optimization.py'],
              'E005':[background_path,ROOT/'mujoco/background_forecast.py',ROOT/'mujoco/check_background.py',ROOT/'mujoco/configs/background_observer_20261103.json'],
              'E006':[ROOT/'docker/evidence/candidate-20261103-model-audit.json',ROOT/'mujoco/audit_background.py',ROOT/'mujoco/test_background_audit.py'],
-             'E007':[boundary_path,ROOT/'mujoco/study_model_boundary.py',ROOT/'mujoco/experiments/model_boundary_20261103.json']}
+             'E007':[boundary_path,ROOT/'mujoco/study_model_boundary.py',ROOT/'mujoco/experiments/model_boundary_20261103.json'],
+             'E008':[ROOT/'docker/evidence/candidate-20261103-software-v2.json',ROOT/'mujoco/stream_input.py',ROOT/'mujoco/check_stream.py',ROOT/'mujoco/check_software.py',ROOT/'mujoco/software_release_v2.json']}
     manifest={'prepared_on':'2026-11-03','status':'working_draft_human_verification_pending','physical_evidence':None,
         'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],
         'background_candidate_image':background_evidence['image_id'],'author_approval':False,

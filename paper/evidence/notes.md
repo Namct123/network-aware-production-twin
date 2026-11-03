@@ -3,6 +3,15 @@
 Status: assistant-inspected working draft; accountable human verification and author approval pending.
 No source is marked human-verified. No manuscript was sent to an external drafting or typesetting service.
 
+## Pre-hardware software rehearsal — E008
+
+The final candidate evidence records eight combined groups, including 126 core and
+eight web tests and three real loopback UDP fixtures. Input normalization and command
+logs use existing recorded-input semantics; no hardware clock synchronization, S7
+driver or PLC actuation is claimed. The initial local core-test failure from reused
+fixture decision times is retained; the final complete Docker run passes. C024 binds
+these software observations, not physical detection accuracy or process availability.
+
 ## Exploratory boundary grid — E007
 
 Source: docker/evidence/candidate-20261103-boundary-study.json. The fixed 144-input

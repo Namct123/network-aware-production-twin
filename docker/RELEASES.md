@@ -1,3 +1,14 @@
+## candidate-20261103-software-v2
+
+- User acceptance: **pending**. Six-item pre-hardware software batch: loopback tag input, validation/watchdog, UDP fixtures, diagnostics UI, combined checks and parameterized provenance.
+- Image ID: `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+- PASS: all 8 combined groups; 126 core tests, 8 web tests, 3 real loopback UDP fixtures, integration, reset, background, 144-input boundary study, and 24-run qualification. Two host delivery checks also pass.
+- Earlier WSL run failed one core test because its fixture reused equal decision times. Failed run retained; fixture fixed and entire final Docker suite rerun. No parameter tuning or hidden acceptance.
+- Gateway stamps local reception time, retains session/order guards and checks silence with no incoming packet. Output commands are written only to files. This is not an S7 driver, PLC connection, physical clock synchronization or actuation.
+- Dashboard reviewed in browser: latest PASS and earlier failed run both displayed. No hard realtime or physical validation claim. CAD V5 remains distinct from the functional MuJoCo model.
+- Source hashes match; all prior image IDs preserved. No new accepted/stable/latest tag or registry push.
+- [Evidence and source hashes](evidence/candidate-20261103-software-v2.json); [Vietnamese guide](../docs/phan_mem_truoc_khi_do_may.md).
+
 ## candidate-20261103-boundary-study
 
 - User acceptance: **pending**. New exploratory fixed-grid tool only; no controller parameter fitting or actuation changes.

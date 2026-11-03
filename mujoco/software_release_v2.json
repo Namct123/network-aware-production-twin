@@ -1,0 +1,20 @@
+{
+  "batch_id": "software-prehardware-v2-20261103",
+  "phase": "implementation_complete_validation_pending",
+  "user_acceptance": "pending",
+  "items": [
+    {"id":"S01","title_vi":"Nhận dữ liệu mẫu liên tục","purpose_vi":"Gói UDP nội bộ đi qua bảng tín hiệu và lõi dùng chung; lệnh chỉ ghi tệp.","status":"implemented","files":["mujoco/stream_input.py","mujoco/io_adapter.py"]},
+    {"id":"S02","title_vi":"Chặn gói sai và theo dõi im lặng","purpose_vi":"Chặn sai phiên, lặp, nguồn chưa xác nhận; gói trở lại không tự xóa dừng chờ.","status":"implemented","files":["mujoco/session.py","mujoco/runtime.py","mujoco/test_stream_input.py"]},
+    {"id":"S03","title_vi":"Thử đường truyền trên cùng máy","purpose_vi":"Gửi gói UDP thật tới cổng loopback cho các trường hợp thiếu, sai và lặp.","status":"implemented","files":["mujoco/check_stream.py","mujoco/configs/recording_map_example.json","mujoco/configs/recording_map_unverified.json"]},
+    {"id":"S04","title_vi":"Trang theo dõi các mô đun mới","purpose_vi":"Đọc được báo cáo dữ liệu mẫu, đối chiếu mô hình và kiểm tra tổng hợp.","status":"implemented","files":["web/project_status.py","web/tong_quan.html","web/tong_quan.js"]},
+    {"id":"S05","title_vi":"Kiểm tra tổng hợp trước khi đo máy","purpose_vi":"Một lệnh chạy các kiểm tra logic, dữ liệu mẫu, tích hợp, đặt lại, dự báo và nghiên cứu.","status":"implemented","files":["mujoco/check_software.py","mujoco/check_integration.py","mujoco/check_reset.py","mujoco/check_background.py","mujoco/study_model_boundary.py","mujoco/qualify.py"]},
+    {"id":"S06","title_vi":"Tham số và bằng chứng sửa được","purpose_vi":"Giữ hồ sơ đầu vào, bảng ánh xạ, kế hoạch và mã băm; chưa gán tham số chưa đo thành giá trị đã hiệu chuẩn.","status":"implemented","files":["mujoco/config.py","mujoco/calibrate.py","mujoco/experiments/model_boundary_20261103.json","mujoco/audit_background.py"]}
+  ],
+  "limits": [
+    "Cổng mới thử hợp đồng dữ liệu UDP nội bộ, chưa phải trình đọc giao thức S7 hoặc điều khiển PLC thật.",
+    "Đồng hồ vật lý, địa chỉ I/O, động lực học và phản hồi chưa đo/xác nhận.",
+    "MuJoCo nền chưa có quyền đổi lệnh; chưa bảo đảm chu kỳ 20 ms.",
+    "CAD V5 và mô hình MuJoCo chưa đồng bộ đầy đủ.",
+    "Một phôi mỗi chu trình; đặt lại là chuẩn bị lượt mới, không phục hồi phôi cũ."
+  ]
+}

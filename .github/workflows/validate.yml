@@ -18,8 +18,8 @@ jobs:
           chmod 777 output/docker
           python3 docker/test_delivery.py
           python3 docker/build_image.py
-      - name: Test logic inside image
-        run: docker compose run --rm --entrypoint python dt -m unittest discover -s mujoco -p 'test_*.py'
+      - name: Test pre-hardware software batch inside image
+        run: docker compose run --rm dt software-check
       - name: Test paired MuJoCo scenarios inside image
         run: |
           docker compose run --rm dt predictive-check
@@ -30,12 +30,7 @@ jobs:
           docker compose run --rm dt robustness-check --plan /plans/robustness_smoke.json
           docker compose run --rm dt adaptive-check --plan /plans/adaptive_speed_smoke.json
           docker compose run --rm dt recovery-check
-          docker compose run --rm dt reset-check
-          docker compose run --rm dt integration-check
-          docker compose run --rm dt qualification-check
           docker compose run --rm dt physics-check
-          docker compose run --rm dt background-check
-          docker compose run --rm dt boundary-study
       - name: Preserve simulation evidence
         if: always()
         uses: actions/upload-artifact@v7

@@ -440,3 +440,38 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Giữ title/abstract riêng, 12 trích dẫn bài báo; phần kiểm chứng vật lý vẫn trống.
   PDF bản thảo hiện 14 trang A4, đã kiểm tra bảng mới và tham chiếu, không tràn lề.
 - Đóng gói mã và kế hoạch sửa được cùng hướng dẫn; các kết quả và ảnh cũ được giữ.
+
+### 039 — Viết đủ bản phần mềm chuẩn bị đo máy trước khi thử
+
+- S01/S02: cổng UDP loopback dùng bảng ánh xạ và RuntimeCore, tự ghi thời điểm nhận;
+  chặn gói lỗi/sai phiên/lặp, vẫn gọi kiểm tra im lặng. Chỉ ghi lệnh tệp.
+- S03: bộ gửi gói thử thực trên cùng máy; mất dữ liệu rồi trở lại, gói lỗi/lặp,
+  bảng chưa xác nhận. Không giả có trình đọc S7 hay phản hồi máy thật.
+- S04: trang tổng quan đọc thêm báo cáo dữ liệu mẫu, đối chiếu và kiểm tra tổng hợp.
+- S05/S06: bảng sáu mục, kiểm kê trước khi chạy mọi nhóm kiểm tra; giữ cấu hình,
+  tham số chỉnh được và hướng dẫn. Mốc này chưa chạy kiểm tra bản mới.
+- Phần đo/hiệu chuẩn vật lý để sau theo yêu cầu người dùng; không tự nâng candidate
+  thành ảnh nghiệm thu hoặc thay vai trò điều khiển của MuJoCo nền.
+
+### 040 — Kiểm tra v2 và sửa dữ liệu thử
+
+- Lần WSL chạy đủ tám nhóm nhưng kiểm tra lõi có một lỗi: dữ liệu thử gói hỏng
+  dùng nhiều lần cùng thời điểm, trái yêu cầu thời gian tăng dần của tái cấu hình.
+  Sửa dữ liệu thử; không sửa ngưỡng hoặc bỏ phép kiểm tra. Giữ thư mục lần chưa đạt.
+- Năm kiểm tra riêng cổng mẫu đạt sau sửa. Ba thử UDP loopback thật đạt cả ở WSL
+  và Docker: mất dữ liệu rồi trở lại, gói sai/lặp, bảng chưa xác nhận.
+- Docker cuối đạt toàn bộ tám nhóm: 126 kiểm tra lõi, 8 kiểm tra web, stream,
+  tích hợp, đặt lại, nền, lưới biên và 24 lượt đối chứng. Không suy thành máy thật đã đạt.
+- Xem trực tiếp trang tổng quan: sáu mục mới, báo cáo mới đạt và lần cũ chưa đạt
+  đều hiển thị đúng. JavaScript qua kiểm tra cú pháp; 2 kiểm tra đóng gói đạt.
+- Chưa có trình đọc S7 và kết nối/ghi PLC thật. Các số đo, địa chỉ và xác nhận ngoài
+  máy tính vẫn để sau; hồ sơ đầu vào giữ trạng thái chưa xác nhận.
+
+### 041 — Hồ sơ bàn giao và bản thảo phần mềm v2
+
+- Lưu ảnh candidate, mã băm nguồn, tám nhóm kiểm tra và lần chưa đạt trong bằng chứng.
+  Mọi ảnh đã có giữ nguyên; chưa cấp nhãn accepted/stable/latest.
+- Bổ sung phần Pre-Hardware Software Rehearsal vào bài báo, gắn E008; không gọi UDP
+  là trình đọc S7 hoặc đồng bộ PLC. Giữ title/abstract và 12 trích dẫn đã công bố.
+- Cập nhật hướng dẫn người mới, danh mục mô đun, GitHub Actions và gói nguồn.
+  Các phần đo bên ngoài để sau; chưa đánh dấu toàn bộ hệ thống đã nghiệm thu.

@@ -21,7 +21,7 @@ def context_files():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--tag', default=os.environ.get('DT_IMAGE_TAG','candidate-20261103-boundary-study'))
+    parser.add_argument('--tag', default=os.environ.get('DT_IMAGE_TAG','candidate-20261103-software-v2'))
     args = parser.parse_args()
     if not re.fullmatch(r'candidate-[a-zA-Z0-9_.-]+',args.tag):
         parser.error('Build a candidate tag; accepted tags require explicit user validation.')
