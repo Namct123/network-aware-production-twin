@@ -67,7 +67,7 @@ def validate_config(c):
         raise ValueError("unsupported schema_version")
     for section, keys in KEYS.items():
         optional={'estimator':('command_history_enabled','command_gain_range','command_response_uncertainty_s'),
-                  'motion':('long_speed_schedule',),'network':('outage_windows_s',),'prediction':('backend',)}.get(section,())
+                  'motion':('long_speed_schedule',),'network':('outage_windows_s',),'prediction':('backend','native_threads')}.get(section,())
         exact_keys(c[section], [*keys.split(),*[k for k in optional if k in c[section]]], section)
     meta = c["profile"]
     if not all(isinstance(meta[k], str) and meta[k] for k in ("name", "status", "units", "notes")):
@@ -180,6 +180,7 @@ def validate_config(c):
     validate_outages(n.get('outage_windows_s',[]),t['run_budget_s'])
     pred=c["prediction"]
     if pred.get('backend','numeric_1d') not in {'numeric_1d','mujoco_belt'}: raise ValueError('unsupported prediction backend')
+    if type(pred.get('native_threads',1)) is not int or not 1<=pred.get('native_threads',1)<=16: raise ValueError('native_threads must be an integer in 1..16')
     if type(pred["enabled"]) is not bool:
         raise ValueError("prediction.enabled must be bool")
     for key in ("horizon_s","step_s","wall_budget_s"):

@@ -58,3 +58,16 @@ or substituted synthetic data. They retain blank vertical space. Preliminary geo
 identified as such outside that section. No new optimization result or hardware advantage is invented.
 
 Method clarification: the study toggles reconfiguration.enabled, which includes health-triggered HOLD as well as the fixed speed cap. It is not an isolated cap-only ablation. Table headers use module on/off accordingly.
+
+## Native optimization addendum — 2026-11-03
+
+E004: docker/evidence/candidate-20261103-native-physics.json, copied as native_20261103.json;
+only the final-image optimization object is used in the new table. Its 12 fixtures are each checked
+at 1/4/8 workers, not treated as independent physical trials. Prior 2 November timing/outcome tables
+are retained as the earlier campaign. New times are not substituted into that earlier record.
+The failed first native-profile integration and its shared unit-declaration fix remain in the project log.
+E107: https://mujoco.readthedocs.io/en/stable/python.html#rollout , rollout section inspected on 2026-11-03;
+installed MuJoCo 3.16.0 Python signatures and source inspected locally. Supports native stepping loops,
+homogeneous model batches and separate MjData instances for configured workers. Numerical agreement,
+timing and deadline outcomes are supported by local evidence, not inferred from the documentation.
+Human source verification and author approval remain pending. Physical sections remain blank.

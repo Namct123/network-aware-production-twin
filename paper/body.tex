@@ -118,7 +118,7 @@ Full-cycle trials explicitly enable open-loop assumptions for unconfirmed XY, in
 \section{Virtual Results}
 \subsection{Forecast Computation}
 % [claim:C013] [evidence:E001]
-Table~\ref{tab:timing} is generated from the recorded Docker evidence. The reduced predictor completes all 15 measured calls under the configured allowance, with p95 \NumericPninetyfive~ms. The contact predictor completes none of its 15 calls within that allowance. With the functional allowance, it completes all 15 with p95 \PhysicsPninetyfive~ms. Its incomplete 20~ms calls request hold; returning hold after an observed overrun is not a hard-deadline guarantee. The current contact predictor is not demonstrated to support a 20~ms supervisor on this host. The result does not show that the reduced model is physically more accurate.
+Table~\ref{tab:timing} is generated from the recorded 2 November Docker evidence, before the implementation optimization reported below. The reduced predictor completes all 15 measured calls under the configured allowance, with p95 \NumericPninetyfive~ms. The contact predictor completes none of its 15 calls within that allowance. With the functional allowance, it completes all 15 with p95 \PhysicsPninetyfive~ms. Its incomplete 20~ms calls request hold; returning hold after an observed overrun is not a hard-deadline guarantee. The current contact predictor is not demonstrated to support a 20~ms supervisor on this host. The result does not show that the reduced model is physically more accurate.
 \input{generated/timing_table}
 
 \subsection{Disturbance Outcomes}
@@ -126,7 +126,17 @@ Table~\ref{tab:timing} is generated from the recorded Docker evidence. The reduc
 All \StudyRuns{} runs meet the terminal, cap, and logging checks: \DoneCount{} complete placement and \HoldCount{} end in supported holds. Table~\ref{tab:study} preserves this distinction. In the two delayed-observation cases, enabling reconfiguration permits completion; disabling it produces holds for excessive pickup uncertainty. Both conditions hold when pickup detection is absent. These are fixture-level observations, not a diagnosis sensitivity, false-alarm rate, or throughput gain.
 \input{generated/study_table}
 
-The artifact also records \LogicTests{} logic checks and end-to-end integration checks for strict/open-loop operation, replay, prediction, and deadline handling. Check counts support implementation consistency; they are not performance sample sizes. Source and configuration provenance are identified in~\cite{SoftwareArtifact}. No physical result is inferred from passing these checks.
+The earlier artifact also records \LogicTests{} logic checks and end-to-end integration checks for strict/open-loop operation, replay, prediction, and deadline handling. Check counts support implementation consistency; they are not performance sample sizes. Source and configuration provenance are identified in~\cite{SoftwareArtifact}. No physical result is inferred from passing these checks.
+
+
+\subsection{Native Rollout Optimization}
+% [claim:C017] [evidence:E004,E107]
+A subsequent implementation replaces repeated Python stepping with the installed native rollout facility~\cite{MuJoCoRollout}. It groups candidates by their stopping-step index, evaluates running prefixes, and starts the stopped-model segment with the same time, position, and velocity transfer as the reference implementation. Every returned step, including the initial state, contributes to the margin check. Physics parameters, the integration grid, and the candidate set are retained. Worker count is a separate software setting; configurations with one, four, and eight workers are evaluated rather than silently selected as a new default.
+
+Twelve numerical fixtures, including zero speed, aged estimates, end-of-belt conditions, and off-grid stopping times, are checked at each worker count against the retained reference. Actions, scenario counts, integration-step counts, and minimum margins satisfy the declared checks; the observed maximum margin difference is zero with a comparison tolerance of $10^{-9}$ m. This tolerance tests two implementations of the same model and is not a statement about physical accuracy. A separate trajectory regression compares individual native states with successive reference steps.
+
+\input{generated/native_table}
+Table~\ref{tab:native} reports a separate 3 November Docker timing campaign, with 15 measured calls per implementation and allowance after warm-up. The observations show lower complete-forecast times for native grouping and additional workers. Calls are evaluated in sequence on the same host, without randomized ordering or controlled background load; no universal speedup or statistical significance is claimed. No variant completes a measured call within 20 ms. Native groups cannot be interrupted mid-call, and returning HOLD after a detected overrun can take longer than in the reference loop. The optional eight-worker end-to-end simulation also holds for a prediction-deadline overrun with evaluator-confirmed support. It is not counted as a completed product. Thus the optimization improves the observed full-forecast computation but does not establish a real-time physical supervisor.
 
 \clearpage
 \section{Physical Validation}

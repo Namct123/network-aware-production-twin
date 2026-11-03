@@ -56,3 +56,6 @@ human_verification giữ pending. evidence/audit.json không tự cấp chứng 
 Chuẩn định dạng phải rà lại theo hội nghị cụ thể, kể cả giới hạn trang, thông
 tin tác giả, tài liệu tham khảo, khả năng tiếp cận và yêu cầu công bố dùng AI.
 Không suy việc dùng template LNCS thành bài đã được Springer chấp nhận.
+
+
+Bổ sung 03/11: body.tex có phần tối ưu native rollout. Bảng cũ 02/11 được giữ riêng; bảng mới lấy từ candidate-20261103-native-physics. Không biến thể nào tính đủ trong hạn 20 ms ở các mẫu mới; các mục vật lý vẫn trống.

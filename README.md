@@ -84,3 +84,8 @@ Kết quả 02/11/2026: [báo cáo dễ hiểu](docs/bao_cao_danh_gia_20261102.m
 ## Bài báo đang phát triển
 
 [Bản thảo LaTeX hiện tại](paper/README.md) và [PDF lý thuyết/kết quả ảo](reports/dt_cppps_manuscript_virtual.pdf). Phần kiểm chứng vật lý và thông tin tác giả chưa điền; đây là bản làm việc, chưa được tác giả duyệt để nộp.
+
+
+## Tối ưu MuJoCo — 03/11/2026
+
+[Bản native có số luồng nhập được](docs/toi_uu_du_bao_mujoco.md), [kết quả và giới hạn](docs/bao_cao_toi_uu_20261103.md). Vẫn chưa đạt hạn 20 ms; điều khiển mặc định giữ nhánh 1 chiều.

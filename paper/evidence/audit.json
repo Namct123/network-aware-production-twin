@@ -1,10 +1,11 @@
 {
-  "abstract_words": 207,
+  "abstract_words": 225,
   "citations": [
     "Ademujimi2022",
     "Fu2025",
     "Hespanha2007",
     "Kritzinger2018",
+    "MuJoCoRollout",
     "SoftwareArtifact",
     "Todorov2012",
     "Yates2021"

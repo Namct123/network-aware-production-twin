@@ -49,6 +49,22 @@ def prepare():
         lines.append(f"{title} & {a['done']} & {a['hold']} & {b['done']} & {b['hold']}"+r'\\')
     lines += [r'\bottomrule',r'\end{tabular}',r'\end{table}']
     (output/'study_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    native_path=ROOT/'docker/evidence/candidate-20261103-native-physics.json'
+    native_evidence=json.loads(native_path.read_text(encoding='utf-8'))
+    native=native_evidence['optimization']
+    assert native['equivalence_failures']==0 and native['equivalence_cases']==12
+    assert native['physical_validation'] is False
+    (HERE/'evidence/native_20261103.json').write_bytes(native_path.read_bytes())
+    native_groups=native['benchmark_groups']
+    lines=[r'\begin{table}[t]',r'\caption{Native rollout observations on 3 November: full-call median and p95 use the 1 s allowance; each count is out of 15 measured calls}',
+           r'\label{tab:native}',r'\centering\small',r'\begin{tabular}{lrrrr}',r'\toprule',
+           r'Implementation & Median & p95 & Complete & Complete\\',r' & (ms) & (ms) & at 20 ms & at 1 s\\',r'\midrule']
+    for backend,label in [('physics_reference','Reference loop'),('physics_native_t1','Native: 1 worker'),('physics_native_t4','Native: 4 workers'),('physics_native_t8','Native: 8 workers')]:
+        full=next(g for g in native_groups if g['backend']==backend and g['budget_kind']=='functional')
+        deadline=next(g for g in native_groups if g['backend']==backend and g['budget_kind']=='configured')
+        lines.append(f"{label} & {full['median_ms']:.2f} & {full['p95_ms']:.2f} & {deadline['complete']} & {full['complete']}"+r'\\')
+    lines += [r'\bottomrule',r'\end{tabular}',r'\end{table}']
+    (output/'native_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     abstract=(HERE/'title_abstract.tex').read_text(encoding='utf-8')
     words=re.search(r'\\begin\{abstract\}(.*?)\\keywords',abstract,re.S)[1].split()
     assert 150<=len(words)<=250, len(words)
@@ -61,9 +77,10 @@ def prepare():
     assert keys==refs,(keys,refs)
     assert r'\author{\mbox{}}' in abstract and r'\institute{\mbox{}}' in abstract
     sources={'E001':[evidence],'E002':[ROOT/'mujoco'/name for name in ['runtime.py','estimator.py','predictor.py','physics_predictor.py','sequence.py','reconfiguration.py','check_robustness.py','qualify.py']],
-             'E003':[ROOT/'mujoco/configs/reconfigurable_cell_20261030.json',ROOT/'mujoco/experiments/qualification_20261102.json']}
+             'E003':[ROOT/'mujoco/configs/reconfigurable_cell_20261030.json',ROOT/'mujoco/experiments/qualification_20261102.json'],
+             'E004':[native_path,ROOT/'mujoco/check_physics_optimization.py']}
     manifest={'prepared_on':'2026-11-03','status':'working_draft_human_verification_pending','physical_evidence':None,
-        'source_artifact_commit':'93d60ca','author_approval':False,
+        'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],'author_approval':False,
         'sources':{key:[{'path':p.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths] for key,paths in sources.items()}}
     (HERE/'evidence/source_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     claims=[]

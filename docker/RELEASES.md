@@ -1,3 +1,23 @@
+## candidate-20261103-native-physics — checked 2026-11-03
+
+- User acceptance: **pending**. No accepted/stable/latest tag assigned.
+- Image ID: `sha256:d7458ca5cc4766b8a537aa80b77b48bcf6e32096c49574f2a42606132f22aa27`.
+- Scope: native grouped contact forecasts, configurable 1..16 workers (default 1),
+  reference implementation retained, optional 8-worker profile. Numeric supervisor remains default.
+- Final container: 103 logic checks; 12 numerical fixtures at 1/4/8 workers;
+  trajectory regression; integration; 24 qualification runs; opt-in native-profile cycle.
+  All commands exited 0. Native cycle held with prediction_deadline_exceeded and supported product;
+  this is not completed production.
+- Source hashes matched; all previous delivered images/tags preserved, including the accepted core.
+- Evidence: [evidence/candidate-20261103-native-physics.json](evidence/candidate-20261103-native-physics.json).
+- Benchmark output: `output/docker/physics-check_20261103T030306Z_e2d2c233`.
+- Earlier candidate attempt failed parameter-report initialization for native_threads.
+  The unit declaration was corrected at the shared boundary and checked in the final image.
+  Failed logs remain at output/docker/qualification_20261103_native/.
+- Grouped native calls cannot be preempted mid-call. Observed 20 ms overruns still select HOLD;
+  these findings do not qualify hard realtime or physical accuracy. No step/scenario reduction.
+- Neither CAD V5 synchronization nor physical calibration is newly claimed.
+
 ## candidate-20261102-qualification — checked 2026-11-02
 
 - Scope: configurable timing benchmark, 24 matched fault/network/plant-variation runs,

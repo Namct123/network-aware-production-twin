@@ -1,0 +1,1317 @@
+{
+  "tag": "candidate-20261103-native-physics",
+  "user_acceptance": "pending",
+  "checks": {
+    "tests": {
+      "exit_code": 0,
+      "log": "output/docker/qualification_20261103_native_final/tests.log"
+    },
+    "physics-check": {
+      "exit_code": 0,
+      "log": "output/docker/qualification_20261103_native_final/physics-check.log",
+      "output": "output/docker/physics-check_20261103T030306Z_e2d2c233"
+    },
+    "integration-check": {
+      "exit_code": 0,
+      "log": "output/docker/qualification_20261103_native_final/integration-check.log",
+      "output": "output/docker/integration-check_20261103T030331Z_ceb8f605"
+    },
+    "qualification-check": {
+      "exit_code": 0,
+      "log": "output/docker/qualification_20261103_native_final/qualification-check.log",
+      "output": "output/docker/qualification-check_20261103T030337Z_2ea5ff40"
+    },
+    "native-demo": {
+      "exit_code": 0,
+      "log": "output/docker/qualification_20261103_native_final/native-demo.log",
+      "output": "output/docker/demo_20261103T030430Z_88607e76"
+    }
+  },
+  "native_profile_integration": {
+    "state": "HOLD",
+    "reason": "prediction_deadline_exceeded",
+    "physical_validation": false,
+    "threads": 8,
+    "prediction_calls": 1
+  },
+  "image_id": "sha256:d7458ca5cc4766b8a537aa80b77b48bcf6e32096c49574f2a42606132f22aa27",
+  "source_mismatches": [],
+  "preserved_images": {
+    "accepted-20261030-core-v1": "sha256:23ba06be2d283f73032a7f27294cccb040a72142cc42f48f506bd0ecb6892bb8",
+    "candidate-20261030-parameters": "sha256:a4b738583d27b30d6adb814d845e064f825232bb656b79d5bd3c3ed1fb0ba0ed",
+    "candidate-20261030-observer-health": "sha256:ccdc62250152215b7fd44c5a7f7fbd266d68587cdf41df87186a4579bd769e0c",
+    "candidate-20261030-reconfiguration": "sha256:1eaf75229e7080cb3ea585c846a9960bc246e37c7e4dc7b5b20228e552463200",
+    "candidate-20261031-robustness": "sha256:31f56fd0c6aa724efaed3148f7df89fa8f7e21c23994062fe7e804cdfbf0169e",
+    "candidate-20261031-adaptive-speed": "sha256:f6e7e1a8cd3cb9c1910cb6687a7be66fdc1a01742c9afb33c07487cc3d6654e7",
+    "candidate-20261031-hold-review": "sha256:9da55946676d7edf4bf22b6186b541128b6631e68f10713922e54e3a01efc542",
+    "candidate-20261031-reset-protocol": "sha256:df33a46dec93f611343a7037221a86d6f86069e0421f54c58543dcb124abf31a",
+    "candidate-20261031-integrated-core-v1": "sha256:ec749e5566c1c800890cbef02463f7b76d0051efa0015c88ed884bc65ef2d220",
+    "candidate-20261102-qualification": "sha256:050de0d323a5230c824311f684f61653076ff753cca2abce7087b550cb613ed7"
+  },
+  "date": "2026-11-03",
+  "source_manifest": {
+    "python": "3.12.16",
+    "mujoco": "3.16.0",
+    "numpy": "2.5.4",
+    "review_status_at_build": "candidate-awaiting-human-validation",
+    "geometry": "parameterized user-reported envelope available; legacy baseline preserved; neither physically calibrated",
+    "files": {
+      "docker/snapshot.py": "e787aa699e402bda2be022258d7af716168b256a4aa096f834a73ac0b83aa3a9",
+      "launch.py": "54348f4c9657a8fb5475cbf3d4ad85cd5bf8ac6cc3beaf34199f50641db0f22b",
+      "mujoco/README.md": "0cdcca45fdc8d441e57d941dc0952b645e3f2e58aa64a1a50f58c8ee0f06f5f5",
+      "mujoco/assemble.py": "f8544a93d0bfcff570c5687e45eaa187c2ffab615c70626663026bb470d6a330",
+      "mujoco/build_cell.py": "5057192cc11df84b813beba39e9f7349771352be289f6c16e7de6254f5f4dbe0",
+      "mujoco/calibrate.py": "949ed37ec536eb95b2fe409d20cc2ea99d5a28e943282757d56313323bada228",
+      "mujoco/check_integration.py": "f5170f6cd7f12d8baeca5d9733f3af325bcc962418252a210dc4b0bfca4e309b",
+      "mujoco/check_measured.py": "bef4f7ee4f1c191888c454a92708979b407b979d3a21119648f19395a309b922",
+      "mujoco/check_observer.py": "5a1ba36707fbca6da8db344ce82447bab4eb88babc08d123e2ad6c1b43402368",
+      "mujoco/check_physics_optimization.py": "803a8249c3984bcf127f2aa12bdc5e3c7fe3ff75fbf942a444d481802fba8b2e",
+      "mujoco/check_prediction.py": "5a12ab5a3f11483276e14e4b5fcc43b9eed6365587a06e617a90b2842b512821",
+      "mujoco/check_reconfiguration.py": "5d4ea6e881e68d596e11dd396bcea868425beeaf4276c2b0638cc43bb7ef87e5",
+      "mujoco/check_recovery.py": "ce42124d8fa00a2db8dda99b0d0f4ea21a87036ee5ae230efce9a7b6ef1873ea",
+      "mujoco/check_reset.py": "baa39102f10c6357e3044f7c263de9ab1508812c4f798d010a305d3cc92ef199",
+      "mujoco/check_robustness.py": "01b0aa364e76d281c7befc4b18aab88820588b20d5c9935fe14b3ba1098e6086",
+      "mujoco/check_twin.py": "05556db2bba5adace4e51d30985be13ea505acf774df55d0796306485de8b6a3",
+      "mujoco/command_history.py": "71dac49e66677ee8628f517c8aa1401e5e83168358d6693c1c4afa886641e5bf",
+      "mujoco/config.py": "ba66d03e7f61952a257262c2399c8ee2dd3fd27c4708dfa8a586f4e06dd8a6db",
+      "mujoco/configs/README.md": "efb59639e21529bf1defbe73bfed3a1a79dea9c16f82fb436a8703adc65e5b06",
+      "mujoco/configs/adaptive_cell_20261031.json": "4458def253f1779189f72103d714d06266447674ab0fdaedcb8f19882b4ea2a4",
+      "mujoco/configs/adaptive_parameters_to_fill_20261031.csv": "4a0ddb12463bab712dbad401ebc73fc2bb7e339c124ec0729817064b74900d9f",
+      "mujoco/configs/hold_review_cell_20261031.json": "b3387d8ea74e8dc232f1021707687cab68c931b537960cf792952debe1f60a1a",
+      "mujoco/configs/hold_review_parameters_to_fill_20261031.csv": "db842cff6be6263146a4d3ec2c160661fee52665e772fd6f7a250582161ecc3f",
+      "mujoco/configs/measured_cell_20261030.json": "5b9f5bdc12d6adf032ff57523ee3bcc2cf645fde09678eb7c12d2bf3f682cb62",
+      "mujoco/configs/measurements_to_fill_20261030.csv": "0cb162b531d608ca9d1bf61b31a4eb0693ff5ba5d359f5a481487cfa7e46a792",
+      "mujoco/configs/native_physics_cell_20261103.json": "7d0535e2f2d8555fe8dced496b1dc3beaf58ab91d08585e2ea665d9cb9df3145",
+      "mujoco/configs/observable_cell_20261030.json": "e2eb6ed1b20f4a99df0d2d193b7a84d2b871eb593a179f262ee80fad686077e3",
+      "mujoco/configs/observer_measurements_to_fill_20261030.csv": "4d9b6e1c7a155c86084480185af234029f4a7efabbcaf5b42efe0f71726541ae",
+      "mujoco/configs/physical_measurements.csv": "af2752917179e95111654484a7d74458db8b799194373477fbe09c96bb1b5bc3",
+      "mujoco/configs/physics_predictive_cell_20261031.json": "0daee581dbc87565c95f97a592e8d7b1d385f557b01328bb470a50431ccd168e",
+      "mujoco/configs/predictive_demo.json": "40aa2e6916666f279d5682fcd3fd8c72c68cea68de6b973e1863a000b41a6eb2",
+      "mujoco/configs/reconfigurable_cell_20261030.json": "a875fecf1be13e913ea65c336b33d218573a680ad09a46007a8dbae52fd9f0b2",
+      "mujoco/configs/reconfiguration_parameters_to_fill_20261030.csv": "9656c80af2ea9e705e2b4bc548d648c10832875e8d306d1b2d306a3dfda4743b",
+      "mujoco/configs/recording_map_example.json": "d3f5a8c47be370f814512a17fb8a915fb7b39a979fc0ba4d5f9f0b95282138c8",
+      "mujoco/configs/recording_map_unverified.json": "bcfbafd40bc3e7dddc6012cab949e75a3611799ff6496ed8346edaea66161fb5",
+      "mujoco/configs/simulation.json": "e21292b461f66b196a669c655e8dcf0fe8146139d5d1d4f6ecd01949e580e13b",
+      "mujoco/configs/slow_a2_demo.json": "6c5fcdb03ba14c0f75bdb4879e736b6c0fcf8ed33bc0b5e2f17ad8984e3cbbee",
+      "mujoco/configs/survey_20261028.json": "938c41f8d0a3708af693e9e22efb9121ce24e9986ecc282069baaed9b22142e5",
+      "mujoco/estimator.py": "b6a3755c039f44d5a539187b60a3931ce98e433fd772e5f6f61ef2343870916a",
+      "mujoco/evaluation.py": "11f6c99e7e6f3ad5159aacb1d3f53b67ab762a8e76bc96015bc76e80d3c48941",
+      "mujoco/experiment.py": "71140dc482df1e23556bbf86703f439654b0e6fd359081266ce30351cf5bdc09",
+      "mujoco/experiments/README.md": "b6a99c0ed14295e459380e38b240e9e3fab586ec5f0519f374112970d4c1aca1",
+      "mujoco/experiments/adaptive_speed_20261031.json": "2e447b0c58b1e03a3b410d88707fda361104c09fbb8efa45ecc42b36ccb4a2b3",
+      "mujoco/experiments/adaptive_speed_smoke.json": "69328ba5966e566c8ab6edf54e1455bd52b7610e1d356b007a265806ab465741",
+      "mujoco/experiments/qualification_20261102.json": "5c453625c09582985949e17fda6d3e1c4f31664def78e03e856a8f6a7bb31e5d",
+      "mujoco/experiments/reset_protocol.json": "0531bb33d81d13ceeed3bc1a5c530f65876e582b4a91f5d01ca2a6e2c866ed2d",
+      "mujoco/experiments/robustness_20261031.json": "e13d737d0ff2a08d62c238024de6fae3ac2c13bc31071d6a861ea2f8d3fdc6ea",
+      "mujoco/experiments/robustness_smoke.json": "843f726dbf788010b9a32d77d8ee9348ada7dec4459e414115d6d84cea9e0b46",
+      "mujoco/health.py": "0c12111a3b3e935c40e1e3445a7443e7c2b3e974326cbd2e1f8e95ec05f9cb51",
+      "mujoco/implementation_manifest.json": "06065a2fefc321782f2227446d0999c55ffb0165624a90b1f56f1f4d01f84285",
+      "mujoco/io_adapter.py": "f82a80d9349acd4916160ccb63d38c238ee717abe3251fd9a62630b8844a5c60",
+      "mujoco/model_profile.py": "3d745f1fe5288b1633783d2b7abc0204a856c9fe0f60e7dbc63a20991758a02a",
+      "mujoco/network.py": "2cc1f21e57455b463548d27e7c2185d880b7c53951cb7081d4a75d7dd3e2650c",
+      "mujoco/parametric_cell.py": "7125abc12d1439e48816aa70db95f2e5ebdac077f3f91974aba39e1ab53067e0",
+      "mujoco/physics_predictor.py": "36c703bc79d49713c5e25f88a7d34c11275300642b76a3f9dd559e5f33cbcdd2",
+      "mujoco/predictor.py": "05a26ed28862413873387a1ec40865e2f4cbaf436d6dbf1608f6440ad5c4b740",
+      "mujoco/production_cell.urdf": "f878e782e4456a63755061b3b4ffa3c8469aafd61d1a01df639fe957eb9a7aaf",
+      "mujoco/production_cell.xml": "4bda92227b1146c3dae6b821604ff320be0d4cea3acf83579451b224d52b3072",
+      "mujoco/qualify.py": "d3caa09726081a5c4b3dd27de81a94309f8d42a4fa961ce9b342d063a2025dd3",
+      "mujoco/reconfiguration.py": "48aaafc37ab0c18757e50d6bb268927c062003c6727671658d9834c623be31c1",
+      "mujoco/record_signals.py": "4c901d28e179db2eb05598b4530c22569a3d71fb0cfeea28295ba8deef6718a9",
+      "mujoco/recovery.py": "77b1a64a73eebc2033497f886ab8d6f4d7cc20ffbc5f5dd23661bed06fb5c922",
+      "mujoco/replay_input.py": "e6ac5b0a78893efafea0cde109790847b05f6b18ab09f5a96cd03a6887465dec",
+      "mujoco/reset_protocol.py": "8013de8eed9997b12bc9189ebf2aa714b76f684d5a85a92bf8a63503834984f1",
+      "mujoco/run_cell.py": "d14bc0220bdd4539e852212e69df48d416df6a3ac8be8b827aca3b9f73676b1a",
+      "mujoco/run_twin.py": "7975e131b3fbb325370cb42952f4a46d3603b61b3ff24b686dd7233b74fbb508",
+      "mujoco/runtime.py": "e02297a4cc70894271aa3bc9fbda8be6bd5784456cdb1f48b8831508f76be45d",
+      "mujoco/sensor_model.py": "bea5a84a0b465f8df5b0a34df6d74a7a980d936522ff2515e0e9a2723f8f8ed5",
+      "mujoco/sequence.py": "13a6fd4a6535667e6c9a420095e76a4d5d5b43b8d788891f1678e5e8e53b7b4e",
+      "mujoco/session.py": "7aa58b8b3c41857193b278ee8f2fecd9fd776ad648a9da6d8b37f9442c65264d",
+      "mujoco/signals.py": "0dd6195ddeaab63074e9bd8561b8b8b25493afdfbf4b6608e7cfbc27cf582aa8",
+      "mujoco/speed_policy.py": "3e6e846a293e2729cd28767b15f80600269c2dc2fbc0e7c092883a984e233236",
+      "mujoco/supervisor.py": "256c829f1fc90cbb1e3adee37e6574bc1892c3e428d0b4ba9e1a54190961f2e2",
+      "mujoco/test_configuration.py": "cf96f1609093ed8bca0d45114edd48c2780cf496682b03ae5e81fa703f2282e4",
+      "mujoco/test_integration_core.py": "26c6feb3de45ee37eb7f5d9d8aa3758313cda5ad2dd8c2762427b9d11b1b3876",
+      "mujoco/test_observer.py": "38d27a8663a4d3fd148cf5ce87bd0406cf663135c836a9cac7f807d28c93be61",
+      "mujoco/test_parametric.py": "6a9168188f35a477b5a14b904ae2d895951bdb845d1bf24976a84676f1112eaa",
+      "mujoco/test_physics_optimization.py": "ab1b63c7b9df6b7198cc1263103beea3f45f2ee75dced5ba9103d1a4737f9a2b",
+      "mujoco/test_prediction.py": "e1f86db3eba71824e03e6015e794694be22abb16b64fada05f1cb3ed24c58b9c",
+      "mujoco/test_qualification.py": "f5cb12f0d34ded8b8c2bdca1d6fa2a10ad824e802eb63f04d1ddf5064c120122",
+      "mujoco/test_reconfiguration.py": "40c171d87e6b63add2e4f6657abe7f978631dc24074d3f29e0a437a004783090",
+      "mujoco/test_recovery.py": "2bfe08eae23ed71ca5793c8d96e9a8b692280734dc6fef753fdeb03105804fb7",
+      "mujoco/test_reset_protocol.py": "b27fa8172fa8815e9c67718a2f604c9ed8137dccb0f2dcf4aaa2681e656e2bbb",
+      "mujoco/test_robustness.py": "c69cc9ddb116f276545868c2c26b7626d42caeb59184fde961396197c11008fe",
+      "mujoco/test_sequence.py": "51b302294905f222788d9c565fb1e1a4b2283c6b40911598c59b846ef1422964",
+      "mujoco/test_signals.py": "f40601771b9a37c2420e8bba3f6cb562b668e4a187098978d58791b28ead4983",
+      "mujoco/test_speed_policy.py": "6166941358aea5eacd7d6d7ea0d9fa1e59783194b5a75cee93a8a44a01bfb8b1",
+      "requirements.txt": "7a81185e73057b0bfeb4754f1cbb014664084ee7344c08c40d496cb89bc09432",
+      "unity/Assets/ProductionTwin/parts.csv": "343e695ebf469dd2a70392ca968ba2b4ed4b1fb71083a881ce5f16ad22b47afe",
+      "web/README.md": "3fbf14b4dffc1ea9c95a2f5fe16aaa52d54141c8db18fbb4069464a03105b84b",
+      "web/START_EXPLORER.cmd": "3e7f7f77bf31b47b375eeaa0699cf519e2a3dce30d446fb4b1e10da7b20e253a",
+      "web/START_SIMULATION_EXPLORER.cmd": "b455ec870afdb39efaed85ac0a32c83c839b797966c88a65165f3201e9746ef5",
+      "web/app.js": "eb70e1dbf4654bf81db65fa8804c1a77bb3b27c0cddd321095f156c7ad5f4f94",
+      "web/build_replays.py": "03ed1d85b05b0d625b0687bccb41316b410bbacaa3892f754751dbe3452c4863",
+      "web/check_live_experiments.py": "bc3839846f653ec3cbc516678c4eb9fcf0966b84ea93a066af0553ca6a4c18f9",
+      "web/data/baseline_missing_ps2.json": "feea584e06641cef5200e1370938a94af22cb9983926648aef24b7c31f6f3bab",
+      "web/data/baseline_nominal.json": "d1e18f482490310082e08d5c7285fb50409f0974642fca0d04681470a709c952",
+      "web/data/index.json": "76b98f32d70df05a337590fe461a28e3d7875697554a55f6da53ff6dc0843e29",
+      "web/data/predictive_deadline.json": "19a59d5146205450315d86cd487c04956e6cac3565dae4bc1f5c9ca858c116cd",
+      "web/data/predictive_delay_20ms.json": "026cf13b5884cb7e0cd05f25a6fde3e78ae7cbda93bf1a265c5f2be1a9a1f7a5",
+      "web/data/predictive_loss_all.json": "3fe24f68946f53f31e5055565a724fcfe12fff6c553de0cd4b9faae9f722655e",
+      "web/data/predictive_missing_ps2.json": "41c5e745ffbc4ecac5a188ff79adc6bf52ebd9548c7eb12a5278b70b2da37e86",
+      "web/data/predictive_nominal.json": "28029313617d068ca7ea897c595cf0d21154af5455f141cfd4944c66cb4e03e3",
+      "web/data/predictive_speed_high.json": "7f5e7dec10abb273c5db6f909e3b8c7d5f889ae6056dbe671c62ec4bd75780ef",
+      "web/data/predictive_speed_low.json": "be18cb024c20bbfa24f3db89699df32b697a3fdb3ee50196275183aece5787e5",
+      "web/data/predictive_strict.json": "4d4d4f424bfa24c61242f6d08cbd0bec4cbdcd1f2a071e836eb332f445b741ca",
+      "web/experiments.py": "65974dff9bc547cffe4873ba1d278b2b91eace3cfc7289694fcaa3999993cd69",
+      "web/index.html": "107687845fe21c693d76622ce78672dd2a82a1cfd521b06540a8733e0e9cb472",
+      "web/package_explorer.py": "8e6c64080df641fd3d8d20090869b88976a60334d3282d39f6b7dc86b4b9566a",
+      "web/project_status.py": "5ddf5ea4620fd226661ed89523bcac6661b89beff93466ea8eba54da4bde4600",
+      "web/server.py": "9204d0f832119514c0956da15ae38e273f32abdbcd4fcff6de1405dedf6f4252",
+      "web/style.css": "1665dc8a91a3a9701303c8220757ef9eefb4b23e6d482b4500ca6af1a614cf12",
+      "web/test_experiments.py": "09e3a8bc32b38b652254588973d073c8a98a14eaaf341da8e3c00ebe76f839c8",
+      "web/test_explorer.py": "00857f8b1792d80ff4bd7584553700b0fe967a72c2281e5958aa7b3adf4ed3ff",
+      "web/tong_quan.html": "d1f81e19670fefb76d13e6f0a9fc21454e41756240eb3c96220dfd179d47b517",
+      "web/tong_quan.js": "160ef6b97e46cc27a29412a2dff39d03be9e13648488b58967e7975f762ed007"
+    }
+  },
+  "optimization": {
+    "kind": "physics_optimization_v1",
+    "equivalence_cases": 12,
+    "equivalence_failures": 0,
+    "max_margin_error_m": 0.0,
+    "benchmark_groups": [
+      {
+        "backend": "physics_reference",
+        "budget_kind": "configured",
+        "samples": 15,
+        "median_ms": 20.35785700000048,
+        "p95_ms": 21.282944999999387,
+        "max_ms": 21.282944999999387,
+        "complete": 0,
+        "incomplete": 15,
+        "deadline_misses": 15,
+        "continue": 0
+      },
+      {
+        "backend": "physics_reference",
+        "budget_kind": "functional",
+        "samples": 15,
+        "median_ms": 398.44924800000217,
+        "p95_ms": 446.9968009999974,
+        "max_ms": 446.9968009999974,
+        "complete": 15,
+        "incomplete": 0,
+        "deadline_misses": 0,
+        "continue": 15
+      },
+      {
+        "backend": "physics_native_t1",
+        "budget_kind": "configured",
+        "samples": 15,
+        "median_ms": 22.53969499999897,
+        "p95_ms": 27.785188000002847,
+        "max_ms": 27.785188000002847,
+        "complete": 0,
+        "incomplete": 15,
+        "deadline_misses": 15,
+        "continue": 0
+      },
+      {
+        "backend": "physics_native_t1",
+        "budget_kind": "functional",
+        "samples": 15,
+        "median_ms": 137.37128599999693,
+        "p95_ms": 151.62205200000045,
+        "max_ms": 151.62205200000045,
+        "complete": 15,
+        "incomplete": 0,
+        "deadline_misses": 0,
+        "continue": 15
+      },
+      {
+        "backend": "physics_native_t4",
+        "budget_kind": "configured",
+        "samples": 15,
+        "median_ms": 21.62492600000121,
+        "p95_ms": 35.30420399999912,
+        "max_ms": 35.30420399999912,
+        "complete": 0,
+        "incomplete": 15,
+        "deadline_misses": 15,
+        "continue": 0
+      },
+      {
+        "backend": "physics_native_t4",
+        "budget_kind": "functional",
+        "samples": 15,
+        "median_ms": 56.39294399999528,
+        "p95_ms": 62.515701000002366,
+        "max_ms": 62.515701000002366,
+        "complete": 15,
+        "incomplete": 0,
+        "deadline_misses": 0,
+        "continue": 15
+      },
+      {
+        "backend": "physics_native_t8",
+        "budget_kind": "configured",
+        "samples": 15,
+        "median_ms": 26.824120000000562,
+        "p95_ms": 31.150617999998076,
+        "max_ms": 31.150617999998076,
+        "complete": 0,
+        "incomplete": 15,
+        "deadline_misses": 15,
+        "continue": 0
+      },
+      {
+        "backend": "physics_native_t8",
+        "budget_kind": "functional",
+        "samples": 15,
+        "median_ms": 50.288104000003386,
+        "p95_ms": 54.653133999998715,
+        "max_ms": 54.653133999998715,
+        "complete": 15,
+        "incomplete": 0,
+        "deadline_misses": 0,
+        "continue": 15
+      }
+    ],
+    "realtime_certified": false,
+    "physical_validation": false,
+    "physical_parameter_tuning": false,
+    "compute_variants": [
+      1,
+      4,
+      8
+    ],
+    "user_acceptance": "pending"
+  },
+  "equivalence": [
+    {
+      "variant": "baseline",
+      "case": 0,
+      "input": {
+        "y_m": -0.21200000000000002,
+        "velocity_m_s": 0,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0,
+      "reference": {
+        "status": "complete",
+        "action": "CONTINUE",
+        "reason": "predictive_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 13500,
+        "compute_ms": 372.33708499999807,
+        "margins_m": {
+          "HOLD": 0.01,
+          "CONTINUE": 0.010000000000000002
+        },
+        "estimate_age_s": 0,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 133.87260200000028,
+          "margins_m": {
+            "HOLD": 0.01,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 53.88462699999863,
+          "margins_m": {
+            "HOLD": 0.01,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 50.37151699999853,
+          "margins_m": {
+            "HOLD": 0.01,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "baseline",
+      "case": 1,
+      "input": {
+        "y_m": 0.0,
+        "velocity_m_s": 0.16,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0,
+      "reference": {
+        "status": "complete",
+        "action": "CONTINUE",
+        "reason": "predictive_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 13500,
+        "compute_ms": 369.12650999999744,
+        "margins_m": {
+          "HOLD": 0.010000000000000002,
+          "CONTINUE": 0.010000000000000002
+        },
+        "estimate_age_s": 0,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 131.47168399999742,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 55.81784299999981,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 48.8367089999997,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "baseline",
+      "case": 2,
+      "input": {
+        "y_m": 0.21200000000000002,
+        "velocity_m_s": 0.16,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0.02,
+      "reference": {
+        "status": "complete",
+        "action": "CONTINUE",
+        "reason": "predictive_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 13500,
+        "compute_ms": 373.40589700000135,
+        "margins_m": {
+          "HOLD": 0.008848315497634457,
+          "CONTINUE": 0.005160688272830255
+        },
+        "estimate_age_s": 0.02,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 139.95830300000023,
+          "margins_m": {
+            "HOLD": 0.008848315497634457,
+            "CONTINUE": 0.005160688272830255
+          },
+          "estimate_age_s": 0.02,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 54.55532299999888,
+          "margins_m": {
+            "HOLD": 0.008848315497634457,
+            "CONTINUE": 0.005160688272830255
+          },
+          "estimate_age_s": 0.02,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 53.28224199999809,
+          "margins_m": {
+            "HOLD": 0.008848315497634457,
+            "CONTINUE": 0.005160688272830255
+          },
+          "estimate_age_s": 0.02,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "baseline",
+      "case": 3,
+      "input": {
+        "y_m": 0.10599999999999998,
+        "velocity_m_s": 0.2,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0.06,
+      "reference": {
+        "status": "complete",
+        "action": "CONTINUE",
+        "reason": "predictive_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 13500,
+        "compute_ms": 403.094835000001,
+        "margins_m": {
+          "HOLD": 0.010000000000000002,
+          "CONTINUE": 0.010000000000000002
+        },
+        "estimate_age_s": 0.06,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 135.74924999999993,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 61.17339700000102,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 54.904858000000445,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "baseline",
+      "case": 4,
+      "input": {
+        "y_m": 0.27560000000000007,
+        "velocity_m_s": 0.16,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0.06,
+      "reference": {
+        "status": "complete",
+        "action": "HOLD",
+        "reason": "predictive_no_admissible_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 13500,
+        "compute_ms": 288.0905280000014,
+        "margins_m": {
+          "HOLD": -1.1961157246178185,
+          "CONTINUE": -1.1961157246178185
+        },
+        "estimate_age_s": 0.06,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 67.56127500000275,
+          "margins_m": {
+            "HOLD": -1.1961157246178185,
+            "CONTINUE": -1.1961157246178185
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 33.585168999998416,
+          "margins_m": {
+            "HOLD": -1.1961157246178185,
+            "CONTINUE": -1.1961157246178185
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 30.28643400000064,
+          "margins_m": {
+            "HOLD": -1.1961157246178185,
+            "CONTINUE": -1.1961157246178185
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "baseline",
+      "case": 5,
+      "input": {
+        "y_m": 0.25970000000000004,
+        "velocity_m_s": 0.24,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0.1,
+      "reference": {
+        "status": "complete",
+        "action": "HOLD",
+        "reason": "predictive_no_admissible_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 13500,
+        "compute_ms": 306.0500570000002,
+        "margins_m": {
+          "HOLD": -1.2106550000000034,
+          "CONTINUE": -1.2106550000000034
+        },
+        "estimate_age_s": 0.1,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 63.89120399999726,
+          "margins_m": {
+            "HOLD": -1.2106550000000034,
+            "CONTINUE": -1.2106550000000034
+          },
+          "estimate_age_s": 0.1,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 33.215513000001806,
+          "margins_m": {
+            "HOLD": -1.2106550000000034,
+            "CONTINUE": -1.2106550000000034
+          },
+          "estimate_age_s": 0.1,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 13500,
+          "compute_ms": 31.31972999999988,
+          "margins_m": {
+            "HOLD": -1.2106550000000034,
+            "CONTINUE": -1.2106550000000034
+          },
+          "estimate_age_s": 0.1,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "off_grid_stop",
+      "case": 0,
+      "input": {
+        "y_m": -0.21200000000000002,
+        "velocity_m_s": 0,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0,
+      "reference": {
+        "status": "complete",
+        "action": "CONTINUE",
+        "reason": "predictive_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 9018,
+        "compute_ms": 324.42052799999743,
+        "margins_m": {
+          "HOLD": 0.010000000000000002,
+          "CONTINUE": 0.010000000000000002
+        },
+        "estimate_age_s": 0,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 106.67277900000016,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 46.49035599999962,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 42.357516000002704,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "off_grid_stop",
+      "case": 1,
+      "input": {
+        "y_m": 0.0,
+        "velocity_m_s": 0.16,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0,
+      "reference": {
+        "status": "complete",
+        "action": "CONTINUE",
+        "reason": "predictive_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 9018,
+        "compute_ms": 317.87885700000015,
+        "margins_m": {
+          "HOLD": 0.010000000000000002,
+          "CONTINUE": 0.010000000000000002
+        },
+        "estimate_age_s": 0,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 102.2106419999993,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 46.69327199999884,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 44.40825400000037,
+          "margins_m": {
+            "HOLD": 0.010000000000000002,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "off_grid_stop",
+      "case": 2,
+      "input": {
+        "y_m": 0.21200000000000002,
+        "velocity_m_s": 0.16,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0.02,
+      "reference": {
+        "status": "complete",
+        "action": "CONTINUE",
+        "reason": "predictive_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 9018,
+        "compute_ms": 327.4391579999971,
+        "margins_m": {
+          "HOLD": 0.007679725121546993,
+          "CONTINUE": 0.002186604320922686
+        },
+        "estimate_age_s": 0.02,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 100.44766200000055,
+          "margins_m": {
+            "HOLD": 0.007679725121546993,
+            "CONTINUE": 0.002186604320922686
+          },
+          "estimate_age_s": 0.02,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 44.88646599999768,
+          "margins_m": {
+            "HOLD": 0.007679725121546993,
+            "CONTINUE": 0.002186604320922686
+          },
+          "estimate_age_s": 0.02,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 40.95800199999999,
+          "margins_m": {
+            "HOLD": 0.007679725121546993,
+            "CONTINUE": 0.002186604320922686
+          },
+          "estimate_age_s": 0.02,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "off_grid_stop",
+      "case": 3,
+      "input": {
+        "y_m": 0.10599999999999998,
+        "velocity_m_s": 0.2,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0.06,
+      "reference": {
+        "status": "complete",
+        "action": "CONTINUE",
+        "reason": "predictive_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 9018,
+        "compute_ms": 339.2483980000023,
+        "margins_m": {
+          "HOLD": 0.01,
+          "CONTINUE": 0.010000000000000002
+        },
+        "estimate_age_s": 0.06,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 98.65090699999968,
+          "margins_m": {
+            "HOLD": 0.01,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 45.64102899999867,
+          "margins_m": {
+            "HOLD": 0.01,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "CONTINUE",
+          "reason": "predictive_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 46.957582000001,
+          "margins_m": {
+            "HOLD": 0.01,
+            "CONTINUE": 0.010000000000000002
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "off_grid_stop",
+      "case": 4,
+      "input": {
+        "y_m": 0.27560000000000007,
+        "velocity_m_s": 0.16,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0.06,
+      "reference": {
+        "status": "complete",
+        "action": "HOLD",
+        "reason": "predictive_no_admissible_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 9018,
+        "compute_ms": 240.83564400000057,
+        "margins_m": {
+          "HOLD": -1.1965330372721206,
+          "CONTINUE": -1.1866751394098682
+        },
+        "estimate_age_s": 0.06,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 48.86102999999764,
+          "margins_m": {
+            "HOLD": -1.1965330372721206,
+            "CONTINUE": -1.1866751394098682
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 27.49955599999865,
+          "margins_m": {
+            "HOLD": -1.1965330372721206,
+            "CONTINUE": -1.1866751394098682
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 31.765295999999665,
+          "margins_m": {
+            "HOLD": -1.1965330372721206,
+            "CONTINUE": -1.1866751394098682
+          },
+          "estimate_age_s": 0.06,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    },
+    {
+      "variant": "off_grid_stop",
+      "case": 5,
+      "input": {
+        "y_m": 0.25970000000000004,
+        "velocity_m_s": 0.24,
+        "uncertainty_m": 0.005,
+        "anchors": 2,
+        "reason": "tracking",
+        "command_gain": null
+      },
+      "age_s": 0.1,
+      "reference": {
+        "status": "complete",
+        "action": "HOLD",
+        "reason": "predictive_no_admissible_continue",
+        "completed_scenarios": 54,
+        "expected_scenarios": 54,
+        "rollout_steps": 9018,
+        "compute_ms": 229.14927400000096,
+        "margins_m": {
+          "HOLD": -1.218032120000001,
+          "CONTINUE": -1.218032120000001
+        },
+        "estimate_age_s": 0.1,
+        "horizon_s": 0.5,
+        "model": "independent MuJoCo belt/block contact forecast; not full-cell or calibrated suction physics"
+      },
+      "native_variants": [
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 47.56876300000101,
+          "margins_m": {
+            "HOLD": -1.218032120000001,
+            "CONTINUE": -1.218032120000001
+          },
+          "estimate_age_s": 0.1,
+          "horizon_s": 0.5,
+          "native_threads": 1,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 28.189787999998828,
+          "margins_m": {
+            "HOLD": -1.218032120000001,
+            "CONTINUE": -1.218032120000001
+          },
+          "estimate_age_s": 0.1,
+          "horizon_s": 0.5,
+          "native_threads": 4,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        },
+        {
+          "status": "complete",
+          "action": "HOLD",
+          "reason": "predictive_no_admissible_continue",
+          "completed_scenarios": 54,
+          "expected_scenarios": 54,
+          "rollout_steps": 9018,
+          "compute_ms": 30.929887000002765,
+          "margins_m": {
+            "HOLD": -1.218032120000001,
+            "CONTINUE": -1.218032120000001
+          },
+          "estimate_age_s": 0.1,
+          "horizon_s": 0.5,
+          "native_threads": 8,
+          "model": "independent MuJoCo belt/block contact forecast; native grouped rollout; not full-cell or calibrated suction physics"
+        }
+      ],
+      "margin_max_error_m": 0.0,
+      "passed": true
+    }
+  ],
+  "benchmark_environment": {
+    "python": "3.12.16",
+    "mujoco": "3.16.0",
+    "numpy": "2.5.4",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+    "cpu_count": 12,
+    "cpu_affinity_count": 12,
+    "source_sha256": {
+      "physics_predictor.py": "36c703bc79d49713c5e25f88a7d34c11275300642b76a3f9dd559e5f33cbcdd2",
+      "check_physics_optimization.py": "803a8249c3984bcf127f2aa12bdc5e3c7fe3ff75fbf942a444d481802fba8b2e",
+      "qualify.py": "d3caa09726081a5c4b3dd27de81a94309f8d42a4fa961ce9b342d063a2025dd3"
+    },
+    "scope": "native thread counts 1/4/8; same physical models; no physical parameter calibration"
+  },
+  "physical_validation": false,
+  "user_acceptance_reference": null,
+  "known_limitation": "No measured native variant completed under 20 ms; grouped calls are not preemptible."
+}

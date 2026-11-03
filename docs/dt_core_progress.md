@@ -290,3 +290,8 @@ dừng 1D, chưa phải nhiều rollout tiếp xúc của plant.
 ## 02/11/2026 — Bộ đánh giá có đối chứng
 
 Đã bổ sung phép đo hai nhánh dự báo, kế hoạch 24 lượt thử từng yếu tố và bảng thời gian trên trang tổng quan. Không đổi thuật toán điều khiển/giá trị đo. [Chức năng và cách chạy](danh_gia_co_doi_chung.md); [kết quả và giới hạn](bao_cao_danh_gia_20261102.md). Ảnh thử nghiệm mới chờ nghiệm thu.
+
+
+## 03/11/2026 — Native rollout cho dự báo tiếp xúc
+
+Giữ bản gốc, gom vòng lặp trong MuJoCo và cho nhập số luồng. Đã đối chiếu và chạy tích hợp trong Docker, chưa đạt 20 ms. [Hướng dẫn](toi_uu_du_bao_mujoco.md), [số liệu và giới hạn](bao_cao_toi_uu_20261103.md). Bài báo có bảng mới, phần vật lý giữ trống.

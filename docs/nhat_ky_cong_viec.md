@@ -245,3 +245,65 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Để trạng thái chờ tác giả xác nhận và chưa sẵn sàng nộp. Chưa ghi kết quả tối ưu
   MuJoCo mới vì hạng mục đó chưa có phép chạy hoàn tất bổ sung trong đợt viết bài này.
 - Chỉ cập nhật bài báo/tài liệu; không thay mã điều khiển, hồ sơ vật lý hoặc ảnh Docker lõi.
+
+### 021 — Viết đủ hạng mục tối ưu MuJoCo trước khi chạy (03/11/2026)
+
+- O01: giữ ReferenceMuJoCoBeltPredictor làm bản gốc. Bản mới dùng rollout có sẵn
+  trong MuJoCo để gom vòng lặp theo thời điểm dừng, một luồng, không thêm thư viện.
+- Giữ XML, lưới vật lý, số kịch bản, cách chuyển sang băng dừng và thông số hiện tại;
+  không đọc trạng thái thật của cảnh đang chạy. Kiểm tra thời gian trước/sau mỗi nhóm.
+- O02: viết đối chiếu 12 trường hợp, thêm kiểm tra quỹ đạo từng bước, đầu vào lỗi,
+  thời gian mô phỏng không tiến và quá hạn. Chưa chạy thử tại mốc ghi này.
+- O03: ghép physics-check, tài liệu và kế hoạch Docker candidate mới. Chưa tự kết
+  luận đạt 20 ms hoặc cập nhật thành tích vào bài báo khi chưa có kết quả.
+
+### 022 — Đối chiếu bản gom một luồng và bổ sung thử số luồng
+
+- 102 kiểm tra logic đạt. 12 trường hợp so bản gốc/bản gom một luồng có cùng
+  hành động, số bước và biên; sai khác biên quan sát bằng 0. Quỹ đạo từng bước
+  trong kiểm tra riêng cũng khớp trong ngưỡng so số học.
+- Ở lượt đo WSL đầu tiên, trung vị tính đủ giảm khoảng 395 xuống 138 ms,
+  nhưng 15/15 lượt đo với hạn 20 ms vẫn không tính đủ. Độ trễ khi trả dừng của
+  bản gom cũng lớn hơn bản gốc vì không ngắt được giữa nhóm mã máy; không che hạn chế này.
+- Bổ sung native_threads có thể nhập (1–16, mặc định 1). Viết kiểm tra bốn luồng
+  và đối chiếu cả 1/4/8 luồng; chỉ đổi cách dùng CPU, không đổi vật lý hoặc giảm kịch bản.
+- Hồ sơ 8 luồng là lựa chọn riêng; nhánh mặc định tính một chiều giữ nguyên.
+
+### 023 — Kết quả bản có số luồng nhập được
+
+- 103 kiểm tra logic đạt. Đối chiếu 12 đầu vào cho mỗi bản 1/4/8 luồng, không thấy
+  sai khác biên và hành động trong ngưỡng đã định; không suy thành độ chính xác máy thật.
+- Trong phép đo WSL kế tiếp, trung vị đầy đủ của bản gốc khoảng 408 ms; bản gom
+  1/4/8 luồng lần lượt khoảng 134/49/44 ms. Các mẫu và p95 được giữ trong report.
+- Ở hạn 20 ms, vẫn không có lượt đo nào tính đủ; không tăng hạn, không chọn xóa
+  các lượt quá hạn. Đây là cải tiến tốc độ tính, chưa hoàn thành mục tiêu 20 ms.
+- Bổ sung chặn quá hạn ngay khi tạo kết quả trả về; không tự ghi CONTINUE nếu
+  thời gian tính nội bộ tại điểm tạo kết quả đã vượt hạn.
+
+### 024 — Lỗi ghép hồ sơ và sửa tại nguồn
+
+- Bộ đo/đối chiếu và 24 lượt hồi quy trong ảnh đầu đều đạt, nhưng chu trình dùng
+  hồ sơ 8 luồng bị chặn trước khi chạy: bảng tham số chưa biết đơn vị native_threads.
+- Bổ sung native_threads là thiết lập thiết kế không thứ nguyên trong bộ khai báo
+  tham số chung, không đánh dấu là số đo vật lý. Thêm kiểm tra phân loại này.
+- Giữ nguyên log lần lỗi; dựng lại ảnh và chạy lại các kiểm tra liên quan trước
+  khi bàn giao. Không tính lần chu trình lỗi là một lượt hoàn tất hay dừng đạt tiêu chí.
+
+### 025 — Bàn giao bản native sau kiểm tra lại
+
+- Trong ảnh cuối: 103 kiểm tra lõi, bộ tích hợp, 12 trường hợp đối chiếu từng bản
+  1/4/8 luồng và 24 lượt hồi quy đều đạt. Hồ sơ native 8 luồng ghép được vào chu trình.
+- Chu trình native dừng do dự báo quá hạn, phôi còn hỗ trợ theo bộ chấm; không
+  tính thành phôi hoàn tất. Hạn 20 ms vẫn chưa được đáp ứng.
+- Báo cáo dễ đọc: docs/bao_cao_toi_uu_20261103.md. Các kết quả chưa đạt, lỗi ghép
+  đầu tiên và các mức luồng đều được giữ. Mã ảnh/nguồn/bằng chứng ở docker/RELEASES.md.
+- Không thay ảnh đã được người dùng nghiệm thu. Ảnh mới vẫn là candidate.
+
+### 026 — Cập nhật bài báo theo bằng chứng tối ưu mới
+
+- Bổ sung Native Rollout Optimization và bảng sinh từ ảnh cuối đã kiểm tra.
+  Bảng 02/11 giữ nguyên, bảng 03/11 tách riêng; không trộn thời gian các đợt.
+- Abstract 225 từ, PDF hiện 10 trang A4 một cột. Nêu cả việc cải thiện thời gian
+  tính đầy đủ và chưa có lượt native tính đủ trong 20 ms. Bốn mục vật lý vẫn trống.
+- Tác giả/đơn vị/công bố cần xác nhận vẫn chưa điền. Các nhận định mới gắn E004,
+  nguồn API gắn E107; chưa tự đánh dấu được tác giả thẩm định hoặc sẵn sàng nộp.

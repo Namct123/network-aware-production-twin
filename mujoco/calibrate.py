@@ -82,7 +82,8 @@ def parameter_units(config):
             elif path[0]=='plant' and path[1].endswith('_friction'):
                 unit='1' if path[-1]=='0' else 'm'
             elif name in {'schema_version','plant.dampratio','network.seed','network.drop_probability',
-                          'timing.sample_steps','mechanics.cup_contact_dimension','reconfiguration.warning_ticks','recovery.fresh_samples'} or path[:2] in (
+                          'timing.sample_steps','mechanics.cup_contact_dimension','reconfiguration.warning_ticks','recovery.fresh_samples',
+                          'prediction.native_threads'} or path[:2] in (
                           ['plant','belt_speed_scale'],['prediction','position_offsets']):
                 unit='1'
             elif path[:2]==['estimator','command_gain_range']:

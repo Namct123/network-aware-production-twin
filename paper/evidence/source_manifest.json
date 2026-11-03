@@ -2,7 +2,8 @@
   "prepared_on": "2026-11-03",
   "status": "working_draft_human_verification_pending",
   "physical_evidence": null,
-  "source_artifact_commit": "93d60ca",
+  "baseline_artifact_commit": "93d60ca",
+  "native_candidate_image": "sha256:d7458ca5cc4766b8a537aa80b77b48bcf6e32096c49574f2a42606132f22aa27",
   "author_approval": false,
   "sources": {
     "E001": [
@@ -26,7 +27,7 @@
       },
       {
         "path": "mujoco/physics_predictor.py",
-        "sha256": "cef5f6b13441508eba1d330f6544ea25c77dfa7a8f867e557c051cb27ad59d35"
+        "sha256": "36c703bc79d49713c5e25f88a7d34c11275300642b76a3f9dd559e5f33cbcdd2"
       },
       {
         "path": "mujoco/sequence.py",
@@ -53,6 +54,16 @@
       {
         "path": "mujoco/experiments/qualification_20261102.json",
         "sha256": "5c453625c09582985949e17fda6d3e1c4f31664def78e03e856a8f6a7bb31e5d"
+      }
+    ],
+    "E004": [
+      {
+        "path": "docker/evidence/candidate-20261103-native-physics.json",
+        "sha256": "1fcfcf2e9648735e4cad40f771cf35ed76c3dc0a85c22b75122e0fc3b7113f66"
+      },
+      {
+        "path": "mujoco/check_physics_optimization.py",
+        "sha256": "803a8249c3984bcf127f2aa12bdc5e3c7fe3ff75fbf942a444d481802fba8b2e"
       }
     ]
   }
