@@ -355,3 +355,14 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Đã kết xuất và xem bố cục các trang; sửa dòng tràn lề, kiểm tra tham chiếu LaTeX.
   Tác giả/đơn vị và xác nhận học thuật vẫn chờ người chịu trách nhiệm điền.
 - Gói nguồn kèm hồ sơ, báo cáo, hướng dẫn và mã băm; không thay ảnh đã nghiệm thu.
+
+### 031 — Thay hai nguồn không phải bài báo bằng tài liệu đã công bố
+
+- Theo yêu cầu người dùng, bỏ mục 7 cũ (kho mã dự án) và 8 cũ (hướng dẫn API MuJoCo),
+  gỡ trích dẫn tương ứng trong nội dung. Hồ sơ mã nguồn và bằng chứng nội bộ vẫn giữ.
+- Thêm 6 bài đã công bố của Negri, Uhlemann, Cimino, Jones, Fuller và Rasheed;
+  danh mục mới 12 bài. Đối chiếu DOI/tác giả/năm/trang bằng Crossref và nguồn gốc.
+- Viết thêm ba đoạn tổng quan: đồng bộ/cảm biến; đặc tính và độ chi tiết mô hình;
+  dịch vụ và tích hợp điều khiển. Nêu phạm vi phát triển cụ thể, không tự nhận cả
+  lĩnh vực chưa có ai giải quyết. Abstract và số liệu thử nghiệm giữ nguyên.
+- Lưu nguồn và phạm vi hỗ trợ E108-E113; các mục vật lý vẫn trống, tác giả vẫn chờ điền.

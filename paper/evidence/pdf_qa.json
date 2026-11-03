@@ -1,10 +1,11 @@
 {
-  "pages": 11,
+  "pages": 12,
   "page_size": "A4",
   "unresolved_references": false,
   "overfull_boxes": false,
   "physical_sections_unfilled": true,
   "human_review": "pending",
-  "assistant_visual_review": "11-page montage and background-table page inspected",
-  "pdf_sha256": "c6bff73cf088e7bbb46e487b8ab104c176f07cf1855325e19b4d126a1a30397e"
+  "assistant_visual_review": "Full initial revision montage and final revised pages 10-12 inspected",
+  "reference_count": 12,
+  "pdf_sha256": "36c9221127f2e3a0af0a823aadeeb7069e42b605e4f53d6864bcbf60cc856c0c"
 }

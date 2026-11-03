@@ -4,6 +4,15 @@
 A geometric representation alone does not establish that a digital twin can support production decisions. Kritzinger et al.~\cite{Kritzinger2018} distinguish digital models, shadows, and twins according to data integration. For a moving workpiece, a decision additionally depends on when an observation was generated and what motion occurred before its reception. Communication delay and packet loss are established concerns in networked control~\cite{Hespanha2007}; the age of timestamped information provides a representation of freshness~\cite{Yates2021}. Here, digital twin framework denotes the intended architecture. Its reported implementation is a simulation testbed, not an already synchronized physical twin.
 
 \subsection{Related Research and Remaining Development Needs}
+% [claim:C019] [evidence:E108,E112]
+Negri et al.~\cite{Negri2017} reviewed the roles of digital twins in production systems and emphasized sensor-enabled synchronization of virtual representations with physical processes. Uhlemann et al.~\cite{Uhlemann2017} proposed multimodal data acquisition and guidelines for constructing production-system twins. These studies establish the importance of an acquired and updated process-data basis. For this cell, that requirement motivates explicit source timestamps and observation boundaries rather than assuming that a geometric model supplies the current process state.
+
+% [claim:C020] [evidence:E109,E110]
+Jones et al.~\cite{Jones2020} characterized digital twins through entities, states, connections, and twinning rate, and identified model fidelity and technical implementation among further research needs. Fuller et al.~\cite{Fuller2020} reviewed enabling technologies and open challenges across digital-twin applications. These reviews provide context for separating representation, data exchange, and useful services. They do not validate a particular timing allowance or guarantee that increasing model detail improves an online supervisory decision.
+
+% [claim:C021] [evidence:E111,E113]
+Cimino et al.~\cite{Cimino2019} examined manufacturing applications, their services, and integration with production control, and presented a laboratory implementation involving a manufacturing execution system. Rasheed et al.~\cite{Rasheed2020} reviewed digital twins from a modeling perspective, including physics-based and data-driven approaches. Together, these perspectives motivate evaluating both the decision service and its computational model. Here, the narrower development need is to record whether a forecast is complete, timely, and based on admissible observations before using it in the specified continue-or-hold service; this is not a claim that earlier studies omitted all such concerns.
+
 % [claim:C003] [evidence:E104,E105]
 Ademujimi and Prabhu~\cite{Ademujimi2022} combined equipment and discrete-event simulation to generate interventions for learning Bayesian-network structures for manufacturing fault diagnostics. This provides a precedent for exploiting virtual faults when physical fault data are limited. The present objective is different: an unresolved observation must lead to a continue-or-hold decision while a workpiece is moving. A unique physical fault cause cannot simply be assumed from one missing binary transition.
 
@@ -126,12 +135,12 @@ Table~\ref{tab:timing} is generated from the recorded 2 November Docker evidence
 All \StudyRuns{} runs meet the terminal, cap, and logging checks: \DoneCount{} complete placement and \HoldCount{} end in supported holds. Table~\ref{tab:study} preserves this distinction. In the two delayed-observation cases, enabling reconfiguration permits completion; disabling it produces holds for excessive pickup uncertainty. Both conditions hold when pickup detection is absent. These are fixture-level observations, not a diagnosis sensitivity, false-alarm rate, or throughput gain.
 \input{generated/study_table}
 
-The earlier artifact also records \LogicTests{} logic checks and end-to-end integration checks for strict/open-loop operation, replay, prediction, and deadline handling. Check counts support implementation consistency; they are not performance sample sizes. Source and configuration provenance are identified in~\cite{SoftwareArtifact}. No physical result is inferred from passing these checks.
+The earlier artifact also records \LogicTests{} logic checks and end-to-end integration checks for strict/open-loop operation, replay, prediction, and deadline handling. Check counts support implementation consistency; they are not performance sample sizes. Source hashes and configurations are retained with the experiment records. No physical result is inferred from passing these checks.
 
 
 \subsection{Native Rollout Optimization}
-% [claim:C017] [evidence:E004,E107]
-A subsequent implementation replaces repeated Python stepping with the installed native rollout facility~\cite{MuJoCoRollout}. It groups candidates by their stopping-step index, evaluates running prefixes, and starts the stopped-model segment with the same time, position, and velocity transfer as the reference implementation. Every returned step, including the initial state, contributes to the margin check. Physics parameters, the integration grid, and the candidate set are retained. Worker count is a separate software setting; configurations with one, four, and eight workers are evaluated rather than silently selected as a new default.
+% [claim:C017] [evidence:E004]
+A subsequent implementation replaces repeated Python stepping with the installed native rollout facility. It groups candidates by their stopping-step index, evaluates running prefixes, and starts the stopped-model segment with the same time, position, and velocity transfer as the reference implementation. Every returned step, including the initial state, contributes to the margin check. Physics parameters, the integration grid, and the candidate set are retained. Worker count is a separate software setting; configurations with one, four, and eight workers are evaluated rather than silently selected as a new default.
 
 Twelve numerical fixtures, including zero speed, aged estimates, end-of-belt conditions, and off-grid stopping times, are checked at each worker count against the retained reference. Actions, scenario counts, integration-step counts, and minimum margins satisfy the declared checks; the observed maximum margin difference is zero with a comparison tolerance of $10^{-9}$ m. This tolerance tests two implementations of the same model and is not a statement about physical accuracy. A separate trajectory regression compares individual native states with successive reference steps.
 
@@ -149,7 +158,6 @@ Three paced virtual cycles compare background disabled, background enabled, and 
 \input{generated/background_table}
 Table~\ref{tab:background} describes the recorded Docker run. All three cycles finish placement as confirmed by the evaluator and have identical compared traces. Complete background observations are received, incomplete results are discarded, and worker processes are closed. The probe that terminates the worker also passes. Timing covers the foreground runtime call including channel polling, but excludes plant integration, file output, pacing, initialization, and shutdown. Each condition contains one cycle; repeated decision steps are not independent production trials. These measurements do not qualify complete system deadlines or show that the contact forecast itself finishes within 20 ms.
 
-\clearpage
 \section{Physical Validation}
 \label{sec:physical}
 \noindent\textit{Reserved: no physical measurements or validation results are reported.}

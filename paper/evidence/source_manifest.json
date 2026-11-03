@@ -6,6 +6,63 @@
   "native_candidate_image": "sha256:d7458ca5cc4766b8a537aa80b77b48bcf6e32096c49574f2a42606132f22aa27",
   "background_candidate_image": "sha256:6b492b8a086469154e4853bc50161672db58eb8633a8645c8bbf24b629e0e914",
   "author_approval": false,
+  "literature_sources": {
+    "E108": {
+      "key": "Negri2017",
+      "doi": "10.1016/j.promfg.2017.07.198",
+      "url": "https://re.public.polimi.it/handle/11311/1049863",
+      "locator": "Institutional abstract, lines 8-21; publisher metadata",
+      "scope": "Production DT roles and sensor-enabled synchronization. Distinct from a 2020 book chapter with the same title."
+    },
+    "E109": {
+      "key": "Jones2020",
+      "doi": "10.1016/j.cirpj.2020.02.002",
+      "url": "https://research-information.bris.ac.uk/ws/portalfiles/portal/229965388/Characterising_The_Digital_Twin.pdf",
+      "locator": "Accepted author version abstract; published metadata at https://research.aber.ac.uk/en/publications/characterising-the-digital-twin-a-systematic-literature-review/",
+      "scope": "DT characteristics, twinning rate, connections; fidelity and technical implementation as development topics."
+    },
+    "E110": {
+      "key": "Fuller2020",
+      "doi": "10.1109/ACCESS.2020.2998358",
+      "url": "https://arxiv.org/abs/1911.01276",
+      "publisher_url": "https://ieeexplore.ieee.org/abstract/document/9103025/",
+      "locator": "Author-version abstract and published IEEE Access metadata; direct publisher retrieval intermittently blocked",
+      "scope": "Review of enabling technologies and open challenges, not this project's latency."
+    },
+    "E111": {
+      "key": "Rasheed2020",
+      "doi": "10.1109/ACCESS.2020.2970143",
+      "url": "https://arxiv.org/abs/1910.01719",
+      "institution_url": "https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2641438?show=full",
+      "locator": "Author-version abstract and modeling review; IEEE Access section V and published metadata; NTNU repository migrated to NVA",
+      "scope": "Modeling perspective, physics-based and data-driven approaches. No performance values transferred."
+    },
+    "E112": {
+      "key": "Uhlemann2017",
+      "doi": "10.1016/j.procir.2016.11.152",
+      "url": "https://publica-rest.fraunhofer.de/server/api/core/bitstreams/812029b1-e39f-4c96-bb52-1bd971acd28f/content",
+      "locator": "Published PDF p.335 abstract, pp.337-338 multimodal acquisition concept",
+      "scope": "Production DT acquisition and implementation guidelines; not a predictor validated on this cell."
+    },
+    "E113": {
+      "key": "Cimino2019",
+      "doi": "10.1016/j.compind.2019.103130",
+      "url": "https://re.public.polimi.it/handle/11311/1113472",
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0166361519304385",
+      "locator": "Institutional abstract lines 8-23 and publisher article metadata",
+      "scope": "Manufacturing services and production-control/MES integration. Historical review findings are not a current universal gap."
+    }
+  },
+  "literature_records": [
+    {
+      "path": "paper/evidence/literature_sources_20261103.json",
+      "sha256": "0ccffbf5cf3ae4b21261cc6056d29a2a0617a0b3405264eb73493ee4e2937953"
+    },
+    {
+      "path": "paper/evidence/literature_metadata_20261103.json",
+      "sha256": "034e32e5ffb86fc7b130322388568a1deda4dc457f5cf8ae17589fdd510fc017"
+    }
+  ],
   "sources": {
     "E001": [
       {

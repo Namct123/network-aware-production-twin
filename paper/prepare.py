@@ -91,6 +91,13 @@ def prepare():
     keys={key for group in re.findall(r'\\cite\{([^}]+)\}',text) for key in group.split(',')}
     refs=set(re.findall(r'\\bibitem\{([^}]+)\}',(HERE/'references_list.tex').read_text(encoding='utf-8')))
     assert keys==refs,(keys,refs)
+    assert not {'SoftwareArtifact','MuJoCoRollout'}.intersection(refs)
+    literature_path=HERE/'evidence/literature_sources_20261103.json'
+    literature=json.loads(literature_path.read_text(encoding='utf-8'))
+    metadata_path=HERE/'evidence/literature_metadata_20261103.json'
+    metadata=json.loads(metadata_path.read_text(encoding='utf-8'))
+    dois={record['DOI'].lower() for record in metadata['records']}
+    assert all(source['key'] in refs and source['doi'].lower() in dois for source in literature['sources'].values())
     assert r'\author{\mbox{}}' in abstract and r'\institute{\mbox{}}' in abstract
     sources={'E001':[evidence],'E002':[ROOT/'mujoco'/name for name in ['runtime.py','estimator.py','predictor.py','physics_predictor.py','sequence.py','reconfiguration.py','check_robustness.py','qualify.py']],
              'E003':[ROOT/'mujoco/configs/reconfigurable_cell_20261030.json',ROOT/'mujoco/experiments/qualification_20261102.json'],
@@ -99,6 +106,8 @@ def prepare():
     manifest={'prepared_on':'2026-11-03','status':'working_draft_human_verification_pending','physical_evidence':None,
         'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],
         'background_candidate_image':background_evidence['image_id'],'author_approval':False,
+        'literature_sources':literature['sources'],
+        'literature_records':[{'path':p.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in [literature_path,metadata_path]],
         'sources':{key:[{'path':p.relative_to(ROOT).as_posix(),'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in paths] for key,paths in sources.items()}}
     (HERE/'evidence/source_manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
     claims=[]
@@ -112,7 +121,7 @@ def prepare():
                            'block_sha256':hashlib.sha256(normalized.encode()).hexdigest(),'human_verification':'pending'})
     with (HERE/'evidence/claims.csv').open('w',newline='',encoding='utf-8') as f:
         w=csv.DictWriter(f,fieldnames=list(claims[0]));w.writeheader();w.writerows(claims)
-    audit={'abstract_words':len(words),'citations':sorted(keys),'physical_result_values':0,'authors_unfilled':True,
+    audit={'abstract_words':len(words),'citations':sorted(keys),'reference_count':len(refs),'new_published_papers':6,'removed_nonpaper_references':['SoftwareArtifact','MuJoCoRollout'],'physical_result_values':0,'authors_unfilled':True,
            'study_runs':24,'done':done,'hold':hold,'logic_checks':count,'human_verification':'pending','submission_ready':False}
     (HERE/'evidence/audit.json').write_text(json.dumps(audit,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(audit),flush=True)

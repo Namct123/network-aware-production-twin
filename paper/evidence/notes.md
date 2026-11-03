@@ -2,6 +2,20 @@
 
 Status: assistant-inspected working draft; accountable human verification and author approval pending.
 No source is marked human-verified. No manuscript was sent to an external drafting or typesetting service.
+
+## Bibliography revision requested by the user — 2026-11-03
+
+Removed former entries 7 (project software repository) and 8 (MuJoCo API documentation)
+and their in-text citations. Internal experiment provenance is preserved; no unrelated
+paper is substituted as proof of the native API implementation. Historical E107 below
+is retained as a development note, not an active manuscript citation.
+Added six published papers: Negri 2017, Uhlemann 2017, Cimino 2019, Jones 2020,
+Fuller 2020 and Rasheed 2020. The bibliography now contains 12 published papers.
+Crossref records are saved in literature_metadata_20261103.json; primary-source URLs,
+locators, retrieval limitations and claim scope are in literature_sources_20261103.json.
+New paragraph groups C019-C021 explain prior work and this project's narrower scope.
+No unsupported universal literature-gap claim is made. Abstract, experimental results
+and blank physical sections are preserved.
 Public titles/URLs were used for literature verification; LaTeX runs locally and downloads only package resources.
 The project was previously authorized by its owner for public GitHub publication; this remains an explicitly
 unfinished, non-submission-ready draft. Authorship, funding and disclosure decisions remain unfilled.

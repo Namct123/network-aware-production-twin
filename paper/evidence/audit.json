@@ -2,13 +2,23 @@
   "abstract_words": 225,
   "citations": [
     "Ademujimi2022",
+    "Cimino2019",
     "Fu2025",
+    "Fuller2020",
     "Hespanha2007",
+    "Jones2020",
     "Kritzinger2018",
-    "MuJoCoRollout",
-    "SoftwareArtifact",
+    "Negri2017",
+    "Rasheed2020",
     "Todorov2012",
+    "Uhlemann2017",
     "Yates2021"
+  ],
+  "reference_count": 12,
+  "new_published_papers": 6,
+  "removed_nonpaper_references": [
+    "SoftwareArtifact",
+    "MuJoCoRollout"
   ],
   "physical_result_values": 0,
   "authors_unfilled": true,

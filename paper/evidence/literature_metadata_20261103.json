@@ -1,0 +1,414 @@
+{
+  "source": "Crossref REST works records",
+  "retrieved_on": "2026-11-03",
+  "records": [
+    {
+      "DOI": "10.1016/j.promfg.2017.07.198",
+      "title": [
+        "A Review of the Roles of Digital Twin in CPS-based Production Systems"
+      ],
+      "author": [
+        {
+          "given": "Elisa",
+          "family": "Negri",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Luca",
+          "family": "Fumagalli",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Marco",
+          "family": "Macchi",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Procedia Manufacturing"
+      ],
+      "volume": "11",
+      "issue": null,
+      "page": "939-948",
+      "article-number": null,
+      "published": {
+        "date-parts": [
+          [
+            2017
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1016/j.promfg.2017.07.198"
+    },
+    {
+      "DOI": "10.1016/j.cirpj.2020.02.002",
+      "title": [
+        "Characterising the Digital Twin: A systematic literature review"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-6209-2698",
+          "authenticated-orcid": false,
+          "given": "David",
+          "family": "Jones",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Chris",
+          "family": "Snider",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Aydin",
+          "family": "Nassehi",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jason",
+          "family": "Yon",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ben",
+          "family": "Hicks",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "CIRP Journal of Manufacturing Science and Technology"
+      ],
+      "volume": "29",
+      "issue": null,
+      "page": "36-52",
+      "article-number": null,
+      "published": {
+        "date-parts": [
+          [
+            2020,
+            5
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1016/j.cirpj.2020.02.002"
+    },
+    {
+      "DOI": "10.1109/access.2020.2998358",
+      "title": [
+        "Digital Twin: Enabling Technologies, Challenges and Open Research"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-3391-2407",
+          "authenticated-orcid": false,
+          "given": "Aidan",
+          "family": "Fuller",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Zhong",
+          "family": "Fan",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Charles",
+          "family": "Day",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Chris",
+          "family": "Barlow",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "IEEE Access"
+      ],
+      "volume": "8",
+      "issue": null,
+      "page": "108952-108971",
+      "article-number": null,
+      "published": {
+        "date-parts": [
+          [
+            2020
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1109/access.2020.2998358"
+    },
+    {
+      "DOI": "10.1109/access.2020.2970143",
+      "title": [
+        "Digital Twin: Values, Challenges and Enablers From a Modeling Perspective"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0003-2690-983X",
+          "authenticated-orcid": false,
+          "given": "Adil",
+          "family": "Rasheed",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-2241-4648",
+          "authenticated-orcid": false,
+          "given": "Omer",
+          "family": "San",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-1615-7649",
+          "authenticated-orcid": false,
+          "given": "Trond",
+          "family": "Kvamsdal",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "IEEE Access"
+      ],
+      "volume": "8",
+      "issue": null,
+      "page": "21980-22012",
+      "article-number": null,
+      "published": {
+        "date-parts": [
+          [
+            2020
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1109/access.2020.2970143"
+    },
+    {
+      "DOI": "10.1016/j.procir.2016.11.152",
+      "title": [
+        "The Digital Twin: Realizing the Cyber-Physical Production System for Industry 4.0"
+      ],
+      "author": [
+        {
+          "given": "Thomas H.-J.",
+          "family": "Uhlemann",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christian",
+          "family": "Lehmann",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Rolf",
+          "family": "Steinhilper",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Procedia CIRP"
+      ],
+      "volume": "61",
+      "issue": null,
+      "page": "335-340",
+      "article-number": null,
+      "published": {
+        "date-parts": [
+          [
+            2017
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1016/j.procir.2016.11.152"
+    },
+    {
+      "DOI": "10.1016/j.compind.2019.103130",
+      "title": [
+        "Review of digital twin applications in manufacturing"
+      ],
+      "author": [
+        {
+          "given": "Chiara",
+          "family": "Cimino",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Elisa",
+          "family": "Negri",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Luca",
+          "family": "Fumagalli",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Computers in Industry"
+      ],
+      "volume": "113",
+      "issue": null,
+      "page": "103130",
+      "article-number": "103130",
+      "published": {
+        "date-parts": [
+          [
+            2019,
+            12
+          ]
+        ]
+      },
+      "type": "journal-article",
+      "URL": "https://doi.org/10.1016/j.compind.2019.103130"
+    }
+  ]
+}
