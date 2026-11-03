@@ -5,6 +5,11 @@ giàn XY và đầu hút. Gồm nguồn CAD, Unity, lõi DT chạy MuJoCo, Docke
 trình bày và tài liệu. Một số kích thước đã cập nhật theo số đo sơ bộ người dùng;
 động lực học chưa hiệu chuẩn và chưa kết nối điều khiển PLC thật.
 
+**Đối chiếu dự báo — 03/11:** [bộ đọc ngoại tuyến](docs/doi_chieu_du_bao.md)
+so mô hình 1D và MuJoCo từ cùng ảnh đầu vào, phân biệt kết quả tính thiếu và bị loại.
+Không dùng tỷ lệ cùng khuyến nghị làm độ chính xác vật lý. Docker mới:
+`candidate-20261103-model-audit`, chờ nghiệm thu.
+
 **Bổ sung 03/11 — dự báo MuJoCo chạy nền:**
 [cách chạy](docs/du_bao_nen_quan_sat.md),
 [báo cáo đối chứng](docs/bao_cao_du_bao_nen_20261103.md).

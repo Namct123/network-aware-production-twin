@@ -295,3 +295,9 @@ dừng 1D, chưa phải nhiều rollout tiếp xúc của plant.
 ## 03/11/2026 — Native rollout cho dự báo tiếp xúc
 
 Giữ bản gốc, gom vòng lặp trong MuJoCo và cho nhập số luồng. Đã đối chiếu và chạy tích hợp trong Docker, chưa đạt 20 ms. [Hướng dẫn](toi_uu_du_bao_mujoco.md), [số liệu và giới hạn](bao_cao_toi_uu_20261103.md). Bài báo có bảng mới, phần vật lý giữ trống.
+
+## 03/11/2026 — Dự báo nền và đọc lại để đối chiếu mô hình
+
+MuJoCo nền chỉ quan sát, nhánh nhanh vẫn quyết định lệnh. Bộ đọc mới đối chiếu
+hai mô hình từ cùng ảnh đầu vào và tách dự báo thiếu/kết quả bị loại, không tác động
+điều khiển. [Cách đọc và giới hạn](doi_chieu_du_bao.md); [nhật ký từng mục](nhat_ky_cong_viec.md).

@@ -67,3 +67,6 @@ background.jsonl ghi gửi, bận, nhận/loại và lý do; prediction.jsonl v�
 không gồm cơ học, ghi tệp, nhịp chờ hoặc khởi tạo. summary.json ghi worker đã đóng.
 Bộ thử có report.md và background_check.json. Kết quả không đạt không được xóa.
 Không suy p95/lớn nhất quan sát thành bảo đảm thời gian thực hoặc độ chính xác máy thật.
+
+Bản model-audit còn tạo observer_audit và incomplete_worker_audit để so hai mô hình
+từ cùng ảnh đầu vào. [Cách đọc bảng và giới hạn](doi_chieu_du_bao.md).

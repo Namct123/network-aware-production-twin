@@ -1,3 +1,14 @@
+## candidate-20261103-model-audit
+
+- User acceptance: **pending**. Offline same-snapshot model comparison; no actuation or default algorithm change.
+- Image ID: `sha256:9759ff58df75954b550b111ea7f4001c761b63d002d52a49d47cb12c642a0f46`.
+- PASS: 116 image logic checks, 2 host delivery checks, background-check (three paced cycles plus worker-termination probe) and integration-check.
+- Observer audit: 24 complete pairs, 22 admitted and 2 discarded at receipt; all 24 have matching model actions in this fixture. Incomplete-worker audit excludes all 82 replies from agreement counts. Not physical accuracy.
+- All three control traces match and placement checks pass. Timing limitation retained: incomplete-worker foreground call maximum 32.749 ms, 1/697 steps over 20 ms. No hard realtime qualification.
+- Runtime source hashes match; every previous image ID, including the accepted image and background-observer, remains unchanged. No accepted/stable/latest tag or registry push.
+- CAD V5 remains different from the functional MuJoCo model; no physical calibration.
+- [Evidence and hashes](evidence/candidate-20261103-model-audit.json); [Vietnamese guide](../docs/doi_chieu_du_bao.md).
+
 ## candidate-20261103-background-observer
 
 - User acceptance: **pending**. Observation-only MuJoCo worker; the numeric 1D supervisor retains command authority.

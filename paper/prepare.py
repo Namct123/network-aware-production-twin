@@ -102,7 +102,8 @@ def prepare():
     sources={'E001':[evidence],'E002':[ROOT/'mujoco'/name for name in ['runtime.py','estimator.py','predictor.py','physics_predictor.py','sequence.py','reconfiguration.py','check_robustness.py','qualify.py']],
              'E003':[ROOT/'mujoco/configs/reconfigurable_cell_20261030.json',ROOT/'mujoco/experiments/qualification_20261102.json'],
              'E004':[native_path,ROOT/'mujoco/check_physics_optimization.py'],
-             'E005':[background_path,ROOT/'mujoco/background_forecast.py',ROOT/'mujoco/check_background.py',ROOT/'mujoco/configs/background_observer_20261103.json']}
+             'E005':[background_path,ROOT/'mujoco/background_forecast.py',ROOT/'mujoco/check_background.py',ROOT/'mujoco/configs/background_observer_20261103.json'],
+             'E006':[ROOT/'docker/evidence/candidate-20261103-model-audit.json',ROOT/'mujoco/audit_background.py',ROOT/'mujoco/test_background_audit.py']}
     manifest={'prepared_on':'2026-11-03','status':'working_draft_human_verification_pending','physical_evidence':None,
         'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],
         'background_candidate_image':background_evidence['image_id'],'author_approval':False,

@@ -3,6 +3,17 @@
 Status: assistant-inspected working draft; accountable human verification and author approval pending.
 No source is marked human-verified. No manuscript was sent to an external drafting or typesetting service.
 
+## Offline model-decision audit — E006
+
+Source: docker/evidence/candidate-20261103-model-audit.json, with runtime hashes
+and separate background-cycle records. The native-optimization and earlier background
+campaigns remain separate. C022 reports 24 complete pairs (22 admitted, 2 discarded),
+82 excluded incomplete replies, and the retained 32.75 ms maximum in the incomplete
+worker cycle (1/697 foreground calls above 20 ms). Offline 1D replay disables only
+its computation clock. It is not the actual foreground decision trace, calibration,
+physical accuracy, or a justification to apply old contact forecasts. Bibliography
+remains 12 published papers; removed repository/API entries are not reinstated.
+
 ## Bibliography revision requested by the user — 2026-11-03
 
 Removed former entries 7 (project software repository) and 8 (MuJoCo API documentation)

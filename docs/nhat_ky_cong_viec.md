@@ -366,3 +366,36 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   dịch vụ và tích hợp điều khiển. Nêu phạm vi phát triển cụ thể, không tự nhận cả
   lĩnh vực chưa có ai giải quyết. Abstract và số liệu thử nghiệm giữ nguyên.
 - Lưu nguồn và phạm vi hỗ trợ E108-E113; các mục vật lý vẫn trống, tác giả vẫn chờ điền.
+
+### 032 — Viết bộ đối chiếu dự báo ngoại tuyến trước khi thử
+
+- Đọc ảnh đầu vào đã ghi của từng yêu cầu nền, đối chiếu phiên, hồ sơ, thời điểm,
+  số mẫu và số kịch bản. Tính lại mô hình 1D với cùng dữ liệu; không đọc đáp án vật lý.
+- Tách kết quả nhận/loại khi chạy, bản ghi sai và dự báo thiếu. Không coi HOLD do
+  hết hạn là một dự báo hoàn chỉnh đồng ý với mô hình còn lại.
+- Xuất bảng dễ đọc, từng cặp và mã băm tệp. Không thay nhánh điều khiển hoặc tham số.
+- Viết kiểm tra định danh, kết quả thiếu, bất đồng, tệp sai và không sửa nguồn;
+  ghép vào background-check. Mốc này chưa chạy kiểm tra các mục mới.
+
+### 033 — Kiểm tra đối chiếu và lưu kết quả có giới hạn
+
+- Lần chạy kiểm tra Windows bị chặn quyền thư mục tạm (8 lỗi; 6 kiểm tra cần MuJoCo
+  bị bỏ qua). Không tính là đạt. Chạy trong WSL và trong Docker đều đạt 116 kiểm tra.
+  Hai kiểm tra đóng gói Windows đạt khi dùng thư mục tạm trong workspace.
+- Đọc lại nhật ký Docker trước được 35 cặp; lần Docker mới có 24 cặp (22 nhận,
+  2 bị loại khi chạy), cùng khuyến nghị ở cả 24. Hai đợt được ghi riêng.
+- Lượt ép tính thiếu có 82 dự báo không được đưa vào mẫu số so khuyến nghị.
+  Không gán tỷ lệ này thành độ chính xác vật lý hoặc số lượt sản xuất độc lập.
+- Ba chu trình mới đều đặt phôi và có dấu vết điều khiển giống nhau; bộ tích hợp đạt.
+- Giữ mẫu vượt hạn: lượt ép tính thiếu có 1/697 bước lõi trên 20 ms, lớn nhất
+  32,749 ms. Chưa bảo đảm thời gian thực. Không thay thuật toán/hạn để làm số đẹp.
+- Docker model-audit vẫn candidate. Nguồn khớp mã băm trong ảnh, các ảnh cũ giữ nguyên.
+
+### 034 — Tài liệu và bản thảo theo kết quả mới
+
+- Bổ sung mục Offline Model-Decision Audit, nguồn E006, phân biệt đọc lại mô hình
+  với quyết định thật khi chạy. Nêu đủ 24 cặp, 82 kết quả thiếu và mẫu vượt 20 ms.
+- Giữ 12 trích dẫn bài báo đã công bố, không khôi phục hai nguồn số 7/8 cũ.
+  Title/abstract riêng không đổi; các phần kiểm chứng vật lý và tác giả vẫn chưa điền.
+- Xuất lại PDF, kiểm tra tham chiếu và sửa dòng tràn lề; lưu nhật ký và gói nguồn
+  mới cho việc kiểm nghiệm. Chưa tự đánh dấu người dùng đã nghiệm thu.

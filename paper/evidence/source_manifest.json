@@ -135,11 +135,25 @@
       },
       {
         "path": "mujoco/check_background.py",
-        "sha256": "da30e7997c5498f55c22c9e0eb43996ab1f3e09517ade599ba451b001951fa5f"
+        "sha256": "6c6d56727731cf19d194a63880f7cf677e81caa53a31ddc43cc2ea682e4c907c"
       },
       {
         "path": "mujoco/configs/background_observer_20261103.json",
         "sha256": "5a0b2a450b0ffe6bf92a54093e29cecfac886d9daa5fa61d40d95bb6406fc021"
+      }
+    ],
+    "E006": [
+      {
+        "path": "docker/evidence/candidate-20261103-model-audit.json",
+        "sha256": "01a55d79a39b577afe1fe19f1c9354881ef22d53f00fd519603ec0d7d9a0ed29"
+      },
+      {
+        "path": "mujoco/audit_background.py",
+        "sha256": "881d7dc3861e2ddcc822d14adfa2b33ceb0f8d5917f8abac7226b58e0794e772"
+      },
+      {
+        "path": "mujoco/test_background_audit.py",
+        "sha256": "d0821cfdce11d31502a84dfc5386864cb47b3033313352264e633694829d50fe"
       }
     ]
   }

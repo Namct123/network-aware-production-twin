@@ -8,6 +8,7 @@ from pathlib import Path
 from config import load_config
 from experiment import run,write_json
 from runtime import RuntimeCore
+from audit_background import audit
 
 HERE=Path(__file__).resolve().parent
 
@@ -36,18 +37,21 @@ def check(output,base):
         timings[name]=latency(read_rows(output/name/'control_timing.jsonl'),'core_step_ms')
         print(name,result['controller_state'],result['background_forecast'].get('accepted_observations',0),flush=True)
         write_json(output/'partial_results.json',results)
+    audits={name:audit(output/name,output/(name+'_audit')) for name in ('observer','incomplete_worker')}
     checks={'terminal_placement':all(r['controller_state']=='DONE' and r['placement_pass_evaluator_only'] is True for r in results.values()),
         'identical_control_traces':traces['baseline']==traces['observer']==traces['incomplete_worker'],
         'worker_observations_received':results['observer']['background_forecast']['accepted_observations']>0,
         'incomplete_results_discarded':results['incomplete_worker']['background_forecast']['discard_reasons'].get('prediction_incomplete',0)>0,
-        'workers_closed':all(not r['background_forecast'].get('worker_alive',False) for r in results.values())}
+        'workers_closed':all(not r['background_forecast'].get('worker_alive',False) for r in results.values()),
+        'offline_same_snapshot_pairs':audits['observer']['comparable_pairs']>0 and all(a['invalid_records']==0 and a['replay_predictor_matches_logged_source'] for a in audits.values()),
+        'incomplete_excluded_from_agreement':audits['incomplete_worker']['comparable_pairs']==0}
     with RuntimeCore(base) as core:
         ready=core.background.wait_ready(base['prediction']['background']['startup_timeout_s'])
         core.background.process.terminate();core.background.process.join(2)
         step=core.step(None,0)
         checks['crashed_worker_does_not_stop_foreground_call']=ready and step['command_error'] is None and step['background']['state']=='worker_unavailable'
     report={'kind':'background_observer_v1','checks':checks,'passed':all(checks.values()),'control_applied':False,
-        'latency':timings,'summaries':results,'realtime_certified':False,'physical_validation':False,'user_acceptance':'pending'}
+        'latency':timings,'summaries':results,'offline_audits':audits,'realtime_certified':False,'physical_validation':False,'user_acceptance':'pending'}
     write_json(output/'background_check.json',report)
     lines=['# Dự báo nền ở chế độ chạy quan sát','',
         'Nhánh 1 chiều vẫn quyết định lệnh. MuJoCo ở tiến trình riêng, chỉ có một yêu cầu đang xử lý, không xếp hàng vô hạn.',
@@ -55,7 +59,9 @@ def check(output,base):
         '| Kiểm tra | Kết quả |','|---|---|']
     names={'terminal_placement':'Đặt phôi ở cả ba chu trình','identical_control_traces':'Dấu vết lệnh/ước lượng giống nhau',
         'worker_observations_received':'Có kết quả nền được nhận để quan sát','incomplete_results_discarded':'Kết quả tính thiếu bị loại',
-        'workers_closed':'Các tiến trình nền đã đóng','crashed_worker_does_not_stop_foreground_call':'Tiến trình nền bị dừng vẫn gọi được bước lõi'}
+        'workers_closed':'Các tiến trình nền đã đóng','crashed_worker_does_not_stop_foreground_call':'Tiến trình nền bị dừng vẫn gọi được bước lõi',
+        'offline_same_snapshot_pairs':'So ngoại tuyến đúng ảnh đầu vào, không bản ghi sai',
+        'incomplete_excluded_from_agreement':'Không tính kết quả thiếu thành cặp đồng ý'}
     lines += [f"| {names[k]} | {'Đạt' if v else 'Cần xem lại'} |" for k,v in checks.items()]
     lines+=['','| Chu trình | Mẫu bước lõi | Trung vị (ms) | p95 (ms) | Lớn nhất (ms) | Mẫu >20 ms |',
         '|---|---:|---:|---:|---:|---:|']
