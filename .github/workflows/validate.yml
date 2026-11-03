@@ -10,6 +10,8 @@ permissions:
 jobs:
   docker-candidate:
     runs-on: ubuntu-latest
+    env:
+      DT_IMAGE_TAG: candidate-20261103-software-v2
     steps:
       - uses: actions/checkout@v7
       - name: Build headless DT candidate (no registry push or accepted tag)

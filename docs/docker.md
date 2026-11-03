@@ -13,7 +13,7 @@ Unity và kết nối PLC thật nằm ngoài hạng mục này. Mặc định c
 Hạng mục tiếp theo là `candidate-20261030-reconfiguration`, cũng chờ kiểm nghiệm.
 Ngày 31/10 bổ sung `candidate-20261031-robustness`, cũng chờ kiểm nghiệm.
 Hạng mục tiếp theo là `candidate-20261031-adaptive-speed`, cũng chờ kiểm nghiệm.
-Wrapper hiện chọn `candidate-20261103-software-v2`, cũng chờ kiểm nghiệm; demo
+Wrapper hiện chọn `accepted-20261103-software-v2`, được người dùng chấp thuận ngày 03/11/2026; demo
 mặc định vẫn dùng cap cố định. [Adaptive-check](adaptive_speed.md) và
 [recovery-check](hold_recovery.md) dùng profile thử riêng, không tự áp vào mọi lượt.
 Chế độ `reset-check` thử [gửi yêu cầu đặt lại và bắt đầu lượt mô phỏng mới](dat_lai_chu_trinh_moi.md).
@@ -34,6 +34,22 @@ Bản software-v2 thêm cổng dữ liệu UDP nội bộ và bộ kiểm tra ch
 `./scripts/docker_dt.ps1 -Mode stream-check` hoặc `-Mode software-check`.
 [Hướng dẫn](phan_mem_truoc_khi_do_may.md). Mạng container vẫn bị tách khỏi bên ngoài;
 chỉ thử các gói trong loopback, không có lệnh gửi PLC thật.
+
+**Nghiệm thu v2 ngày 03/11/2026:** nhãn accepted trỏ đúng ảnh candidate đã xem,
+không dựng lại ảnh khác để thay phiên bản được kiểm nghiệm. Ảnh accepted đầu tiên
+và mọi ảnh cũ giữ nguyên. Xem [hồ sơ nghiệm thu](../docker/RELEASES.md).
+
+Lệnh chạy mặc định trên máy hiện tại dùng accepted-20261103-software-v2.
+Lệnh build mặc định vẫn dựng candidate-20261103-software-v2; công cụ dựng không
+cho ghi đè trực tiếp một nhãn accepted. GitHub Actions cũng chỉ dựng/thử candidate.
+Nếu mở nguồn trên máy khác chưa có ảnh accepted, hãy dựng và thử candidate rõ ràng:
+
+```powershell
+./scripts/docker_dt.ps1 -Mode build
+./scripts/docker_dt.ps1 -Mode software-check -Tag candidate-20261103-software-v2
+```
+
+Nhãn accepted hiện được lưu cục bộ trên máy này; chưa đẩy ảnh lên registry công khai.
 
 Mở terminal tại thư mục dự án:
 

@@ -475,3 +475,24 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   là trình đọc S7 hoặc đồng bộ PLC. Giữ title/abstract và 12 trích dẫn đã công bố.
 - Cập nhật hướng dẫn người mới, danh mục mô đun, GitHub Actions và gói nguồn.
   Các phần đo bên ngoài để sau; chưa đánh dấu toàn bộ hệ thống đã nghiệm thu.
+
+### 042 — Người dùng chấp thuận bản phần mềm v2
+
+- Ngày 03/11/2026, người dùng xác nhận: “ok tất cả mọi thứ đều ổ, hãy cập nhật vào docker”.
+  Áp dụng cho bản phần mềm v2 vừa bàn giao, không suy thành đã kiểm chứng vật lý.
+- Chuẩn bị nhãn accepted-20261103-software-v2 trỏ đúng ảnh đã được xem; chạy lại
+  tám nhóm trong container và đối chiếu mã băm trước khi gắn nhãn.
+- Lệnh chạy chọn bản accepted; lệnh build và CI vẫn chỉ dựng candidate. Giữ ảnh
+  đã nghiệm thu trước đây, các candidate và hồ sơ nguồn gốc, không dựng lại v2 để đổi mã ảnh.
+
+### 043 — Đã cập nhật Docker sang bản chấp thuận
+
+- Chạy lại tám nhóm trong đúng ảnh v2: 126 kiểm tra lõi, 8 web, ba trường hợp UDP,
+  tích hợp, đặt lại, nền, 144 đầu vào biên và 24 lượt đối chứng đều đạt.
+- Đã ghi lời chấp thuận, mã ảnh, mã băm nguồn và kiểm tra trước khi tạo nhãn
+  accepted-20261103-software-v2; sau đó kiểm tra nhãn trỏ đúng mã ảnh đã được xem.
+- Các ảnh cũ, kể cả accepted-20261030-core-v1, giữ nguyên. Không đẩy ảnh ra registry.
+- Thử lệnh PowerShell mặc định sau khi gắn nhãn: demo hoàn tất và chấm đặt phôi đạt
+  trong mô phỏng có giả định vòng hở. Không chuyển thành kết quả vật lý.
+- Nhãn tại thời điểm dựng vẫn ghi candidate như lịch sử; trạng thái chấp thuận
+  hiện tại và mã băm được lưu riêng ở docker/evidence/accepted-20261103-software-v2.json.

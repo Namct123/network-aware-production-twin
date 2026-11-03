@@ -9,7 +9,9 @@ trình bày và tài liệu. Một số kích thước đã cập nhật theo s�
 [hướng dẫn và phạm vi](docs/phan_mem_truoc_khi_do_may.md).
 Có cổng dữ liệu mẫu liên tục, trang theo dõi và một lệnh kiểm tra toàn bộ nhóm mới:
 `./scripts/docker_dt.ps1 -Mode software-check`.
-Ảnh `candidate-20261103-software-v2` chờ nghiệm thu. Cổng mẫu chưa phải trình đọc S7.
+Bản v2 được người dùng chấp thuận ngày 03/11/2026 và dùng nhãn
+`accepted-20261103-software-v2`. Cổng mẫu chưa phải trình đọc S7.
+Các nhãn candidate bên dưới ghi lại từng mốc phát triển trước đó.
 
 **Nghiên cứu giới hạn mô hình — 03/11:**
 [kế hoạch và cách chạy](docs/nghien_cuu_gioi_han_mo_hinh.md).

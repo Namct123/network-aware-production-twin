@@ -96,4 +96,8 @@ không có số đo máy thật hoặc lệnh gửi thiết bị.
 Lần WSL đầu có một lỗi dữ liệu thử dùng cùng thời điểm nhiều lần. Thư mục lần đó
 vẫn được giữ và hiển thị chưa đạt; sửa dữ liệu thử rồi chạy lại toàn bộ trong Docker.
 Mã ảnh và bằng chứng: [hồ sơ candidate](../docker/evidence/candidate-20261103-software-v2.json).
-Chưa có nghiệm thu cá nhân của người dùng cho bản mới.
+Người dùng đã chấp thuận bản v2 ngày 03/11/2026 bằng lời xác nhận
+“ok tất cả mọi thứ đều ổ, hãy cập nhật vào docker”. Trạng thái chấp thuận được
+lưu riêng tại [hồ sơ phát hành Docker](../docker/RELEASES.md); hồ sơ candidate gốc
+giữ nguyên để truy lại trạng thái lúc dựng. Phạm vi là phần mềm v2, không phải
+hiệu chuẩn, kết nối hoặc kiểm chứng máy thật.

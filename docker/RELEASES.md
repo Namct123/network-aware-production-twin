@@ -1,6 +1,17 @@
+## accepted-20261103-software-v2 — 2026-11-03
+
+- User acceptance reference: message on 2026-11-03 (Asia/Saigon): **“ok tất cả mọi thứ đều ổ, hãy cập nhật vào docker”**. Applies to the immediately preceding software-v2 delivery; not physical validation.
+- Immutable image: `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`. Accepted runtime source commit: `57a6509`. This is the exact candidate image the user reviewed, not a rebuilt substitute.
+- Rechecked before promotion: all 8 software groups PASS — 126 core tests, 8 web tests, 3 loopback UDP fixtures, integration, reset, background, boundary (144 inputs) and qualification (24 runs). Two host delivery checks and PowerShell syntax check also PASS.
+- Runtime source hashes match; prior accepted-core-v1 and all candidate IDs unchanged. No registry push, stable alias or latest alias.
+- Execution defaults now select this accepted tag. Builds and CI continue to use candidate tags, and the build helper still rejects accepted tags.
+- After tagging, the default PowerShell demo command also completes with evaluator-confirmed placement under its declared open-loop simulation assumptions.
+- Build-time candidate labels remain immutable. Current user acceptance and source hashes are recorded in [the acceptance evidence](evidence/accepted-20261103-software-v2.json).
+- Boundaries retained: no S7 driver or PLC actuation, no physical clock synchronization/calibration, no hard realtime claim; CAD V5 differs from the functional MuJoCo scene.
+
 ## candidate-20261103-software-v2
 
-- User acceptance: **pending**. Six-item pre-hardware software batch: loopback tag input, validation/watchdog, UDP fixtures, diagnostics UI, combined checks and parameterized provenance.
+- User acceptance: accepted on 2026-11-03 as `accepted-20261103-software-v2` above. Six-item pre-hardware software batch: loopback tag input, validation/watchdog, UDP fixtures, diagnostics UI, combined checks and parameterized provenance.
 - Image ID: `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
 - PASS: all 8 combined groups; 126 core tests, 8 web tests, 3 real loopback UDP fixtures, integration, reset, background, 144-input boundary study, and 24-run qualification. Two host delivery checks also pass.
 - Earlier WSL run failed one core test because its fixture reused equal decision times. Failed run retained; fixture fixed and entire final Docker suite rerun. No parameter tuning or hidden acceptance.

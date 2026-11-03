@@ -6,8 +6,11 @@ param(
     [string]$ResetSettings = '',
     [ValidateRange(1,6)][int]$Bin = 1,
     [ValidatePattern('^[a-zA-Z0-9_][a-zA-Z0-9_.-]{0,127}$')]
-    [string]$Tag = 'candidate-20261103-software-v2'
+    [string]$Tag = 'accepted-20261103-software-v2'
 )
+if ($Mode -eq 'build' -and -not $PSBoundParameters.ContainsKey('Tag')) {
+    $Tag = 'candidate-20261103-software-v2'
+}
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
 $dockerArgs = switch ($Mode) {
