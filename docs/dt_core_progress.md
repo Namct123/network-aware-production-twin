@@ -301,3 +301,9 @@ Giữ bản gốc, gom vòng lặp trong MuJoCo và cho nhập số luồng. Đ�
 MuJoCo nền chỉ quan sát, nhánh nhanh vẫn quyết định lệnh. Bộ đọc mới đối chiếu
 hai mô hình từ cùng ảnh đầu vào và tách dự báo thiếu/kết quả bị loại, không tác động
 điều khiển. [Cách đọc và giới hạn](doi_chieu_du_bao.md); [nhật ký từng mục](nhat_ky_cong_viec.md).
+
+## 03/11/2026 — Lưới tìm bất đồng mô hình
+
+Đã có kế hoạch 144 đầu vào giả định và biến thể chỉ chấm biên dọc của cùng mô hình
+tiếp xúc. Mục đích là tìm miền khác biệt và kiểm tra độ nhạy bước tính, không đo
+độ chính xác máy thật hoặc tự khớp tham số. [Cách chạy](nghien_cuu_gioi_han_mo_hinh.md).

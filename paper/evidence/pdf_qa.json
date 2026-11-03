@@ -1,11 +1,11 @@
 {
-  "pages": 13,
+  "pages": 14,
   "page_size": "A4",
   "unresolved_references": false,
   "overfull_boxes": false,
   "physical_sections_unfilled": true,
   "human_review": "pending",
-  "assistant_visual_review": "New offline-audit section and adjacent physical placeholders inspected after reflow; remaining final pages rendered",
+  "assistant_visual_review": "Rendered pages 10-14 and inspected new boundary-study section/table and surrounding placeholders",
   "reference_count": 12,
-  "pdf_sha256": "26d9b936f0cbc2a0b9d30e0b4f1fd2b38c222b04d998522e063f7dbe03ba0ef8"
+  "pdf_sha256": "86aa0cd284257d8cb05dd4d7e33443f75cf57194d09ca15273bf415caadc4803"
 }

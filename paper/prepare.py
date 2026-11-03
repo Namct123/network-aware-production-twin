@@ -81,6 +81,19 @@ def prepare():
     missing=background['summaries']['incomplete_worker']['background_forecast']['discard_reasons']['prediction_incomplete']
     lines += [r'\bottomrule',r'\end{tabular}',r'\par\smallskip\footnotesize '+f"Observation-only cycle: {observer['submitted']} requests, {observer['accepted_observations']} admitted observations, {observer['discarded']} discarded. Incomplete-worker cycle: {missing} incomplete forecasts rejected.",r'\end{table}']
     (output/'background_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    boundary_path=ROOT/'docker/evidence/candidate-20261103-boundary-study.json'
+    boundary_evidence=json.loads(boundary_path.read_text(encoding='utf-8'))
+    boundary=boundary_evidence['boundary']
+    assert boundary['planned']==boundary['recorded']==boundary['complete']==144
+    assert boundary['invariant_failures']==0 and not boundary['parameter_tuning'] and not boundary['physical_validation']
+    lines=[r'\begin{table}[t]',r'\caption{Fixed exploratory boundary grid: disagreement of reduced and forward-contact actions; complete inputs per row, not production trials}',
+           r'\label{tab:boundary}',r'\centering\small',r'\begin{tabular}{rrrrr}',r'\toprule',
+           r'Friction scale & Age (ms) & Complete & Reduced C / contact H & Reduced H / contact C\\',r'\midrule']
+    for g in boundary['groups']:
+        o=g['forward_decision_pairs']
+        lines.append(f"{g['sliding_friction_scale']} & {g['age_s']*1000:.0f} & {g['complete']}/{g['planned']} & {o.get('reduced_continue_contact_hold',0)} & {o.get('reduced_hold_contact_continue',0)}"+r'\\')
+    lines += [r'\bottomrule',r'\end{tabular}',r'\par\smallskip\footnotesize C: continue; H: hold. Full-contact and forward-only actions coincide on this grid.',r'\end{table}']
+    (output/'boundary_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     abstract=(HERE/'title_abstract.tex').read_text(encoding='utf-8')
     words=re.search(r'\\begin\{abstract\}(.*?)\\keywords',abstract,re.S)[1].split()
     assert 150<=len(words)<=250, len(words)
@@ -103,7 +116,8 @@ def prepare():
              'E003':[ROOT/'mujoco/configs/reconfigurable_cell_20261030.json',ROOT/'mujoco/experiments/qualification_20261102.json'],
              'E004':[native_path,ROOT/'mujoco/check_physics_optimization.py'],
              'E005':[background_path,ROOT/'mujoco/background_forecast.py',ROOT/'mujoco/check_background.py',ROOT/'mujoco/configs/background_observer_20261103.json'],
-             'E006':[ROOT/'docker/evidence/candidate-20261103-model-audit.json',ROOT/'mujoco/audit_background.py',ROOT/'mujoco/test_background_audit.py']}
+             'E006':[ROOT/'docker/evidence/candidate-20261103-model-audit.json',ROOT/'mujoco/audit_background.py',ROOT/'mujoco/test_background_audit.py'],
+             'E007':[boundary_path,ROOT/'mujoco/study_model_boundary.py',ROOT/'mujoco/experiments/model_boundary_20261103.json']}
     manifest={'prepared_on':'2026-11-03','status':'working_draft_human_verification_pending','physical_evidence':None,
         'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],
         'background_candidate_image':background_evidence['image_id'],'author_approval':False,

@@ -399,3 +399,44 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   Title/abstract riêng không đổi; các phần kiểm chứng vật lý và tác giả vẫn chưa điền.
 - Xuất lại PDF, kiểm tra tham chiếu và sửa dòng tràn lề; lưu nhật ký và gói nguồn
   mới cho việc kiểm nghiệm. Chưa tự đánh dấu người dùng đã nghiệm thu.
+
+### 035 — Chốt và viết bộ nghiên cứu giới hạn trước khi chạy
+
+- Kế hoạch 144 đầu vào cố định: khoảng cách cuối băng, tốc độ, tuổi dữ liệu và
+  hệ số nhân ma sát trượt. Giá trị giả định tách khỏi hồ sơ máy, không hiệu chỉnh tự động.
+- Tách chấm biên dọc khỏi chấm dọc/ngang/cao trong hai bản cùng động lực học tiếp xúc;
+  đối chiếu với 1D để không lẫn hai nguyên nhân khác biệt. Không đổi predictor điều khiển.
+- Viết bộ chạy, giữ từng kết quả và lỗi, tổng hợp có mẫu số rõ; kiểm tra bất biến
+  biên đầy đủ không lớn hơn biên chỉ dọc. Viết kiểm tra kế hoạch và phân loại kết quả.
+- Mốc này chưa chạy lưới; không giả định trước có bất đồng hoặc mô hình nào đúng.
+
+### 036 — Đợt thăm dò đầu tiên và kế hoạch kiểm tra độ nhạy
+
+- Đợt WSL tính đủ 144 đầu vào, không lỗi bất biến; có 138 cặp cùng khuyến nghị,
+  3 cặp 1D chạy/MuJoCo dừng và 3 cặp ngược lại. Hai cách chấm tiếp xúc chưa làm đổi
+  hành động trong lưới này; không suy thành ngang/cao luôn không cần thiết.
+- Sau khi thấy 6 bất đồng, ghi riêng kế hoạch lưới con 24 đầu vào ở khoảng 15/20 mm,
+  tốc độ 0,08/0,24 m/s, giữ các tuổi dữ liệu và ma sát. Chạy bước 1/2/4 ms, giữ
+  chu kỳ điều khiển 20 ms. Đây là kiểm tra sau khi xem kết quả, không phải xác nhận độc lập.
+- Không điều chỉnh hệ số dừng 1D hoặc hệ số ma sát để làm hai mô hình khớp nhau.
+
+### 037 — Kiểm tra Docker và độ nhạy bước tính
+
+- Docker đạt 119 kiểm tra lõi, lưới 144 đầu vào và bộ tích hợp; 2 kiểm tra đóng gói đạt.
+  Lần WSL/Docker có cùng hành động và biên trong dung sai 10⁻⁹ m, sai khác lớn nhất 0.
+- Lưới con 24 đầu vào chạy đủ ở 1/2/4 ms. Sáu bất đồng đầu vẫn có; thêm một trường
+  hợp đổi dấu: biên tiếp xúc −0,140/+0,035/+0,422 mm theo ba mức bước.
+- Không gọi đây là chứng minh hội tụ: lượng tử hóa thời điểm phản ứng cũng thay đổi,
+  mô hình tiếp xúc chưa hiệu chuẩn. Không dùng mức bước nhỏ nhất làm đáp án máy thật.
+- Lưu kế hoạch bổ sung, từng đầu vào và mã băm; báo cáo dễ đọc có ví dụ tính 1D.
+  Ảnh mới vẫn candidate, không thay ảnh đã nghiệm thu hoặc đưa ảnh lên registry.
+
+### 038 — Viết kết quả nghiên cứu vào tài liệu
+
+- Báo cáo tiếng Việt ghi đủ sáu bất đồng, ví dụ tính khoảng dư 1D, lưới con và
+  đầu vào đổi dấu theo bước tính. Không chuyển 138/144 thành độ chính xác mô hình.
+- Bổ sung mục Exploratory Boundary and Step-Size Sensitivity, bảng sinh từ bằng
+  chứng E007. Ghi rõ lưới con được chọn sau khi xem kết quả và chưa chứng minh hội tụ.
+- Giữ title/abstract riêng, 12 trích dẫn bài báo; phần kiểm chứng vật lý vẫn trống.
+  PDF bản thảo hiện 14 trang A4, đã kiểm tra bảng mới và tham chiếu, không tràn lề.
+- Đóng gói mã và kế hoạch sửa được cùng hướng dẫn; các kết quả và ảnh cũ được giữ.

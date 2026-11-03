@@ -1,3 +1,15 @@
+## candidate-20261103-boundary-study
+
+- User acceptance: **pending**. New exploratory fixed-grid tool only; no controller parameter fitting or actuation changes.
+- Image ID: `sha256:b5deba36508289c5c2c1c13bd13418622540ceae7e310c64fa94456131d86a14`.
+- PASS: 119 core tests, 2 host delivery checks, integration-check, and all 144 planned boundary inputs complete. No full-versus-forward constraint invariant violations.
+- Results: 138 matching decisions, 3 reduced-CONTINUE/contact-HOLD, 3 reverse. Forward-only and full-contact actions match in this grid; not a universal removal of lateral/vertical constraints.
+- Local/Docker comparison: 144 inputs, matching actions and maximum margin difference 0.0 m at tolerance 1e-9 m. This is software reproducibility, not physical accuracy.
+- Separate post hoc local sensitivity: 24 selected inputs at 1/2/4 ms, retaining a 20 ms control interval. One near-zero contact margin changes sign. Not independent confirmation or convergence proof.
+- Functional study allowance is 5 s, not realtime 20 ms qualification. Physical parameters are uncalibrated; no safety/diagnostic-accuracy claim.
+- All prior image IDs including accepted-core-v1 and model-audit unchanged. No accepted/stable/latest tag or registry push. CAD V5 remains distinct from the evaluated MuJoCo scene.
+- [Evidence and hashes](evidence/candidate-20261103-boundary-study.json); [Vietnamese report](../docs/bao_cao_bien_mo_hinh_20261103.md).
+
 ## candidate-20261103-model-audit
 
 - User acceptance: **pending**. Offline same-snapshot model comparison; no actuation or default algorithm change.

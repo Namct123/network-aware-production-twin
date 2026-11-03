@@ -5,6 +5,12 @@ giàn XY và đầu hút. Gồm nguồn CAD, Unity, lõi DT chạy MuJoCo, Docke
 trình bày và tài liệu. Một số kích thước đã cập nhật theo số đo sơ bộ người dùng;
 động lực học chưa hiệu chuẩn và chưa kết nối điều khiển PLC thật.
 
+**Nghiên cứu giới hạn mô hình — 03/11:**
+[kế hoạch và cách chạy](docs/nghien_cuu_gioi_han_mo_hinh.md).
+Lưới vị trí/tốc độ/tuổi dữ liệu/ma sát so 1D với hai cách chấm MuJoCo;
+không dùng MuJoCo làm đáp án vật lý hoặc tự sửa hồ sơ điều khiển.
+Ảnh mới `candidate-20261103-boundary-study` chờ kiểm nghiệm.
+
 **Đối chiếu dự báo — 03/11:** [bộ đọc ngoại tuyến](docs/doi_chieu_du_bao.md)
 so mô hình 1D và MuJoCo từ cùng ảnh đầu vào, phân biệt kết quả tính thiếu và bị loại.
 Không dùng tỷ lệ cùng khuyến nghị làm độ chính xác vật lý. Docker mới:

@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "name": "exploratory_model_boundary_20261103",
+  "distance_to_limit_m": [-0.005, 0, 0.005, 0.01, 0.015, 0.02, 0.04, 0.08],
+  "speed_m_s": [0.08, 0.16, 0.24],
+  "age_s": [0, 0.06],
+  "sliding_friction_scale": [0.25, 1, 2],
+  "uncertainty_m": 0.002,
+  "functional_budget_s": 5,
+  "native_threads": 1
+}

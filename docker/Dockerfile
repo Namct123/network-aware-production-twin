@@ -17,7 +17,7 @@ RUN python docker/snapshot.py \
     && useradd --uid 10001 --no-create-home twin \
     && mkdir -p /app/output \
     && chown twin /app/output
-ARG DT_VERSION=candidate-20261103-model-audit
+ARG DT_VERSION=candidate-20261103-boundary-study
 LABEL org.opencontainers.image.title="Production Twin DT Core" \
       org.opencontainers.image.version="${DT_VERSION}" \
       vn.production-twin.review-status-at-build="candidate-awaiting-human-validation"

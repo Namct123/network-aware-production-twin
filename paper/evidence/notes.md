@@ -3,6 +3,18 @@
 Status: assistant-inspected working draft; accountable human verification and author approval pending.
 No source is marked human-verified. No manuscript was sent to an external drafting or typesetting service.
 
+## Exploratory boundary grid — E007
+
+Source: docker/evidence/candidate-20261103-boundary-study.json. The fixed 144-input
+grid is distinct from full production cycles and from the earlier nominal snapshot
+audit. C023 reports 138 agreements, three disagreements in each direction and zero
+constraint-ablation invariant failures. Neither model is treated as physical truth.
+The subsequent 24-input step-size study was selected after observing disagreements;
+its 72 evaluations are post hoc sensitivity work, not independent validation or a
+convergence proof. At one input, the sign changes between 1 and 2/4 ms. Reaction
+cutoff quantization changes too. No stopping parameter is tuned or threshold chosen
+from this grid. Source/result hashes and preserved image IDs are bound in E007.
+
 ## Offline model-decision audit — E006
 
 Source: docker/evidence/candidate-20261103-model-audit.json, with runtime hashes

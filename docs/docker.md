@@ -13,7 +13,7 @@ Unity và kết nối PLC thật nằm ngoài hạng mục này. Mặc định c
 Hạng mục tiếp theo là `candidate-20261030-reconfiguration`, cũng chờ kiểm nghiệm.
 Ngày 31/10 bổ sung `candidate-20261031-robustness`, cũng chờ kiểm nghiệm.
 Hạng mục tiếp theo là `candidate-20261031-adaptive-speed`, cũng chờ kiểm nghiệm.
-Wrapper hiện chọn `candidate-20261103-model-audit`, cũng chờ kiểm nghiệm; demo
+Wrapper hiện chọn `candidate-20261103-boundary-study`, cũng chờ kiểm nghiệm; demo
 mặc định vẫn dùng cap cố định. [Adaptive-check](adaptive_speed.md) và
 [recovery-check](hold_recovery.md) dùng profile thử riêng, không tự áp vào mọi lượt.
 Chế độ `reset-check` thử [gửi yêu cầu đặt lại và bắt đầu lượt mô phỏng mới](dat_lai_chu_trinh_moi.md).
@@ -26,6 +26,9 @@ Không áp lệnh từ kết quả nền; demo thông thường vẫn dùng nhá
 
 Bản model-audit thêm [đối chiếu mô hình ngoại tuyến](doi_chieu_du_bao.md).
 background-check tự tạo hai thư mục *_audit; không cần cài thêm thư viện.
+
+Bản boundary-study thêm [lưới nghiên cứu giới hạn mô hình](nghien_cuu_gioi_han_mo_hinh.md).
+Chạy `./scripts/docker_dt.ps1 -Mode boundary-study`; kết quả không tự đổi lệnh máy.
 
 Mở terminal tại thư mục dự án:
 

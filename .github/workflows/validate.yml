@@ -35,6 +35,7 @@ jobs:
           docker compose run --rm dt qualification-check
           docker compose run --rm dt physics-check
           docker compose run --rm dt background-check
+          docker compose run --rm dt boundary-study
       - name: Preserve simulation evidence
         if: always()
         uses: actions/upload-artifact@v7

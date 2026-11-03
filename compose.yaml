@@ -1,7 +1,7 @@
 name: production-twin
 services:
   dt:
-    image: production-twin-dt:${DT_IMAGE_TAG:-candidate-20261103-model-audit}
+    image: production-twin-dt:${DT_IMAGE_TAG:-candidate-20261103-boundary-study}
     init: true
     network_mode: none
     read_only: true

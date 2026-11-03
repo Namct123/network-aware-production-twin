@@ -155,6 +155,20 @@
         "path": "mujoco/test_background_audit.py",
         "sha256": "d0821cfdce11d31502a84dfc5386864cb47b3033313352264e633694829d50fe"
       }
+    ],
+    "E007": [
+      {
+        "path": "docker/evidence/candidate-20261103-boundary-study.json",
+        "sha256": "d05ac76b2c33d2e4277daf9e8b99a82ffe2ad675cbae3d4c6cb6ee726a7882b3"
+      },
+      {
+        "path": "mujoco/study_model_boundary.py",
+        "sha256": "ec6364d267c94d72d4201de0929e0ff75f00cb7381ac9ba620322c482bcf92c8"
+      },
+      {
+        "path": "mujoco/experiments/model_boundary_20261103.json",
+        "sha256": "50eb8b56762a8dd8f1fcb4049454053d176b0a192cad49ea420b55b70cf5ebd7"
+      }
     ]
   }
 }
