@@ -15,13 +15,13 @@ def context_files():
              and p.name != 'commissioning.csv']
     paths += [ROOT/p for p in ('docker/Dockerfile', 'docker/snapshot.py', 'docker/requirements.lock',
               'scripts/portable_bundle/launch.py',
-              'unity/Assets/ProductionTwin/parts.csv')]
+              'cad_reference/production_twin_v0_parts.csv')]
     paths += [p for p in (ROOT/'web').rglob('*') if p.is_file() and '__pycache__' not in p.parts and p.suffix in {'.py','.js','.html','.css','.json','.md','.cmd'}]
     return sorted(paths)
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--tag', default=os.environ.get('DT_IMAGE_TAG','candidate-20261104-stream-evidence'))
+    parser.add_argument('--tag', default=os.environ.get('DT_IMAGE_TAG','candidate-20261104-mujoco-only'))
     args = parser.parse_args()
     if not re.fullmatch(r'candidate-[a-zA-Z0-9_.-]+',args.tag):
         parser.error('Build a candidate tag; accepted tags require explicit user validation.')

@@ -11,7 +11,7 @@ Chế độ mặc định vẫn nghiêm ngặt, chưa tự cho phép giả đị
 
 ## Mở trên Windows
 
-1. Máy cần Python **3.10 trở lên**; không cần cài Unity, MuJoCo hoặc thư viện pip để xem giao diện này.
+1. Máy cần Python **3.10 trở lên**; không cần cài MuJoCo hoặc thư viện pip để xem giao diện này.
 2. Nhấp đúp `START_EXPLORER.cmd` trong thư mục này. Giữ cửa sổ máy chủ mở.
 3. Mở **http://127.0.0.1:8765** bằng Chrome, Edge hoặc trình duyệt trong Codex.
 4. Khi dùng xong, nhấn Ctrl+C trong cửa sổ máy chủ. Đóng tab web không tự tắt máy chủ.

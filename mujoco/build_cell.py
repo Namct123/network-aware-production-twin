@@ -1,4 +1,4 @@
-"""Build a MuJoCo cell from the Fusion/Unity part ledger and canonical URDF joints."""
+"""Build a MuJoCo cell from the Fusion/CAD part ledger and canonical URDF joints."""
 
 import csv
 import re
@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-PARTS = HERE.parent / "unity/Assets/ProductionTwin/parts.csv"
+PARTS = HERE.parent / "cad_reference/production_twin_v0_parts.csv"
 URDF = HERE / "production_cell.urdf"
 OUT = HERE / "production_cell.xml"
 MM = 0.001
@@ -98,7 +98,7 @@ def main():
             attrs["rgba"] = next((color for key, color in colors.items() if key in label), "0.66 0.7 0.73 1")
             ET.SubElement(bodies[group], "geom", **attrs)
 
-    # A 22 mm test product from the Unity demo. It is free: belts, A1 and cup must move it by contact.
+    # A legacy 22 mm test product. It is free: belts, A1 and cup must move it by contact.
     product = ET.SubElement(world, "body", name="product", pos="0.20 -0.325 0.060")
     ET.SubElement(product, "freejoint", name="product_free")
     ET.SubElement(product, "geom", name="product_box", type="box", size="0.011 0.011 0.011",

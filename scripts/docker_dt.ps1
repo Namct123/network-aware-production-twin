@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','physics-check','background-check','boundary-study','stream-check','stream-archive-check','software-check','manifest')]
+    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','physics-check','background-check','boundary-study','stream-check','stream-archive-check','predictive-replay-study','software-check','manifest')]
     [string]$Mode = 'demo',
     [string]$Config = '',
     [string]$Plan = '',
@@ -9,7 +9,7 @@ param(
     [string]$Tag = 'accepted-20261103-software-v2'
 )
 if ($Mode -eq 'build' -and -not $PSBoundParameters.ContainsKey('Tag')) {
-    $Tag = 'candidate-20261104-stream-evidence'
+    $Tag = 'candidate-20261104-mujoco-only'
 }
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent
@@ -21,7 +21,7 @@ $dockerArgs = switch ($Mode) {
 }
 if ($Mode -in @('demo','fault','strict')) { $dockerArgs += @('--bin', "$Bin") }
 if ($Config) {
-    if ($Mode -notin @('demo','fault','strict','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','qualification-check','physics-check','background-check','boundary-study')) {
+    if ($Mode -notin @('demo','fault','strict','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','qualification-check','physics-check','background-check','boundary-study','predictive-replay-study')) {
         throw '-Config applies only to simulation modes.'
     }
     # Config is a filename under the read-only mounted profile directory.
@@ -34,7 +34,7 @@ if ($Config) {
     $dockerArgs += @('--config', "/profiles/$Config")
 }
 if ($Plan) {
-    if ($Mode -notin @('robustness-check','adaptive-check','qualification-check','boundary-study')) { throw '-Plan requires robustness-check, adaptive-check, qualification-check or boundary-study.' }
+    if ($Mode -notin @('robustness-check','adaptive-check','qualification-check','boundary-study','predictive-replay-study')) { throw '-Plan requires robustness-check, adaptive-check, qualification-check or boundary-study.' }
     if ([IO.Path]::GetFileName($Plan) -ne $Plan -or $Plan -match '[/\\:]') {
         throw 'Use only a plan filename under mujoco/experiments.'
     }

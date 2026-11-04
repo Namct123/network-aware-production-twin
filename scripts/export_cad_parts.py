@@ -1,16 +1,14 @@
-"""Export the Fusion layout as a Unity part list, simple OBJ groups and preview."""
+"""Export the legacy Fusion CAD part ledger in millimetres, Z up."""
 
 import csv
 import importlib.util
-import math
 import sys
 import types
 from pathlib import Path
 
-from PIL import Image, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "unity" / "Assets" / "ProductionTwin"
+OUT = ROOT / "cad_reference" / "production_twin_v0_parts.csv"
 FUSION = ROOT / "fusion" / "ProductionTwin_V0" / "ProductionTwin_V0.py"
 PARTS = []
 
@@ -67,77 +65,6 @@ def load_layout():
     module.build(None)
 
 
-def vertices_faces(part):
-    _, _, shape, x, y, z, sx, sy, sz, along_x, along_y = part
-    if shape == "box":
-        a, b, c = sx / 2, sy / 2, sz
-        vertices = [(x + dx, y + dy, z + dz)
-                    for dz in (0, c) for dy in (-b, b) for dx in (-a, a)]
-        quads = [(0, 2, 3, 1), (4, 5, 7, 6), (0, 1, 5, 4),
-                 (1, 3, 7, 5), (3, 2, 6, 7), (2, 0, 4, 6)]
-        faces = [(q[0], q[1], q[2]) for q in quads] + [
-            (q[0], q[2], q[3]) for q in quads]
-    else:
-        r, n = sx / 2, 24
-        circle = [(r * math.cos(2 * math.pi * i / n),
-                   r * math.sin(2 * math.pi * i / n)) for i in range(n)]
-        if along_x:
-            vertices = [(x + dx, y + u, z + v)
-                        for dx in (0, sz) for u, v in circle]
-        elif along_y:
-            vertices = [(x + u, y + dy, z + v)
-                        for dy in (0, sz) for u, v in circle]
-        else:
-            vertices = [(x + u, y + v, z + dz)
-                        for dz in (0, sz) for u, v in circle]
-        faces = []
-        for i in range(n):
-            j = (i + 1) % n
-            faces.extend(((i, j, n + j), (i, n + j, n + i)))
-        for i in range(1, n - 1):
-            faces.extend(((0, i + 1, i), (n, n + i, n + i + 1)))
-    # Fusion: millimetres, Z up. Unity: metres, Y up.
-    return [(vx / 1000, vz / 1000, vy / 1000) for vx, vy, vz in vertices], faces
-
-
-def write_obj(path, parts):
-    count = 0
-    with path.open("w", encoding="utf-8") as f:
-        f.write("# metres; X right, Y up, Z along original Fusion Y\n")
-        for part in parts:
-            vertices, faces = vertices_faces(part)
-            f.write("o " + part[0].replace(" ", "_") + "\n")
-            for v in vertices:
-                f.write("v {:.6f} {:.6f} {:.6f}\n".format(*v))
-            for a, b, c in faces:
-                # Swapping Y and Z reverses winding.
-                f.write("f {} {} {}\n".format(count + c + 1,
-                                                count + b + 1,
-                                                count + a + 1))
-            count += len(vertices)
-
-
-def preview(path):
-    image = Image.new("RGB", (1200, 1450), "#eeeeeb")
-    draw = ImageDraw.Draw(image)
-    scale, ox, oy = 1.1, 600, 870
-    palette = {"base": "#333b45", "belt": "#158348", "bin": "#cfc3e3",
-               "rail": "#a7afb8", "sensor": "#e9bb34", "valve": "#91a3ae",
-               "PLC": "#52677a", "button": "#bb6161"}
-    for part in PARTS:
-        name, _, shape, x, y, _, sx, sy, sz, along_x, along_y = part
-        color = next((v for k, v in palette.items() if k in name), "#8b979e")
-        if shape == "cylinder":
-            if along_x:
-                sx, x = sz, x + sz / 2
-            elif along_y:
-                sy, y = sz, y + sz / 2
-        x0, y0 = ox + (x - sx / 2) * scale, oy - (y + sy / 2) * scale
-        x1, y1 = ox + (x + sx / 2) * scale, oy - (y - sy / 2) * scale
-        draw.rectangle((x0, y0, x1, y1), fill=color, outline="#27313a", width=2)
-    image.save(path)
-
-
 def validate_transfer():
     part = {row[0]: row for row in PARTS}
     front = part["front green belt"]
@@ -186,23 +113,19 @@ def validate_transfer():
 
 
 def main():
-    load_layout()
-    validate_transfer()
-    OUT.mkdir(parents=True, exist_ok=True)
-    with (OUT / "parts.csv").open("w", newline="", encoding="utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(("name", "group", "shape", "x_mm", "y_mm", "z_mm",
-                         "sx_mm", "sy_mm", "sz_mm", "along_x", "along_y"))
+    import argparse
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output',type=Path,default=OUT)
+    target=parser.parse_args().output
+    load_layout(); validate_transfer()
+    names=[part[0] for part in PARTS]
+    assert len(names)==len(set(names)) and len(PARTS)>100
+    target.parent.mkdir(parents=True,exist_ok=True)
+    with target.open('w',newline='',encoding='utf-8') as f:
+        writer=csv.writer(f)
+        writer.writerow(('name','group','shape','x_mm','y_mm','z_mm','sx_mm','sy_mm','sz_mm','along_x','along_y'))
         writer.writerows(PARTS)
-    for name in ("Static", "X", "Y", "Z", "Pusher"):
-        write_obj(OUT / (name.lower() + ".obj"),
-                  [part for part in PARTS if part[1] == name])
-    preview(OUT / "layout_top_v4.png")
-    names = [part[0] for part in PARTS]
-    assert len(names) == len(set(names)), "Duplicate CAD part names"
-    assert len(PARTS) > 100 and all(part[6] > 0 for part in PARTS)
-    print("Exported", len(PARTS), "parts to", OUT)
+    print('Exported',len(PARTS),'CAD parts to',target)
 
 
-if __name__ == "__main__":
-    main()
+if __name__=='__main__':main()

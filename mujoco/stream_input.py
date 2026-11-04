@@ -39,6 +39,7 @@ class StreamCore:
         step=self.core.step(message,now);self.ticks+=1
         return {'time_s':now,'input_error':error,'notes':notes,'input_guard':step['input_guard'],
             'phase':self.core.controller.phase,'hold_reason':self.core.controller.reason,
+            'estimate':self.core.controller.estimator.estimate.as_dict(),'prediction':step['prediction'],
             'command_message':step['command_message'],'physical_output':False,'core_step_ms':step['step_compute_ms']}
 
     def finish(self,now):

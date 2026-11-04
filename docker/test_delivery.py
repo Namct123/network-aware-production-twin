@@ -9,6 +9,8 @@ from build_image import ROOT, context_files
 class DeliveryTest(unittest.TestCase):
     def test_context_has_core_without_private_or_generated_files(self):
         names = {p.relative_to(ROOT).as_posix() for p in context_files()}
+        self.assertIn('cad_reference/production_twin_v0_parts.csv',names)
+        self.assertFalse(any('unity' in Path(n).parts for n in names))
         self.assertTrue({'mujoco/experiment.py','mujoco/predictor.py',
                          'mujoco/production_cell.xml','scripts/portable_bundle/launch.py'} <= names)
         forbidden = {'.git','.venv','__pycache__','output','tmp','paper','rendered'}

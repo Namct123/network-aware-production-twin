@@ -11,7 +11,7 @@ jobs:
   docker-candidate:
     runs-on: ubuntu-latest
     env:
-      DT_IMAGE_TAG: candidate-20261104-stream-evidence
+      DT_IMAGE_TAG: candidate-20261104-mujoco-only
     steps:
       - uses: actions/checkout@v7
       - name: Build headless DT candidate (no registry push or accepted tag)
@@ -47,9 +47,9 @@ jobs:
       - uses: actions/setup-python@v7
         with:
           python-version: '3.12'
-      - name: Check Unity handoff files
+      - name: Check MuJoCo and CAD inputs
         run: |
-          python -c "from pathlib import Path; p=Path('unity/Assets/ProductionTwin'); required=['ProductionTwin.unity','ProductionTwin.unity.meta','parts.csv','static.obj','x.obj','y.obj','z.obj','pusher.obj','Editor/ProductionTwinBuilder.cs','ProductionTwinRuntime.cs','ProductionTwinDemo.cs']; missing=[name for name in required if not (p/name).is_file()]; assert not missing, f'Missing Unity files: {missing}'"
+          python -c "from pathlib import Path; required=['mujoco/production_cell.urdf','mujoco/production_cell.xml','cad_reference/production_twin_v0_parts.csv']; assert all(Path(p).is_file() for p in required); assert not Path('unity').exists()"
       - name: Test Digital Twin signal contract and replay
         run: python mujoco/test_signals.py
       - name: Test Digital Twin estimator and sequence

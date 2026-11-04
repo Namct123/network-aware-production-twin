@@ -1,6 +1,6 @@
 # Lõi mô phỏng MuJoCo của trạm phân loại
 
-Mô hình này chuyển bố cục Fusion 360/Unity hiện có sang mô phỏng vật lý MuJoCo. Hệ trục giữ nguyên: **+X** ngang sang phải, **+Y** từ băng tải vào dãy sáu hộp, **+Z** hướng lên; đơn vị trong MuJoCo là mét, kg, giây.
+Mô hình này chuyển bố cục Fusion 360/CAD hiện có sang mô phỏng vật lý MuJoCo. Hệ trục giữ nguyên: **+X** ngang sang phải, **+Y** từ băng tải vào dãy sáu hộp, **+Z** hướng lên; đơn vị trong MuJoCo là mét, kg, giây.
 
 ## Thành phần
 
@@ -19,7 +19,7 @@ bật bằng `configs/predictive_demo.json`. Đây chưa phải rollout tiếp x
 MuJoCo toàn hệ thống; baseline mặc định vẫn tắt chức năng này.
 
 - [`production_cell.urdf`](production_cell.urdf): cây động học chuẩn gồm khung cố định, trục X, trục Y, xi lanh hạ A2 và xi lanh đẩy A1; có trục, hành trình, quán tính giả định và sổ giả định ngay đầu tệp.
-- [`build_cell.py`](build_cell.py): kết hợp URDF với `unity/Assets/ProductionTwin/parts.csv` (xuất từ nguồn Fusion) để tạo [`production_cell.xml`](production_cell.xml). Không cần chạy Fusion 360 trong WSL.
+- [`build_cell.py`](build_cell.py): kết hợp URDF với `cad_reference/production_twin_v0_parts.csv` (xuất từ nguồn Fusion) để tạo [`production_cell.xml`](production_cell.xml). Không cần chạy Fusion 360 trong WSL.
 - [`production_cell.xml`](production_cell.xml): MJCF có hai băng tải dùng vận tốc bề mặt tiếp xúc, thanh dẫn, sáu hộp, robot XY, giác hút, phôi tự do và tia cảm biến PS1/PS2.
 - [`run_cell.py`](run_cell.py): API điều khiển mô phỏng và chu trình nghiệm thu một phôi: băng tải 1 → A1 đẩy → băng tải 2 → PS1/PS2 → gắp → hộp 1–6.
 
@@ -65,4 +65,4 @@ Lớp tín hiệu, ghi dữ liệu và phát lại đã được bổ sung ngày
 - Kích thước toàn trạm và đa số hành trình được **ước lượng từ ảnh và mô hình Fusion**, chưa đo trực tiếp. Hành trình 75 mm của A2 đọc từ nhãn xi lanh; hành trình A1 và giới hạn XY là giả định.
 - Khối lượng, ma sát, tốc độ, lực hút 5 N và quán tính là thông số nghiệm thu mô phỏng, **chưa được hiệu chuẩn** trên máy thực. Giác hút dùng contact adhesion; chưa có mô hình áp suất khí nén, rò rỉ hay kiểm tra Vacuum_OK.
 - Chu trình nghiệm thu dùng vị trí phôi trực tiếp từ bộ giải vật lý để canh gắp. Khi ghép PLC phải thay bằng vị trí suy ra từ PS1/PS2, encoder hoặc camera đã hiệu chuẩn.
-- Chưa có cầu nối live với TIA Portal/PLC, ROS 2 hay Unity; chưa đo độ trễ đồng bộ và chưa huấn luyện ML. Chu trình nghiệm thu chạy **một phôi mỗi lần reset**, kiểm tra riêng từng hộp.
+- Chưa có cầu nối live với TIA Portal/PLC, ROS 2; chưa đo độ trễ đồng bộ và chưa huấn luyện ML. Chu trình nghiệm thu chạy **một phôi mỗi lần reset**, kiểm tra riêng từng hộp.

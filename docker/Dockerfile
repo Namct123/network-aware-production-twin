@@ -10,14 +10,14 @@ COPY docker/requirements.lock /app/requirements.txt
 RUN python -m pip install --no-cache-dir -r requirements.txt
 COPY mujoco /app/mujoco
 COPY web /app/web
-COPY unity/Assets/ProductionTwin/parts.csv /app/unity/Assets/ProductionTwin/parts.csv
+COPY cad_reference/production_twin_v0_parts.csv /app/cad_reference/production_twin_v0_parts.csv
 COPY scripts/portable_bundle/launch.py /app/launch.py
 COPY docker/snapshot.py /app/docker/snapshot.py
 RUN python docker/snapshot.py \
     && useradd --uid 10001 --no-create-home twin \
     && mkdir -p /app/output \
     && chown twin /app/output
-ARG DT_VERSION=candidate-20261104-stream-evidence
+ARG DT_VERSION=candidate-20261104-mujoco-only
 LABEL org.opencontainers.image.title="Production Twin DT Core" \
       org.opencontainers.image.version="${DT_VERSION}" \
       vn.production-twin.review-status-at-build="candidate-awaiting-human-validation"

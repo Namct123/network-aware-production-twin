@@ -2,7 +2,7 @@
 
 Docker hiện đóng gói **lõi DT + MuJoCo không cửa sổ**, gồm estimator, mạng giả lập,
 sequence, predictor, supervisor, cấu hình và các bộ kiểm tra. Viewer, CAD/Fusion,
-Unity và kết nối PLC thật nằm ngoài hạng mục này. Mặc định candidate mới dùng plant chức năng theo kích thước sơ bộ; baseline cũ vẫn được giữ.
+Kết nối PLC thật nằm ngoài hạng mục này. Mặc định candidate mới dùng plant chức năng theo kích thước sơ bộ; baseline cũ vẫn được giữ.
 
 ## 1. Chạy trên máy hiện tại từ PowerShell
 

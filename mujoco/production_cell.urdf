@@ -3,7 +3,7 @@
   robot: production_cell | consumers: MuJoCo, CAD Viewer, ROS robot_state_publisher
   units: metres, kilograms, seconds, radians | frames: Fusion +X right, +Y toward six bins, +Z up
   root: base_link at centre of the base-board lower face
-  source: fusion/ProductionTwin_V0/ProductionTwin_V0.py via unity/Assets/ProductionTwin/parts.csv
+  source: fusion/ProductionTwin_V0/ProductionTwin_V0.py via cad_reference/production_twin_v0_parts.csv
   geometry: primitive reductions of the Fusion layout; source CSV dimensions are millimetres
   links: base_link = static cell; x_beam_link = moving transverse rail;
          y_carriage_link = carriage plus A2 body; cup_link = A2 moving rods and suction cup;

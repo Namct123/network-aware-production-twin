@@ -1,4 +1,4 @@
-"""Make the colored CAD Viewer mesh from the Unity/Fusion part list.
+"""Make the colored CAD Viewer mesh from the Fusion/CAD part list.
 
 Run with the Python 3.14 installation that already has trimesh.
 """
@@ -10,7 +10,7 @@ from pathlib import Path
 import trimesh
 
 ROOT = Path(__file__).resolve().parents[1]
-PARTS = ROOT / "unity/Assets/ProductionTwin/parts.csv"
+PARTS = ROOT / "cad_reference/production_twin_v0_parts.csv"
 OUT = ROOT / "output/cad"
 
 

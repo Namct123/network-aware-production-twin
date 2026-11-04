@@ -410,7 +410,7 @@ Một bản là plant chạy theo thời gian thực hoặc theo tick giả lậ
 
 Giao diện tối thiểu, chưa cần ROS 2
 
-Bắt đầu bằng các đối tượng Python và hàng đợi có timestamp. Khi logic ổn định mới đưa luồng này qua socket hoặc ROS 2. Việc chọn middleware không thay thế mô hình đồng bộ hay thuật toán dự báo. Unity có thể nhận trạng thái để hiển thị trong giai đoạn sau; không nên để tốc độ khung hình quyết định thời gian vật lý.
+Bắt đầu bằng các đối tượng Python và hàng đợi có timestamp. Khi logic ổn định mới đưa luồng này qua socket hoặc ROS 2. Việc chọn middleware không thay thế mô hình đồng bộ hay thuật toán dự báo. Trang web có thể hiển thị trạng thái; không để tốc độ khung hình quyết định thời gian vật lý.
 
 Tệp dự kiến: sensor_model.py, signals.py, sequence.py, estimator.py, transport.py, predictor.py và supervisor.py. Đây là đề xuất tổ chức cho bước tới, các tệp này chưa được triển khai trong phiên bản hiện tại.
 

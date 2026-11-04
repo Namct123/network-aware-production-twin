@@ -58,5 +58,5 @@ Kiểm tra kích thước: `scenes/check_production_twin_v5.py`; kết quả lư
 `output/cad/production_twin_v5_checks.json`. Kiểm tra hợp lệ từng solid STEP
 không thay thế kiểm tra va chạm toàn hành trình hoặc kiểm chứng máy thật.
 
-**Phạm vi:** cập nhật CAD 3D. Scene Unity và lõi MuJoCo đang chạy chưa đổi đồng
+**Phạm vi:** cập nhật CAD 3D. CAD V5 và lõi MuJoCo đang chạy chưa đổi đồng
 bộ sang V5; không dùng các nhật ký cũ để chứng minh chu kỳ chạy với hình học mới.

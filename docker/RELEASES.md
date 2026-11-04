@@ -1,3 +1,13 @@
+## candidate-20261104-mujoco-only — 2026-11-04
+
+- User acceptance: **pending**. Unity scene/assets/C# and export paths removed from the active source. The unchanged 113-part CAD ledger now lives at `cad_reference/production_twin_v0_parts.csv`; a stdlib-only CAD exporter replaces the old export script.
+- Candidate image: `sha256:19e62d5b7a616862c46b413e761a00c401cb2679741cce27bc3dd04565438254`.
+- All 9 software groups PASS after migration: 135 core unit tests, 8 web tests, stream, integration, reset, background, boundary, qualification and stream archive. Two host delivery checks PASS.
+- Post-migration demo: DONE, evaluator placement PASS, 13.92 s simulated under explicit open-loop assumptions. Legacy reconstruction compiles and matches the committed XML after newline normalization; original template is retained.
+- Project is canonical on D. Ubuntu-24.04/Docker disk moved with native WSL tooling; stopped-disk SHA-256 identical before/after. All 19 previous Docker aliases and Python/MuJoCo/NumPy versions preserved. Accepted defaults unchanged; no registry push.
+- Historical mixed delivery ZIPs are preserved outside the active project instead of being deleted; immutable image/source history is retained. CAD V5 is not silently declared synchronized with MuJoCo, and no physical verification is claimed.
+- [Evidence and source hashes](evidence/candidate-20261104-mujoco-only.json); [Vietnamese guide](../docs/chuyen_sang_o_D_va_bo_unity.md).
+
 ## candidate-20261104-stream-evidence — 2026-11-04
 
 - User acceptance: **pending**. Two additions: replay recorded stream ticks (including silence) through the shared core; transport a six-file ZIP with integrity verification. No controller tuning or physical output.

@@ -1,0 +1,10 @@
+{
+  "kind": "predictive_replay_plan_v1",
+  "repetitions": 3,
+  "replays_per_trial": 2,
+  "warning_delay_s": 0.04,
+  "stale_delay_s": 0.12,
+  "gap_s": 0.30,
+  "cases": ["nominal", "warning_delay", "stale_delay", "gap", "repeat", "wrong_session"],
+  "scope": "MuJoCo closed-loop plant with synthetic scheduled packets, not real UDP or physical feedback; default prediction budget unchanged"
+}

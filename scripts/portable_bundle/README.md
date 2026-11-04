@@ -2,7 +2,7 @@
 
 Gói giữ nguyên mã lõi DT hiện có: tín hiệu, cảm biến, mạng giả lập, ước lượng,
 điều khiển tuần tự, dự báo, supervisor, đánh giá, ghi/phát lại và cấu hình.
-Không cần Fusion, Unity, PLC hoặc tài khoản Codex để chạy mô phỏng.
+Không cần Fusion, PLC hoặc tài khoản Codex để chạy mô phỏng.
 Internet cần cho lần cài các gói Python; chạy mô phỏng sau cài không cần mạng.
 
 ## 1. Lựa chọn nhanh trên Windows
@@ -112,10 +112,10 @@ Xem `docs/cad_v5_measured.md` và `docs/geometry_survey_20261028.md`.
   KHÔNG phải profile chạy có thể đưa thẳng vào `--config`.
 - Đọc `docs/modular_twin.md` và `mujoco/configs/physical_measurements.csv` trước
   khi nhập số đo. Thay riêng kích thước phôi không bảo đảm cơ cấu vẫn gắp đúng.
-- `unity/Assets/ProductionTwin/parts.csv` chỉ là bảng chi tiết baseline cần cho
-  `mujoco/build_cell.py`; gói này không chứa project Unity đầy đủ.
+- `cad_reference/production_twin_v0_parts.csv` chỉ là bảng chi tiết baseline cần cho
+  `mujoco/build_cell.py`; gói này chỉ dùng MuJoCo.
 - Không chạy `build_cell.py` để tự động chuyển V5: nó đọc bảng baseline và URDF
-  hiện có. Các script xuất Unity cũ là nguồn tham khảo, không phải đường đồng bộ V5.
+  hiện có. Bảng CAD này là baseline lịch sử, không phải đường đồng bộ V5.
 
 ## 6. Giao diện web tùy chọn
 

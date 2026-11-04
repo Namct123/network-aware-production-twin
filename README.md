@@ -1,7 +1,7 @@
 # Network-Aware Production Twin
 
 Kho làm việc chung cho mô hình số của hệ thống hai băng tải, cơ cấu đẩy A1,
-giàn XY và đầu hút. Gồm nguồn CAD, Unity, lõi DT chạy MuJoCo, Docker, trang
+giàn XY và đầu hút. Gồm nguồn CAD, lõi DT chạy MuJoCo, Docker, trang
 trình bày và tài liệu. Một số kích thước đã cập nhật theo số đo sơ bộ người dùng;
 động lực học chưa hiệu chuẩn và chưa kết nối điều khiển PLC thật.
 
@@ -52,7 +52,6 @@ nhánh tính cũ vẫn là mặc định. CAD V5 và cảnh MuJoCo **chưa đồ
   tiếp tục dùng candidate chờ bạn kiểm nghiệm.
 - **Lõi dùng số đo mới, tham số nhập được:** [profile, bảng CSV và hướng dẫn](docs/parameterized_core.md).
 
-- **Unity:** dùng Unity `6000.0.84f1`, chép `unity/Assets/ProductionTwin` cùng `ProductionTwin.meta` vào thư mục `Assets` của dự án. Mở scene `ProductionTwin.unity`; hướng dẫn ở [unity/README.md](unity/README.md).
 - **Fusion 360/CAD:** nguồn hiện tại ở `fusion/ProductionTwin_V5/ProductionTwin_V5.py`, bản STEP/GLB V5 nằm trong `cad_reference/`. V0/V4 giữ làm tham chiếu lịch sử; không phải hình học của cảnh MuJoCo đã kiểm tra.
 - **MuJoCo/WSL:** URDF, MJCF và chu trình vật lý thử nghiệm cho băng tải, A1, robot XY, A2 và giác hút ở [mujoco/README.md](mujoco/README.md).
 - **Lõi Digital Twin:** lớp tín hiệu cảm biến, timestamp, ghi/phát lại dữ liệu và kết quả thử mới nhất ở [docs/dt_core_progress.md](docs/dt_core_progress.md).
@@ -61,7 +60,7 @@ nhánh tính cũ vẫn là mặc định. CAD V5 và cảnh MuJoCo **chưa đồ
 
 ## Cách nhóm cùng làm
 
-1. Mỗi người tạo nhánh từ `main` (ví dụ `unity/sensor-visuals`, `plc/sequence`, `twin/prediction`).
+1. Mỗi người tạo nhánh từ `main` (ví dụ `cad/sensor-layout`, `plc/sequence`, `twin/prediction`).
 2. Ghi thay đổi giao diện tín hiệu, hệ tọa độ, đơn vị đo và giới hạn chuyển động trong [CONTRIBUTING.md](CONTRIBUTING.md) khi nộp pull request.
 3. Chỉ ghép vào `main` sau khi người phụ trách phần liên quan xem lại và kiểm tra scene hoặc mô phỏng. GitHub lưu phiên bản và kiểm tra thay đổi; việc ghép hành vi chạy đúng cần hợp đồng dữ liệu và kiểm thử tích hợp.
 
@@ -120,3 +119,7 @@ Kết quả 02/11/2026: [báo cáo dễ hiểu](docs/bao_cao_danh_gia_20261102.m
 Hai mục mới: phát lại phiên dữ liệu (giữ cả nhịp im lặng) và gói ZIP hồ sơ
 có kiểm tra mã băm. Xem [hướng dẫn](docs/phat_lai_va_dong_goi_phien.md).
 Bản mới dùng nhãn `candidate-20261104-stream-evidence`; bản nghiệm thu mặc định giữ nguyên.
+
+## Vị trí dự án và nền mô phỏng hiện tại
+
+Dự án chính ở `D:\Projects\network-aware-production-twin`. Chỉ dùng MuJoCo để mô phỏng; đã bỏ tài sản và trình dựng Unity. Đọc [hướng dẫn sau chuyển ổ đĩa](docs/chuyen_sang_o_D_va_bo_unity.md).

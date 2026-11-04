@@ -522,3 +522,47 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   Đối chiếu 16 nhãn cũ vẫn nguyên. Giữ accepted-20261103-software-v2 làm mặc định.
 - Chỉ thử ba phiên dữ liệu ngắn, chưa qua TRACK có dự báo. Không tuyên bố độ chính xác
   vật lý, khả năng phát lại mọi cấu hình hoặc đồng bộ CAD/MuJoCo. Không gửi lệnh PLC.
+
+### 046 — Nghiên cứu phát lại khi đã vào pha dự báo
+
+- Nhật ký thêm ước lượng và toàn bộ kết quả dự báo; khi so chỉ bỏ thời gian tính.
+  Có danh sách trường khác nhau để truy tìm nhịp bắt đầu lệch.
+- Kế hoạch sáu ca, lặp ba lần, phát lại hai lần/phiên. Plant MuJoCo chạy vòng kín
+  với tín hiệu số, lịch gói thử và ngưỡng hiện tại; không truyền UDP hoặc đi qua PLC.
+- Lần đầu bị lỗi ghi vì C đầy và lỗi đổi giây/mili giây của dữ liệu thử. Giữ lần dở
+  trên D. Nguồn thử dùng giây trực tiếp; không nới chặn thời gian của lõi.
+- Docker candidate-20261104-predictive-replay đạt chín nhóm và nghiên cứu. Kết quả
+  đầy đủ ở D:/DT_CPPS_Experiments/20261104/candidate_predictive_replay; đây là ảnh
+  trước khi chuyển bảng CAD và bỏ Unity, không gán kết quả đó cho ảnh dựng sau.
+
+### 047 — Chuyển dữ liệu chính sang D và dọn C
+
+- Sao chép, đối chiếu SHA-256 đủ 26.579 tệp cùng trạng thái Git/chỉnh sửa chưa commit
+  từ C:/Users/Admin/Documents/ChatGPT/plc sang D:/Projects/network-aware-production-twin.
+- Dọn các bản thư mục lớn cũ sau kiểm tra, tạo liên kết từng thư mục để Codex đang
+  mở vẫn hoạt động. Còn tệp gốc nhỏ tương thích và cache bị Windows khóa quyền.
+- Xóa riêng cache tải pip/http và npm/_cacache có thể tạo lại; giữ các gói cài và _npx.
+  Không dọn bừa dữ liệu Temp/Downloads. Bảng kiểm kê và mã băm lưu ngoài kho nguồn.
+
+### 048 — Bỏ Unity theo chỉ đạo mới
+
+- Bỏ nguồn Unity, scene, C#, vật liệu, script xuất cũ và dự án Unity riêng/Library.
+- Giữ bảng hình học 113 chi tiết với SHA-256 không đổi, chuyển sang cad_reference;
+  đổi các trình dựng MuJoCo, CAD Viewer, Docker, CI và đóng gói sang đường dẫn mới.
+- Thay trình xuất cũ bằng export_cad_parts.py chỉ dùng thư viện chuẩn. Tạo lại bảng
+  cho kết quả giống mã băm cũ; hình học chưa tự thay thành CAD V5.
+- Bộ duyệt tự động chặn xóa hàng loạt ZIP hỗn hợp; dùng phương án an toàn hơn: chuyển
+  nguyên trạng ra kho D:/DT_CPPS_Archives/20261104, giữ CAD/lõi DT và mã băm đối chiếu.
+- Không sửa chứng cứ/lịch sử Docker cũ hoặc tự đổi nhãn đã nghiệm thu.
+
+### 049 — Chuyển cả môi trường WSL/Docker và kiểm tra lại
+
+- Di chuyển chính thức Ubuntu-24.04 sang D:/WSL/Ubuntu-24.04, không export/unregister.
+  Đĩa đã dừng 20.533.215.232 byte có SHA-256 trùng trước/sau khi chuyển, trước lần boot mới.
+- Sau khởi động: 19 ảnh Docker cũ và phiên bản Python 3.12.3/MuJoCo 3.16.0/NumPy 2.5.4
+  giữ nguyên. Ổ C có lại hơn 20 GB trống; nguồn/kết quả lớn và môi trường chạy đều trên D.
+- Candidate MuJoCo-only đạt đủ chín nhóm, 135 kiểm tra lõi và 8 web; 2 kiểm tra giao hàng
+  cũng đạt. Demo sau di chuyển DONE/đặt phôi đạt với giả định vòng hở, 13,92 giây mô phỏng.
+- Bộ dựng legacy dùng CSV mới biên dịch được; XML trùng nội dung template gốc, khác
+  cách xuống dòng Windows/Linux. Không ghi đè template hoặc chỉnh tham số cơ khí.
+- Nguồn ảnh được đối chiếu mã băm. Giữ nguyên nhãn accepted cũ; chưa nghiệm thu ảnh mới.

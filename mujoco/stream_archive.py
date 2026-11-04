@@ -28,6 +28,13 @@ def decode(data):
 def digest(data): return hashlib.sha256(data).hexdigest()
 
 
+def logical(row):
+    result = {k: v for k, v in row.items() if k != 'core_step_ms'}
+    if isinstance(result.get('prediction'), dict):
+        result['prediction'] = {k: v for k, v in result['prediction'].items() if k != 'compute_ms'}
+    return result
+
+
 def payloads(folder):
     folder = Path(folder)
     return {name: read(folder/name) for name in FILES}
@@ -102,7 +109,7 @@ def replay(folder, output):
         raise ValueError('packet has no corresponding receiver tick')
     output = Path(output); output.mkdir(parents=True, exist_ok=False)
     core = StreamCore(config, decode(data['mapping.json']), info['session_id'], info['generation'])
-    mismatches = []
+    mismatches = []; differences = {}
     try:
         with (output/'replayed_commands.jsonl').open('w', encoding='utf-8') as log:
             for index, expected in enumerate(ticks):
@@ -110,11 +117,14 @@ def replay(folder, output):
                 actual = core.finish(now) if expected.get('final') else core.tick(packets.get(now), now)
                 log.write(json.dumps(actual, allow_nan=False)+'\n')
                 # Computation duration is measured again, never compared as a logical result.
-                stable = lambda row: {k: v for k, v in row.items() if k != 'core_step_ms'}
-                if stable(actual) != stable(expected): mismatches.append(index)
+                left, right = logical(actual), logical(expected)
+                if left != right:
+                    mismatches.append(index)
+                    differences[str(index)] = sorted(k for k in left.keys() | right.keys() if left.get(k) != right.get(k))
     finally: core.close()
     report = {'kind': 'stream_replay_v1', 'passed': not mismatches, 'ticks': len(ticks),
               'datagrams': len(raw), 'mismatch_tick_indices': mismatches,
+              'mismatch_fields':differences,
               'input_files_sha256': {k: digest(v) for k, v in data.items()},
               'source_sha256': sources, 'physical_output': False, 'physical_validation': False,
               'scope': 'same input and recorded ticks; excludes compute duration; not wall-time or physical reproducibility'}

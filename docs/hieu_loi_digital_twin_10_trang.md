@@ -4,7 +4,7 @@ Mục tiêu: kể lại được hành trình của một phôi và phân biệt
 
 **Lõi Digital Twin từ số 0** - tài liệu học 10 trang, gắn với mã và kết quả của dự án ngày 27/10/2026. Đọc theo thứ tự; không cần biết trước Python hay điều khiển tự động.
 
-**Baseline** là phiên bản cơ sở để kiểm tra từng giả định trước khi thêm chức năng. Trong các bài này, Python/MuJoCo làm phần tính và điều khiển; Unity không tham gia các lượt nghiệm thu. Chương trình Python này chưa nối với PLC thật.
+**Baseline** là phiên bản cơ sở để kiểm tra từng giả định trước khi thêm chức năng. Trong các bài này, Python/MuJoCo làm phần tính và điều khiển; Chỉ dùng MuJoCo trong mô phỏng. Chương trình Python này chưa nối với PLC thật.
 
 Hãy tưởng tượng một kiện hàng chạy trên băng. A1 đẩy nó sang băng thứ hai; PS1/PS2 báo khi nó đi qua. Robot XY đưa đầu hút tới vị trí gắp; A2 hạ/nâng đầu hút; robot mang hàng tới một trong sáu hộp.
 

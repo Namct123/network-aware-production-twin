@@ -15,12 +15,6 @@ mujoco/preview.ppm
 *.pdf
 .vs/
 .vscode/
-Library/
-Temp/
-Logs/
-Obj/
-Builds/
-UserSettings/
 
 # Published project reports and manuscript figures
 !reports/*.pdf
