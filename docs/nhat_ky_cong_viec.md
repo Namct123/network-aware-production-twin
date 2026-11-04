@@ -566,3 +566,36 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Bộ dựng legacy dùng CSV mới biên dịch được; XML trùng nội dung template gốc, khác
   cách xuống dòng Windows/Linux. Không ghi đè template hoặc chỉnh tham số cơ khí.
 - Nguồn ảnh được đối chiếu mã băm. Giữ nguyên nhãn accepted cũ; chưa nghiệm thu ảnh mới.
+
+### 050 — Phân tích phản ứng và khả năng tách nguyên nhân mạng
+
+- Thêm bộ đọc audit_response.py: đối chiếu đủ 18 phiên, mã băm nguồn sinh dữ liệu,
+  cấu hình/bảng tín hiệu, số gói/nhịp và mốc HOLD thực tế; xuất JSON, CSV và báo cáo.
+- Tách thời gian từ lúc áp dụng tình huống và từ gói hợp lệ cuối; chặn gói cùng nhịp
+  không được diễn giải là CPU xử lý mất 0 giây. Chuẩn hóa riêng tên phiên khi so cặp.
+- Bộ cũ: giảm tốc sau 20 ms, trễ dài/mất gói HOLD sau 100 ms từ mốc; ba cặp giống
+  đầu vào/quyết định tới lúc dừng. Không kết luận đã tách hai nguyên nhân hoặc đạt
+  độ chính xác phát hiện lỗi vật lý. Gốc dữ liệu giữ riêng, không sửa để khớp kết luận.
+
+### 051 — Sửa biên thời gian im lặng dùng chung
+
+- Thử đúng ảnh cũ xác nhận ba trong sáu mốc đồng hồ chưa dừng tại ngưỡng do sai số
+  số thực; sau thêm một nhịp 20 ms đều dừng. Không coi đây là đo tốc độ phần cứng.
+- Sequence.watchdog và SignalHealth dùng cùng elapsed_at_least với dung sai số học
+  tuyệt đối 1 ns. Không đổi ngưỡng im lặng 100 ms hoặc tham số cơ khí/profile.
+- Ba kiểm tra mới: sáu mốc có cùng phản ứng tại ngưỡng và giữ hút; trước ngưỡng
+  một micro giây chưa dừng; dung sai không phình theo trị tuyệt đối của đồng hồ.
+- Hoàn thiện các mục rồi dựng candidate-20261104-time-boundary; chạy lại toàn bộ
+  nhóm, nghiên cứu sáu ca và bộ đối chiếu trước/sau. Chưa tự đổi nhãn nghiệm thu.
+
+### 052 — Kết quả đối chiếu trước/sau và bàn giao nghiên cứu
+
+- Candidate time-boundary đạt chín nhóm: 141 kiểm tra lõi, 8 web; nghiên cứu 18 phiên,
+  36/36 phát lại cùng kết quả logic; đối chứng ép quá hạn vẫn được phát hiện.
+- Trễ dài/mất gói: giảm tốc sau 20 ms; HOLD từ 100 xuống 80 ms tính từ mốc đầu thiếu
+  dữ liệu; tương ứng 120 xuống 100 ms tính từ gói hợp lệ cuối. Không đổi ngưỡng 100 ms.
+- Ba cặp trễ dài/mất gói có cùng đầu vào và quyết định tới lúc dừng; không gọi đây là
+  tách được nguyên nhân hoặc độ chính xác vật lý. Mô hình/profile giữ nguyên mã băm.
+- Hai tệp điều khiển cũ thay đổi là sequence.py và health.py, dùng chung clock_checks.py.
+  Các tệp còn lại thêm bộ đọc/kiểm tra; ghi đủ nguồn, ảnh và bằng chứng trước/sau.
+- Có báo cáo dễ hiểu, CSV từng phiên và hướng dẫn chạy; không tự chấp thuận Docker.

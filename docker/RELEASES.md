@@ -1,3 +1,13 @@
+## candidate-20261104-time-boundary — 2026-11-04
+
+- User acceptance: **pending**. Shared inclusive elapsed-time comparison for Sequence and SignalHealth fixes one-sample silence-boundary delays from floating-point roundoff. Absolute numerical tolerance 1 ns; profile silence threshold remains 100 ms.
+- Image ID: `sha256:538a4939d6c118bce51169e7975c2a36ccc8b8741284cea99070db496520a844`.
+- All 9 software groups PASS: 141 core tests, 8 web tests, stream, integration, reset, background, boundary, qualification, stream archive. Two host delivery checks PASS. Fresh 18-trial study: 36/36 matching logical replays, injected-deadline negative control detected.
+- Gap and long-delay trials: HOLD after fixture epoch 100 -> 80 ms; since the last valid pre-epoch packet 120 -> 100 ms. Speed reduction remains 20 ms. These are simulated-clock measurements, not PLC latency or diagnosis accuracy.
+- Three delay-versus-loss pairs have identical normalized input/logical traces through HOLD. Root-cause discrimination is not established. Existing runtime changes limited to sequence.py/health.py; profiles and generated plant hashes unchanged.
+- Prior image IDs including the accepted version preserved. Defaults still use the accepted version; no new accepted/stable/latest tag or registry push. CAD V5 remains distinct from the evaluated MuJoCo geometry.
+- [Evidence and source hashes](evidence/candidate-20261104-time-boundary.json); [Vietnamese result](../docs/ket_qua_phan_ung_mang_20261104.md).
+
 ## candidate-20261104-mujoco-only — 2026-11-04
 
 - User acceptance: **pending**. Unity scene/assets/C# and export paths removed from the active source. The unchanged 113-part CAD ledger now lives at `cad_reference/production_twin_v0_parts.csv`; a stdlib-only CAD exporter replaces the old export script.

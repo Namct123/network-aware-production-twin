@@ -13,7 +13,7 @@ def package(target):
     files=[]
     for folder,extensions in [('mujoco',{'.py','.json','.xml','.urdf','.csv','.md'}),('web',{'.py','.js','.html','.css','.json','.md','.cmd'})]:
         files += [p for p in (ROOT/folder).rglob('*') if p.is_file() and not p.is_symlink() and '__pycache__' not in p.parts and p.suffix in extensions]
-    docs=['chuyen_sang_o_D_va_bo_unity.md','phat_lai_va_dong_goi_phien.md','phan_mem_truoc_khi_do_may.md','nghien_cuu_gioi_han_mo_hinh.md','bao_cao_bien_mo_hinh_20261103.md','doi_chieu_du_bao.md','du_bao_nen_quan_sat.md','bao_cao_du_bao_nen_20261103.md','bao_cao_toi_uu_20261103.md','toi_uu_du_bao_mujoco.md','bao_cao_danh_gia_20261102.md','danh_gia_co_doi_chung.md','bao_cao_tich_hop_so1.md','nhat_ky_cong_viec.md','ban_tich_hop_phan_mem.md','bao_cao_tien_do_de_hieu.md','modular_twin.md','parameterized_core.md','docker.md']
+    docs=['phan_tich_phan_ung_mang.md','ket_qua_phan_ung_mang_20261104.md','chuyen_sang_o_D_va_bo_unity.md','phat_lai_va_dong_goi_phien.md','phan_mem_truoc_khi_do_may.md','nghien_cuu_gioi_han_mo_hinh.md','bao_cao_bien_mo_hinh_20261103.md','doi_chieu_du_bao.md','du_bao_nen_quan_sat.md','bao_cao_du_bao_nen_20261103.md','bao_cao_toi_uu_20261103.md','toi_uu_du_bao_mujoco.md','bao_cao_danh_gia_20261102.md','danh_gia_co_doi_chung.md','bao_cao_tich_hop_so1.md','nhat_ky_cong_viec.md','ban_tich_hop_phan_mem.md','bao_cao_tien_do_de_hieu.md','modular_twin.md','parameterized_core.md','docker.md']
     files += [ROOT/'docs'/n for n in docs]
     files += [ROOT/p for p in ['scripts/docker_dt.ps1','scripts/portable_bundle/launch.py','docker/Dockerfile','docker/build_image.py',
         'docker/snapshot.py','docker/requirements.lock','docker/RELEASES.md','docker/evidence/candidate-20261031-integrated-core-v1.json','docker/evidence/candidate-20261102-qualification.json','docker/evidence/candidate-20261103-native-physics.json',
@@ -24,6 +24,7 @@ def package(target):
         'docker/evidence/accepted-20261103-software-v2.json',
         'docker/evidence/candidate-20261104-stream-evidence.json',
         'docker/evidence/candidate-20261104-mujoco-only.json',
+        'docker/evidence/candidate-20261104-time-boundary.json',
         'compose.yaml','.dockerignore','AGENTS.md','scripts/package_integrated_core.py','scripts/export_cad_parts.py','fusion/ProductionTwin_V0/ProductionTwin_V0.py','cad_reference/production_twin_v0_parts.csv']]
     manifest={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(files))}
     target.parent.mkdir(parents=True,exist_ok=True)

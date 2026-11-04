@@ -1,0 +1,352 @@
+{
+  "tag": "candidate-20261104-time-boundary",
+  "image_id": "sha256:538a4939d6c118bce51169e7975c2a36ccc8b8741284cea99070db496520a844",
+  "date_local": "2026-11-04",
+  "timezone": "Asia/Saigon",
+  "user_acceptance": "pending",
+  "source_mismatches": [],
+  "changed_existing_runtime_files": [
+    "mujoco/health.py",
+    "mujoco/sequence.py"
+  ],
+  "runtime_source_manifest": {
+    "python": "3.12.16",
+    "mujoco": "3.16.0",
+    "numpy": "2.5.4",
+    "review_status_at_build": "candidate-awaiting-human-validation",
+    "geometry": "parameterized user-reported envelope available; legacy baseline preserved; neither physically calibrated",
+    "files": {
+      "cad_reference/production_twin_v0_parts.csv": "343e695ebf469dd2a70392ca968ba2b4ed4b1fb71083a881ce5f16ad22b47afe",
+      "docker/snapshot.py": "cfeae2747c5fb868b65a2b97e664ad18d61fdcbe20b7102be2609d9257ff5692",
+      "launch.py": "6dd82e2511b5235886cc18de69f8b3dd58a169c289f0b3cf35a15d5f30bf2300",
+      "mujoco/README.md": "5631341ddb23ce79b52034aea24c7fb3306dad455fd159a986cc5bd5859c5d57",
+      "mujoco/assemble.py": "f8544a93d0bfcff570c5687e45eaa187c2ffab615c70626663026bb470d6a330",
+      "mujoco/audit_background.py": "881d7dc3861e2ddcc822d14adfa2b33ceb0f8d5917f8abac7226b58e0794e772",
+      "mujoco/audit_response.py": "f65eaf9f0a91c422109c5eee57e2f53fc8bd0819ca152d161fbae6ba7f3fb5ae",
+      "mujoco/background_forecast.py": "a5113f4ce76a69d1200585dddc9422ee89eadafeb31d1d241577e69a679a0868",
+      "mujoco/build_cell.py": "6c888834a8cd0125eb9ae951daa44230dca023e632a79f7061659b956a7ae48d",
+      "mujoco/calibrate.py": "7208b7fcf2ca8d761e77b8b1f2867d1086f464a86d56b009715f7461a6003902",
+      "mujoco/check_background.py": "6c6d56727731cf19d194a63880f7cf677e81caa53a31ddc43cc2ea682e4c907c",
+      "mujoco/check_integration.py": "f5170f6cd7f12d8baeca5d9733f3af325bcc962418252a210dc4b0bfca4e309b",
+      "mujoco/check_measured.py": "bef4f7ee4f1c191888c454a92708979b407b979d3a21119648f19395a309b922",
+      "mujoco/check_observer.py": "5a1ba36707fbca6da8db344ce82447bab4eb88babc08d123e2ad6c1b43402368",
+      "mujoco/check_physics_optimization.py": "803a8249c3984bcf127f2aa12bdc5e3c7fe3ff75fbf942a444d481802fba8b2e",
+      "mujoco/check_prediction.py": "5a12ab5a3f11483276e14e4b5fcc43b9eed6365587a06e617a90b2842b512821",
+      "mujoco/check_reconfiguration.py": "5d4ea6e881e68d596e11dd396bcea868425beeaf4276c2b0638cc43bb7ef87e5",
+      "mujoco/check_recovery.py": "ce42124d8fa00a2db8dda99b0d0f4ea21a87036ee5ae230efce9a7b6ef1873ea",
+      "mujoco/check_reset.py": "baa39102f10c6357e3044f7c263de9ab1508812c4f798d010a305d3cc92ef199",
+      "mujoco/check_robustness.py": "01b0aa364e76d281c7befc4b18aab88820588b20d5c9935fe14b3ba1098e6086",
+      "mujoco/check_software.py": "4ba3a359fcb0335023a76d3ab1f40bc8155106a7487a1e53f1d1c2081af2115a",
+      "mujoco/check_stream.py": "55fdc4f153d544c387d51b43905080c7efe0b00fc849652c219614ea8874c1d5",
+      "mujoco/check_stream_archive.py": "e8101ea388627b6d175de6a645936180b37d762049e50993ca9b0e76ca931943",
+      "mujoco/check_twin.py": "05556db2bba5adace4e51d30985be13ea505acf774df55d0796306485de8b6a3",
+      "mujoco/clock_checks.py": "2a7aef12659d968c4faa05d40c3cc263f548f0d07bcc1dd65d358cbc4ab500a1",
+      "mujoco/command_history.py": "71dac49e66677ee8628f517c8aa1401e5e83168358d6693c1c4afa886641e5bf",
+      "mujoco/config.py": "b981ac4580a00113ffd45a1d97549f14c1de07e691f2cfa19fa8e56d8e4e781a",
+      "mujoco/configs/README.md": "efb59639e21529bf1defbe73bfed3a1a79dea9c16f82fb436a8703adc65e5b06",
+      "mujoco/configs/adaptive_cell_20261031.json": "4458def253f1779189f72103d714d06266447674ab0fdaedcb8f19882b4ea2a4",
+      "mujoco/configs/adaptive_parameters_to_fill_20261031.csv": "4a0ddb12463bab712dbad401ebc73fc2bb7e339c124ec0729817064b74900d9f",
+      "mujoco/configs/background_observer_20261103.json": "5a0b2a450b0ffe6bf92a54093e29cecfac886d9daa5fa61d40d95bb6406fc021",
+      "mujoco/configs/hold_review_cell_20261031.json": "b3387d8ea74e8dc232f1021707687cab68c931b537960cf792952debe1f60a1a",
+      "mujoco/configs/hold_review_parameters_to_fill_20261031.csv": "db842cff6be6263146a4d3ec2c160661fee52665e772fd6f7a250582161ecc3f",
+      "mujoco/configs/measured_cell_20261030.json": "5b9f5bdc12d6adf032ff57523ee3bcc2cf645fde09678eb7c12d2bf3f682cb62",
+      "mujoco/configs/measurements_to_fill_20261030.csv": "0cb162b531d608ca9d1bf61b31a4eb0693ff5ba5d359f5a481487cfa7e46a792",
+      "mujoco/configs/native_physics_cell_20261103.json": "7d0535e2f2d8555fe8dced496b1dc3beaf58ab91d08585e2ea665d9cb9df3145",
+      "mujoco/configs/observable_cell_20261030.json": "e2eb6ed1b20f4a99df0d2d193b7a84d2b871eb593a179f262ee80fad686077e3",
+      "mujoco/configs/observer_measurements_to_fill_20261030.csv": "4d9b6e1c7a155c86084480185af234029f4a7efabbcaf5b42efe0f71726541ae",
+      "mujoco/configs/physical_measurements.csv": "af2752917179e95111654484a7d74458db8b799194373477fbe09c96bb1b5bc3",
+      "mujoco/configs/physics_predictive_cell_20261031.json": "0daee581dbc87565c95f97a592e8d7b1d385f557b01328bb470a50431ccd168e",
+      "mujoco/configs/predictive_demo.json": "40aa2e6916666f279d5682fcd3fd8c72c68cea68de6b973e1863a000b41a6eb2",
+      "mujoco/configs/reconfigurable_cell_20261030.json": "a875fecf1be13e913ea65c336b33d218573a680ad09a46007a8dbae52fd9f0b2",
+      "mujoco/configs/reconfiguration_parameters_to_fill_20261030.csv": "9656c80af2ea9e705e2b4bc548d648c10832875e8d306d1b2d306a3dfda4743b",
+      "mujoco/configs/recording_map_example.json": "d3f5a8c47be370f814512a17fb8a915fb7b39a979fc0ba4d5f9f0b95282138c8",
+      "mujoco/configs/recording_map_unverified.json": "bcfbafd40bc3e7dddc6012cab949e75a3611799ff6496ed8346edaea66161fb5",
+      "mujoco/configs/simulation.json": "e21292b461f66b196a669c655e8dcf0fe8146139d5d1d4f6ecd01949e580e13b",
+      "mujoco/configs/slow_a2_demo.json": "6c5fcdb03ba14c0f75bdb4879e736b6c0fcf8ed33bc0b5e2f17ad8984e3cbbee",
+      "mujoco/configs/survey_20261028.json": "938c41f8d0a3708af693e9e22efb9121ce24e9986ecc282069baaed9b22142e5",
+      "mujoco/estimator.py": "b6a3755c039f44d5a539187b60a3931ce98e433fd772e5f6f61ef2343870916a",
+      "mujoco/evaluation.py": "11f6c99e7e6f3ad5159aacb1d3f53b67ab762a8e76bc96015bc76e80d3c48941",
+      "mujoco/experiment.py": "06be44f51b155546bc74b06a8d5b0ab7fc1d0883b031075f0ecfe05823295391",
+      "mujoco/experiments/README.md": "b6a99c0ed14295e459380e38b240e9e3fab586ec5f0519f374112970d4c1aca1",
+      "mujoco/experiments/adaptive_speed_20261031.json": "2e447b0c58b1e03a3b410d88707fda361104c09fbb8efa45ecc42b36ccb4a2b3",
+      "mujoco/experiments/adaptive_speed_smoke.json": "69328ba5966e566c8ab6edf54e1455bd52b7610e1d356b007a265806ab465741",
+      "mujoco/experiments/model_boundary_20261103.json": "50eb8b56762a8dd8f1fcb4049454053d176b0a192cad49ea420b55b70cf5ebd7",
+      "mujoco/experiments/predictive_replay_20261104.json": "563e6f3a34b9809e8ef12b13206403f381db0b2667097556b7f5a640eaad2ab7",
+      "mujoco/experiments/qualification_20261102.json": "5c453625c09582985949e17fda6d3e1c4f31664def78e03e856a8f6a7bb31e5d",
+      "mujoco/experiments/reset_protocol.json": "0531bb33d81d13ceeed3bc1a5c530f65876e582b4a91f5d01ca2a6e2c866ed2d",
+      "mujoco/experiments/robustness_20261031.json": "e13d737d0ff2a08d62c238024de6fae3ac2c13bc31071d6a861ea2f8d3fdc6ea",
+      "mujoco/experiments/robustness_smoke.json": "843f726dbf788010b9a32d77d8ee9348ada7dec4459e414115d6d84cea9e0b46",
+      "mujoco/health.py": "6e73ac38bbb85bac1273fd18b6d63bf9bbfae0db3c2d7205fd63b2e67fc9c38b",
+      "mujoco/implementation_manifest.json": "06065a2fefc321782f2227446d0999c55ffb0165624a90b1f56f1f4d01f84285",
+      "mujoco/io_adapter.py": "f82a80d9349acd4916160ccb63d38c238ee717abe3251fd9a62630b8844a5c60",
+      "mujoco/model_profile.py": "3d745f1fe5288b1633783d2b7abc0204a856c9fe0f60e7dbc63a20991758a02a",
+      "mujoco/network.py": "2cc1f21e57455b463548d27e7c2185d880b7c53951cb7081d4a75d7dd3e2650c",
+      "mujoco/parametric_cell.py": "7125abc12d1439e48816aa70db95f2e5ebdac077f3f91974aba39e1ab53067e0",
+      "mujoco/physics_predictor.py": "36c703bc79d49713c5e25f88a7d34c11275300642b76a3f9dd559e5f33cbcdd2",
+      "mujoco/predictor.py": "05a26ed28862413873387a1ec40865e2f4cbaf436d6dbf1608f6440ad5c4b740",
+      "mujoco/production_cell.urdf": "cce883491a79ecff0b984ed71b8f7c20b17add61fb451dba32de01c17437dcd7",
+      "mujoco/production_cell.xml": "4bda92227b1146c3dae6b821604ff320be0d4cea3acf83579451b224d52b3072",
+      "mujoco/qualify.py": "d3caa09726081a5c4b3dd27de81a94309f8d42a4fa961ce9b342d063a2025dd3",
+      "mujoco/reconfiguration.py": "48aaafc37ab0c18757e50d6bb268927c062003c6727671658d9834c623be31c1",
+      "mujoco/record_signals.py": "4c901d28e179db2eb05598b4530c22569a3d71fb0cfeea28295ba8deef6718a9",
+      "mujoco/recovery.py": "77b1a64a73eebc2033497f886ab8d6f4d7cc20ffbc5f5dd23661bed06fb5c922",
+      "mujoco/replay_input.py": "59a0592144cd124f16540b76c3714e1ab213b90a9b0baa59d5f10af9708064cd",
+      "mujoco/reset_protocol.py": "8013de8eed9997b12bc9189ebf2aa714b76f684d5a85a92bf8a63503834984f1",
+      "mujoco/run_cell.py": "d14bc0220bdd4539e852212e69df48d416df6a3ac8be8b827aca3b9f73676b1a",
+      "mujoco/run_twin.py": "dae683d45c8f07543d8fbc29a6b60985ad9d90639722b0c9279eb8b85e623ee2",
+      "mujoco/runtime.py": "37670d233f965545f10a9c821a95252fe15daaacd310716f159d03ad21acfe64",
+      "mujoco/sensor_model.py": "bea5a84a0b465f8df5b0a34df6d74a7a980d936522ff2515e0e9a2723f8f8ed5",
+      "mujoco/sequence.py": "7765621c6af407ffe5785d283310cd802f9654e6a1c0186595a2627210db84af",
+      "mujoco/session.py": "7aa58b8b3c41857193b278ee8f2fecd9fd776ad648a9da6d8b37f9442c65264d",
+      "mujoco/signals.py": "0dd6195ddeaab63074e9bd8561b8b8b25493afdfbf4b6608e7cfbc27cf582aa8",
+      "mujoco/software_release_v2.json": "01c26d9ae76ee7d431f242bedfc66d80f6e82ff6e6b5609725c90abe84b1d77a",
+      "mujoco/speed_policy.py": "3e6e846a293e2729cd28767b15f80600269c2dc2fbc0e7c092883a984e233236",
+      "mujoco/stream_archive.py": "76bff846693cfcd80bfbf030c0bc47b4346ab0c97b0ba160a65ada8081517f56",
+      "mujoco/stream_input.py": "17fa74d696f0a9f3afa2189c3cd88a7b50675b550c29bbc77bac37523f901d5e",
+      "mujoco/study_model_boundary.py": "ec6364d267c94d72d4201de0929e0ff75f00cb7381ac9ba620322c482bcf92c8",
+      "mujoco/study_predictive_replay.py": "d80946f83c1d00b9311235a843f76173d4b85d4becab511bc6c8b92416ac1f2e",
+      "mujoco/supervisor.py": "256c829f1fc90cbb1e3adee37e6574bc1892c3e428d0b4ba9e1a54190961f2e2",
+      "mujoco/test_background_audit.py": "d0821cfdce11d31502a84dfc5386864cb47b3033313352264e633694829d50fe",
+      "mujoco/test_background_forecast.py": "5193b8d0ecf4abd53bd8457eba460c1d48332a65d1370d50d96ed493bd09583d",
+      "mujoco/test_clock_checks.py": "f47dcedaf52280ecffa279d2ae909e419f673bc1ce6a1a3b150a9448c0154736",
+      "mujoco/test_configuration.py": "cf96f1609093ed8bca0d45114edd48c2780cf496682b03ae5e81fa703f2282e4",
+      "mujoco/test_integration_core.py": "26c6feb3de45ee37eb7f5d9d8aa3758313cda5ad2dd8c2762427b9d11b1b3876",
+      "mujoco/test_model_boundary.py": "298ef3d4cf8c14aa42eedd5d85b19fc5e3fc6330b0bf7917413ed13c79f28fe9",
+      "mujoco/test_observer.py": "38d27a8663a4d3fd148cf5ce87bd0406cf663135c836a9cac7f807d28c93be61",
+      "mujoco/test_parametric.py": "6a9168188f35a477b5a14b904ae2d895951bdb845d1bf24976a84676f1112eaa",
+      "mujoco/test_physics_optimization.py": "ab1b63c7b9df6b7198cc1263103beea3f45f2ee75dced5ba9103d1a4737f9a2b",
+      "mujoco/test_prediction.py": "e1f86db3eba71824e03e6015e794694be22abb16b64fada05f1cb3ed24c58b9c",
+      "mujoco/test_predictive_replay.py": "e9578f9cc492a20e0b4443f122f93d3596c9d25c4b72d80cffa8aca9bb83da79",
+      "mujoco/test_qualification.py": "f5cb12f0d34ded8b8c2bdca1d6fa2a10ad824e802eb63f04d1ddf5064c120122",
+      "mujoco/test_reconfiguration.py": "40c171d87e6b63add2e4f6657abe7f978631dc24074d3f29e0a437a004783090",
+      "mujoco/test_recovery.py": "2bfe08eae23ed71ca5793c8d96e9a8b692280734dc6fef753fdeb03105804fb7",
+      "mujoco/test_reset_protocol.py": "b27fa8172fa8815e9c67718a2f604c9ed8137dccb0f2dcf4aaa2681e656e2bbb",
+      "mujoco/test_response_audit.py": "e0e70083f122d2f20ba08812475d9f0067fc351fa98b51ef733347cdef9d1c83",
+      "mujoco/test_robustness.py": "c69cc9ddb116f276545868c2c26b7626d42caeb59184fde961396197c11008fe",
+      "mujoco/test_sequence.py": "51b302294905f222788d9c565fb1e1a4b2283c6b40911598c59b846ef1422964",
+      "mujoco/test_signals.py": "f40601771b9a37c2420e8bba3f6cb562b668e4a187098978d58791b28ead4983",
+      "mujoco/test_software_release.py": "7aac1aab6b26d07411e913760dd62e9938ed7e48def06511c1a3601f4355b2ec",
+      "mujoco/test_speed_policy.py": "6166941358aea5eacd7d6d7ea0d9fa1e59783194b5a75cee93a8a44a01bfb8b1",
+      "mujoco/test_stream_archive.py": "870c3cd376781a2cc91af8b2e0f2c7cfc18ecddb10c876e8b11dab12a477a8e6",
+      "mujoco/test_stream_input.py": "a72499f5b59047709d8ab030795ffd4dcabb4e67b0f63ef264d0137249815eee",
+      "requirements.txt": "7a81185e73057b0bfeb4754f1cbb014664084ee7344c08c40d496cb89bc09432",
+      "web/README.md": "7c3cece032081f9c523ac72a2e6202d8d0b987322b95e44167bd9adb98ea8228",
+      "web/START_EXPLORER.cmd": "3e7f7f77bf31b47b375eeaa0699cf519e2a3dce30d446fb4b1e10da7b20e253a",
+      "web/START_SIMULATION_EXPLORER.cmd": "b455ec870afdb39efaed85ac0a32c83c839b797966c88a65165f3201e9746ef5",
+      "web/app.js": "eb70e1dbf4654bf81db65fa8804c1a77bb3b27c0cddd321095f156c7ad5f4f94",
+      "web/build_replays.py": "03ed1d85b05b0d625b0687bccb41316b410bbacaa3892f754751dbe3452c4863",
+      "web/check_live_experiments.py": "bc3839846f653ec3cbc516678c4eb9fcf0966b84ea93a066af0553ca6a4c18f9",
+      "web/data/baseline_missing_ps2.json": "feea584e06641cef5200e1370938a94af22cb9983926648aef24b7c31f6f3bab",
+      "web/data/baseline_nominal.json": "d1e18f482490310082e08d5c7285fb50409f0974642fca0d04681470a709c952",
+      "web/data/index.json": "76b98f32d70df05a337590fe461a28e3d7875697554a55f6da53ff6dc0843e29",
+      "web/data/predictive_deadline.json": "19a59d5146205450315d86cd487c04956e6cac3565dae4bc1f5c9ca858c116cd",
+      "web/data/predictive_delay_20ms.json": "026cf13b5884cb7e0cd05f25a6fde3e78ae7cbda93bf1a265c5f2be1a9a1f7a5",
+      "web/data/predictive_loss_all.json": "3fe24f68946f53f31e5055565a724fcfe12fff6c553de0cd4b9faae9f722655e",
+      "web/data/predictive_missing_ps2.json": "41c5e745ffbc4ecac5a188ff79adc6bf52ebd9548c7eb12a5278b70b2da37e86",
+      "web/data/predictive_nominal.json": "28029313617d068ca7ea897c595cf0d21154af5455f141cfd4944c66cb4e03e3",
+      "web/data/predictive_speed_high.json": "7f5e7dec10abb273c5db6f909e3b8c7d5f889ae6056dbe671c62ec4bd75780ef",
+      "web/data/predictive_speed_low.json": "be18cb024c20bbfa24f3db89699df32b697a3fdb3ee50196275183aece5787e5",
+      "web/data/predictive_strict.json": "4d4d4f424bfa24c61242f6d08cbd0bec4cbdcd1f2a071e836eb332f445b741ca",
+      "web/experiments.py": "65974dff9bc547cffe4873ba1d278b2b91eace3cfc7289694fcaa3999993cd69",
+      "web/index.html": "107687845fe21c693d76622ce78672dd2a82a1cfd521b06540a8733e0e9cb472",
+      "web/package_explorer.py": "8e6c64080df641fd3d8d20090869b88976a60334d3282d39f6b7dc86b4b9566a",
+      "web/project_status.py": "4f90082fa76dabc8b6e3d250803a8d45360c0be3cb427be167855a78d5a800c2",
+      "web/server.py": "9204d0f832119514c0956da15ae38e273f32abdbcd4fcff6de1405dedf6f4252",
+      "web/style.css": "1665dc8a91a3a9701303c8220757ef9eefb4b23e6d482b4500ca6af1a614cf12",
+      "web/test_experiments.py": "09e3a8bc32b38b652254588973d073c8a98a14eaaf341da8e3c00ebe76f839c8",
+      "web/test_explorer.py": "00857f8b1792d80ff4bd7584553700b0fe967a72c2281e5958aa7b3adf4ed3ff",
+      "web/tong_quan.html": "182624696b145ee0263f69f995e40f3f1d9694f08601f93d0b2c85e6026c36c2",
+      "web/tong_quan.js": "f55000a02d421c8a11b60500cfd2bd4bf45059dd296be2558a2bfb2a89c33d9c"
+    }
+  },
+  "unchanged_config_files": 21,
+  "preserved_images": {
+    "production-twin-dt:candidate-20261104-predictive-replay": "sha256:793aa674bef00257f3105842cb044e740d195299e032845e5d62d368d33af523",
+    "production-twin-dt:candidate-20261104-stream-evidence": "sha256:568e54e2b6def4a568a3d45ee4b39cb20c099a7dfc89267a66e7549cd91d121b",
+    "production-twin-dt:accepted-20261103-software-v2": "sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8",
+    "production-twin-dt:candidate-20261103-software-v2": "sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8",
+    "production-twin-dt:candidate-20261103-boundary-study": "sha256:b5deba36508289c5c2c1c13bd13418622540ceae7e310c64fa94456131d86a14",
+    "production-twin-dt:candidate-20261103-model-audit": "sha256:9759ff58df75954b550b111ea7f4001c761b63d002d52a49d47cb12c642a0f46",
+    "production-twin-dt:candidate-20261103-background-observer": "sha256:6b492b8a086469154e4853bc50161672db58eb8633a8645c8bbf24b629e0e914",
+    "production-twin-dt:candidate-20261103-native-physics": "sha256:d7458ca5cc4766b8a537aa80b77b48bcf6e32096c49574f2a42606132f22aa27",
+    "production-twin-dt:candidate-20261102-qualification": "sha256:050de0d323a5230c824311f684f61653076ff753cca2abce7087b550cb613ed7",
+    "production-twin-dt:candidate-20261031-integrated-core-v1": "sha256:ec749e5566c1c800890cbef02463f7b76d0051efa0015c88ed884bc65ef2d220",
+    "production-twin-dt:candidate-20261031-reset-protocol": "sha256:df33a46dec93f611343a7037221a86d6f86069e0421f54c58543dcb124abf31a",
+    "production-twin-dt:candidate-20261031-hold-review": "sha256:9da55946676d7edf4bf22b6186b541128b6631e68f10713922e54e3a01efc542",
+    "production-twin-dt:candidate-20261031-adaptive-speed": "sha256:f6e7e1a8cd3cb9c1910cb6687a7be66fdc1a01742c9afb33c07487cc3d6654e7",
+    "production-twin-dt:candidate-20261031-robustness": "sha256:31f56fd0c6aa724efaed3148f7df89fa8f7e21c23994062fe7e804cdfbf0169e",
+    "production-twin-dt:candidate-20261030-reconfiguration": "sha256:1eaf75229e7080cb3ea585c846a9960bc246e37c7e4dc7b5b20228e552463200",
+    "production-twin-dt:candidate-20261030-observer-health": "sha256:ccdc62250152215b7fd44c5a7f7fbd266d68587cdf41df87186a4579bd769e0c",
+    "production-twin-dt:candidate-20261030-parameters": "sha256:a4b738583d27b30d6adb814d845e064f825232bb656b79d5bd3c3ed1fb0ba0ed",
+    "production-twin-dt:accepted-20261030-core-v1": "sha256:23ba06be2d283f73032a7f27294cccb040a72142cc42f48f506bd0ecb6892bb8",
+    "production-twin-dt:candidate-20261029": "sha256:23ba06be2d283f73032a7f27294cccb040a72142cc42f48f506bd0ecb6892bb8",
+    "production-twin-dt:candidate-20261104-mujoco-only": "sha256:19e62d5b7a616862c46b413e761a00c401cb2679741cce27bc3dd04565438254"
+  },
+  "preserved_images_unchanged": true,
+  "verification_directory": "output\\docker\\time_boundary_verification_20261104",
+  "execution": {
+    "software": {
+      "exit_code": 0,
+      "log": "software.log"
+    },
+    "study": {
+      "exit_code": 0,
+      "log": "study.log"
+    },
+    "audit_before": {
+      "exit_code": 0,
+      "log": "audit_before.log"
+    },
+    "audit_after": {
+      "exit_code": 0,
+      "log": "audit_after.log"
+    }
+  },
+  "software_check_sha256": "d72042154d205bfff62d8959ce134a83c11661481dcba4af938107d213dea4d4",
+  "checks": {
+    "core_logic": {
+      "exit_code": 0,
+      "log": "core_logic.log"
+    },
+    "web_logic": {
+      "exit_code": 0,
+      "log": "web_logic.log"
+    },
+    "stream": {
+      "exit_code": 0,
+      "log": "stream.log"
+    },
+    "integration": {
+      "exit_code": 0,
+      "log": "integration.log"
+    },
+    "reset": {
+      "exit_code": 0,
+      "log": "reset.log"
+    },
+    "background": {
+      "exit_code": 0,
+      "log": "background.log"
+    },
+    "boundary": {
+      "exit_code": 0,
+      "log": "boundary.log"
+    },
+    "qualification": {
+      "exit_code": 0,
+      "log": "qualification.log"
+    },
+    "stream_archive": {
+      "exit_code": 0,
+      "log": "stream_archive.log"
+    }
+  },
+  "unit_counts": {
+    "core": 141,
+    "web": 8,
+    "host_delivery": 2
+  },
+  "study": {
+    "path": "output\\docker\\time_boundary_verification_20261104\\predictive-replay-study_20261104T032901Z_4159823c\\predictive_replay_study.json",
+    "sha256": "ebd5dbafc16b002564976a96e65f76fa1f06b0ef7a1c813ad6db0da9744d207c",
+    "trials": 18,
+    "replays": 36,
+    "matching_replays": 36,
+    "negative_control": {
+      "detected": true,
+      "mismatch_ticks": 99,
+      "first_mismatch": [
+        "250",
+        [
+          "command_message",
+          "hold_reason",
+          "phase",
+          "prediction"
+        ]
+      ],
+      "scope": "injected elapsed-time fixture, not measured latency or physical fault"
+    }
+  },
+  "before_after": [
+    {
+      "name": "01_gap",
+      "before_hold_after_epoch_ms": 99.99999999998899,
+      "after_hold_after_epoch_ms": 79.99999999999119,
+      "before_hold_after_last_pre_epoch_input_ms": 119.99999999998678,
+      "after_hold_after_last_pre_epoch_input_ms": 99.99999999998899
+    },
+    {
+      "name": "02_gap",
+      "before_hold_after_epoch_ms": 99.99999999998899,
+      "after_hold_after_epoch_ms": 79.99999999999119,
+      "before_hold_after_last_pre_epoch_input_ms": 119.99999999998678,
+      "after_hold_after_last_pre_epoch_input_ms": 99.99999999998899
+    },
+    {
+      "name": "03_gap",
+      "before_hold_after_epoch_ms": 99.99999999998899,
+      "after_hold_after_epoch_ms": 79.99999999999119,
+      "before_hold_after_last_pre_epoch_input_ms": 119.99999999998678,
+      "after_hold_after_last_pre_epoch_input_ms": 99.99999999998899
+    },
+    {
+      "name": "01_stale_delay",
+      "before_hold_after_epoch_ms": 99.99999999998899,
+      "after_hold_after_epoch_ms": 79.99999999999119,
+      "before_hold_after_last_pre_epoch_input_ms": 119.99999999998678,
+      "after_hold_after_last_pre_epoch_input_ms": 99.99999999998899
+    },
+    {
+      "name": "02_stale_delay",
+      "before_hold_after_epoch_ms": 99.99999999998899,
+      "after_hold_after_epoch_ms": 79.99999999999119,
+      "before_hold_after_last_pre_epoch_input_ms": 119.99999999998678,
+      "after_hold_after_last_pre_epoch_input_ms": 99.99999999998899
+    },
+    {
+      "name": "03_stale_delay",
+      "before_hold_after_epoch_ms": 99.99999999998899,
+      "after_hold_after_epoch_ms": 79.99999999999119,
+      "before_hold_after_last_pre_epoch_input_ms": 119.99999999998678,
+      "after_hold_after_last_pre_epoch_input_ms": 99.99999999998899
+    }
+  ],
+  "plant_model_hashes_unchanged": true,
+  "delay_vs_gap_pairs": [
+    {
+      "left": "01_gap",
+      "right": "01_stale_delay",
+      "through_hold_time_s": 5.09999999999966,
+      "input_trace_equal_through_hold": true,
+      "logical_trace_equal_through_hold": true,
+      "equal_logical_prefix_ticks": 257,
+      "first_logical_difference_time_s": 5.139999999999656,
+      "scope": "session IDs normalized; fixed sample times and recorded inputs, not byte-identical independent network trials"
+    },
+    {
+      "left": "02_gap",
+      "right": "02_stale_delay",
+      "through_hold_time_s": 5.09999999999966,
+      "input_trace_equal_through_hold": true,
+      "logical_trace_equal_through_hold": true,
+      "equal_logical_prefix_ticks": 257,
+      "first_logical_difference_time_s": 5.139999999999656,
+      "scope": "session IDs normalized; fixed sample times and recorded inputs, not byte-identical independent network trials"
+    },
+    {
+      "left": "03_gap",
+      "right": "03_stale_delay",
+      "through_hold_time_s": 5.09999999999966,
+      "input_trace_equal_through_hold": true,
+      "logical_trace_equal_through_hold": true,
+      "equal_logical_prefix_ticks": 257,
+      "first_logical_difference_time_s": 5.139999999999656,
+      "scope": "session IDs normalized; fixed sample times and recorded inputs, not byte-identical independent network trials"
+    }
+  ],
+  "old_boundary_probe_sha256": "1b4d66c2b74ec445a0122be77653cf1271abcb3ec3a4be8e640bac8fd1854dad",
+  "physical_validation": false,
+  "parameter_tuning": false,
+  "registry_push": false,
+  "scope": "1 ns absolute numerical tolerance for inclusive silence thresholds in Sequence and SignalHealth; 100 ms configured silence threshold unchanged; simulated-clock timing only"
+}

@@ -9,7 +9,7 @@ param(
     [string]$Tag = 'accepted-20261103-software-v2'
 )
 if ($Mode -eq 'build' -and -not $PSBoundParameters.ContainsKey('Tag')) {
-    $Tag = 'candidate-20261104-mujoco-only'
+    $Tag = 'candidate-20261104-time-boundary'
 }
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent

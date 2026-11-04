@@ -1,4 +1,6 @@
 """Rule-based hypotheses from receiver observations, never injected fault labels."""
+from clock_checks import elapsed_at_least
+
 class SignalHealth:
     def __init__(self, config):
         self.config=config
@@ -23,7 +25,7 @@ class SignalHealth:
                 self.seen.add(key)
         timing=self.config['timing']
         if frame is None:
-            if now-self.last_received>=timing['silence_timeout_s']:
+            if elapsed_at_least(now,self.last_received,timing['silence_timeout_s']):
                 add('telemetry_silence',None,'No received observations; transport/source interruption is unresolved.')
         else:
             age=now-frame.source_time_s

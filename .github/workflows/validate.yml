@@ -11,7 +11,7 @@ jobs:
   docker-candidate:
     runs-on: ubuntu-latest
     env:
-      DT_IMAGE_TAG: candidate-20261104-mujoco-only
+      DT_IMAGE_TAG: candidate-20261104-time-boundary
     steps:
       - uses: actions/checkout@v7
       - name: Build headless DT candidate (no registry push or accepted tag)

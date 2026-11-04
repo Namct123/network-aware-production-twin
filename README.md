@@ -123,3 +123,7 @@ Bản mới dùng nhãn `candidate-20261104-stream-evidence`; bản nghiệm thu
 ## Vị trí dự án và nền mô phỏng hiện tại
 
 Dự án chính ở `D:\Projects\network-aware-production-twin`. Chỉ dùng MuJoCo để mô phỏng; đã bỏ tài sản và trình dựng Unity. Đọc [hướng dẫn sau chuyển ổ đĩa](docs/chuyen_sang_o_D_va_bo_unity.md).
+
+## Phân tích phản ứng dữ liệu — 04/11/2026
+
+[Phương pháp](docs/phan_tich_phan_ung_mang.md) và [kết quả đối chiếu trước/sau](docs/ket_qua_phan_ung_mang_20261104.md). Sửa biên số thực của ngưỡng im lặng; giữ profile 100 ms. Bản mới dùng candidate-20261104-time-boundary, chờ kiểm nghiệm.

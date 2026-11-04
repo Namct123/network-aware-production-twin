@@ -4,6 +4,7 @@ import math
 from copy import deepcopy
 from estimator import BeltEstimator
 from config import resolved_config
+from clock_checks import elapsed_at_least
 
 
 class Sequence:
@@ -205,5 +206,5 @@ class Sequence:
 
     def watchdog(self, now):
         """No new frame is different from receiving a fresh False value."""
-        if self.phase not in {"HOLD", "DONE"} and now-self.last_received >= self.timing["silence_timeout_s"]:
+        if self.phase not in {"HOLD", "DONE"} and elapsed_at_least(now,self.last_received,self.timing["silence_timeout_s"]):
             self.hold("telemetry_timeout", now)
