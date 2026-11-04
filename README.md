@@ -127,3 +127,7 @@ Dự án chính ở `D:\Projects\network-aware-production-twin`. Chỉ dùng MuJ
 ## Phân tích phản ứng dữ liệu — 04/11/2026
 
 [Phương pháp](docs/phan_tich_phan_ung_mang.md) và [kết quả đối chiếu trước/sau](docs/ket_qua_phan_ung_mang_20261104.md). Sửa biên số thực của ngưỡng im lặng; giữ profile 100 ms. Bản mới dùng candidate-20261104-time-boundary, chờ kiểm nghiệm.
+
+## Giới hạn phân biệt lỗi cảm biến và chuyển động — 04/11/2026
+
+[Báo cáo 21 ca MuJoCo](docs/nghien_cuu_cam_bien_va_truyen_dong_20261104.md): sáu cặp có cùng tín hiệu/quyết định nhưng trạng thái phôi khác nhau. Không gọi phản ứng dừng là đã xác định đúng nguyên nhân. Bản chờ kiểm nghiệm: candidate-20261104-sensor-drive-v2.

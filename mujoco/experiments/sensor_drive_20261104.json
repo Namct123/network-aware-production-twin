@@ -1,0 +1,6 @@
+{
+  "kind": "sensor_drive_plan_v1",
+  "repetitions": 3,
+  "cases": ["nominal", "feed_sensor_missing", "feed_drive_stall", "pickup_sensor_missing", "long_drive_stall", "pickup_sensor_high", "upstream_sensor_missing"],
+  "scope": "Controlled virtual counterexamples: feed faults start at FEED; missing upstream at TRACK; pickup/long-drive faults start after upstream falling edge with an anchor. No fault label, applied drive override or plant pose is sent to the core."
+}

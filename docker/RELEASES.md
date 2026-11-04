@@ -1,3 +1,23 @@
+## candidate-20261104-sensor-drive-v2 — 2026-11-04
+
+- User acceptance: **pending**. Final seven-case, 21-trial virtual sensor/drive study uses unique opaque UUID4 session contexts; fault names remain in evaluator/fixture metadata only.
+- Image ID: `sha256:8a7dbd9f1f9962df23ae18a1008f31968cb19ed02f6186f2f194df862679032a`. Existing runtime/control/estimator/profile source hashes remain unchanged.
+- PASS: 143 core tests, 8 web tests, integration-check; 21 trials completed, six paired input/decision collisions, 21 evaluator position-support checks. No physical safety or diagnostic-accuracy claim.
+- Compared to the retained pilot: all 21 observation traces and 21 logical decision traces match after excluding prediction compute duration. Pilot session strings included fixture names; final study rerun to remove that metadata channel.
+- Timing interpretation separates injection from first hidden ideal-sensor disagreement. Ground-truth poses and applied-drive overrides remain outside the core. Three repeated deterministic trials are not independent physical systems.
+- Prior image IDs and accepted defaults preserved; no accepted/stable/latest promotion or registry push. CAD V5 is not silently declared synchronized with MuJoCo.
+- [Evidence](evidence/candidate-20261104-sensor-drive-v2.json); [Vietnamese report](../docs/nghien_cuu_cam_bien_va_truyen_dong_20261104.md).
+
+## candidate-20261104-sensor-drive — 2026-11-04
+
+- User acceptance: **pending**. Seven controlled virtual sensor/drive cases, three repeats each, with fault labels/applied-drive overrides/plant poses outside the RuntimeCore input boundary.
+- Image ID: `sha256:94cc89a803810ede646e2b4c7c261609bd9e7ce67702d2529bd250c2e34a917b`. Existing runtime/control/estimator/profile source hashes unchanged; new study, plan and tests only.
+- PASS: 143 core tests, 8 web tests, integration-check and 2 host delivery checks. All 21 planned trials completed; all non-baseline fixtures triggered; independent position-support criterion true after HOLD in 21/21, not a physical safety certificate.
+- Six paired counterexamples have identical sensor and logged decision histories through first HOLD, while evaluator pose separation is about 0.354 m (feed) and 0.248 m (pickup). Does not establish sensor-versus-drive fault isolation or classification accuracy.
+- Latency is fixture/event dependent. Separate injection-to-HOLD and hidden ideal-sensor-disagreement-to-HOLD timestamps; neither is CPU latency or a clock visible to the core. Three repeats are not independent physical systems.
+- Prior image IDs including the accepted version preserved. Accepted defaults unchanged; no registry push. CAD V5 still differs from the evaluated MuJoCo geometry.
+- [Evidence](evidence/candidate-20261104-sensor-drive.json); [Vietnamese report](../docs/nghien_cuu_cam_bien_va_truyen_dong_20261104.md).
+
 ## candidate-20261104-time-boundary — 2026-11-04
 
 - User acceptance: **pending**. Shared inclusive elapsed-time comparison for Sequence and SignalHealth fixes one-sample silence-boundary delays from floating-point roundoff. Absolute numerical tolerance 1 ns; profile silence threshold remains 100 ms.

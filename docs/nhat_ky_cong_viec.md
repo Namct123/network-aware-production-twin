@@ -599,3 +599,36 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Hai tệp điều khiển cũ thay đổi là sequence.py và health.py, dùng chung clock_checks.py.
   Các tệp còn lại thêm bộ đọc/kiểm tra; ghi đủ nguồn, ảnh và bằng chứng trước/sau.
 - Có báo cáo dễ hiểu, CSV từng phiên và hướng dẫn chạy; không tự chấp thuận Docker.
+
+### 053 — Nghiên cứu cảm biến so với mất chuyển động
+
+- Tạo bảy ca, ba lượt mỗi ca: bình thường; PS1 không báo/băng cấp phôi đứng;
+  PS3 không báo/băng dọc đứng sau PS2; PS3 luôn báo; PS2 không báo.
+- Core chỉ nhận SensorModel frame; nhãn lỗi, ép băng tải ở plant và vị trí phôi
+  không đi vào bộ ước lượng. Tách issued command và applied command bằng bản sao.
+- Hoàn thiện bộ thử, kế hoạch sửa được và hai kiểm tra ranh giới rồi dựng candidate.
+  Lõi/ước lượng/profile cũ giữ nguyên mã băm; không đổi tham số để làm ca đạt.
+
+### 054 — Kết quả và phân tích độc lập
+
+- Đủ 21 ca; sáu cặp cùng quan sát/quyết định tới dừng, nhưng vị trí phôi chênh
+  khoảng 35,4 cm ở cấp phôi và 24,8 cm ở cặp điểm gắp. Không khẳng định tách được lỗi.
+- Thời gian từ chèn tới dừng: 2,22 s ở cấp phôi, 1,56 s ở cặp điểm gắp, 1,8 s
+  khi PS2 không báo. PS3 luôn báo bị chặn cùng nhịp. Đây không phải thời gian CPU.
+- Phân biệt mốc chèn với lần đầu cảm biến đưa sai bit so với tia lý tưởng: bộ chấm
+  đo thêm 200/320/1.640 ms tương ứng PS1/PS3/PS2; mốc lý tưởng không đưa vào DT.
+- 143 kiểm tra lõi, 8 web, tích hợp và 2 kiểm tra giao hàng đạt. Chấm vị trí hỗ trợ
+  sau dừng đạt 21/21 trong mô phỏng; không chuyển thành chứng nhận an toàn vật lý.
+- scripts/analyze_sensor_drive.py tính lại sáu cặp và kiểm tra hàng/dấu thời gian;
+  lưu JSON/hash nguồn và báo cáo tiếng Việt. Docker vẫn candidate, không đẩy ảnh.
+
+### 055 — Khép nhãn trong metadata và chạy lại bản cuối
+
+- Đổi context phiên thử sang UUID mặc định của RuntimeCore để tên phiên không
+  chứa loại lỗi. Phiên pilot chỉ dùng ID để chặn sai phiên, nhưng vẫn giữ riêng
+  ảnh/dữ liệu cũ thay vì viết đè lịch sử.
+- Chạy lại đủ 21 ca bằng candidate-20261104-sensor-drive-v2; xác nhận 21 UUID4
+  khác nhau. Cả 21 chuỗi quan sát và 21 chuỗi quyết định logic giữ nguyên so với
+  pilot, sau khi bỏ riêng thời gian tính dự báo khỏi phép so.
+- Bản cuối đạt 143 kiểm tra lõi, 8 web và tích hợp; chấm vị trí hỗ trợ 21/21 và
+  tính lại sáu cặp. Không đổi mã lõi/ước lượng, profile hoặc nhãn accepted.
