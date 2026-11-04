@@ -20,7 +20,9 @@ def diagnostic(obj,name):
         text=f"{obj.get('comparable_pairs')} cặp so được; {obj.get('invalid_records')} bản ghi sai. Cùng khuyến nghị chưa phải độ chính xác."
     elif kind=='stream_input_v1':
         text=f"{obj.get('datagrams')} gói; {obj.get('invalid_datagrams')} gói sai; cuối lượt {obj.get('controller_state')}: {obj.get('hold_reason')}. Chỉ ghi lệnh tệp."
-    elif kind in ('stream_check_v1','software_check_v2'):
+    elif kind=='stream_replay_v1':
+        text=f"Phát lại {obj.get('ticks')} nhịp; {len(obj.get('mismatch_tick_indices',[]))} nhịp khác. Không so thời gian tính toán."
+    elif kind in ('stream_check_v1','software_check_v2','stream_archive_check_v1','stream_bundle_check_v1'):
         checks=obj.get('checks',{});text=f"{len(checks)} mục kiểm tra; xem báo cáo để biết phạm vi. Không kiểm chứng máy thật."
     else:return None
     return {'name':name,'kind':kind,'passed':passed,'summary_vi':text}
@@ -49,7 +51,7 @@ class ProjectStatus:
                 candidates=[directory/'summary.json']
                 candidates += [p/'summary.json' for p in list(directory.iterdir())[:200] if p.is_dir() and not p.is_symlink()]
                 for parent in [directory]+[p for p in list(directory.iterdir())[:200] if p.is_dir() and not p.is_symlink()]:
-                    for filename in ('summary.json','boundary.json','audit.json','stream_check.json','software_check.json'):
+                    for filename in ('summary.json','boundary.json','audit.json','stream_check.json','software_check.json','replay.json','stream_archive_check.json'):
                         path=parent/filename
                         if not path.is_file():continue
                         try:

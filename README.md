@@ -114,3 +114,9 @@ Kết quả 02/11/2026: [báo cáo dễ hiểu](docs/bao_cao_danh_gia_20261102.m
 ## Tối ưu MuJoCo — 03/11/2026
 
 [Bản native có số luồng nhập được](docs/toi_uu_du_bao_mujoco.md), [kết quả và giới hạn](docs/bao_cao_toi_uu_20261103.md). Vẫn chưa đạt hạn 20 ms; điều khiển mặc định giữ nhánh 1 chiều.
+
+## Bổ sung ngày 04/11/2026
+
+Hai mục mới: phát lại phiên dữ liệu (giữ cả nhịp im lặng) và gói ZIP hồ sơ
+có kiểm tra mã băm. Xem [hướng dẫn](docs/phat_lai_va_dong_goi_phien.md).
+Bản mới dùng nhãn `candidate-20261104-stream-evidence`; bản nghiệm thu mặc định giữ nguyên.

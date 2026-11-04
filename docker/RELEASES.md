@@ -1,3 +1,13 @@
+## candidate-20261104-stream-evidence — 2026-11-04
+
+- User acceptance: **pending**. Two additions: replay recorded stream ticks (including silence) through the shared core; transport a six-file ZIP with integrity verification. No controller tuning or physical output.
+- Image ID: `sha256:568e54e2b6def4a568a3d45ee4b39cb20c099a7dfc89267a66e7549cd91d121b`.
+- All 9 software groups PASS: 132 core tests, 8 web tests, loopback, integration, reset, background, 144-input boundary study, 24-run qualification, and stream archive checks. Two host delivery checks, PowerShell parse and JavaScript syntax also PASS.
+- Three actual loopback sessions: 34 replay ticks each, 102 total, no logical differences; all three ZIP bundles verified. Six unit tests cover replay, tampering, changed source, missing final command, unsupported asynchronous observer, unsafe and duplicate ZIP names, and overwrite refusal.
+- Runtime source manifest matches. All 16 previous aliases rechecked unchanged; accepted defaults retained. No registry push or new accepted/stable/latest alias.
+- Replay excludes measured compute duration and refuses asynchronous-background sessions. Tests do not cover predictive TRACK trajectories or prove wall-time/physical reproducibility. Bundle hashes provide integrity, not sender authentication. CAD V5 remains distinct from MuJoCo.
+- [Evidence and full source hashes](evidence/candidate-20261104-stream-evidence.json); [Vietnamese guide](../docs/phat_lai_va_dong_goi_phien.md).
+
 ## accepted-20261103-software-v2 — 2026-11-03
 
 - User acceptance reference: message on 2026-11-03 (Asia/Saigon): **“ok tất cả mọi thứ đều ổ, hãy cập nhật vào docker”**. Applies to the immediately preceding software-v2 delivery; not physical validation.

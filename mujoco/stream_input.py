@@ -100,7 +100,7 @@ def receive(output,config,mapping,session_id,generation=0,port=0,duration_s=5,on
     finally:
         core.close()
         summary={**core.summary(),'elapsed_wall_s':time.perf_counter()-origin,'late_ticks':late,'max_tick_lateness_s':max_lateness,
-            'failure':failure,'user_acceptance':'pending','source_sha256':{n:hashlib.sha256((HERE/n).read_bytes()).hexdigest() for n in ('stream_input.py','runtime.py','io_adapter.py','session.py')}}
+            'failure':failure,'user_acceptance':'pending','source_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(HERE.glob('*.py'))}}
         write('summary.json',summary)
     (output/'report.md').write_text('# Nhận dữ liệu mẫu liên tục\n\n'
         f"Nhận {summary['datagrams']} gói, sai định dạng {summary['invalid_datagrams']}. Trạng thái cuối {summary['controller_state']}: {summary['hold_reason']}.\n\n"

@@ -34,7 +34,8 @@ def check(output):
     commands={'core_logic':[sys.executable,'-m','unittest','discover','-s','mujoco','-p','test_*.py'],
               'web_logic':[sys.executable,'-m','unittest','discover','-s','web','-p','test_*.py']}
     for name,script in [('stream','check_stream.py'),('integration','check_integration.py'),('reset','check_reset.py'),
-                        ('background','check_background.py'),('boundary','study_model_boundary.py'),('qualification','qualify.py')]:
+                        ('background','check_background.py'),('boundary','study_model_boundary.py'),('qualification','qualify.py'),
+                        ('stream_archive','check_stream_archive.py')]:
         commands[name]=[sys.executable,str(ROOT/'mujoco'/script),'--output',str(output/name)]
     for name,command in commands.items():
         print('Software check:',name,flush=True)

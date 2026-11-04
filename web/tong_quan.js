@@ -15,7 +15,7 @@ function show(data){
  el('qualification-note').textContent=q?`${q.completed_runs}/${q.planned_runs} lượt đối chứng; vi phạm tiêu chí: ${q.verification_failures}. Chưa kiểm chứng máy thật.`:'Chưa có bản đánh giá mới.';
  for(const g of q?.benchmark_groups||[]){const tr=document.createElement('tr');cell(tr,g.backend==='numeric_1d'?'Tính 1 chiều':'MuJoCo băng/phôi');cell(tr,g.budget_kind==='configured'?'Đang cấu hình':'Chức năng');cell(tr,g.samples);for(const k of ['median_ms','p95_ms','max_ms'])cell(tr,Number.isFinite(g[k])?g[k].toFixed(3):null);cell(tr,g.deadline_misses);cell(tr,g.complete);el('timing').append(tr);}
  el('diagnostics').replaceChildren();
- const labels={model_boundary_v1:'Lưới giới hạn mô hình',background_model_audit_v1:'So dự báo từ cùng đầu vào',stream_input_v1:'Cổng dữ liệu mẫu',stream_check_v1:'Thử gói dữ liệu mẫu',software_check_v2:'Kiểm tra phần mềm tổng hợp'};
+ const labels={model_boundary_v1:'Lưới giới hạn mô hình',background_model_audit_v1:'So dự báo từ cùng đầu vào',stream_input_v1:'Cổng dữ liệu mẫu',stream_check_v1:'Thử gói dữ liệu mẫu',software_check_v2:'Kiểm tra phần mềm tổng hợp',stream_replay_v1:'Phát lại phiên dữ liệu',stream_archive_check_v1:'Thử phát lại và đóng gói',stream_bundle_check_v1:'Kiểm tra gói hồ sơ'};
  for(const d of data.diagnostics||[]){const tr=document.createElement('tr');cell(tr,d.name);cell(tr,labels[d.kind]||d.kind);cell(tr,d.passed===true?'Đạt trong phạm vi thử':d.passed===false?'Cần xem lại':'Kết quả quan sát');cell(tr,d.summary_vi);el('diagnostics').append(tr);}
 }
 async function refresh(){try{const r=await fetch('/api/project-state',{cache:'no-store'});if(!r.ok)throw Error('Chưa có bộ đọc nhật ký');const data=await r.json();show(data);el('connection').textContent='Đã đọc nhật ký trên máy này. Trang không gửi lệnh tới máy.';}catch(e){el('connection').textContent='Chưa kết nối bộ đọc. Bạn có thể chọn tệp đã lưu để xem; đây không phải lỗi máy.';}}
@@ -27,7 +27,7 @@ el('files').addEventListener('change',async event=>{
  const obj=JSON.parse(text);details.push(file.name+'\n'+JSON.stringify(obj,null,2));
  if(Array.isArray(obj.items))data.implementation=obj;
  if(obj.kind==='qualification_v1')data.qualifications=[obj];
- if(['model_boundary_v1','background_model_audit_v1','stream_input_v1','stream_check_v1','software_check_v2'].includes(obj.kind))data.diagnostics.push({name:file.name,kind:obj.kind,passed:obj.passed,summary_vi:JSON.stringify(obj.groups||obj.checks||obj.outcomes||obj.forward_decision_pairs||{datagrams:obj.datagrams,invalid_datagrams:obj.invalid_datagrams,reason:obj.hold_reason})});
+ if(['model_boundary_v1','background_model_audit_v1','stream_input_v1','stream_check_v1','software_check_v2','stream_replay_v1','stream_archive_check_v1','stream_bundle_check_v1'].includes(obj.kind))data.diagnostics.push({name:file.name,kind:obj.kind,passed:obj.passed,summary_vi:JSON.stringify(obj.groups||obj.checks||obj.outcomes||obj.forward_decision_pairs||{datagrams:obj.datagrams,invalid_datagrams:obj.invalid_datagrams,reason:obj.hold_reason})});
  if(obj.controller_state)data.runs.push({name:file.name,state:obj.controller_state,simulation_time_s:obj.simulation_time_s,placement_pass:obj.placement_pass_evaluator_only,message_guard:obj.message_guard,reason:obj.hold_reason});
  }catch(e){details.push(file.name+': không đọc được định dạng dữ liệu.');}}
  show(data);el('detail').textContent=details.join('\n\n');

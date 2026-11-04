@@ -496,3 +496,29 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   trong mô phỏng có giả định vòng hở. Không chuyển thành kết quả vật lý.
 - Nhãn tại thời điểm dựng vẫn ghi candidate như lịch sử; trạng thái chấp thuận
   hiện tại và mã băm được lưu riêng ở docker/evidence/accepted-20261103-software-v2.json.
+
+### 044 — Hai hạng mục phần mềm tiếp theo (04/11/2026)
+
+- Phát lại phiên UDP qua chính StreamCore, dùng thời điểm nhận và từng nhịp đã lưu,
+  kể cả im lặng; so kết quả logic và lệnh cuối, bỏ riêng thời gian tính toán khỏi phép so.
+- Chặn nguồn khác mã băm, gói không có nhịp tương ứng, thiếu lệnh cuối và cấu hình
+  dự báo nền bất đồng bộ chưa hỗ trợ. Khác kết quả được báo và lưu, không tự sửa.
+- Đóng gói đúng sáu tệp phiên kèm mã băm; kiểm tra ZIP không giải nén, chặn tên lạ,
+  trùng tệp, vượt kích thước, sai nội dung và không ghi đè gói đã tồn tại.
+- Bổ sung thử tự động, chế độ stream-archive-check và nhóm thứ chín vào kiểm tra chung.
+  Có hướng dẫn người mới tại docs/phat_lai_va_dong_goi_phien.md. Không đổi tham số máy.
+- Dùng ponytail, chỉ thư viện chuẩn và lõi có sẵn. Chưa đổi bản Docker đã nghiệm thu.
+
+### 045 — Kiểm tra và bàn giao hai hạng mục mới
+
+- Docker đạt đủ chín nhóm: 132 kiểm tra lõi, 8 web, cổng mẫu, tích hợp, đặt lại,
+  nền, lưới 144 đầu vào, 24 lượt đối chứng và phát lại/đóng gói.
+- Ba phiên UDP thật trên loopback phát lại 34 nhịp mỗi phiên (102 nhịp), không khác
+  kết quả logic; ba ZIP qua kiểm tra. Sáu phép thử mới có cả sửa lệnh, sửa dữ liệu,
+  sai mã nguồn, tên ZIP lạ/trùng, không ghi đè, thiếu lệnh cuối và cấu hình chưa hỗ trợ.
+- Hai kiểm tra đóng gói nguồn, cú pháp PowerShell/JavaScript và đọc chẩn đoán mới đạt.
+  Lần chạy thử trên Windows bị quyền thư mục tạm chặn; WSL và Docker chạy được.
+- Lưu hồ sơ candidate-20261104-stream-evidence gồm mã ảnh, mã băm nguồn và kết quả.
+  Đối chiếu 16 nhãn cũ vẫn nguyên. Giữ accepted-20261103-software-v2 làm mặc định.
+- Chỉ thử ba phiên dữ liệu ngắn, chưa qua TRACK có dự báo. Không tuyên bố độ chính xác
+  vật lý, khả năng phát lại mọi cấu hình hoặc đồng bộ CAD/MuJoCo. Không gửi lệnh PLC.

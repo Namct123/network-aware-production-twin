@@ -1,5 +1,5 @@
 param(
-    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','physics-check','background-check','boundary-study','stream-check','software-check','manifest')]
+    [ValidateSet('build','demo','fault','strict','tests','acceptance','predictive-check','measured-check','observer-check','reconfiguration-check','robustness-check','adaptive-check','recovery-check','reset-check','integration-check','qualification-check','physics-check','background-check','boundary-study','stream-check','stream-archive-check','software-check','manifest')]
     [string]$Mode = 'demo',
     [string]$Config = '',
     [string]$Plan = '',
@@ -9,7 +9,7 @@ param(
     [string]$Tag = 'accepted-20261103-software-v2'
 )
 if ($Mode -eq 'build' -and -not $PSBoundParameters.ContainsKey('Tag')) {
-    $Tag = 'candidate-20261103-software-v2'
+    $Tag = 'candidate-20261104-stream-evidence'
 }
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path $PSScriptRoot -Parent

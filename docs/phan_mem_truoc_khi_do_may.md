@@ -101,3 +101,9 @@ Người dùng đã chấp thuận bản v2 ngày 03/11/2026 bằng lời xác n
 lưu riêng tại [hồ sơ phát hành Docker](../docker/RELEASES.md); hồ sơ candidate gốc
 giữ nguyên để truy lại trạng thái lúc dựng. Phạm vi là phần mềm v2, không phải
 hiệu chuẩn, kết nối hoặc kiểm chứng máy thật.
+
+## Bổ sung ngày 04/11/2026
+
+Hai mục mới: phát lại phiên dữ liệu (giữ cả nhịp im lặng) và gói ZIP hồ sơ
+có kiểm tra mã băm. Xem [hướng dẫn](phat_lai_va_dong_goi_phien.md).
+Bản mới dùng nhãn `candidate-20261104-stream-evidence`; bản nghiệm thu mặc định giữ nguyên.
