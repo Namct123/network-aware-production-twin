@@ -424,3 +424,26 @@ immutable image ID, preserved source manifest, and the tests actually run.
 - Cleanup changes authoring tree only: duplicate draft sources, obsolete PDFs and temporary
   verification copies removed after SHA-256-verified private archival. Active paper,
   CAD, parameter profiles, experiment evidence and accepted images preserved.
+
+
+## 2026-11-05 — Optical interval calibration (candidate)
+
+- Tag: `production-twin-dt:candidate-20261105-interval-calibration`.
+- Image ID: `sha256:a2221c62dc831f5c9dab9337075af6250ed88dfeaa2f77b771c518830404cbbe`. User acceptance **pending**; no registry push/promotion.
+- Checks: 149 core tests, 10 web tests; 37 run result JSONs and independent analysis
+  reproduced exactly from WSL pilot; runtime hashes match host, 117 prior MuJoCo files
+  unchanged. Last accepted `accepted-20261103-software-v2` remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+- Nine normal calibration fixtures seal bounds before 8 held-out normal, 16 fault
+  and 4 shifted-condition fixtures. Only optical transitions and command integrals fit
+  gain; true pose/gain are evaluator-only. Drift remains a prior engineering assumption.
+- Zero alerts on eight held-out normal fixtures, 766/766 anchored sample coverage;
+  16/16 fault alerts but 160–260 ms slower than fixed single-event timeout. No throughput
+  superiority, fault isolation, physical confidence, diagnostic ML or PLC authority claim.
+- Post-hoc same-drift ablation is explicitly disclosed: fitted gain bounds reduce mean
+  width 5.1% (80.9→76.8 mm); comparison with full old profile confounds drift selection.
+- Evidence: `docker/evidence/candidate-20261105-interval-calibration.json`, source manifest,
+  sealed calibration SHA-256 and per-input analysis hashes. Data/logs under
+  `output/docker/interval_calibration_20261105_final` and
+  `output/interval_calibration_validation_20261105`; report
+  `docs/hieu_chuan_mien_du_doan_20261105.md`.

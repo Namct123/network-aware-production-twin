@@ -1,0 +1,37 @@
+{
+  "kind": "optical_interval_calibration_v1",
+  "calibration_speeds_m_s": [
+    0.12,
+    0.16,
+    0.2
+  ],
+  "calibration_gains": [
+    0.88,
+    1.0,
+    1.12
+  ],
+  "test_speeds_m_s": [
+    0.14,
+    0.18
+  ],
+  "test_gains": [
+    0.92,
+    1.08
+  ],
+  "test_frictions": [
+    0.8,
+    1.2
+  ],
+  "shift_gains": [
+    0.75,
+    1.25
+  ],
+  "start_y_m": -0.25,
+  "command_distance_m": 0.38,
+  "drift_m_s": 0.005,
+  "confirm_samples": 2,
+  "edge_guard_m": 0.004,
+  "sample_guard_periods": 2,
+  "fixed_timeout_slack_s": 0.2,
+  "scope": "Isolated single-product tracking segment, no network faults/PLC/full-cycle policy. Fit from normal optical events and issued-command history only; truth evaluator only; held-out conditions are a deterministic designed grid, not a population sample."
+}

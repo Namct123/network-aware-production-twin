@@ -689,3 +689,38 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Chưa có ML huấn luyện, can thiệp điều khiển mới, thử kín khôi phục hay đo vật
   lý. Tiếp theo là hiệu chuẩn/kiểm tra miền dự đoán trên điều kiện biến thiên,
   rồi đối chứng chính sách tái cấu hình cùng thông tin và ngân sách tính.
+
+
+### 060 — Tập hiệu chuẩn và tập kiểm tra riêng cho miền dự đoán
+
+- Tạo bệ thử đoạn PS2→PS3, không để HOLD chu trình cũ cắt ngắn dữ liệu; không
+  gọi đây là chu trình gắp–thả hoặc có quyền điều khiển PLC.
+- Chín điều kiện bình thường dùng fit miền gain từ khoảng cách mốc và tích phân
+  lệnh. Không lấy pose hoặc hệ số thật. Niêm phong JSON/SHA-256 trước 28 ca giữ
+  riêng: tám bình thường, 16 lỗi và bốn ca ngoài miền.
+- Có hai kiểm tra mới: tách điều kiện, tập hợp ca cố định, fit chỉ từ sự kiện,
+  dữ liệu thiếu/không hợp lệ và giới hạn kích thước/thời gian kế hoạch.
+- Các tham số và lưới điều kiện nằm trong JSON, không sửa profile điều khiển cũ.
+
+### 061 — Đối chiếu nguyên nhân cải thiện và giới hạn
+
+- Trên tám ca bình thường, các miền đều không báo nhầm, bao phủ 766/766 mẫu sau
+  mốc; không gọi đây là độ tin cậy thống kê. Bộ fit báo 16/16 ca lỗi trong cửa
+  sổ, nhưng chậm hơn timeout một sự kiện 160–260 ms. Miền profile cũ chưa báo.
+- Sau pilot bổ sung phép so cùng drift để tách giả định đặt trước với phần fit.
+  Ghi rõ đây là phân tích bổ sung, không sửa fit/test sau khi xem số liệu.
+  Khoảng trung bình 76,8 mm so với 80,9 mm khi cùng drift: giảm 5,1%; mức giảm
+  30,1% so cả profile cũ không được quy hết cho học từ dữ liệu.
+- Ngoài miền, bộ fit chỉ bao phủ 230/377 mẫu. Không cho phép gắp tiếp chỉ vì
+  có cảnh báo; khoảng vẫn rộng, hai nguyên nhân lỗi vẫn chưa được phân biệt.
+- analyze_calibration.py tính lại đúng 10.164 kết quả mẫu–bộ quan sát, chấm
+  pose riêng và ghi hash đầu vào. Có báo cáo tiếng Việt, không thêm ML giả tạo.
+
+### 062 — Tái lập Docker và bàn giao phần hiệu chuẩn
+
+- Candidate-20261105-interval-calibration chạy đủ 37 điều kiện, kết quả và phân
+  tích trùng chính xác WSL pilot; 149 kiểm tra lõi và 10 web đạt.
+- Giữ nguyên 117 tệp MuJoCo trước đó và ảnh accepted; không đẩy registry hoặc
+  tự nghiệm thu. ID và hash tại docker/RELEASES.md và bằng chứng JSON.
+- Bước kế tiếp đã chỉ rõ: ước lượng theo độ rộng xung PS2 của từng chu kỳ,
+  lượng hóa sai số rồi mới thử kín lựa chọn cấu hình và suy giảm mạng.

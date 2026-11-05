@@ -62,3 +62,5 @@ jobs:
         run: python web/test_experiments.py
       - name: Test causal prediction-observation residual boundary
         run: python mujoco/test_innovation.py
+      - name: Test calibration split and observed-event fitting
+        run: python mujoco/test_interval_calibration.py
