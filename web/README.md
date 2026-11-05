@@ -49,3 +49,9 @@ Từ thư mục gốc dự án, chạy `python web/test_explorer.py` để kiể
 ## Thiết kế
 
 Áp dụng skill UI UX Pro Max từ https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (truy xuất 27/10/2026): bố cục dashboard vận hành, nền slate, trạng thái xanh, tập trung vào độ rõ dữ liệu và khả năng dừng/tua. Dùng font hệ thống thay font trực tuyến để hoạt động ngoại tuyến, điều khiển native, nhãn văn bản ngoài màu sắc, focus bàn phím và bố cục đáp ứng. Skill tải trong `tmp/skills/ui-ux-pro-max` của checkout để dùng cho công việc này; không cài vào cấu hình toàn máy.
+
+
+## Hình tương tác Anatomy (2026-11-05)
+
+Mở `anatomy.html` trực tiếp hoặc qua máy chủ web hiện có. Chọn ca, bấm **Phát lại**, **Tới HOLD**, bật đối chiếu và bấm từng bộ phận hoặc sáu bước phía dưới.
+Dữ liệu là lượt 01 của bảy ca `sensor_drive_20261104_v2`, không phải dữ liệu trực tiếp. Đọc `docs/truc_quan_anatomy.md` để biết nguồn, giới hạn và cách dựng lại.

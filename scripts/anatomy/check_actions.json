@@ -1,0 +1,82 @@
+[
+  [
+    "eval",
+    "(()=>{const cases=document.getElementById('case'),bar=document.getElementById('timeline');for(let c=0;c<7;c++){cases.value=String(c);cases.dispatchEvent(new Event('change'));for(const v of [0,Math.floor(+bar.max/2),+bar.max]){bar.value=String(v);bar.dispatchEvent(new Event('input'));if(document.getElementById('stage').dataset.orderCycles!=='0')throw Error('Order cycle case '+c);}}return '21 poses: no ordering cycles'})()"
+  ],
+  [
+    "eval",
+    "document.getElementById('case').value='1';document.getElementById('case').dispatchEvent(new Event('change'));document.getElementById('compare').click();true"
+  ],
+  [
+    "click",
+    "#hold"
+  ],
+  [
+    "eval",
+    "if(!document.getElementById('comparison').textContent.includes('35.4'))throw Error('Wrong divergence at first HOLD');true"
+  ],
+  [
+    "eval",
+    "(()=>{if(document.getElementById('stage').dataset.orderCycles!=='0')throw Error('Depth cycle');return {parts:document.getElementById('stage').dataset.parts,pair:document.getElementById('comparison').textContent,mode:document.getElementById('mode').textContent}})()"
+  ],
+  [
+    "shot",
+    "output/anatomy_20261105/comparison.png",
+    ".machine",
+    1
+  ],
+  [
+    "click",
+    "#theme"
+  ],
+  [
+    "shot",
+    "output/anatomy_20261105/dark.png",
+    ".machine",
+    1
+  ],
+  [
+    "lines",
+    "output/anatomy_20261105/lines-dark.png"
+  ],
+  [
+    "click",
+    "#theme"
+  ],
+  [
+    "lines",
+    "output/anatomy_20261105/lines-light.png"
+  ],
+  [
+    "eval",
+    "document.getElementById('timeline').value='20';document.getElementById('timeline').dispatchEvent(new Event('input'));if(document.getElementById('stage').dataset.sample!=='20')throw Error('Seek failed');true"
+  ],
+  [
+    "click",
+    "#play"
+  ],
+  [
+    "wait",
+    300
+  ],
+  [
+    "eval",
+    "if(Number(document.getElementById('stage').dataset.sample)<=20)throw Error('Playback failed');true"
+  ],
+  [
+    "click",
+    "#play"
+  ],
+  [
+    "scroll",
+    ".steps"
+  ],
+  [
+    "click",
+    ".steps button:nth-child(2)"
+  ],
+  [
+    "eval",
+    "if(!document.getElementById('detail').textContent.includes('không chèn'))throw Error('Wrong network scope');true"
+  ]
+]

@@ -632,3 +632,15 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   pilot, sau khi bỏ riêng thời gian tính dự báo khỏi phép so.
 - Bản cuối đạt 143 kiểm tra lõi, 8 web và tích hợp; chấm vị trí hỗ trợ 21/21 và
   tính lại sáu cặp. Không đổi mã lõi/ước lượng, profile hoặc nhãn accepted.
+
+
+### 056 — Cài Anatomy và làm hình tương tác giải thích hệ DT (2026-11-05)
+
+- Cài skill Anatomy từ wheresryan22/anatomy bằng công cụ cài skill của Codex; đọc hướng dẫn và ví dụ đồng hồ đo, giữ bộ vẽ MIT trong dự án để chuyển máy không cần cài skill lại.
+- Chọn hình cỡ Figure, liệt kê các nhóm đế/khung, băng tải, hộp, robot, cảm biến, chi tiết đỡ; hoàn thành 67 khối SVG. Không thêm bộ máy vật lý mới: lấy hình học hộp từ XML MuJoCo đã đánh giá.
+- Xuất đúng 1.973 mẫu của bảy ca lượt 01, kiểm tra thời gian và SHA-256 30 tệp nguồn; phôi thực, bit nhận, ước lượng, lệnh, tốc độ áp dụng và lý do HOLD cùng một mẫu.
+- Thêm chọn ca, phát/dừng, tua, tới HOLD lần đầu, đối chiếu hai cặp cảm biến/mất chuyển động, hai nền, phím và chế độ giảm chuyển động. Bấm từng bộ phận hoặc sáu bước đọc giải thích tiếng Việt.
+- Tách vị trí thật chỉ phục vụ người xem; không đưa vào DT. Không tự diễn hoạt robot/đầu đẩy bằng lệnh vì nhật ký không có vị trí khớp thực. Ghi rõ ba mốc PS1/PS2/PS3, giới hạn hình học, không chèn lỗi mạng và thiếu xác nhận để gắp.
+- Kiểm tra: hai phép kiểm tra dữ liệu mới; tổng 10 kiểm tra web trong Docker đạt. Trình duyệt kiểm tra 21 tư thế đại diện, chức năng và ảnh nền sáng/tối, điện thoại 390 px, phóng to 4×; không lỗi JavaScript/tràn ngang trong ảnh kiểm tra. Sửa lỗi đóng thẻ script nhúng, thanh tua tự trả về mẫu cũ, thứ tự khối che phôi, độ tương phản nền tối trước khi chốt.
+- Dựng candidate-20261105-anatomy, ghi ID/hash trong docker/RELEASES.md và bằng chứng JSON. Đối chiếu 113 tệp MuJoCo không đổi; không chạy lại thí nghiệm vật lý hoặc đổi bản accepted. Chưa có nghiệm thu người dùng cho mục này.
+- Có hướng dẫn mở ngoại tuyến/dựng lại ở docs/truc_quan_anatomy.md và liên kết từ trang tổng quan. Máy chủ cục bộ cổng 8766 chỉ nghe localhost; trang không điều khiển PLC.

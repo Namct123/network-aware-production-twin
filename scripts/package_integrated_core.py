@@ -13,9 +13,9 @@ def package(target):
     files=[]
     for folder,extensions in [('mujoco',{'.py','.json','.xml','.urdf','.csv','.md'}),('web',{'.py','.js','.html','.css','.json','.md','.cmd'})]:
         files += [p for p in (ROOT/folder).rglob('*') if p.is_file() and not p.is_symlink() and '__pycache__' not in p.parts and p.suffix in extensions]
-    docs=['nghien_cuu_cam_bien_va_truyen_dong_20261104.md','phan_tich_phan_ung_mang.md','ket_qua_phan_ung_mang_20261104.md','chuyen_sang_o_D_va_bo_unity.md','phat_lai_va_dong_goi_phien.md','phan_mem_truoc_khi_do_may.md','nghien_cuu_gioi_han_mo_hinh.md','bao_cao_bien_mo_hinh_20261103.md','doi_chieu_du_bao.md','du_bao_nen_quan_sat.md','bao_cao_du_bao_nen_20261103.md','bao_cao_toi_uu_20261103.md','toi_uu_du_bao_mujoco.md','bao_cao_danh_gia_20261102.md','danh_gia_co_doi_chung.md','bao_cao_tich_hop_so1.md','nhat_ky_cong_viec.md','ban_tich_hop_phan_mem.md','bao_cao_tien_do_de_hieu.md','modular_twin.md','parameterized_core.md','docker.md']
+    docs=['truc_quan_anatomy.md','nghien_cuu_cam_bien_va_truyen_dong_20261104.md','phan_tich_phan_ung_mang.md','ket_qua_phan_ung_mang_20261104.md','chuyen_sang_o_D_va_bo_unity.md','phat_lai_va_dong_goi_phien.md','phan_mem_truoc_khi_do_may.md','nghien_cuu_gioi_han_mo_hinh.md','bao_cao_bien_mo_hinh_20261103.md','doi_chieu_du_bao.md','du_bao_nen_quan_sat.md','bao_cao_du_bao_nen_20261103.md','bao_cao_toi_uu_20261103.md','toi_uu_du_bao_mujoco.md','bao_cao_danh_gia_20261102.md','danh_gia_co_doi_chung.md','bao_cao_tich_hop_so1.md','nhat_ky_cong_viec.md','ban_tich_hop_phan_mem.md','bao_cao_tien_do_de_hieu.md','modular_twin.md','parameterized_core.md','docker.md']
     files += [ROOT/'docs'/n for n in docs]
-    files += [ROOT/p for p in ['scripts/docker_dt.ps1','scripts/portable_bundle/launch.py','docker/Dockerfile','docker/build_image.py',
+    files += [ROOT/p for p in ['scripts/export_anatomy.py','scripts/build_anatomy.mjs','scripts/anatomy/iso-kit.mjs','scripts/anatomy/LICENSE','scripts/anatomy/check_actions.json','scripts/docker_dt.ps1','scripts/portable_bundle/launch.py','docker/Dockerfile','docker/build_image.py',
         'docker/snapshot.py','docker/requirements.lock','docker/RELEASES.md','docker/evidence/candidate-20261031-integrated-core-v1.json','docker/evidence/candidate-20261102-qualification.json','docker/evidence/candidate-20261103-native-physics.json',
         'docker/evidence/candidate-20261103-background-observer.json',
         'docker/evidence/candidate-20261103-model-audit.json',
@@ -27,6 +27,7 @@ def package(target):
         'docker/evidence/candidate-20261104-time-boundary.json',
         'docker/evidence/candidate-20261104-sensor-drive.json',
         'docker/evidence/candidate-20261104-sensor-drive-v2.json',
+        'docker/evidence/candidate-20261105-anatomy.json',
         'compose.yaml','.dockerignore','AGENTS.md','scripts/package_integrated_core.py','scripts/export_cad_parts.py','scripts/analyze_sensor_drive.py','fusion/ProductionTwin_V0/ProductionTwin_V0.py','cad_reference/production_twin_v0_parts.csv']]
     manifest={p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(set(files))}
     target.parent.mkdir(parents=True,exist_ok=True)

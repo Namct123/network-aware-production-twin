@@ -131,3 +131,8 @@ Dự án chính ở `D:\Projects\network-aware-production-twin`. Chỉ dùng MuJ
 ## Giới hạn phân biệt lỗi cảm biến và chuyển động — 04/11/2026
 
 [Báo cáo 21 ca MuJoCo](docs/nghien_cuu_cam_bien_va_truyen_dong_20261104.md): sáu cặp có cùng tín hiệu/quyết định nhưng trạng thái phôi khác nhau. Không gọi phản ứng dừng là đã xác định đúng nguyên nhân. Bản chờ kiểm nghiệm: candidate-20261104-sensor-drive-v2.
+
+
+## Trực quan hệ thống bằng Anatomy
+
+Mở [trang Anatomy](web/anatomy.html) để phát lại bảy tình huống MuJoCo, xem cảm biến và lý do HOLD, so sánh cảm biến không báo với băng tải đứng. [Hướng dẫn](docs/truc_quan_anatomy.md). Trang chạy ngoại tuyến, không điều khiển PLC.

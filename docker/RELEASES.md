@@ -383,3 +383,15 @@
 
 Future entries must identify the item accepted by the user, the acceptance message/date,
 immutable image ID, preserved source manifest, and the tests actually run.
+
+
+## 2026-11-05 — Anatomy interactive explainer (candidate)
+
+- Tag: `production-twin-dt:candidate-20261105-anatomy`.
+- Image ID: `sha256:c854829373ce629b9e273a313b1d9cbcbe63df7e8416a44f66d1217f7cf49d40`.
+- User acceptance: **pending**. No accepted/stable/latest tag changed; no registry push.
+- Evidence: `docker/evidence/candidate-20261105-anatomy.json` records runtime and authoring hashes, 30 source-study hashes and unchanged accepted image.
+- Checks: 10 web tests in read-only/network-none container; image/runtime hashes match host; all 113 prior MuJoCo files unchanged. Browser: 21 representative poses, seek/play/pause/first-HOLD, comparison, light/dark, explanation buttons; clean console; phone 390 px and 4× close-up inspected. Line-end 0/0 because there are no separate texture lines. No mechanical assembly audit claimed.
+- Scope: 67 SVG solids, 1,973 samples from trial 01 of seven existing `sensor_drive_20261104_v2` cases. Offline recorded replay; no new physical claims, network-fault experiment or PLC output. Robot and pusher remain reference poses because joint feedback is not logged. CAD V5 remains different from MuJoCo.
+- Last accepted remains `accepted-20261103-software-v2`, image `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+- Source and logs: `output/anatomy_20261105`; instructions `docs/truc_quan_anatomy.md`. Runtime open: `web/anatomy.html` directly, or host `python web/server.py --port 8766` and `/anatomy.html`. Rebuild with explicit `python docker/build_image.py --tag candidate-20261105-anatomy`; normal accepted defaults are preserved.
