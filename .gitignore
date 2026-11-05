@@ -18,4 +18,3 @@ mujoco/preview.ppm
 
 # Published project reports and manuscript figures
 !reports/*.pdf
-!docs/dt_cppps_title_abstract/figures/*.pdf

@@ -48,7 +48,7 @@ Từ thư mục gốc dự án, chạy `python web/test_explorer.py` để kiể
 
 ## Thiết kế
 
-Áp dụng skill UI UX Pro Max từ https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (truy xuất 27/10/2026): bố cục dashboard vận hành, nền slate, trạng thái xanh, tập trung vào độ rõ dữ liệu và khả năng dừng/tua. Dùng font hệ thống thay font trực tuyến để hoạt động ngoại tuyến, điều khiển native, nhãn văn bản ngoài màu sắc, focus bàn phím và bố cục đáp ứng. Skill tải trong `tmp/skills/ui-ux-pro-max` của checkout để dùng cho công việc này; không cài vào cấu hình toàn máy.
+Áp dụng skill UI UX Pro Max từ https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (truy xuất 27/10/2026): bố cục dashboard vận hành, nền slate, trạng thái xanh, tập trung vào độ rõ dữ liệu và khả năng dừng/tua. Dùng font hệ thống thay font trực tuyến để hoạt động ngoại tuyến, điều khiển native, nhãn văn bản ngoài màu sắc, focus bàn phím và bố cục đáp ứng. Bản skill tạm đã bỏ khỏi cây làm việc trong đợt dọn 2026-11-05; giao diện đã sinh không phụ thuộc thư mục skill này.
 
 
 ## Hình tương tác Anatomy (2026-11-05)

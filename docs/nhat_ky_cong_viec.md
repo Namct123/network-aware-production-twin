@@ -644,3 +644,48 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Kiểm tra: hai phép kiểm tra dữ liệu mới; tổng 10 kiểm tra web trong Docker đạt. Trình duyệt kiểm tra 21 tư thế đại diện, chức năng và ảnh nền sáng/tối, điện thoại 390 px, phóng to 4×; không lỗi JavaScript/tràn ngang trong ảnh kiểm tra. Sửa lỗi đóng thẻ script nhúng, thanh tua tự trả về mẫu cũ, thứ tự khối che phôi, độ tương phản nền tối trước khi chốt.
 - Dựng candidate-20261105-anatomy, ghi ID/hash trong docker/RELEASES.md và bằng chứng JSON. Đối chiếu 113 tệp MuJoCo không đổi; không chạy lại thí nghiệm vật lý hoặc đổi bản accepted. Chưa có nghiệm thu người dùng cho mục này.
 - Có hướng dẫn mở ngoại tuyến/dựng lại ở docs/truc_quan_anatomy.md và liên kết từ trang tổng quan. Máy chủ cục bộ cổng 8766 chỉ nghe localhost; trang không điều khiển PLC.
+
+
+### 057 — Tinh giản và khóa lại mục tiêu nghiên cứu (2026-11-05)
+
+- Viết lại README thành bản đồ ngắn của mục tiêu phát hiện sai lệch, lượng hóa
+  bất định và chọn cấu hình; tách rõ phần đã có với phần chưa chứng minh.
+- Đã lưu ZIP ngoài dự án, đọc lại và kiểm tra SHA-256 từng tệp trước khi xóa:
+  731 tệp, 124.529.752 byte nội dung (~118,8 MiB), gồm bản thảo trùng, bảy PDF
+  cũ, script khả thi cũ, gói kiểm tra giải nén/preview/skill tạm và hai tài liệu cá
+  nhân. Đã xóa thư mục rỗng của các mục này; không xóa kết quả bất lợi.
+- Giữ nguồn bài duy nhất ở paper/, PDF hiện hành và hai hướng dẫn nhập môn;
+  giữ công cụ LaTeX/tài liệu trích dẫn còn dùng, CAD, lõi, profile, dữ liệu và
+  ảnh Docker lịch sử. Biên bản ở docs/don_du_an_20261105.md.
+- Có hướng nghiên cứu hiện tại và các tiêu chí đối chứng, tập hiệu chuẩn/kiểm
+  tra riêng. Chưa mặc định dùng camera/RL hoặc coi ML đã triển khai.
+
+### 058 — Bộ sai lệch dự đoán–quan sát độc lập
+
+- Thêm EventResidual: mốc PS2 vật lý, lịch sử lệnh và khoảng gain/drift sửa được
+  dự đoán miền vị trí; kiểm tra cạnh PS3 đến sớm/muộn hoặc không đến như dự kiến.
+- Không nhận pose, tốc độ thật, nhãn lỗi; không lấy ước lượng đã sửa từ PS3 để
+  kiểm tra ngược PS3. Lệnh hiện tại được ghi sau quan sát cùng nhịp.
+- Tách trạng thái thiếu mốc/thiếu tín hiệu/dữ liệu cũ; không đổi null thành false,
+  không tự bỏ cảm biến, không xóa HOLD, không ghi PLC. Bộ mới chỉ cố vấn ngoại tuyến.
+- Bốn kiểm tra mới cho biên thời gian, tham số, miền sai số, thiếu/cũ dữ liệu,
+  xác nhận nhiều mẫu và phát hiện cạnh đến sớm. CI chạy thêm bộ này.
+
+### 059 — Kết quả nguyên trạng và candidate
+
+- Phát lại 21 phiên đã có với hai miền giả định khóa trước. Miền hẹp báo cặp
+  PS3 không báo/băng dọc đứng ở 6,84 s; timeout một sự kiện +0,2 s ở 6,86 s.
+  Miền rộng của profile chưa báo trước HOLD cũ 6,96 s. Đây không phải bằng
+  chứng hơn bộ điều khiển truyền thống hoặc tăng năng suất.
+- Bình thường có 63/63 mẫu sau mốc nằm trong khoảng; ca PS3 không báo nhưng
+  băng vẫn chạy 79/79. Mất chuyển động: chỉ 4/79 hoặc 5/79 mẫu trong khoảng.
+  Không đổi các số này thành mức tin cậy 95% hoặc độ chính xác phân loại.
+- Docker candidate-20261105-residual-focus đạt 147 kiểm tra lõi, 10 web; hai
+  kiểm tra giao hàng trên host đạt. 113 tệp MuJoCo trước đó và bản accepted
+  giữ nguyên. Receipt có ID ảnh, mã băm nguồn/đầu vào và kết quả đầy đủ.
+- Pilot/final khớp mọi giá trị JSON. Kiểm tra byte ban đầu vướng CRLF/LF; kiểm
+  tra đường dẫn vướng ánh xạ volume /app/output sang output/docker. Đã sửa
+  phần kiểm tra và ghi nhận, không đổi dữ liệu hoặc chạy lại để chọn kết quả.
+- Chưa có ML huấn luyện, can thiệp điều khiển mới, thử kín khôi phục hay đo vật
+  lý. Tiếp theo là hiệu chuẩn/kiểm tra miền dự đoán trên điều kiện biến thiên,
+  rồi đối chứng chính sách tái cấu hình cùng thông tin và ngân sách tính.

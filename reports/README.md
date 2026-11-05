@@ -1,13 +1,10 @@
-# Báo cáo và bản thảo PDF
+# Báo cáo hiện hành
 
-Đây là các tài liệu dự án được xuất trong quá trình phát triển. Tệp có
-`title_abstract`, `introduction` hoặc `springer` trong tên là **bản thảo**,
-không phải bài đã được xuất bản hay kết quả được hội nghị chấp nhận.
-Một số báo cáo cũ mô tả phiên bản và giả định cũ.
+- `dt_cppps_manuscript_virtual.pdf`: bản thảo, nguồn duy nhất tại `paper/`.
+- `hieu_loi_digital_twin_10_trang.pdf`: tài liệu nhập môn; mô tả mốc phát triển cũ.
+- `huong_dan_xay_dung_loi_digital_twin.pdf`: tài liệu nhập môn; chưa thay thế hướng nghiên cứu mới.
 
-Trạng thái phần mềm mới nhất: [báo cáo dự báo nền](../docs/bao_cao_du_bao_nen_20261103.md).
-Xem [nhật ký](../docs/nhat_ky_cong_viec.md) để phân biệt triển khai, kiểm tra tự động,
-hiệu chuẩn máy thật và nghiệm thu của người dùng. Chưa có kết quả đo máy thật xác nhận.
-
-
-Bản đang viết tiếp từ 03/11/2026: [dt_cppps_manuscript_virtual.pdf](dt_cppps_manuscript_virtual.pdf), sinh từ [paper/](../paper/README.md). Các PDF trước là lịch sử; phần vật lý trong bản mới để trống.
+Các bản title/abstract/introduction trùng và báo cáo khả thi cũ đã bỏ khỏi cây
+làm việc ngày 2026-11-05. Bản khôi phục giữ riêng ngoài dự án, Git vẫn giữ lịch sử.
+Đọc `docs/huong_nghien_cuu_hien_tai.md` và nhật ký để biết phạm vi hiện tại.
+Chưa có kiểm chứng vật lý hoặc bài đã được chấp nhận xuất bản.

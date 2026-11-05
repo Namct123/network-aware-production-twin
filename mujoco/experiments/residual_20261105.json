@@ -1,0 +1,10 @@
+{
+  "kind": "locked_residual_replay_v1",
+  "source": "sensor_drive_20261104_v2",
+  "variants": {
+    "narrow_assumption": {"gain_bounds": [0.95, 1.05], "drift_m_s": 0.005, "confirm_samples": 2},
+    "profile_engineering_bounds": {"gain_bounds": [0.8, 1.2], "drift_m_s": 0.02, "confirm_samples": 2}
+  },
+  "fixed_timeout_slack_s": 0.2,
+  "scope": "Locked assumptions, not tuned on replay outcomes. Offline advisory analysis; no PLC writes, learned model or productivity claim."
+}

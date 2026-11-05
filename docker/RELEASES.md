@@ -395,3 +395,32 @@ immutable image ID, preserved source manifest, and the tests actually run.
 - Scope: 67 SVG solids, 1,973 samples from trial 01 of seven existing `sensor_drive_20261104_v2` cases. Offline recorded replay; no new physical claims, network-fault experiment or PLC output. Robot and pusher remain reference poses because joint feedback is not logged. CAD V5 remains different from MuJoCo.
 - Last accepted remains `accepted-20261103-software-v2`, image `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
 - Source and logs: `output/anatomy_20261105`; instructions `docs/truc_quan_anatomy.md`. Runtime open: `web/anatomy.html` directly, or host `python web/server.py --port 8766` and `/anatomy.html`. Rebuild with explicit `python docker/build_image.py --tag candidate-20261105-anatomy`; normal accepted defaults are preserved.
+
+
+## 2026-11-05 — Prediction/observation residual and scope cleanup (candidate)
+
+- Tag: `production-twin-dt:candidate-20261105-residual-focus`.
+- Image ID: `sha256:29d160c2541cfe45a7a6f02938de5ce6394ca46031e824ce687eb6a270eda34a`.
+- User acceptance: **pending**. No promotion or registry push. Last accepted remains
+  `accepted-20261103-software-v2` (`sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`).
+- Checks: 147 core tests, 10 web tests inside the candidate; two host delivery checks.
+  Full runtime manifest matches host; all 113 pre-existing MuJoCo files remain unchanged.
+- Study: 21 existing sensor-drive recordings × two fixed engineering-bound variants;
+  advisory causal replay, current command recorded after the same-tick observation.
+  Plant truth is evaluator-only. No feedback from this monitor to RuntimeCore/PLC.
+- Pilot/final results and every parsed JSONL row match exactly. Raw byte comparison
+  initially failed on CRLF vs LF; source-location verification also required the
+  documented /app/output → output/docker volume mapping. Original logs retained;
+  no trial or threshold altered to resolve either verification issue.
+- Narrow assumed interval reports the missing pickup edge at 6.84 s vs the single-event
+  fixed timeout at 6.86 s; broad profile interval does not report before the old 6.96 s
+  HOLD. No productivity gain, learned ML, calibrated confidence or fault isolation claimed.
+- Evidence: `docker/evidence/candidate-20261105-residual-focus.json` (runtime hashes,
+  complete study summary, input manifest, volume mapping and checks).
+- Source/replay: `mujoco/innovation.py`, `mujoco/study_residual.py`,
+  `mujoco/experiments/residual_20261105.json`; outputs `output/docker/residual_20261105_final`,
+  logs `output/residual_validation_20261105`; plain Vietnamese report
+  `docs/sai_lech_du_doan_quan_sat.md`.
+- Cleanup changes authoring tree only: duplicate draft sources, obsolete PDFs and temporary
+  verification copies removed after SHA-256-verified private archival. Active paper,
+  CAD, parameter profiles, experiment evidence and accepted images preserved.

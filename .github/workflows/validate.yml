@@ -60,3 +60,5 @@ jobs:
         run: python mujoco/test_prediction.py
       - name: Test local experiment boundary and paired comparisons
         run: python web/test_experiments.py
+      - name: Test causal prediction-observation residual boundary
+        run: python mujoco/test_innovation.py
