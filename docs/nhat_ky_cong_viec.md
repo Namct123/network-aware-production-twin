@@ -724,3 +724,29 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   tự nghiệm thu. ID và hash tại docker/RELEASES.md và bằng chứng JSON.
 - Bước kế tiếp đã chỉ rõ: ước lượng theo độ rộng xung PS2 của từng chu kỳ,
   lượng hóa sai số rồi mới thử kín lựa chọn cấu hình và suy giảm mạng.
+
+
+### 063 — Ponytail và ARS: ước lượng từ xung PS2
+
+- Xác minh bản academic-research-suite 3.23.2 có nguồn đúng Imbad0202/academic-research-skills
+  theo manifest (commit 863e1c754f0e97062d271dcb42a9483c9ef34aa9); đọc router và
+  workflow experiment-agent. Không cài trùng hoặc tự nhận là bản upstream mới nhất.
+- Tái sử dụng simulator, CommandHistory và EventResidual. PulseObserver suy hệ số
+  từ xung PS2 đầy đủ, trước PS3; có guard kích thước và thời gian lấy mẫu sửa được.
+  Xung thiếu/đứt không tạo giả phản hồi. Không thêm phụ thuộc hoặc ML chưa cần thiết.
+- Khóa kế hoạch 28 điều kiện mới trước sinh dữ liệu; so cả timeout thích nghi dùng
+  chính thông tin xung. Dữ liệu cũ không bị ghi đè; nguồn hiệu chuẩn chung giữ nguyên.
+
+### 064 — Kết quả xung và giới hạn
+
+- Tám ca bình thường không báo; 786/786 mẫu trong khoảng. Khoảng trung bình theo
+  xung 52,6 mm so với miền chung 77,4 mm, hẹp hơn 32,0%. Bốn ca gain ngoài miền
+  cũ: bao phủ 388/388 so với 381/388. Chưa là xác suất bao phủ vật lý.
+- Đánh đổi: chỉ báo 8/16 ca lỗi trong cửa sổ (cận dưới bảo thủ ở gain 0,90 chưa
+  qua mốc); timeout thích nghi báo 16/16. Các ca đã báo còn chậm hơn timeout
+  cùng thông tin 60–120 ms. Không thay ngưỡng hoặc kéo dài thử sau kết quả.
+- Không đủ cơ sở cho PLC bỏ PS3/tiếp tục gắp; chưa tách cảm biến hỏng với băng
+  mất chuyển động. Báo cáo công bố đủ lợi ích và thất bại ở docs/du_doan_tu_xung_PS2_20261105.md.
+- Docker candidate-20261105-pulse đạt 151 kiểm tra lõi, 10 web; 28 kết quả tái lập
+  chính xác và 112 tệp ghi tín hiệu/lệnh/pose/quyết định trùng byte. Lõi cũ và
+  ảnh accepted không đổi; không đẩy registry hoặc tự nghiệm thu.

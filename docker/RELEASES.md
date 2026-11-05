@@ -447,3 +447,21 @@ immutable image ID, preserved source manifest, and the tests actually run.
   `output/docker/interval_calibration_20261105_final` and
   `output/interval_calibration_validation_20261105`; report
   `docs/hieu_chuan_mien_du_doan_20261105.md`.
+
+
+## 2026-11-05 — Upstream pulse observer (candidate)
+
+- Tag `production-twin-dt:candidate-20261105-pulse`, ID `sha256:a3535b3c17d167fd80c3148272be8852870e029e7f09faae91cd362d966d91a3`.
+- User acceptance pending; no registry push/promotion. Last accepted ID remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+- 151 core tests, 10 web tests; 28 fresh-condition run results exactly reproduced
+  from WSL pilot; 112 observation/command/evaluator/decision JSONL files byte-identical.
+  Runtime manifest matches host and 121 pre-existing MuJoCo files unchanged.
+- Pulse-only gain fit uses the complete upstream pulse and issued command integral,
+  before the target event; fixed size/shape guard and drift remain uncalibrated assumptions.
+- Normal interval width 52.6 vs 77.4 mm, 786/786 covered samples. Only 8/16 fault
+  trials alerted in window versus 16/16 pulse-informed timeout; observed alerts 60–120 ms
+  later. No superiority, PLC continuation, diagnostic ML, confidence or productivity claim.
+- Evidence `docker/evidence/candidate-20261105-pulse.json`; data
+  `output/docker/pulse_20261105_final`, logs `output/pulse_validation_20261105`;
+  report `docs/du_doan_tu_xung_PS2_20261105.md`.
