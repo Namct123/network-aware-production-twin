@@ -465,3 +465,22 @@ immutable image ID, preserved source manifest, and the tests actually run.
 - Evidence `docker/evidence/candidate-20261105-pulse.json`; data
   `output/docker/pulse_20261105_final`, logs `output/pulse_validation_20261105`;
   report `docs/du_doan_tu_xung_PS2_20261105.md`.
+
+
+## 2026-11-05 — Pulse evidence validity under scheduled packet impairment (candidate)
+
+- Tag `production-twin-dt:candidate-20261105-pulse-network`, ID `sha256:0e87787d426182f7884829b152e2a2d7371929bac8be16f07ed9225bcc1cc444`.
+- User acceptance pending. No registry push/promotion; accepted remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+- 152 core tests, 10 web tests. 168 scheduled replays and 168 JSONL logs
+  logically match host pilot; runtime hashes match host. Intentional changes
+  to prior source: pulse_observer.py and test_pulse.py; other prior files unchanged.
+- Evidence eligibility is separate from stored pulse fit. History loss is latched
+  for the single-product observer; source-time predictions are labeled with age.
+- Immediate/40ms: 8/16 model alerts and 16/16 pulse-timeout alerts. Combined 16/16
+  preserves attribution; extra timeout alerts are not credited to predictive DT.
+  120ms rejects stale inputs; gaps reject pulse/history availability. No UDP,
+  closed-loop recovery, productivity, physical calibration or PLC authority claim.
+- Receipt `docker/evidence/candidate-20261105-pulse-network.json` contains source
+  and recording hashes and the study input manifest. Logs/data:
+  `output/pulse_network_validation_20261105`, `output/docker/pulse_network_20261105_final`.

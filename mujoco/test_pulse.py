@@ -18,6 +18,12 @@ class PulseTests(unittest.TestCase):
    record=m.observe(f,t);m.issued(t,.16)
    if i<20:self.assertIsNone(record["predicted_center_m"])
   self.assertIsNotNone(m.fit);self.assertEqual(m.fit["at_s"],.4)
+  self.assertTrue(record["usable_for_monitoring"])
+  lost=m.observe(None,.44);m.issued(.44,.16)
+  self.assertFalse(lost["usable_for_monitoring"]);self.assertIsNotNone(lost["pulse_fit"])
+  f=SignalFrame(23,.46,.46,{"ps1":False,"ps2":False},{"ps1":"good","ps2":"good"})
+  returned=m.observe(f,.46)
+  self.assertFalse(returned["usable_for_monitoring"]);self.assertFalse(returned["edge_history_complete"])
   m=PulseObserver(config,settings,.004)
   for seq,t,up in [(0,0,False),(1,.02,True),(5,.1,False)]:
    f=SignalFrame(seq,t,t,{"ps1":up,"ps2":False},{"ps1":"good","ps2":"good"});m.observe(f,t);m.issued(t,.16)

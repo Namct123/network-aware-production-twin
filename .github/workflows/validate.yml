@@ -66,3 +66,5 @@ jobs:
         run: python mujoco/test_interval_calibration.py
       - name: Test upstream pulse estimate and discontinuity rejection
         run: python mujoco/test_pulse.py
+      - name: Test pulse network history and causality guards
+        run: python mujoco/test_pulse_network.py

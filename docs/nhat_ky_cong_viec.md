@@ -750,3 +750,31 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Docker candidate-20261105-pulse đạt 151 kiểm tra lõi, 10 web; 28 kết quả tái lập
   chính xác và 112 tệp ghi tín hiệu/lệnh/pose/quyết định trùng byte. Lõi cũ và
   ảnh accepted không đổi; không đẩy registry hoặc tự nghiệm thu.
+
+
+### 065 — Ranh giới dùng dữ liệu xung sau suy giảm mạng
+
+- Tái sử dụng bộ quan sát và 28 bản ghi; thêm cờ usable_for_monitoring, lịch sử
+  cạnh đầy đủ, thời điểm nguồn của dự đoán và tuổi dữ liệu. Có tham số pulse_fit
+  không tự đồng nghĩa được dùng. Sau mất dữ liệu ở chu kỳ đã fit, không tự xóa
+  trạng thái lịch sử không đầy đủ khi gói quay lại.
+- Không gọi mất mẫu giữa xung là hệ khỏe: bộ quan sát không fit và không đủ
+  điều kiện sử dụng. Không gán dự đoán thời điểm nguồn thành vị trí hiện tại.
+- Có kiểm tra mới cho trễ cũ, gãy lịch sử, lịch âm nhìn tương lai và tốc độ
+  lệnh cố định; CI bổ sung phép kiểm tra này. Các bản ghi cũ không viết lại.
+
+### 066 — 168 phiên phát lại và nguồn cảnh báo
+
+- Sáu lịch: ngay, trễ 40/120 ms, mất mẫu giữa xung, mất mẫu sau xung, ngắt sau
+  xung. Đây là lịch giả lập trên bản ghi, không phải thử UDP/thời gian thực.
+- Trễ 40 ms vẫn có đủ xung; 120 ms bị loại vì quá cũ. Mất mẫu giữa xung không
+  fit; sau xung thì chốt lịch sử không đầy đủ. Gói đuôi chưa nhận khi hết file
+  được công bố bị cắt cửa sổ, không kéo dài hoặc tự bổ sung thông tin.
+- Khi mạng không lỗi hoặc trễ 40 ms, mô hình báo 8/16 ca lỗi; timeout cùng
+  thông tin báo 16/16. Kết hợp báo 16/16 nhưng giữ riêng nhãn model_residual,
+  pulse_timeout_only và transport. Không quy tám ca bổ sung thành công của DT.
+- 152 kiểm tra lõi và 10 web đạt; candidate-20261105-pulse-network tái lập đủ
+  168 kết quả và 168 log tương đương JSON. Hai tệp cũ đổi có chủ đích là
+  pulse_observer.py và test_pulse.py; các tệp cũ khác và ảnh accepted giữ nguyên.
+- Báo cáo: docs/gioi_han_xung_va_mang_20261105.md. Chưa có quyền ghi PLC,
+  kiểm chứng vật lý, năng suất hoặc chính sách hồi phục đã chứng minh.

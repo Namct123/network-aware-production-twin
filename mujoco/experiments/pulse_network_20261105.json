@@ -1,0 +1,39 @@
+{
+  "kind": "pulse_network_replay_v1",
+  "cases": {
+    "immediate": {
+      "delay_ticks": 0,
+      "drop_source_s": null
+    },
+    "delay40ms": {
+      "delay_ticks": 2,
+      "drop_source_s": null
+    },
+    "delay120ms": {
+      "delay_ticks": 6,
+      "drop_source_s": null
+    },
+    "gap_during_pulse": {
+      "delay_ticks": 0,
+      "drop_source_s": [
+        0.14,
+        0.18
+      ]
+    },
+    "gap_after_pulse": {
+      "delay_ticks": 0,
+      "drop_source_s": [
+        1.0,
+        1.06
+      ]
+    },
+    "silence_after_pulse": {
+      "delay_ticks": 0,
+      "drop_source_s": [
+        1.0,
+        100.0
+      ]
+    }
+  },
+  "scope": "Scheduled replay, not real UDP. Receiver ticks stop at original recording end; unreceived delayed tail is censored. No physical pose needed or PLC authority."
+}
