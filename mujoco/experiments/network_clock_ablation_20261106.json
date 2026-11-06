@@ -1,0 +1,70 @@
+{
+  "kind": "network_clock_ablation_v1",
+  "created_on": "2026-11-06",
+  "speeds_m_s": [
+    0.135,
+    0.175,
+    0.215
+  ],
+  "gains": [
+    0.91,
+    1.09
+  ],
+  "start_y_m": [
+    -0.255,
+    -0.245
+  ],
+  "friction": 1.0,
+  "faults": [
+    "none",
+    "target_missing",
+    "drive_stall"
+  ],
+  "policies": {
+    "source_age": {
+      "clock": "source",
+      "age_gate": true
+    },
+    "receiver_age": {
+      "clock": "receiver",
+      "age_gate": true
+    },
+    "source_no_age": {
+      "clock": "source",
+      "age_gate": false
+    },
+    "receiver_no_age": {
+      "clock": "receiver",
+      "age_gate": false
+    }
+  },
+  "network_cases": {
+    "immediate": {
+      "delay_ticks": 0,
+      "gap_after_pulse_s": null
+    },
+    "delay40ms": {
+      "delay_ticks": 2,
+      "gap_after_pulse_s": null
+    },
+    "delay80ms": {
+      "delay_ticks": 4,
+      "gap_after_pulse_s": null
+    },
+    "delay120ms": {
+      "delay_ticks": 6,
+      "gap_after_pulse_s": null
+    },
+    "gap_after_fit": {
+      "delay_ticks": 0,
+      "gap_after_pulse_s": [
+        0.1,
+        0.14
+      ]
+    }
+  },
+  "normal_finding_budget_per_case": 0,
+  "predictor": "frozen_constant_bias",
+  "drain_delivery_queue": true,
+  "scope": "Prospectively fixed deterministic fresh condition grid, not random factory observations. Factorial comparison clock(source/receiver) x age gate(on/off); all retain quality, continuity and model-domain gates. Receiver-clock comparator intentionally ignores the available source timestamp after a source-anchored forecast: an ablation, not a best traditional PLC reference. No threshold/model tuning after outcomes; no physical network or actuator authority."
+}

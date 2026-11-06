@@ -51,6 +51,9 @@
     "mujoco/models/eta_monitor_v1.json",
     "docker/requirements.lock",
     "docker/monitoring.Dockerfile",
-    "research_scope.json"
+    "research_scope.json",
+    "mujoco/study_network_clock.py",
+    "mujoco/test_eta_network_clock.py",
+    "mujoco/experiments/network_clock_ablation_20261106.json"
   ]
 }
