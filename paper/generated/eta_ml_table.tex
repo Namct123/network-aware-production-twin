@@ -1,0 +1,16 @@
+\begin{table}[t]
+\caption{Sampled optical-edge arrival-time prediction: held-out normal test ($n=9$) and shifted conditions ($n=4$). MAE in ms; not physical timing accuracy.}
+\label{tab:eta-ml}
+\centering\small
+\begin{tabular}{lrr}
+\toprule
+Method & Test MAE & Shift MAE\\
+\midrule
+Nominal command kinematics & 105.7 & 330.0\\
+Upstream pulse kinematics & 98.5 & 83.3\\
+Pulse plus train-mean bias & 18.1 & 28.5\\
+Pulse plus Ridge residual & 15.4 & 38.3\\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize Constant-bias reference added after the initial pilot; its value uses training rows only.
+\end{table}

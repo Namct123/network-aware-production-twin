@@ -1,5 +1,5 @@
 {
-  "prepared_on": "2026-11-03",
+  "prepared_on": "2026-11-06",
   "status": "working_draft_human_verification_pending",
   "physical_evidence": null,
   "baseline_artifact_commit": "93d60ca",
@@ -89,7 +89,7 @@
       },
       {
         "path": "mujoco/sequence.py",
-        "sha256": "13a6fd4a6535667e6c9a420095e76a4d5d5b43b8d788891f1678e5e8e53b7b4e"
+        "sha256": "7765621c6af407ffe5785d283310cd802f9654e6a1c0186595a2627210db84af"
       },
       {
         "path": "mujoco/reconfiguration.py",
@@ -177,7 +177,7 @@
       },
       {
         "path": "mujoco/stream_input.py",
-        "sha256": "94a82c74deca6da638e79a1ce283414943dc2fc344a420a041641dbc2c91525d"
+        "sha256": "17fa74d696f0a9f3afa2189c3cd88a7b50675b550c29bbc77bac37523f901d5e"
       },
       {
         "path": "mujoco/check_stream.py",
@@ -185,11 +185,49 @@
       },
       {
         "path": "mujoco/check_software.py",
-        "sha256": "f75e2fefb668153f7f340da8c52b71d818cc8ad044d6967762e9698c09941607"
+        "sha256": "4ba3a359fcb0335023a76d3ab1f40bc8155106a7487a1e53f1d1c2081af2115a"
       },
       {
         "path": "mujoco/software_release_v2.json",
         "sha256": "01c26d9ae76ee7d431f242bedfc66d80f6e82ff6e6b5609725c90abe84b1d77a"
+      }
+    ],
+    "E009": [
+      {
+        "path": "paper/evidence/eta_ml_recording_audit_20261106.json",
+        "sha256": "14947eb12d91671c1edbe0a6b17f6bb2baf8537258505f00c1d4f40272d6e7ff"
+      },
+      {
+        "path": "docker/evidence/candidate-20261106-eta-ml-v2.json",
+        "sha256": "48d4d299d20a1f8d62bd381e629efeccdf6f0d2718e9c0ec65c9c429f6a4f858"
+      },
+      {
+        "path": "docker/evidence/candidate-20261106-eta-ml.json",
+        "sha256": "f101a1513ed70729a7a879285d3e0ae0fef7812afe28ad13f4645f6bddb5d40b"
+      },
+      {
+        "path": "mujoco/eta_ml.py",
+        "sha256": "39e45bb9a5fb44160a5c9ab2750061dc96b691c970be205896fd5b2c0f3b597c"
+      },
+      {
+        "path": "mujoco/study_eta_ml.py",
+        "sha256": "2f3506e165e2169b047a238cb6e9d9c493a923ae0fba20f9c0c61746d98d30d9"
+      },
+      {
+        "path": "mujoco/experiments/eta_ml_20261106.json",
+        "sha256": "b5ced27adcb278f9a75f3f2075fd0e65f44da1d87943faf00850af17544dc25b"
+      }
+    ],
+    "E010": [
+      {
+        "path": "docker/evidence/candidate-20261106-closed-loop.json",
+        "sha256": "fcb5228fd57a35a9096fa35f8b08b7ac877c0d36a3343f5da412b9a4e4caaa59"
+      }
+    ],
+    "E011": [
+      {
+        "path": "docker/evidence/candidate-20261106-confirmation-v2.json",
+        "sha256": "3070e7e9fccbbf8e8c0d11e452fd60549ef282f4072cde0f30bc4315875611bc"
       }
     ]
   }

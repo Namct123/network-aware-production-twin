@@ -843,3 +843,42 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   Bản accepted không đổi, không đẩy registry hoặc tự nghiệm thu.
 - Báo cáo docs/xac_nhan_thay_the_20261106.md chỉ rõ cần quan sát độc lập hoặc
   tiền điều kiện kiểm chứng, không thu nhỏ khoảng bằng tay để cho robot chạy.
+
+
+### 072 — Huấn luyện mô hình ML sửa sai lệch thời điểm đến
+
+- Xây eta_ml.py bằng NumPy sẵn có: Ridge học phần sai lệch ETA từ độ dài xung
+  PS2, tốc độ lệnh và tích hai đại lượng. Đặc trưng chốt trước cạnh PS3; nhãn
+  là cạnh quan sát đã lấy mẫu, không phải vị trí/nhãn lỗi bí mật của MuJoCo.
+- 61 lượt đoạn băng: train32/validation8/calibration8/test9/shift4. Scaler chỉ
+  fit train; chọn lambda theo validation; khóa trọng số trước calibration/test,
+  khóa miền sai số trước test. Lưu trọng số thật, miền sai số và nguồn gốc.
+- Có predict_from_pulse nhận xung hiện có, không cần chờ PS3. Chỉ dự báo tư vấn;
+  chưa nối vào bộ phát hiện lỗi hay quyền chọn cấu hình/ghi lệnh PLC.
+- Lượt tạo dữ liệu đầu lỗi trước train_00 vì tốc độ suy giảm cũ cao hơn tốc độ
+  fixture. Sửa bản sao fixture cục bộ, không đổi profile vận hành; giữ lỗi gốc.
+
+### 073 — Đối chứng ML và giới hạn thật của kết quả
+
+- Test9: danh định 105,7 ms; xung 98,5 ms; bù trung bình train 18,1 ms; Ridge
+  15,4 ms. Phần lợi ích thêm của ML chỉ khoảng 2,7 ms, chưa kiểm định thống kê.
+- Đối chứng bù hằng số được bổ sung sau pilot để kiểm tra cải thiện có phải
+  chỉ là sửa bias; chỉ lấy train, không đổi features/lambda/model theo test.
+- Shift4: Ridge 38,3 ms kém bù hằng số 28,5 ms, cả bốn ngoài hộp train. Miền
+  khoảng 65 ms chứa 9/9 test và 4/4 shift nhưng chưa có bảo đảm xác suất.
+- Hash bản ghi: số cặp quan sát–lệnh khác nhau 16/4/4/9/4, không trùng giữa
+  các tập. Biến thể ma sát lặp bản ghi không phải phép đo độc lập. Lấy mẫu 20 ms
+  nên không suy sai số ETA thành độ chính xác vật lý nhỏ hơn chu kỳ lấy mẫu.
+
+### 074 — Đóng gói trọng số và cập nhật bài báo
+
+- Candidate huấn luyện tái lập sai số pilot tới 1e-8 ms; 122 hash đầu vào đúng.
+  Candidate delivery-v2 có trọng số, API từ xung và đạt 159 kiểm tra lõi/10 web;
+  hash runtime/trọng số đúng. IDs/receipt ở docker/RELEASES.md, chưa nghiệm thu.
+- Bổ sung bài báo: phương pháp Ridge, tách tập, bảng tự sinh từ receipt, đối
+  chứng bù hằng số, giới hạn miền/dữ liệu trùng; thêm kết quả 144 ca thử kín và
+  72 ca đánh giá xác nhận, tách rõ các chiến dịch và giữ kết quả bất lợi/lỗi đầu.
+- Title/abstract giữ ở file riêng và không đổi; mục kiểm chứng vật lý trống.
+  Kiểm tra biên dịch, các nguồn số liệu/hash và bố cục PDF; tác giả chưa duyệt.
+- Cập nhật hướng nghiên cứu, README, gói mã tích hợp và CI chạy kiểm tra ML
+  trong Docker có NumPy. Không đưa bộ ML chưa kiểm chứng vào bản accepted.

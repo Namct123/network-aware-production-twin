@@ -125,3 +125,25 @@ installed MuJoCo 3.16.0 Python signatures and source inspected locally. Supports
 homogeneous model batches and separate MjData instances for configured workers. Numerical agreement,
 timing and deadline outcomes are supported by local evidence, not inferred from the documentation.
 Human source verification and author approval remain pending. Physical sections remain blank.
+
+
+## Learned ETA residual and later virtual controls — 2026-11-06
+
+E009 binds trained Ridge weights and the 61-run 32/8/8/9/4 split to the training
+candidate and frozen-model delivery v2. Features are upstream-only, targets sampled
+PS3 edges. Constant-bias reference is post hoc and fitted on training rows only.
+15.4 vs 18.1 ms test MAE is a small descriptive improvement; 38.3 vs 28.5 ms shifted
+MAE is an adverse result. The empirical 65 ms envelope is not a probability guarantee.
+Model and error envelope are advisory, not an active PLC policy. Train_00 failed in
+the first data attempt due to inherited degraded-speed constraints; corrected only
+the isolated fixture configuration, retained the failed attempt and same protocol.
+
+E010 is the historical 144-run stopping comparison, not a full production campaign.
+E011 uses the corrected qualification v2; the original max-speed boundary bug and
+its rejected gate results remain documented. 24 identical-observation pairs expose
+actuation ambiguity; zero releases is abstention, not perfect diagnostic accuracy.
+These sources are distinct from E001's 24 earlier virtual cycles and its 97 tests.
+New source/claim hashes are assistant-checked; human verification, authors, approval
+and submission readiness remain pending. No physical results were supplied.
+
+E009 recording audit: 16/4/4/9/4 unique observation-command hash pairs, no cross-split overlap; friction duplicates do not supply independent repetitions. See eta_ml_recording_audit_20261106.json.

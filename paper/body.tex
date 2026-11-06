@@ -22,8 +22,8 @@ Fu et al.~\cite{Fu2025} developed a digital-twin-based framework that monitors d
 MuJoCo supplies multibody and contact dynamics for model-based control~\cite{Todorov2012}. Engine selection alone does not establish calibrated pneumatics or guarantee that an online forecast finishes before the next decision. We therefore separate plant simulation from two supervisory prediction alternatives and measure computation time explicitly. The focused research question is whether timestamped observations and bounded motion forecasts support traceable decisions under controlled disturbances without exposing simulator ground truth to the supervisor. This synthesis of selected relevant studies is not a systematic review or evidence that the complete literature lacks such integration.
 
 \subsection{Scope and Contributions}
-% [claim:C005] [evidence:E001,E002,E003]
-The implemented contributions are an observation-constrained modular architecture; a command-history estimator and continue-or-hold supervisor; a cycle-latched speed-degradation policy; and reproducible virtual experiments with separate timing measurements. Resilience is examined through terminal support and completion in specified fixtures, not through a general resilience index. Self-reconfiguration refers to the software speed limit and hold, not mechanical rearrangement, sensor replacement, or autonomous recovery. Physical-validation sections remain intentionally unfilled.
+% [claim:C005] [evidence:E001,E002,E003,E009,E010]
+The implemented contributions are an observation-constrained modular architecture; a command-history estimator and continue-or-hold supervisor; a cycle-latched speed-degradation policy; and reproducible virtual experiments with separate timing measurements. Resilience is examined through terminal support and completion in specified fixtures, not through a general resilience index. Self-reconfiguration refers to the software speed limit and hold, not mechanical rearrangement, sensor replacement, or autonomous recovery. A later exploratory component learns optical-event arrival residuals, and a separate segment-level comparison evaluates speed selection. Physical-validation sections remain intentionally unfilled.
 
 \section{System and Information Boundaries}
 \subsection{Cell and Hybrid Representation}
@@ -181,6 +181,37 @@ A local UDP input gateway exercises continuous tag delivery through the existing
 
 A six-item software inventory precedes eight combined check groups in the final Docker candidate. The recorded checks pass 126 core tests, eight web tests, three real loopback UDP fixtures, and the integration, reset, background, boundary, and qualification checks. The UDP fixtures cover silence followed by resumed data, repeated or wrong-session and malformed packets, and an unverified signal mapping. Returning data does not clear the latched hold. An earlier local run with a test fixture that reused equal decision times remains recorded as failed; the fixture is corrected before the complete Docker rerun. These checks support software consistency and inspectability, not measured process availability, physical fault-detection accuracy, or a hard real-time claim.
 
+
+\section{Learned Residual Prediction and Recent Qualification Studies}
+\subsection{A Causal Supervised ETA Component}
+% [claim:C025] [evidence:E009]
+A first learned component now supplements the reduced model rather than replacing the controller. Let $t_a$ be the observed falling edge at the upstream optical sensor, $D_p$ the issued-command distance integrated over its preceding occupancy pulse, and $L$ the nominal workpiece length. The point response estimate is $\widehat g=L/D_p$. For the distance $d$ from that trailing-edge anchor to the expected downstream leading-edge event, the pulse-based prediction is
+\begin{equation}
+ \widehat t_{\rm pulse}=t_a+\frac{d}{u\widehat g}.
+\end{equation}
+Only constant forward commands are admitted in this experiment. Pulse duration, issued speed, and their product form the three features $\phi$, frozen at $t_a$. The target is the subsequently observed downstream optical-edge time, not simulator position. Ridge regression learns the residual $r=t_{\rm edge}-\widehat t_{\rm pulse}$:
+\begin{equation}
+ \min_{b,w}\sum_{i\in\mathcal D_{\rm tr}}
+ (r_i-b-w^\top\widetilde\phi_i)^2+\lambda\lVert w\rVert_2^2.
+\end{equation}
+Feature means and scales are obtained from training rows only; the intercept is not penalized. The corrected prediction is clipped below by the time when its features become available. This is supervised residual regression, not a trained fault classifier, policy learned by reinforcement learning, or demonstrated physical twin. It is not connected to actuator authority.
+
+\subsection{Separated Data and Prediction Results}
+% [claim:C026] [evidence:E009]
+The deterministic MuJoCo segment campaign contains 61 normal runs: 32 training, eight validation, eight error-envelope calibration, nine test, and four shifted-condition runs. Speed--gain--friction tuples do not overlap between splits. Training uses four commanded speeds, four gains, and two friction values. These are designed simulation conditions, not independently sampled factory observations. The admitted observation--command recording pairs are distinct only 16, four, four, nine, and four times in these respective splits: the friction variants in the first three splits produce identical records. No recording pair overlaps between splits. These duplicates are not independent repetitions. Candidate penalties $0.01$, $0.1$, $1$, and $10$ are selected by validation MAE; weights remain fitted on training rows. The model is sealed before calibration and test generation. A separate eight-run calibration set determines the maximum absolute corrected residual as an empirical error envelope. No statistical coverage guarantee follows from this grid.
+
+\input{generated/eta_ml_table}
+
+The test Ridge MAE is 15.4~ms versus 98.5~ms for the pulse formula, but a train-mean residual correction already reaches 18.1~ms. The smaller 2.7~ms difference is the relevant incremental comparison; no significance claim is made. Moreover, shifted-condition MAE is 38.3~ms for Ridge versus 28.5~ms for the constant correction. The constant-bias reference was added after inspecting the initial pilot, is disclosed as post hoc, and does not use validation or test labels for its fitted offset. Ridge features and penalty selection were not revised from the test outcomes.
+
+The empirical calibration radius is approximately 65.0~ms. It contains nine of nine test targets and four of four shifted targets, but the latter all fall outside the training feature box. These small denominators and the 20~ms optical sampling period preclude a physical sub-sample accuracy claim. Shifted predictions are diagnostic extrapolations, not authorized control inputs. An early data-generation attempt failed before a usable training run because nominal speed fell below an inherited degraded-speed setting; the isolated fixture setting was corrected locally without modifying the operational profile. The failed attempt is retained.
+
+\subsection{Closed-Loop Trade-Off and Release Qualification}
+% [claim:C027] [evidence:E010,E011]
+A separate 144-run closed-loop segment comparison evaluates sequential, age-rule, and predictive speed selection across two provisional stopping windows, two speeds, two plant gains, three telemetry delays, and nominal or missing-target feedback. These windows are experimental criteria, not measured gripper tolerances. Under missing pickup feedback, predictive selection yields no upper-window exceedance in 24 runs, compared with 15 for the selected sequential reference and 24 for the age-rule reference. This protection has a completion cost: in the tight healthy window, predictive selection achieves confirmed in-window stopping in only two of 12 runs, while the age-rule achieves 12. All three achieve 12 in the wider healthy window. No whole-line throughput gain is established. An initially incorrect adaptive timeout was corrected to integrate issued speed changes; its earlier pilot is excluded.
+
+A further 72-run read-only qualification includes stalled-drive counterexamples. All 24 paired missing-sensor/stalled-drive cases have identical observation and logical decision traces, although final positions differ by 191--271~mm. No interval fits entirely within its allowed window after settling; no model-only release is issued. Zero false release claims therefore reflects abstention, not demonstrated diagnostic accuracy. An initial qualification bug incorrectly included speed immediately before the stop boundary; the corrected version uses issued distance and terminal command during the stopping interval. The original and corrected evidence are retained separately. Actual release remains blocked because model and actuation prerequisites have not been independently verified.
+
 \section{Physical Validation}
 \label{sec:physical}
 \noindent\textit{Reserved: no physical measurements or validation results are reported.}
@@ -201,9 +232,12 @@ The principal computation limitation is the gap between complete contact forecas
 
 Sparse binary sensing leaves sensor, communication, and model errors partly ambiguous. Findings indicate suspicions rather than uniquely isolated physical failure causes. CAD-to-simulation consistency, sensor offsets, belt slip, vacuum holding, pneumatics, and axis feedback remain unvalidated. Simultaneous products and continuing an interrupted old workpiece are outside the demonstrated capability. Section~\ref{sec:physical} is left blank rather than substituting synthetic measurements.
 
+% [claim:C028] [evidence:E009,E010,E011]
+The learned component improves a sampled-event prediction metric in a small held-out grid; it does not resolve the observation ambiguity exposed by stalled-drive pairs. Its advantage over a train-mean correction is small and reverses in shifted conditions. Before inclusion in supervisory decisions, model-domain checks, empirical error envelopes, decision budgets, and a matched same-information controller comparison remain necessary. Learning and more conservative stopping are distinct from demonstrated reconfiguration that sustains production.
+
 \section{Conclusion}
-% [claim:C016] [evidence:E001,E002]
-A modular network-aware supervisory framework has been implemented and examined virtually. The matched campaign demonstrates completion or supported interruption in its specified fixtures and makes information and computation boundaries explicit. The reduced predictor meets its allowance in the measured calls; the current independent MuJoCo predictor does not. Physical calibration, live integration, and a sequential-PLC comparison remain unreported. These limitations delimit further work, rather than supporting claims of verified physical resilience or general performance superiority.
+% [claim:C016] [evidence:E001,E002,E009,E010]
+A modular network-aware supervisory framework has been implemented and examined virtually. The matched campaign demonstrates completion or supported interruption in its specified fixtures and makes information and computation boundaries explicit. The reduced predictor meets its allowance in the measured calls; the current independent MuJoCo predictor does not. Physical calibration, live integration, and a physical sequential-PLC comparison remain unreported. The later segment comparison and learned residual component do not establish complete-cycle resilience. These limitations delimit further work, rather than supporting claims of verified physical resilience or general performance superiority.
 
 \section*{Declarations Awaiting Author Completion}
 \noindent Authors and affiliations: \hrulefill\par\medskip

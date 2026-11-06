@@ -94,6 +94,25 @@ def prepare():
         lines.append(f"{g['sliding_friction_scale']} & {g['age_s']*1000:.0f} & {g['complete']}/{g['planned']} & {o.get('reduced_continue_contact_hold',0)} & {o.get('reduced_hold_contact_continue',0)}"+r'\\')
     lines += [r'\bottomrule',r'\end{tabular}',r'\par\smallskip\footnotesize C: continue; H: hold. Full-contact and forward-only actions coincide on this grid.',r'\end{table}']
     (output/'boundary_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    ml_path=ROOT/'docker/evidence/candidate-20261106-eta-ml-v2.json'
+    ml_evidence=json.loads(ml_path.read_text(encoding='utf-8'))
+    ml=ml_evidence['study']
+    assert ml['ml_trained'] and not ml['physical_validation']
+    assert [ml['splits'][n]['n'] for n in ['train','validation','calibration','test','shift']]==[32,8,8,9,4]
+    recordings=ml['input_sha256']; distinct={}; seen=set()
+    for split in ['train','validation','calibration','test','shift']:
+        pairs={(h,recordings[name.replace('observations.jsonl','issued_commands.jsonl')]) for name,h in recordings.items() if name.startswith(split+'_') and name.endswith('observations.jsonl')}
+        assert not seen.intersection(pairs), 'recording overlap across ML splits'
+        seen.update(pairs); distinct[split]=len(pairs)
+    assert list(distinct.values())==[16,4,4,9,4]
+    recording_audit=HERE/'evidence/eta_ml_recording_audit_20261106.json'
+    recording_audit.write_text(json.dumps({'unique_recording_pairs':distinct,'cross_split_recording_overlap':False,'basis':'SHA256 pairs of admitted observations and issued commands from training receipt; duplicates are not independent repetitions'},indent=2)+'\n',encoding='utf-8')
+    lines=[r'\begin{table}[t]',r'\caption{Sampled optical-edge arrival-time prediction: held-out normal test ($n=9$) and shifted conditions ($n=4$). MAE in ms; not physical timing accuracy.}',r'\label{tab:eta-ml}',r'\centering\small',r'\begin{tabular}{lrr}',r'\toprule',r'Method & Test MAE & Shift MAE\\',r'\midrule']
+    for key,label in [('nominal','Nominal command kinematics'),('pulse','Upstream pulse kinematics'),('constant_bias','Pulse plus train-mean bias'),('ml','Pulse plus Ridge residual')]:
+        lines.append(f"{label} & {ml['splits']['test']['mae_ms'][key]:.1f} & {ml['splits']['shift']['mae_ms'][key]:.1f}"+r'\\')
+    lines += [r'\bottomrule',r'\end{tabular}',r'\par\smallskip\footnotesize Constant-bias reference added after the initial pilot; its value uses training rows only.',r'\end{table}']
+    (output/'eta_ml_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    (HERE/'evidence/eta_ml_20261106.json').write_bytes(ml_path.read_bytes())
     abstract=(HERE/'title_abstract.tex').read_text(encoding='utf-8')
     words=re.search(r'\\begin\{abstract\}(.*?)\\keywords',abstract,re.S)[1].split()
     assert 150<=len(words)<=250, len(words)
@@ -119,7 +138,10 @@ def prepare():
              'E006':[ROOT/'docker/evidence/candidate-20261103-model-audit.json',ROOT/'mujoco/audit_background.py',ROOT/'mujoco/test_background_audit.py'],
              'E007':[boundary_path,ROOT/'mujoco/study_model_boundary.py',ROOT/'mujoco/experiments/model_boundary_20261103.json'],
              'E008':[ROOT/'docker/evidence/candidate-20261103-software-v2.json',ROOT/'mujoco/stream_input.py',ROOT/'mujoco/check_stream.py',ROOT/'mujoco/check_software.py',ROOT/'mujoco/software_release_v2.json']}
-    manifest={'prepared_on':'2026-11-03','status':'working_draft_human_verification_pending','physical_evidence':None,
+    sources.update({'E009':[recording_audit,ml_path,ROOT/'docker/evidence/candidate-20261106-eta-ml.json',ROOT/'mujoco/eta_ml.py',ROOT/'mujoco/study_eta_ml.py',ROOT/'mujoco/experiments/eta_ml_20261106.json'],
+                    'E010':[ROOT/'docker/evidence/candidate-20261106-closed-loop.json'],
+                    'E011':[ROOT/'docker/evidence/candidate-20261106-confirmation-v2.json']})
+    manifest={'prepared_on':'2026-11-06','status':'working_draft_human_verification_pending','physical_evidence':None,
         'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],
         'background_candidate_image':background_evidence['image_id'],'author_approval':False,
         'literature_sources':literature['sources'],
@@ -138,7 +160,7 @@ def prepare():
     with (HERE/'evidence/claims.csv').open('w',newline='',encoding='utf-8') as f:
         w=csv.DictWriter(f,fieldnames=list(claims[0]));w.writeheader();w.writerows(claims)
     audit={'abstract_words':len(words),'citations':sorted(keys),'reference_count':len(refs),'new_published_papers':6,'removed_nonpaper_references':['SoftwareArtifact','MuJoCoRollout'],'physical_result_values':0,'authors_unfilled':True,
-           'study_runs':24,'done':done,'hold':hold,'logic_checks':count,'human_verification':'pending','submission_ready':False}
+           'study_runs':24,'done':done,'hold':hold,'logic_checks':count,'human_verification':'pending','submission_ready':False,'eta_ml_runs':61,'eta_ml_split_sizes':[32,8,8,9,4],'eta_ml_kind':'supervised_ridge_residual_advisory','eta_ml_physical_validation':False}
     (HERE/'evidence/audit.json').write_text(json.dumps(audit,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(audit),flush=True)
     return audit

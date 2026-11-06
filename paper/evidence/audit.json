@@ -27,5 +27,15 @@
   "hold": 6,
   "logic_checks": 97,
   "human_verification": "pending",
-  "submission_ready": false
+  "submission_ready": false,
+  "eta_ml_runs": 61,
+  "eta_ml_split_sizes": [
+    32,
+    8,
+    8,
+    9,
+    4
+  ],
+  "eta_ml_kind": "supervised_ridge_residual_advisory",
+  "eta_ml_physical_validation": false
 }

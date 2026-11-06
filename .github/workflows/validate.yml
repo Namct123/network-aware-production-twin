@@ -22,6 +22,8 @@ jobs:
           python3 docker/build_image.py
       - name: Test pre-hardware software batch inside image
         run: docker compose run --rm dt software-check
+      - name: Test trained ETA causal features inside image
+        run: docker compose run --rm --entrypoint python dt /app/mujoco/test_eta_ml.py
       - name: Test paired MuJoCo scenarios inside image
         run: |
           docker compose run --rm dt predictive-check

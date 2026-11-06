@@ -1,11 +1,11 @@
 {
-  "pages": 14,
+  "pages": 16,
   "page_size": "A4",
   "unresolved_references": false,
   "overfull_boxes": false,
   "physical_sections_unfilled": true,
   "human_review": "pending",
-  "assistant_visual_review": "Rendered pages 11-14; inspected pre-hardware software subsection, physical placeholders and references",
+  "assistant_visual_review": "Final 16-page contact sheet inspected; new methods/results/physical placeholders pages 12-14 inspected at higher resolution. Intentional blank authors and physical sections retained.",
   "reference_count": 12,
-  "pdf_sha256": "03e5adb36be808892a5fa132be695dcb59164faf9241e57e4bc8e1f7fa1c1670"
+  "pdf_sha256": "799b2c622c99062dea76a9cf73401eb9f489aed6aabe5f8330d500070370f98b"
 }

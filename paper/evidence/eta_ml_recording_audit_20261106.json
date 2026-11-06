@@ -1,0 +1,11 @@
+{
+  "unique_recording_pairs": {
+    "train": 16,
+    "validation": 4,
+    "calibration": 4,
+    "test": 9,
+    "shift": 4
+  },
+  "cross_split_recording_overlap": false,
+  "basis": "SHA256 pairs of admitted observations and issued commands from training receipt; duplicates are not independent repetitions"
+}

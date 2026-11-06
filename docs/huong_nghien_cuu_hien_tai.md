@@ -52,3 +52,16 @@ thể tạo đường cơ khí thay thế. Camera là khả năng bổ sung, ch�
 Ưu tiên các mục trên. Không tiếp tục thêm giao diện, đổi engine, RL hoặc bản thảo
 trùng nếu chưa phục vụ phép thử cụ thể. Giữ MuJoCo làm môi trường thử; giữ mô hình
 1D nhẹ và nhánh tiếp xúc để đối chiếu, chưa cho mô hình nền quyền điều khiển.
+
+## Cập nhật 2026-11-06: đã có mô hình học từ dữ liệu
+
+Đã huấn luyện Ridge sửa sai lệch ETA (thời điểm dự kiến tới cảm biến PS3), đóng
+băng trọng số và cung cấp hàm nhận trực tiếp xung PS2. Đây là phần ML đầu tiên,
+chưa phải bộ phân loại lỗi hay chính sách PLC. Test: 15,4 ms so với 18,1 ms khi
+chỉ bù sai lệch trung bình; ngoài miền ML kém hơn. Xem
+[phương pháp, đối chứng và giới hạn](mo_hinh_ml_eta_20261106.md).
+
+Mục kế tiếp là nối dự báo này vào bộ so sánh dự đoán–quan sát, giữ đối chứng bù
+hằng số và từ chối ML ngoài miền/đứt lịch sử. Phải đánh giá báo nhầm, bỏ sót và
+thời gian báo trên các kịch bản chưa dùng để chọn tham số trước khi cân nhắc
+cho kết quả tham gia chọn cấu hình. Chưa tự bỏ liên động khi mất PS3.

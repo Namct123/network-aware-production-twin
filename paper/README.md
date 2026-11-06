@@ -13,7 +13,7 @@ chứng. Mục kiểm chứng vật lý để trống; chưa có dữ liệu má
 - generated/: bảng số liệu và giá trị sinh từ bằng chứng, không sửa tay.
 - evidence/: bản chụp dữ liệu, dấu kiểm tra nguồn, các nhóm nhận định và kiểm tra nhất quán.
 
-Bản cũ trong docs/ giữ làm lịch sử; paper/ là bản đang viết tiếp. File paper/export_pdf.py
+Các bản thảo trùng đã bỏ khỏi cây làm việc; paper/ là nguồn hiện hành duy nhất. File paper/export_pdf.py
 đã thay bộ xuất abstract cũ bằng biên dịch LaTeX thật của bản mới.
 
 ## Biên dịch
@@ -64,3 +64,10 @@ Bổ sung 03/11: body.tex có phần tối ưu native rollout. Bảng cũ 02/11 
 Bổ sung tiếp: phần Observation-Only Background Forecasts gắn E005, lấy từ ảnh
 candidate-20261103-background-observer. So sánh ba chu trình có nhịp thời gian;
 không diễn giải thành kiểm chứng thời gian thực hoặc năng lực điều khiển từ dự báo cũ.
+
+
+Bổ sung 06/11/2026: E009 gắn mô hình Ridge dự báo phần dư thời điểm PS3, các
+split 32/8/8/9/4 và đối chứng bù hằng số có công bố hậu kiểm. E010/E011 gắn
+thử kín đoạn băng và phản ví dụ mất truyền động. Không trộn các nhóm này với
+24 chu trình cũ; không gọi ETA tốt hơn là năng suất hoặc khả năng tự hồi phục.
+Title/abstract giữ trong tệp riêng và chưa sửa ở mục này; các mục vật lý vẫn trống.

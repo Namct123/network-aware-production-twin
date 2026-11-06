@@ -532,3 +532,31 @@ immutable image ID, preserved source manifest, and the tests actually run.
   `output/docker/confirmation_20261106_audit_v2.json`, logs
   `output/confirmation_validation_20261106_v2`. Report
   `docs/xac_nhan_thay_the_20261106.md`. No actual bypass/PLC/full-cycle recovery.
+
+
+## 2026-11-06 — First trained Ridge ETA residual model (candidate)
+
+- Training tag `production-twin-dt:candidate-20261106-eta-ml`, ID
+  `sha256:37c1baadcc5532b1cb30f1651f02a4d1dada10ca084de5782d661d0378d87289`.
+  158 core tests and 10 web tests; 61 normal segment runs (32/8/8/9/4 split),
+  122 observation/command input hashes checked. Original pilot errors reproduce
+  within 1e-8 ms. A failed fixture attempt before train_00 is retained separately.
+- Delivery v2 tag `production-twin-dt:candidate-20261106-eta-ml-v2`, ID
+  `sha256:1ef90f0e2033fe5c7cce1c2928003530b379c1d262314c6a0442fd091e9f5352`.
+  **159 core tests and 10 web tests**; runtime hashes match host; packaged frozen
+  model bytes match the training artifact. Adds pulse-only advisory API and ships
+  trained weights/envelope/provenance; no retraining or test-driven tuning.
+- Receipts `docker/evidence/candidate-20261106-eta-ml.json` and
+  `docker/evidence/candidate-20261106-eta-ml-v2.json` record image IDs, hashes and checks.
+  Data: `output/docker/eta_ml_20261106_final`; logs:
+  `output/eta_ml_validation_20261106`, `output/eta_ml_delivery_v2_20261106`.
+- Test MAE: nominal 105.7 ms, pulse 98.5 ms, train-mean correction 18.1 ms,
+  Ridge 15.4 ms (n=9). Shifted: Ridge 38.3 ms vs constant correction 28.5 ms
+  (n=4). Constant reference added post hoc, uses training rows only. Recording
+  audit finds only 16/4/4/9/4 distinct pairs within the splits, no cross-split
+  overlap; duplicate friction variants are not independent observations.
+- Empirical 65 ms calibration envelope is not a statistical coverage guarantee.
+  No trained fault classifier, control-policy integration, PLC writes or physical
+  validation. Paper/report updated separately from runtime build.
+- User acceptance pending. No promotion/registry push. Accepted image remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.

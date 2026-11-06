@@ -1,0 +1,86 @@
+{
+  "kind": "eta_residual_ml_v1",
+  "splits": {
+    "train": {
+      "speeds": [
+        0.11,
+        0.15,
+        0.19,
+        0.23
+      ],
+      "gains": [
+        0.85,
+        0.95,
+        1.05,
+        1.15
+      ],
+      "frictions": [
+        0.9,
+        1.3
+      ]
+    },
+    "validation": {
+      "speeds": [
+        0.13,
+        0.21
+      ],
+      "gains": [
+        0.9,
+        1.1
+      ],
+      "frictions": [
+        0.8,
+        1.2
+      ]
+    },
+    "calibration": {
+      "speeds": [
+        0.14,
+        0.2
+      ],
+      "gains": [
+        0.86,
+        1.14
+      ],
+      "frictions": [
+        0.85,
+        1.15
+      ]
+    },
+    "test": {
+      "speeds": [
+        0.12,
+        0.18,
+        0.22
+      ],
+      "gains": [
+        0.88,
+        1.0,
+        1.12
+      ],
+      "frictions": [
+        1.0
+      ]
+    },
+    "shift": {
+      "speeds": [
+        0.14,
+        0.2
+      ],
+      "gains": [
+        0.75,
+        1.25
+      ],
+      "frictions": [
+        1.0
+      ]
+    }
+  },
+  "ridge_lambdas": [
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "scope": "Normal isolated MuJoCo segments only, deterministic condition-disjoint splits; supervised residual ETA regression, no diagnostic classifier or control authority."
+}
