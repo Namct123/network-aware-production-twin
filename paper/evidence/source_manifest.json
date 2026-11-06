@@ -130,10 +130,6 @@
         "sha256": "0e70e1a39d7f62c28408c5ce13bf2d17c4ca5c064a0dec4f7d50606255b040be"
       },
       {
-        "path": "research_scope.json",
-        "sha256": "40a1966c48b8e113c716737e1fa4ed085c710a1018473e66b71b6199c12e5def"
-      },
-      {
         "path": "mujoco/event_window.py",
         "sha256": "da9199da5b5cda39a1b947ff2b88219913409e43cce7df418d4b1bb87f921d2b"
       },
@@ -144,6 +140,28 @@
       {
         "path": "mujoco/test_eta_event_window.py",
         "sha256": "4df07eafaf81cdc5a3edb9126cf8c5ab1729195076795b5aa863e2b3fb4454c4"
+      }
+    ],
+    "E014": [
+      {
+        "path": "docker/evidence/candidate-20261106-network-clock.json",
+        "sha256": "de5ce6f1a92c7544454884ac7e3e97daace8dd0835e200aa82b94deb423ff0b6"
+      },
+      {
+        "path": "paper/evidence/network_clock_initial_audit_20261106.json",
+        "sha256": "0b01a9a0f190d45bc1cd5ddccb30160d7886c26927bdc370210b611a1c4d59c7"
+      },
+      {
+        "path": "mujoco/study_network_clock.py",
+        "sha256": "df5d3fdafaa118ab461ef3f6894cf70c8dab19be89ab625bc0491ce27a494380"
+      },
+      {
+        "path": "mujoco/experiments/network_clock_ablation_20261106.json",
+        "sha256": "f671afbe574bfd9e8e29fb53092173944d13a9d2adfbb7004d73bc8cd0a77c2c"
+      },
+      {
+        "path": "research_scope.json",
+        "sha256": "f348612b9fc92eb35202ab80295f36cefaf47cf69633a10f8d0853948519094e"
       }
     ]
   }

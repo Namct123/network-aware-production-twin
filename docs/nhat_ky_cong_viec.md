@@ -964,3 +964,39 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   Phần vật lý, tác giả và phê duyệt vẫn để trống/chưa duyệt. Bản rộng lịch sử ở
   Git7bbde4a. Bộ sinh có lỗi chuỗi lúc đổi cấu trúc, đã sửa trước xuất PDF;
   chỉnh câu tràn lề, không đổi font hoặc thu lề để ép trang.
+
+
+### 081 — Khóa phép so thời gian và tuổi dữ liệu trước chạy
+
+- Git5a39fe5 chốt ba tốc độ mới, hai gain, hai vị trí đầu:12 điều kiện chưa
+  nằm trong lưới học cũ. Giữ mô hình/bù hằng/miền hiệu chuẩn, mục tiêu0 báo nhầm.
+- Thêm study_network_clock.py, test_eta_network_clock.py và JSON kế hoạch;
+  tách hai yếu tố source/receiver time và bật/tắt riêng age gate. Giữ quality,
+  lịch sử, miền và dự báo như nhau. Xả hàng gói đã có, không bịa mẫu nguồn mới.
+- Đối chứng thời gian nhận cố ý bỏ timestamp để tách yếu tố; không đại diện
+  PLC truyền thống tốt nhất. Không thay đổi core hoặc mở rộng quyền điều khiển.
+
+### 082 — Kết quả bộ mới không đạt ngưỡng báo nhầm
+
+- 36 bản ghi/720 lượt phát lại, chỉ24 cặp đầu vào khác nhau.12 cặp mất PS3/
+  băng đứng cùng quan sát. Toàn bộ72 hash và720 log được xác nhận.
+- Sáu trong12 ca bình thường đã che cảm biến khi bắt đầu, thiếu đầu xung nên
+  không được dự báo. Trong6 ca đủ, source time báo nhầm2 ca dù không trễ.
+  Mục tiêu0 báo nhầm không đạt; không nới miền hoặc loại ca sau kết quả.
+- Trễ80 ms: source/receiver báo2/5 trên cùng6 ca đủ.24 ca lỗi thì báo12,12 ca
+  khác không có xung đủ. Trễ120 ms có age gate: từ chối tất cả, không phải
+  chính xác100%. Tách lợi ích diễn giải đồng hồ với giới hạn hiệu chuẩn/quan sát.
+- Candidate network-clock đạt171 lõi WSL/16 Docker, accepted giữ nguyên, chưa
+  được người dùng nghiệm thu. Bước tiếp là rà mô hình cạnh/lấy mẫu, hiệu chuẩn
+  trên tập khác và giữ tập mới chưa xem; không tự xác nhận trên bộ này.
+
+### 083 — Thu gọn ngữ cảnh chat và cập nhật bài báo
+
+- Tạo docs/TOM_TAT_DU_AN.md chỉ giữ phạm vi, đường dẫn, mã chính, bằng chứng,
+  quy tắc Docker và bước kế tiếp; README dẫn tới tệp này trước. Không tạo chat
+  mới hoặc xóa transcript. Công cụ hiện tại không có compact trực tiếp.
+- Đối chiếu OpenAI Docs: /compact là lệnh người dùng có thể dùng sau lượt hiện
+  tại để rút ngữ cảnh. Chưa khẳng định đã compact chỉ vì đã viết bản tóm tắt.
+- Bài báo thêm phép so mới, bảng số ca đủ dữ liệu, việc không đạt mục tiêu0
+  báo nhầm và đối chứng yếu tố có giới hạn. Mục vật lý vẫn trống, tác giả chưa
+  duyệt. Ghi nguồn E014 và kiểm tra hash; cập nhật ZIP/CI, không thêm nhánh khác.

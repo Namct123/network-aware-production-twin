@@ -1,13 +1,13 @@
 {
-  "pages": 9,
+  "pages": 10,
   "page_size": "A4",
   "unresolved_references": false,
   "overfull_boxes": false,
   "physical_sections_unfilled": true,
   "human_review": "pending",
-  "assistant_visual_review": "All9 final pages rendered and reviewed as a contact sheet; generic method page3 and evidence tables page6 inspected individually. Intentional blank authors/physical sections retained.",
+  "assistant_visual_review": "All10 final pages rendered/contact-sheet inspected; fresh protocol and Table3 pages7-8 inspected individually. Authors and physical sections intentionally blank.",
   "reference_count": 14,
-  "abstract_words": 217,
+  "abstract_words": 221,
   "scope": "event_monitoring_focus_v1",
-  "pdf_sha256": "2f9f1ed168a64b25a190e3d82203964a26153555f9fbcda8534d73ae9dd91d8e"
+  "pdf_sha256": "636e76691efcd3c8298ebf73ae1aff145789df6197c02258b00b56c209056124"
 }

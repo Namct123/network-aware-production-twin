@@ -11,13 +11,13 @@ engine đang hoạt động và Python3 để tạo gói build. Máy hiện tạ
 Ubuntu-24.04, dự án đầy đủ ở /mnt/d/Projects/network-aware-production-twin.
 
 ```bash
-python3 docker/build_image.py --scope monitoring --tag candidate-20261106-monitoring-focus
+python3 docker/build_image.py --scope monitoring --tag candidate-20261106-network-clock
 ```
 
 ## Kiểm tra mô đun và tạo lại bản ghi
 
 ```bash
-IMG=production-twin-dt:candidate-20261106-monitoring-focus
+IMG=production-twin-dt:candidate-20261106-network-clock
 docker run --rm --network none --read-only "$IMG"
 mkdir -p output/docker
 # Cho user10001 trong container ghi được; chỉ cấp quyền cho thư mục đầu ra này.
@@ -46,3 +46,11 @@ mềm với tên sự kiện khác nhau là đã thử nhiều loại máy.
 
 Đọc docs/pham_vi_bai_bao_20261106.md trước khi mở rộng. Bản paper hiện hành và
 PDF đi cùng gói; thông tin tác giả/đơn vị và phần vật lý cần người phụ trách điền.
+
+
+## Phép so mới đã khóa trước chạy
+
+Trong cùng image, chạy study_network_clock.py --output /app/output/clock_review
+với volume đầu ra như trên. Tạo36 bản ghi và720 lượt so, không cần tạo dữ liệu
+học cũ trước. Đọc docs/doi_chung_thoi_gian_20261106.md để thấy cả kết quả báo
+nhầm và thiếu đầu vào. Bộ này đã được xem; chạy lại không làm nó thành tập mới.

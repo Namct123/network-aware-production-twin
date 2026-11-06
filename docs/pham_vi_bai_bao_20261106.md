@@ -53,7 +53,7 @@ số quyết định và giới hạn quan sát, rồi kiểm chứng trên dữ
    và nhãn lỗi ở phía chấm kết quả.
 4. Bài báo, bằng chứng, hướng dẫn và gói Docker tập trung.
 
-research_scope.json chốt danh sách 32 tệp đưa vào runtime tập trung. Các nhánh
+research_scope.json chốt danh sách 35 tệp đưa vào runtime tập trung. Các nhánh
 điều khiển toàn chu trình, CAD, giao diện, dự báo toàn mô hình và dữ liệu lịch sử
 vẫn giữ trong kho đầy đủ; không đưa vào gói Docker này. Giữ lõi DT, profile thay
 đổi được và bản accepted. Không xóa bằng chứng thất bại hoặc sửa lại lịch sử.
@@ -100,3 +100,14 @@ bài phải trình bày đúng thành kết quả đó, không đổi tên thàn
 
 Các nguồn này ủng hộ yêu cầu kiểm chứng chất lượng/phạm vi sử dụng DT; không
 chứng minh phương pháp của dự án là mới hoặc đủ điều kiện được chấp nhận.
+
+
+## Cập nhật bộ thử mới — 2026-11-06
+
+Đã khóa và chạy phép so đồng hồ/tuổi trên điều kiện mới, xem
+[phương pháp và kết quả đầy đủ](doi_chung_thoi_gian_20261106.md). Hai mục chốt
+bộ thử và so thời gian nguồn/nhận đã có kết quả thăm dò: 6/12 ca bình thường
+thiếu xung, trong 6 ca đủ có 2 báo nhầm dù không trễ. Không nới ngưỡng trên bộ
+này rồi gọi là đã kiểm chứng. Ưu tiên tiếp theo là rà mô hình cạnh/lấy mẫu và
+hiệu chuẩn trên tập khác, giữ một tập chưa xem; sau đó làm bộ nối sự kiện thứ hai.
+Bản bàn giao ngắn ở TOM_TAT_DU_AN.md thay cho việc đọc toàn bộ lịch sử chat.

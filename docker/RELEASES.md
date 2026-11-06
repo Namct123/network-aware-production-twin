@@ -617,3 +617,31 @@ immutable image ID, preserved source manifest, and the tests actually run.
   output/docker/monitoring_focus_ml_20261106 and output/docker/monitoring_focus_20261106.
 - User acceptance pending. No image promotion or registry push. Accepted remains
   `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+
+
+## 2026-11-06 — Fresh-condition clock/age-gate ablation (candidate)
+
+- Tag `production-twin-dt:candidate-20261106-network-clock`, ID
+  `sha256:37bff8824310c30307c137831db17c53a25d8cef2741a8229ec33d6a8ea8dda6`.
+- Protocol/source frozen before outcomes in Git commit
+  `5a39fe55abd59d91a796763ea2af5c47b3b3f786`. Model, thresholds and calibration
+  envelope remain unchanged. Adds three study/test/plan files to the focused
+  context (35 source files); core event/prediction implementations unchanged.
+- 171 core checks in WSL, 16 focused checks in Docker. Runtime hashes match host;
+  all 72 recording-input hashes checked and all 720 decision logs present.
+- 12 new deterministic conditions, 36 recordings, 720 factorial replays. Only
+  24 unique observation-command pairs; 12 missing/stalled-drive pairs identical.
+  Not random factory observations or 720 independent trials.
+- Six normal conditions start with an occupied upstream beam and cannot resolve
+  a complete pulse. Of six eligible normal conditions, source-time comparison
+  yields 2 findings even without delay: the pre-set zero-finding budget FAILS.
+  At80ms delay, source/receiver-time findings are 2/5 on the same eligible six.
+  Under120ms age rejection all inputs are unavailable, not correctly diagnosed.
+- The receiver-time comparator intentionally ignores the available source time;
+  it is a factor ablation, not a strong traditional-controller benchmark. No
+  physical network/PLC/recovery/second-device/general accuracy claim.
+- Receipt docker/evidence/candidate-20261106-network-clock.json. Raw results and
+  logs: output/docker/network_clock_20261106_final, output/network_clock_validation_20261106.
+  Report docs/doi_chung_thoi_gian_20261106.md. No retuning after the adverse result.
+- User acceptance pending, no registry push/promotion; accepted remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.

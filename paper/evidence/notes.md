@@ -176,3 +176,15 @@ literature_scope_20261106.json. No claim of full-text verification, exhaustive
 novelty search or guaranteed publication. The newly specified timestamp-naive
 ablation, fresh conditions and second adapter remain pending. Human verification,
 authorship, physical measurements and submission readiness remain unresolved.
+
+
+E014 — Fresh-condition clock/age ablation: protocol/source committed at5a39fe5
+before outcomes. Same frozen constant predictor and envelope, 36 recordings and
+720 replays; only24 distinct admitted input pairs,12 identical fault pairs.
+Six normal runs begin with occupied upstream beam; the remaining six include
+2 normal findings under immediate/source-time monitoring, so the frozen zero-
+finding target fails. Source/receiver comparison at80ms yields2/5 findings on
+that same subset. Stale rejection removes all eligible inputs, not all errors.
+The receiver comparator is intentionally timestamp-naive; never describe it as
+best traditional PLC control. No post-result tuning, physical validation or
+cross-machine evidence. Input-start audit is separately hashed; raw data retained.

@@ -1,0 +1,78 @@
+{
+  "scope": "first admitted observation of all12 normal recordings; no parameter tuning",
+  "initially_active_count": 6,
+  "records": [
+    {
+      "condition": 0,
+      "input_sha256": "b149f4b95ab2b2bd52066d4057582fb458dd22ac1b76a8e3db9a530a9bf12621",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": false
+    },
+    {
+      "condition": 1,
+      "input_sha256": "95f554480741685e36e76e48a189232164c9e372101b612f0c35e9a5f7584161",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": true
+    },
+    {
+      "condition": 2,
+      "input_sha256": "670537f47e43946b2806300b6523413879342ead878c3253cb6899238cc32d79",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": false
+    },
+    {
+      "condition": 3,
+      "input_sha256": "524ec36d699f18c9e6c6982048b13af3eb534c2f3f5b2559bd8dea55c1049dbb",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": true
+    },
+    {
+      "condition": 4,
+      "input_sha256": "d44d205130f9912654b591480d1b9596d6fc47b211ddf0e29ea0b4502f4e32ba",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": false
+    },
+    {
+      "condition": 5,
+      "input_sha256": "b9a5974e6c07842370314a0ef88741faa061ad1f1e964cf0d90f75b827a9f8bc",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": true
+    },
+    {
+      "condition": 6,
+      "input_sha256": "14840ead9226aecc0f977b1c6b871b54a23307f543517efc9e9b80a45e9b41ae",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": false
+    },
+    {
+      "condition": 7,
+      "input_sha256": "96ef126b46303774d3e29ecccbcddfd8de7ee9907e403f3418954933e8415503",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": true
+    },
+    {
+      "condition": 8,
+      "input_sha256": "b368c0555b9f412810b331be010029dcbf2f84fb178342b268a2ea147d8e2f40",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": false
+    },
+    {
+      "condition": 9,
+      "input_sha256": "07fcc482d5cab56b3365a68b86e2aa238b403d94db6f2bcb97a79b4c22c2659a",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": true
+    },
+    {
+      "condition": 10,
+      "input_sha256": "56402bba4ff1cf24020d72c9e038921781f13540e7468607b9f936fbcbd4b60c",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": false
+    },
+    {
+      "condition": 11,
+      "input_sha256": "5865a6dcfa00a566e2877e1e3fdbdfa066fe6751162730794a5a0df81886f786",
+      "initial_source_time_s": 0.0,
+      "initial_upstream_active": true
+    }
+  ]
+}
