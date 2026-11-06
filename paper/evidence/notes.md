@@ -188,3 +188,14 @@ that same subset. Stale rejection removes all eligible inputs, not all errors.
 The receiver comparator is intentionally timestamp-naive; never describe it as
 best traditional PLC control. No post-result tuning, physical validation or
 cross-machine evidence. Input-start audit is separately hashed; raw data retained.
+
+
+E015 — Post-hoc sampling/model diagnostic on observed E014 normal recordings.
+Ideal point beams, known aligned length, constant speed and edge quantization
+bounded byTs give |sampled target - pulse estimate|<=(1+d/L)Ts. At nominal
+L=.06,d=.2,Ts=.02 this is86.7ms; only2/6 complete-pulse normal targets lie in it.
+Evaluator-only motion averages increase after the pulse in6/6 by5.9–7.9%.
+This supports model-assumption failure, not exclusion of every geometric effect.
+No evaluator pose is fed to online predictors. Offline initial-high prehistory
+bug fixed; original61 study results exactly reproduced, model/envelope unchanged.
+Not a new independent validation, improved fault outcome or physical guarantee.

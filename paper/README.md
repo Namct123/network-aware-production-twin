@@ -32,3 +32,5 @@ xác minh toàn văn. Những thông tin đó được ghi ở literature_scope_
 Bản thảo chưa sẵn sàng nộp, không có bảo đảm được hội nghị chấp nhận.
 
 Bộ mới E014 khóa kế hoạch ở5a39fe5 trước chạy:36 bản ghi/720 phát lại; ngưỡng cũ không đạt mục tiêu0 báo nhầm. Báo cả6 ca thiếu xung và2/6 ca báo nhầm, không chỉ nêu lợi ích dùng thời gian nguồn.
+
+E015 bổ sung audit hậu kiểm và công thức chặn chỉ đúng dưới giả thiết lý tưởng; không phải miền cảnh báo đã hiệu chuẩn mới. Vị trí MuJoCo chỉ dùng ở phía chấm.61 kết quả cũ tái lập đúng sau sửa ranh giới đầu xung offline.

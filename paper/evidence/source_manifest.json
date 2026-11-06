@@ -103,7 +103,7 @@
       },
       {
         "path": "mujoco/eta_ml.py",
-        "sha256": "39e45bb9a5fb44160a5c9ab2750061dc96b691c970be205896fd5b2c0f3b597c"
+        "sha256": "9060b709530bcc06a1be6943ff58585656610e4808190702a920dbde46dce1ae"
       },
       {
         "path": "mujoco/models/eta_residual_v1.json",
@@ -158,10 +158,28 @@
       {
         "path": "mujoco/experiments/network_clock_ablation_20261106.json",
         "sha256": "f671afbe574bfd9e8e29fb53092173944d13a9d2adfbb7004d73bc8cd0a77c2c"
+      }
+    ],
+    "E015": [
+      {
+        "path": "docker/evidence/candidate-20261106-pulse-model-audit.json",
+        "sha256": "8415fc5a5263c4fd25b3bb7a3e17cee3fa9d6aa86d741637b752eaff150e937c"
+      },
+      {
+        "path": "mujoco/audit_pulse_model.py",
+        "sha256": "7a5a58071879550ab537657d48ca7d01a866efcdc738d69d0213c2b6a27276b7"
+      },
+      {
+        "path": "mujoco/test_eta_pulse_model.py",
+        "sha256": "c7a5e9fde3bccb0c4892efb1cbdc1795b3b88dbbfb7dc50e2ed396421c37b15e"
+      },
+      {
+        "path": "mujoco/eta_ml.py",
+        "sha256": "9060b709530bcc06a1be6943ff58585656610e4808190702a920dbde46dce1ae"
       },
       {
         "path": "research_scope.json",
-        "sha256": "f348612b9fc92eb35202ab80295f36cefaf47cf69633a10f8d0853948519094e"
+        "sha256": "66b7c653872b8c52f91b382969f5a2ef81809a60dba608c0521577a25002ee87"
       }
     ]
   }

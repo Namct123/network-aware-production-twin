@@ -645,3 +645,26 @@ immutable image ID, preserved source manifest, and the tests actually run.
   Report docs/doi_chung_thoi_gian_20261106.md. No retuning after the adverse result.
 - User acceptance pending, no registry push/promotion; accepted remains
   `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+
+
+## 2026-11-06 — Sampling/model diagnostic and pulse boundary fix (candidate)
+
+- Tag `production-twin-dt:candidate-20261106-pulse-model-audit`, ID
+  `sha256:567b21e619e6a3a8d03c00faacb54b11bc48216403290375c92bf00ea57cbce9`.
+- 174 full-core checks in WSL, 19 focused checks in Docker; runtime hashes match
+  host, all36 evaluator-audit input hashes match, all61 original training-study
+  results reproduce unchanged. Model/calibration artifact bytes unchanged.
+- Fixes offline optical_example's assumed False prehistory: initial True no
+  longer invents an observed rising edge. Online observer already rejected it.
+  Intentional prior-file changes: eta_ml.py, test_eta_ml.py, research_scope.json;
+  focused context now37 files. No controller/policy change or threshold tuning.
+- Post-hoc audit on12 observed normal records: six complete pulses; ideal
+  constant-speed/point-beam sampling bound86.7ms contains2/6 targets; frozen
+  constant correction contains4/6. Evaluator-only mean speed after the pulse is
+  higher in6/6 by5.9–7.9%. This diagnoses assumption limitations, not a calibrated
+  new interval, unique physical cause or a repaired detection-performance result.
+- Evidence docker/evidence/candidate-20261106-pulse-model-audit.json; logs
+  output/pulse_model_validation_20261106; audit data
+  output/docker/pulse_model_audit_20261106_final. No live PLC/network integration.
+- User acceptance pending, no promotion or registry push. Accepted remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.

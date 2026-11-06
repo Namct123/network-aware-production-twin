@@ -11,13 +11,13 @@ engine đang hoạt động và Python3 để tạo gói build. Máy hiện tạ
 Ubuntu-24.04, dự án đầy đủ ở /mnt/d/Projects/network-aware-production-twin.
 
 ```bash
-python3 docker/build_image.py --scope monitoring --tag candidate-20261106-network-clock
+python3 docker/build_image.py --scope monitoring --tag candidate-20261106-pulse-model-audit
 ```
 
 ## Kiểm tra mô đun và tạo lại bản ghi
 
 ```bash
-IMG=production-twin-dt:candidate-20261106-network-clock
+IMG=production-twin-dt:candidate-20261106-pulse-model-audit
 docker run --rm --network none --read-only "$IMG"
 mkdir -p output/docker
 # Cho user10001 trong container ghi được; chỉ cấp quyền cho thư mục đầu ra này.
@@ -54,3 +54,5 @@ Trong cùng image, chạy study_network_clock.py --output /app/output/clock_revi
 với volume đầu ra như trên. Tạo36 bản ghi và720 lượt so, không cần tạo dữ liệu
 học cũ trước. Đọc docs/doi_chung_thoi_gian_20261106.md để thấy cả kết quả báo
 nhầm và thiếu đầu vào. Bộ này đã được xem; chạy lại không làm nó thành tập mới.
+
+Hậu kiểm mô hình: audit_pulse_model.py --source /app/output/clock_review --output /app/output/pulse_audit_review. Mã đọc vị trí chấm để rà giả thiết, không cấp dữ liệu đó cho bộ dự báo online.

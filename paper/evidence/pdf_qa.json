@@ -1,13 +1,13 @@
 {
-  "pages": 10,
+  "pages": 11,
   "page_size": "A4",
   "unresolved_references": false,
   "overfull_boxes": false,
   "physical_sections_unfilled": true,
   "human_review": "pending",
-  "assistant_visual_review": "All10 final pages rendered/contact-sheet inspected; fresh protocol and Table3 pages7-8 inspected individually. Authors and physical sections intentionally blank.",
+  "assistant_visual_review": "All11 final pages rendered/contact sheet inspected; post-hoc derivation, assumptions and evidence on page8 inspected individually. Authors and physical sections remain intentionally blank.",
   "reference_count": 14,
   "abstract_words": 221,
   "scope": "event_monitoring_focus_v1",
-  "pdf_sha256": "636e76691efcd3c8298ebf73ae1aff145789df6197c02258b00b56c209056124"
+  "pdf_sha256": "66fed474032ea2b80a9dc0b18712a65929f4380229efff6bbf58fdce780fe0eb"
 }

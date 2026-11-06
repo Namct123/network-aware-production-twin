@@ -12,12 +12,15 @@ chưa chứng minh khả năng áp dụng đã được kiểm chứng trên cá
 4. [Bài báo hiện hành](paper/README.md), [PDF](reports/dt_cppps_manuscript_virtual.pdf).
 5. [Nhật ký từng hạng mục](docs/nhat_ky_cong_viec.md).
 
+[Vai trò DT, PLC, sản xuất và mạng](docs/vai_tro_dt_plc_tu_dong_hoa_mang.md) ·
+[Rà mô hình và nguyên nhân báo nhầm](docs/kiem_tra_mo_hinh_xung_20261106.md).
+
 ## Phần triển khai chính
 
 - `mujoco/event_window.py`: lõi so sự kiện với miền dự đoán, không biết thiết bị.
 - `mujoco/eta_monitor.py`: bộ nối cảm biến quang, kiểm tra dữ liệu, dự phòng.
 - `mujoco/eta_ml.py`: ML tùy chọn để so với công thức xung và bù sai lệch đơn giản.
-- `research_scope.json`: 35 tệp nguồn trong runtime Docker tập trung.
+- `research_scope.json`: 37 tệp nguồn trong runtime Docker tập trung.
 - `mujoco/study_eta_monitor.py`: phép so trên bệ thử MuJoCo, giữ dữ liệu chấm ngoài lõi.
 
 Lõi phân biệt tiến độ không khớp với dữ liệu chưa đủ để kết luận. Mất lịch sử
@@ -32,19 +35,19 @@ hoặc ghi lệnh PLC từ mô đun mới. Bài báo giữ nguyên các kết qu
 
 Gói tập trung tái lập 61 đoạn học và 465 quyết định cũ. Bộ thử mới có 36 bản ghi/
 720 lượt so đồng hồ/tuổi; ngưỡng cũ báo nhầm 2 trong 6 ca bình thường đủ đầu vào.
-Xem [kết quả và giới hạn](docs/doi_chung_thoi_gian_20261106.md). 16 kiểm tra ETA
-trong Docker và 171 kiểm tra lõi kho đầy đủ trong WSL đã đạt. Kiểm tra phần mềm
+Xem [kết quả và giới hạn](docs/doi_chung_thoi_gian_20261106.md). 19 kiểm tra ETA
+trong Docker và 174 kiểm tra lõi kho đầy đủ trong WSL đã đạt. Kiểm tra phần mềm
 không thay cho nghiệm thu của người dùng hay kiểm chứng khoa học.
 
 ## Phần giữ làm nền
 
 Lõi DT đầy đủ, profile tham số hóa, CAD V5, mô hình MuJoCo chức năng, bộ điều
 khiển toàn chu trình và các bằng chứng lịch sử vẫn được giữ để truy vết; chúng
-không cùng phạm vi với gói nghiên cứu 35 tệp. CAD V5 và baseline MuJoCo chưa
+không cùng phạm vi với gói nghiên cứu 37 tệp. CAD V5 và baseline MuJoCo chưa
 đồng bộ hình học đầy đủ. Không dùng Unity hoặc Factory I/O.
 
 Bản đã nghiệm thu vẫn là `accepted-20261103-software-v2`. Gói thu gọn
-`candidate-20261106-network-clock` đang chờ người dùng kiểm tra, không tự
+`candidate-20261106-pulse-model-audit` đang chờ người dùng kiểm tra, không tự
 nâng thành accepted/stable/latest. Xem [lịch sử Docker](docker/RELEASES.md).
 
 Mục tiêu dài hạn tự chọn cấu hình PLC vẫn được giữ, nhưng không phải tuyên bố

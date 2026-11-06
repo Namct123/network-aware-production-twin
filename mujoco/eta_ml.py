@@ -6,7 +6,7 @@ from signals import SignalFrame
 def optical_example(observations,commands,config):
     if not observations or len(observations)!=len(commands):raise ValueError("aligned complete recordings required")
     if commands[0]["command"]["long"]<=0 or any(c["command"]["long"]!=commands[0]["command"]["long"] for c in commands):raise ValueError("constant forward command required for this model")
-    history=CommandHistory();previous=False;start=None;example=None;target=None;last=None
+    history=CommandHistory();previous=None;start=None;example=None;target=None;last=None
     length=config["geometry"]["product_size_m"][1]
     distance=config["geometry"]["ps_y_m"]["ps2"]-config["geometry"]["ps_y_m"]["ps1"]-length
     for o,c in zip(observations,commands):
@@ -14,7 +14,7 @@ def optical_example(observations,commands,config):
         if t!=c["time_s"] or any(f.quality.get(k)!="good" for k in ("ps1","ps2")):raise ValueError("good source-clock optical records required")
         if last is not None and (f.sequence!=last.sequence+1 or not 0<t-last.source_time_s<=config["timing"]["max_sample_gap_s"]+1e-9):raise ValueError("contiguous pulse required")
         up=f.values["ps1"]
-        if up and not previous and example is None:start=t
+        if up and previous is False and example is None:start=t
         if not up and previous and start is not None and example is None:
             window=history.interval(start,t);speed=c["command"]["long"]
             if speed<=0 or window["distance_m"]<=0:raise ValueError("forward resolved pulse required")

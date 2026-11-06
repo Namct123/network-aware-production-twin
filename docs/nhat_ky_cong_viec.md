@@ -1000,3 +1000,33 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Bài báo thêm phép so mới, bảng số ca đủ dữ liệu, việc không đạt mục tiêu0
   báo nhầm và đối chứng yếu tố có giới hạn. Mục vật lý vẫn trống, tác giả chưa
   duyệt. Ghi nguồn E014 và kiểm tra hash; cập nhật ZIP/CI, không thêm nhánh khác.
+
+
+### 084 — Rà sai số lấy mẫu và giả thiết mô hình xung
+
+- Thêm audit_pulse_model.py: chứng minh/chạy kiểm tra chặn lý tưởng
+  (1+d/L)T=86,7 ms với vận tốc không đổi, hình học biết đúng và cảm biến điểm.
+  Chỉ2/6 ca đủ xung nằm trong chặn; không gọi đây là miền đã hiệu chuẩn mới.
+- Vị trí evaluator-only cho thấy vận tốc trung bình sau xung lớn hơn trong
+  xung5,9–7,9% ở6/6 ca. Đây là bằng chứng giả thiết vận tốc cần rà, không tách
+  mọi nguyên nhân tiếp xúc/hình học và không cấp pose cho bộ dự báo online.
+- Bù hằng cũ còn2 ca ngoài miền; không sửa ngưỡng hoặc công bố đã chữa báo nhầm.
+
+### 085 — Sửa đầu xung offline và kiểm tra ảnh candidate
+
+- optical_example trước đây lấy previous=False khi chưa có mẫu trước, có thể
+  nhận mẫu đầuTrue như đầu xung. Đổi sang chưa biết và đòi cạnhFalse→True đã
+  quan sát; thống nhất với PulseObserver. Thêm kiểm tra tái hiện ranh giới này.
+-174 kiểm tra lõi WSL,19 kiểm tra Docker;36 hash đầu vào audit đúng. Tái lập
+  toàn bộ61 kết quả cũ đúng, trọng số/miền giữ nguyên. Source context37 tệp.
+- Candidate pulse-model-audit lưu ID/hash trong docker/RELEASES.md, accepted
+  không đổi. Hậu kiểm trên bộ đã xem không phải dữ liệu xác nhận độc lập mới.
+
+### 086 — Giải thích vai trò bốn lĩnh vực và cập nhật bài
+
+- Tạo tài liệu vai_tro_dt_plc_tu_dong_hoa_mang.md: PLC điều khiển/cung cấp sự
+  kiện, mạng giữ ý nghĩa thời gian, DT dự báo và so quan sát, tự động hóa là
+  đối tượng/mục tiêu vận hành. Kết nối S7 và đường đề nghị chế độ còn ở tương lai.
+- Dẫn NIST về DT đồng bộ và Siemens về process image; không suy mô phỏng hiện
+  tại thành DT vật lý đã hoàn chỉnh. Giữ bản bàn giao ngắn, không quay lại nhánh
+  đã hoãn. Bài báo bổ sung chặn lấy mẫu/hậu kiểm E015, mục vật lý vẫn trống.

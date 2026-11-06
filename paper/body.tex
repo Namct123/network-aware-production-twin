@@ -111,15 +111,26 @@ At 80~ms delay, source and receiver comparison produce two and five normal findi
 
 At 120~ms delay the 100~ms age gate rejects all inputs; age-off source comparison retains six eligible normal records and two findings, whereas age-off receiver comparison produces five. Zero findings under age rejection is abstention, not fulfillment of a useful diagnostic objective. Post-pulse gaps invalidate the histories in all policies. Thus time interpretation avoids additional delay-induced findings in this fixture, but neither it nor a rejection rule repairs incomplete anchors or inadequate calibration.
 
+\subsection{Post-Hoc Sampling and Motion-Model Audit}
+% [claim:C118] [evidence:E015]
+A diagnostic audit separates an ideal sampling bound from actual model validity. With constant physical speed, known aligned length $L$, ideal point beams, and sampled rising, falling, and target edges delayed by $\epsilon_r,\epsilon_f,\epsilon_e\in[0,T_s]$, the pulse estimate satisfies
+\begin{equation}
+ \begin{aligned}
+ \widetilde t_e-\widehat t_e&=\epsilon_e-(1+d/L)\epsilon_f+(d/L)\epsilon_r,\\
+ |\widetilde t_e-\widehat t_e|&\leq(1+d/L)T_s.
+ \end{aligned}
+\end{equation}
+Here $d$ is remaining travel and $T_s$ the sampling period. The case-study values give an 86.7~ms ideal radius. Only two of six complete-pulse normal records lie within it. Evaluator-only position traces show that mean speed after the pulse exceeds mean speed during the pulse in all six, by 5.9--7.9\%. This supports a violation of constant-speed assumptions; it does not isolate every geometric or dynamic error. The audit is post hoc and introduces no new calibrated predictor or repaired false-finding result. The offline feature extractor is also corrected to reject an initially high upstream value as an unobserved pulse start. The original 61 training-study results reproduce unchanged after this boundary fix.
+
 \section{Generality, Limitations, and Focused Development}
-% [claim:C115] [evidence:E012,E013,E014]
+% [claim:C115] [evidence:E012,E013,E014,E015]
 The general element is the separation of a causal event predictor, evidence eligibility, and event-window evaluation. A cylinder-endpoint adapter could anchor at an observed stroke start; an axis-arrival adapter could use a validated motion start and commanded trajectory. Each would need its own event semantics, feedback mapping, dynamic assumptions, and calibration. Their mention describes interface applicability, not validation on those machines. Software contract checks with renamed event labels do not constitute additional physical or simulated-device experiments.
 
 The packaged runtime selects the monitoring method and its MuJoCo case-study dependencies. Full-cell reconfiguration, CAD authoring, graphics, reinforcement learning, and whole-cell online contact forecasting are outside the active paper scope. Historical code, failed and adverse results, parameterized profiles, and the last user-accepted image remain preserved. Scope reduction does not convert earlier timing or recovery limitations into successful results.
 
 The main evidence limitations are one virtual process, deterministic and partly duplicated conditions, reuse of previously inspected normal test recordings, a post hoc simple reference, assumed rather than physically identified dynamics, and empirical calibration maxima. The study establishes neither cross-machine transfer nor live clock synchronization, diagnostic accuracy, hard real-time execution, production availability, or successful operation after loss of required feedback. Model/source hashes and reproducibility checks support traceability, not scientific novelty or a guarantee of acceptance by a venue.
 
-The new fixed-condition ablation isolates clock choice and age rejection, while exposing failure of the old calibration on fresh normal records. Next work should identify calibration data covering initial-state and sampling effects, reserve another unseen evaluation set, evaluate a second event adapter, and estimate physical model and measurement uncertainty when measurements become available. Until those steps are completed, the general interface and single-testbed results must remain separate claims.
+The new fixed-condition ablation isolates clock choice and age rejection, while exposing failure of the old calibration on fresh normal records. The post-hoc motion audit further motivates checking startup/transient dynamics before selecting new calibration data. Next work should cover these effects, reserve another unseen evaluation set, evaluate a second event adapter, and estimate physical model and measurement uncertainty when measurements become available. Until those steps are completed, the general interface and single-testbed results must remain separate claims.
 
 \section{Physical Validation}
 \label{sec:physical}

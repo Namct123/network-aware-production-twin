@@ -26,6 +26,12 @@ class EtaMLTests(unittest.TestCase):
   a,b=example(80),example(90)
   self.assertEqual(a["features"],b["features"]);self.assertEqual(a["pulse_eta_s"],b["pulse_eta_s"])
   self.assertNotEqual(a["residual_s"],b["residual_s"])
+ def test_initial_high_cannot_supply_an_unobserved_pulse_start(self):
+  config=load_config(Path(__file__).parent/"configs/reconfigurable_cell_20261030.json");obs=[];commands=[]
+  for i in range(100):
+   t=i*.02;v={"ps1":i<20,"ps2":i>=80}
+   obs.append(SignalFrame(i,t,t,v,{k:"good" for k in v}).as_dict());commands.append({"time_s":t,"command":{"long":.16}})
+  with self.assertRaises(ValueError):optical_example(obs,commands,config)
  def test_live_prediction_needs_no_downstream_label(self):
   rows=[{"features":[i+.1,.16,.16*(i+.1)],"residual_s":.01*i} for i in range(6)]
   m=fit(rows,1.)

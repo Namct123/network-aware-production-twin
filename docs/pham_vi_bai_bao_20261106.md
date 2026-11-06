@@ -53,7 +53,7 @@ số quyết định và giới hạn quan sát, rồi kiểm chứng trên dữ
    và nhãn lỗi ở phía chấm kết quả.
 4. Bài báo, bằng chứng, hướng dẫn và gói Docker tập trung.
 
-research_scope.json chốt danh sách 35 tệp đưa vào runtime tập trung. Các nhánh
+research_scope.json chốt danh sách 37 tệp đưa vào runtime tập trung. Các nhánh
 điều khiển toàn chu trình, CAD, giao diện, dự báo toàn mô hình và dữ liệu lịch sử
 vẫn giữ trong kho đầy đủ; không đưa vào gói Docker này. Giữ lõi DT, profile thay
 đổi được và bản accepted. Không xóa bằng chứng thất bại hoặc sửa lại lịch sử.
@@ -111,3 +111,5 @@ thiếu xung, trong 6 ca đủ có 2 báo nhầm dù không trễ. Không nới 
 này rồi gọi là đã kiểm chứng. Ưu tiên tiếp theo là rà mô hình cạnh/lấy mẫu và
 hiệu chuẩn trên tập khác, giữ một tập chưa xem; sau đó làm bộ nối sự kiện thứ hai.
 Bản bàn giao ngắn ở TOM_TAT_DU_AN.md thay cho việc đọc toàn bộ lịch sử chat.
+
+Hậu kiểm mô hình ở [kiểm tra xung](kiem_tra_mo_hinh_xung_20261106.md): vận tốc trung bình sau xung cao hơn trong xung ở6/6 ca. Chặn lấy mẫu chỉ đúng dưới giả thiết lý tưởng; chưa dùng làm miền cảnh báo thay thế. [Vai trò DT–PLC–tự động hóa–mạng](vai_tro_dt_plc_tu_dong_hoa_mang.md) tách rõ mô-đun đã có và tích hợp vật lý dự kiến.

@@ -1,0 +1,304 @@
+{
+  "date_local": "2026-11-06",
+  "tag": "candidate-20261106-pulse-model-audit",
+  "image_id": "sha256:567b21e619e6a3a8d03c00faacb54b11bc48216403290375c92bf00ea57cbce9",
+  "user_acceptance": "pending",
+  "registry_push": false,
+  "runtime_source_manifest": {
+    "python": "3.12.16",
+    "mujoco": "3.16.0",
+    "numpy": "2.5.4",
+    "scope": "event_monitoring_focus_v1",
+    "review_status_at_build": "candidate-awaiting-human-validation",
+    "files": {
+      "mujoco/audit_pulse_model.py": "7a5a58071879550ab537657d48ca7d01a866efcdc738d69d0213c2b6a27276b7",
+      "mujoco/calibrate_residual.py": "554861bf3e5fb01e2d0a24a82705398763f1af7ce831c57871246e4c7ead7cdb",
+      "mujoco/command_history.py": "71dac49e66677ee8628f517c8aa1401e5e83168358d6693c1c4afa886641e5bf",
+      "mujoco/config.py": "b981ac4580a00113ffd45a1d97549f14c1de07e691f2cfa19fa8e56d8e4e781a",
+      "mujoco/configs/reconfigurable_cell_20261030.json": "a875fecf1be13e913ea65c336b33d218573a680ad09a46007a8dbae52fd9f0b2",
+      "mujoco/configs/simulation.json": "e21292b461f66b196a669c655e8dcf0fe8146139d5d1d4f6ecd01949e580e13b",
+      "mujoco/eta_ml.py": "9060b709530bcc06a1be6943ff58585656610e4808190702a920dbde46dce1ae",
+      "mujoco/eta_monitor.py": "8465cb3a0cfcd5dbab3733d00b2d8f6a9f61b71bbd45dc272ea94115e423764a",
+      "mujoco/event_window.py": "da9199da5b5cda39a1b947ff2b88219913409e43cce7df418d4b1bb87f921d2b",
+      "mujoco/experiments/eta_ml_20261106.json": "b5ced27adcb278f9a75f3f2075fd0e65f44da1d87943faf00850af17544dc25b",
+      "mujoco/experiments/eta_monitor_20261106.json": "5222e5b03b722d6f49d7fd765ce9806ba5193c0277f45fb49c5133de50b852b9",
+      "mujoco/experiments/interval_calibration_20261105.json": "7eb172c842eaeaf0969436567625723d6308c1b6b8e67ca40b7fde2df19e9948",
+      "mujoco/experiments/network_clock_ablation_20261106.json": "f671afbe574bfd9e8e29fb53092173944d13a9d2adfbb7004d73bc8cd0a77c2c",
+      "mujoco/innovation.py": "86d3fd733e709eae01018c1d8992669ff6fafed9975cdddf1ac2dc0aacd9d7c5",
+      "mujoco/model_profile.py": "3d745f1fe5288b1633783d2b7abc0204a856c9fe0f60e7dbc63a20991758a02a",
+      "mujoco/models/eta_error_envelope_v1.json": "02717da8c9b26a168eed8e713771b3483b225c80248fb0304a815b3cf9c5a166",
+      "mujoco/models/eta_monitor_v1.json": "5abaeaa151a157bb0534c5b4302beb1fcb26ec1e51e35a931fcc5c4be942c346",
+      "mujoco/models/eta_provenance_v1.json": "b0913a482e5b56b37a8af1e90a4b019d24ad949734eb3cb66c605c81fb257bdd",
+      "mujoco/models/eta_residual_v1.json": "3514af2aa660915062b14592da66aa764ec04d953a47c433cc6b7991792fbe2f",
+      "mujoco/parametric_cell.py": "7125abc12d1439e48816aa70db95f2e5ebdac077f3f91974aba39e1ab53067e0",
+      "mujoco/production_cell.xml": "4bda92227b1146c3dae6b821604ff320be0d4cea3acf83579451b224d52b3072",
+      "mujoco/pulse_observer.py": "bc558ee9980b1abef8f366ff0b31d68e7ab2ca0230e7bf4ca005bd6bf9eedda3",
+      "mujoco/run_cell.py": "d14bc0220bdd4539e852212e69df48d416df6a3ac8be8b827aca3b9f73676b1a",
+      "mujoco/sensor_model.py": "bea5a84a0b465f8df5b0a34df6d74a7a980d936522ff2515e0e9a2723f8f8ed5",
+      "mujoco/signals.py": "0dd6195ddeaab63074e9bd8561b8b8b25493afdfbf4b6608e7cfbc27cf582aa8",
+      "mujoco/study_eta_ml.py": "2f3506e165e2169b047a238cb6e9d9c493a923ae0fba20f9c0c61746d98d30d9",
+      "mujoco/study_eta_monitor.py": "f86394038b99222cc3ecfcf5b19891cbfbe4db5a69862c394eb6c05d6a68d0be",
+      "mujoco/study_network_clock.py": "df5d3fdafaa118ab461ef3f6894cf70c8dab19be89ab625bc0491ce27a494380",
+      "mujoco/study_pulse.py": "301b35d3c39cf0df0e7abb9603aaa0239419abd7a150f476b628ab7a2ee0a273",
+      "mujoco/test_eta_event_window.py": "4df07eafaf81cdc5a3edb9126cf8c5ab1729195076795b5aa863e2b3fb4454c4",
+      "mujoco/test_eta_ml.py": "496f40d9848a2ff8bef77c5f17e265e92b79f71459effa45fdb0b348451af3c8",
+      "mujoco/test_eta_monitor.py": "ea1783cf9c05e001c8c61c0ff02dab02725afbfcae2328b77abf83f15e57c3b6",
+      "mujoco/test_eta_network_clock.py": "e5478a64c4c9065372eeb5264b1fc6b14f455cfdc32bf1244db6f5f91854f5f9",
+      "mujoco/test_eta_pulse_model.py": "c7a5e9fde3bccb0c4892efb1cbdc1795b3b88dbbfb7dc50e2ed396421c37b15e",
+      "requirements.txt": "7a81185e73057b0bfeb4754f1cbb014664084ee7344c08c40d496cb89bc09432",
+      "research_scope.json": "66b7c653872b8c52f91b382969f5a2ef81809a60dba608c0521577a25002ee87"
+    }
+  },
+  "checks": {
+    "core_wsl_174": true,
+    "focused_docker_19": true,
+    "runtime_hashes_match_host": true,
+    "all36_audit_input_hashes_verified": true,
+    "old61_model_results_unchanged": true,
+    "old_model_and_calibration_artifacts_unchanged": true,
+    "accepted_unchanged": true
+  },
+  "prior_runtime_intentionally_changed": [
+    "mujoco/eta_ml.py",
+    "mujoco/test_eta_ml.py",
+    "research_scope.json"
+  ],
+  "audit": {
+    "analysis_kind": "posthoc_diagnostic_on_observed_data",
+    "normal_records": 12,
+    "resolved_pulses": 6,
+    "initially_occupied": 6,
+    "sampling_only_covered": 2,
+    "frozen_constant_envelope_covered": 4,
+    "remaining_mean_speed_higher": 6,
+    "relative_mean_speed_increase_range": [
+      0.0589157825522848,
+      0.07925260592838068
+    ],
+    "sampling_radius_s": 0.08666666666666668,
+    "records": [
+      {
+        "id": "condition_00_none",
+        "initial_upstream_active": false,
+        "status": "resolved_pulse_audited",
+        "sampling_window": {
+          "point_s": 2.5000000000000018,
+          "radius_s": 0.08666666666666668,
+          "interval_s": [
+            2.413333333333335,
+            2.5866666666666687
+          ],
+          "assumptions": "constant physical speed; known aligned length; ideal point beams; each sampled edge no more than one period late"
+        },
+        "pulse_duration_s": 0.5400000000000004,
+        "target_source_s": 2.319999999999966,
+        "raw_residual_s": -0.1800000000000357,
+        "constant_residual_s": -0.08291666666668585,
+        "sampling_only_covered": false,
+        "frozen_constant_envelope_covered": false,
+        "evaluator_pulse_mean_speed_m_s": 0.11382877324263879,
+        "evaluator_remaining_mean_speed_m_s": 0.12285000015174866,
+        "evaluator_relative_speed_increase": 0.07925260592838068,
+        "evaluator_pulse_displacement_m": 0.06146753755102499,
+        "evaluator_remaining_displacement_m": 0.19901700024582858
+      },
+      {
+        "id": "condition_01_none",
+        "initial_upstream_active": true,
+        "status": "initial_pulse_unresolved"
+      },
+      {
+        "id": "condition_02_none",
+        "initial_upstream_active": false,
+        "status": "resolved_pulse_audited",
+        "sampling_window": {
+          "point_s": 2.046666666666668,
+          "radius_s": 0.08666666666666668,
+          "interval_s": [
+            1.9600000000000015,
+            2.133333333333335
+          ],
+          "assumptions": "constant physical speed; known aligned length; ideal point beams; each sampled edge no more than one period late"
+        },
+        "pulse_duration_s": 0.4400000000000003,
+        "target_source_s": 1.9400000000000015,
+        "raw_residual_s": -0.10666666666666669,
+        "constant_residual_s": -0.009583333333316846,
+        "sampling_only_covered": false,
+        "frozen_constant_envelope_covered": true,
+        "evaluator_pulse_mean_speed_m_s": 0.1371041707273013,
+        "evaluator_remaining_mean_speed_m_s": 0.1471499998504148,
+        "evaluator_relative_speed_increase": 0.07327150640146862,
+        "evaluator_pulse_displacement_m": 0.060325835120012605,
+        "evaluator_remaining_displacement_m": 0.2001239997965643
+      },
+      {
+        "id": "condition_03_none",
+        "initial_upstream_active": true,
+        "status": "initial_pulse_unresolved"
+      },
+      {
+        "id": "condition_04_none",
+        "initial_upstream_active": false,
+        "status": "resolved_pulse_audited",
+        "sampling_window": {
+          "point_s": 1.8733333333333348,
+          "radius_s": 0.08666666666666668,
+          "interval_s": [
+            1.7866666666666682,
+            1.9600000000000015
+          ],
+          "assumptions": "constant physical speed; known aligned length; ideal point beams; each sampled edge no more than one period late"
+        },
+        "pulse_duration_s": 0.40000000000000024,
+        "target_source_s": 1.8000000000000014,
+        "raw_residual_s": -0.07333333333333347,
+        "constant_residual_s": 0.02375000000001637,
+        "sampling_only_covered": true,
+        "frozen_constant_envelope_covered": true,
+        "evaluator_pulse_mean_speed_m_s": 0.14858250269601106,
+        "evaluator_remaining_mean_speed_m_s": 0.15925000014158053,
+        "evaluator_relative_speed_increase": 0.07179511215660694,
+        "evaluator_pulse_displacement_m": 0.05943300107840446,
+        "evaluator_remaining_displacement_m": 0.20065500017839163
+      },
+      {
+        "id": "condition_05_none",
+        "initial_upstream_active": true,
+        "status": "initial_pulse_unresolved"
+      },
+      {
+        "id": "condition_06_none",
+        "initial_upstream_active": false,
+        "status": "resolved_pulse_audited",
+        "sampling_window": {
+          "point_s": 1.6133333333333348,
+          "radius_s": 0.08666666666666668,
+          "interval_s": [
+            1.5266666666666682,
+            1.7000000000000015
+          ],
+          "assumptions": "constant physical speed; known aligned length; ideal point beams; each sampled edge no more than one period late"
+        },
+        "pulse_duration_s": 0.3400000000000003,
+        "target_source_s": 1.5200000000000011,
+        "raw_residual_s": -0.09333333333333371,
+        "constant_residual_s": 0.0037500000000161293,
+        "sampling_only_covered": false,
+        "frozen_constant_envelope_covered": true,
+        "evaluator_pulse_mean_speed_m_s": 0.18005014600442992,
+        "evaluator_remaining_mean_speed_m_s": 0.1907499994298137,
+        "evaluator_relative_speed_increase": 0.05942707441692674,
+        "evaluator_pulse_displacement_m": 0.06121704964150623,
+        "evaluator_remaining_displacement_m": 0.19837999940700637
+      },
+      {
+        "id": "condition_07_none",
+        "initial_upstream_active": true,
+        "status": "initial_pulse_unresolved"
+      },
+      {
+        "id": "condition_08_none",
+        "initial_upstream_active": false,
+        "status": "resolved_pulse_audited",
+        "sampling_window": {
+          "point_s": 1.5933333333333346,
+          "radius_s": 0.08666666666666668,
+          "interval_s": [
+            1.506666666666668,
+            1.6800000000000013
+          ],
+          "assumptions": "constant physical speed; known aligned length; ideal point beams; each sampled edge no more than one period late"
+        },
+        "pulse_duration_s": 0.34000000000000025,
+        "target_source_s": 1.480000000000001,
+        "raw_residual_s": -0.11333333333333351,
+        "constant_residual_s": -0.016249999999983666,
+        "sampling_only_covered": false,
+        "frozen_constant_envelope_covered": true,
+        "evaluator_pulse_mean_speed_m_s": 0.18464804287723446,
+        "evaluator_remaining_mean_speed_m_s": 0.195649999742459,
+        "evaluator_relative_speed_increase": 0.05958339278223135,
+        "evaluator_pulse_displacement_m": 0.06278033457825977,
+        "evaluator_remaining_displacement_m": 0.19956299973730832
+      },
+      {
+        "id": "condition_09_none",
+        "initial_upstream_active": true,
+        "status": "initial_pulse_unresolved"
+      },
+      {
+        "id": "condition_10_none",
+        "initial_upstream_active": false,
+        "status": "resolved_pulse_audited",
+        "sampling_window": {
+          "point_s": 1.2466666666666677,
+          "radius_s": 0.08666666666666668,
+          "interval_s": [
+            1.160000000000001,
+            1.3333333333333344
+          ],
+          "assumptions": "constant physical speed; known aligned length; ideal point beams; each sampled edge no more than one period late"
+        },
+        "pulse_duration_s": 0.2600000000000002,
+        "target_source_s": 1.2400000000000009,
+        "raw_residual_s": -0.006666666666666821,
+        "constant_residual_s": 0.09041666666668302,
+        "sampling_only_covered": true,
+        "frozen_constant_envelope_covered": false,
+        "evaluator_pulse_mean_speed_m_s": 0.22131126313081592,
+        "evaluator_remaining_mean_speed_m_s": 0.23434998938580254,
+        "evaluator_relative_speed_increase": 0.0589157825522848,
+        "evaluator_pulse_displacement_m": 0.05754092841401218,
+        "evaluator_remaining_displacement_m": 0.2015409908717903
+      },
+      {
+        "id": "condition_11_none",
+        "initial_upstream_active": true,
+        "status": "initial_pulse_unresolved"
+      }
+    ],
+    "scope": "Analytical bound requires constant speed and ideal known geometry; violations diagnose assumption failure, not a calibrated new predictor. Evaluator pose used only to inspect motion averages. No tuning, no new independent validation or physical evidence."
+  },
+  "input_sha256": {
+    "condition_00_none/observations.jsonl": "b149f4b95ab2b2bd52066d4057582fb458dd22ac1b76a8e3db9a530a9bf12621",
+    "condition_00_none/issued_commands.jsonl": "a0146824c1d9f61169d9d48fb785394066b5977c011d1c6e85185244b8b855dc",
+    "condition_00_none/evaluator_only.jsonl": "853c65ef30558594e20567d3f5d521075ac90cc2daf9cde579adf82887dddaf2",
+    "condition_01_none/observations.jsonl": "95f554480741685e36e76e48a189232164c9e372101b612f0c35e9a5f7584161",
+    "condition_01_none/issued_commands.jsonl": "a0146824c1d9f61169d9d48fb785394066b5977c011d1c6e85185244b8b855dc",
+    "condition_01_none/evaluator_only.jsonl": "aa5ff61e7a680b99db027cf942a469d5ac9862a3910df89d685cae3d0e85dce3",
+    "condition_02_none/observations.jsonl": "670537f47e43946b2806300b6523413879342ead878c3253cb6899238cc32d79",
+    "condition_02_none/issued_commands.jsonl": "a0146824c1d9f61169d9d48fb785394066b5977c011d1c6e85185244b8b855dc",
+    "condition_02_none/evaluator_only.jsonl": "571aa1acbcbb049fadcb2384e7ca33285d7963f9d13c0283fb5184134cd31c7e",
+    "condition_03_none/observations.jsonl": "524ec36d699f18c9e6c6982048b13af3eb534c2f3f5b2559bd8dea55c1049dbb",
+    "condition_03_none/issued_commands.jsonl": "a0146824c1d9f61169d9d48fb785394066b5977c011d1c6e85185244b8b855dc",
+    "condition_03_none/evaluator_only.jsonl": "4ce39a5e1564e7a58b0244636af77f593da3df5d4ad0c63901f39bd3311e2a53",
+    "condition_04_none/observations.jsonl": "d44d205130f9912654b591480d1b9596d6fc47b211ddf0e29ea0b4502f4e32ba",
+    "condition_04_none/issued_commands.jsonl": "3d17feff9ab29ddb5517b4ada0356ae1f0acb98cc2244dcc537eeeac4035651d",
+    "condition_04_none/evaluator_only.jsonl": "0d4dabca68b3e440efb9acc4d8e55b44f56ce7739b6fec898598065f68c29c6f",
+    "condition_05_none/observations.jsonl": "b9a5974e6c07842370314a0ef88741faa061ad1f1e964cf0d90f75b827a9f8bc",
+    "condition_05_none/issued_commands.jsonl": "3d17feff9ab29ddb5517b4ada0356ae1f0acb98cc2244dcc537eeeac4035651d",
+    "condition_05_none/evaluator_only.jsonl": "9410d6791056d1af6e37eac56b92c06e5d0a9feb24b40347ea47269e19d53875",
+    "condition_06_none/observations.jsonl": "14840ead9226aecc0f977b1c6b871b54a23307f543517efc9e9b80a45e9b41ae",
+    "condition_06_none/issued_commands.jsonl": "3d17feff9ab29ddb5517b4ada0356ae1f0acb98cc2244dcc537eeeac4035651d",
+    "condition_06_none/evaluator_only.jsonl": "1eb35e52c31233007ddfd4c350f0b4bd141a0e6412827e4ec811ddc5447e377d",
+    "condition_07_none/observations.jsonl": "96ef126b46303774d3e29ecccbcddfd8de7ee9907e403f3418954933e8415503",
+    "condition_07_none/issued_commands.jsonl": "3d17feff9ab29ddb5517b4ada0356ae1f0acb98cc2244dcc537eeeac4035651d",
+    "condition_07_none/evaluator_only.jsonl": "c0576ed14562fef81ead33442f09fea937eb08c15f560b8e46e5a5881299678f",
+    "condition_08_none/observations.jsonl": "b368c0555b9f412810b331be010029dcbf2f84fb178342b268a2ea147d8e2f40",
+    "condition_08_none/issued_commands.jsonl": "8db8673bfe1a84043e0a07e41b0f4441d9a687518fa67cc004813c8e474bbac3",
+    "condition_08_none/evaluator_only.jsonl": "b1a7da8ccd9fae458d96a2a7705250cb7b5c6f94ea0399f1c7c2304651098cda",
+    "condition_09_none/observations.jsonl": "07fcc482d5cab56b3365a68b86e2aa238b403d94db6f2bcb97a79b4c22c2659a",
+    "condition_09_none/issued_commands.jsonl": "8db8673bfe1a84043e0a07e41b0f4441d9a687518fa67cc004813c8e474bbac3",
+    "condition_09_none/evaluator_only.jsonl": "103d10afdac5c9e5040aecc640c06c8e3fe2a4fe62958201ae79ea8fdcd9a908",
+    "condition_10_none/observations.jsonl": "56402bba4ff1cf24020d72c9e038921781f13540e7468607b9f936fbcbd4b60c",
+    "condition_10_none/issued_commands.jsonl": "8db8673bfe1a84043e0a07e41b0f4441d9a687518fa67cc004813c8e474bbac3",
+    "condition_10_none/evaluator_only.jsonl": "697f0c8341513d2d8ed0eb944bdd31b075cf4d7e895fbb353ed92bf140c52e01",
+    "condition_11_none/observations.jsonl": "5865a6dcfa00a566e2877e1e3fdbdfa066fe6751162730794a5a0df81886f786",
+    "condition_11_none/issued_commands.jsonl": "8db8673bfe1a84043e0a07e41b0f4441d9a687518fa67cc004813c8e474bbac3",
+    "condition_11_none/evaluator_only.jsonl": "c84c63aa57403f68d28263752121e5a41854f3dab3b7a116115e84eee3699421"
+  },
+  "audit_results_sha256": "b904122e8f1beabb3b32561d30d519f7bff5491f128698cbb76c79bd0420fe7d",
+  "last_accepted_image_id": "sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8",
+  "scope": "Post-hoc sampling/model diagnostic; no new controller or calibrated monitoring interval. Evaluator positions used only to inspect motion means. Shared training extractor now refuses an unobserved initial pulse start; original61 results unchanged. No physical PLC/network integration."
+}
