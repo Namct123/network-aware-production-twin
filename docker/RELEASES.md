@@ -594,3 +594,26 @@ immutable image ID, preserved source manifest, and the tests actually run.
   `docs/giam_sat_eta_ml_20261106.md`.
 - User acceptance pending, no registry push or promotion. Accepted ID remains
   `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+
+
+## 2026-11-06 — Focused event-monitoring delivery (candidate)
+
+- Tag `production-twin-dt:candidate-20261106-monitoring-focus`, ID
+  `sha256:e84f9fa4c7707a85daea79c0f6ea07be41cf4227bbe080230009d07f150ed8f3`.
+- Explicit 32-file source context in research_scope.json; includes generic event
+  kernel, predictor alternatives and MuJoCo case-study dependencies. Excludes web,
+  CAD-authoring, RuntimeCore, full-cell reconfiguration and whole-cell forecasts.
+  Full repository/core/profiles and historical evidence remain preserved.
+- 13 focused tests in Docker, 168 full-core tests in WSL, 3 delivery-boundary tests
+  on host. Runtime hashes match. All 61 original training-record results reproduce
+  exactly; all 465 monitoring summaries AND complete decision logs match the prior
+  monitoring-v2 study. This is refactor reproducibility, not additional independent
+  experiments or a second-machine validation.
+- Candidate adds process-independent EventWindow and reuses it from the optical
+  adapter. Named-event contract checks are software checks only. Learned Ridge
+  remains an ablation; no claim it improves warning timeliness over constant bias.
+- Receipt: docker/evidence/candidate-20261106-monitoring-focus.json; run logs:
+  output/monitoring_focus_validation_20261106; data:
+  output/docker/monitoring_focus_ml_20261106 and output/docker/monitoring_focus_20261106.
+- User acceptance pending. No image promotion or registry push. Accepted remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.

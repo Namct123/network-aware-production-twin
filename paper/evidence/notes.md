@@ -159,3 +159,20 @@ misses. Data rejection/engineering fallback is not credited as learned findings.
 The original candidate predates the geometry/sample-period calibration-context guard;
 v2 preserves model weights and original decisions with that additional boundary.
 No central runtime policy authority, physical diagnostic accuracy or production gain.
+
+
+## Focused methodological scope — 2026-11-06
+
+Current draft replaces the broad resilience/reconfiguration narrative. E013 binds
+plant-independent EventWindow, its optical adapter, the32-file focused delivery,
+and exact reproduction of the original61 model records/465 full decision logs.
+It does NOT provide a second process validation. Generic label contract tests are
+software tests, not new device evidence. E009/E012 remain the empirical sources;
+normal data reuse, duplication, post hoc reference and adverse ML outcomes remain
+in the focused text. Previous broad manuscript is reproducible at Git7bbde4a.
+
+E114/E115 are author-institution abstract/metadata checks recorded in
+literature_scope_20261106.json. No claim of full-text verification, exhaustive
+novelty search or guaranteed publication. The newly specified timestamp-naive
+ablation, fresh conditions and second adapter remain pending. Human verification,
+authorship, physical measurements and submission readiness remain unresolved.

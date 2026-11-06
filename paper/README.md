@@ -1,75 +1,32 @@
-# Bản thảo bài báo đang phát triển
+# Bản thảo hiện hành: phương pháp giám sát sự kiện tổng quát
 
-Bản hiện tại chỉ viết lý thuyết, phương pháp đã triển khai và kết quả ảo có bằng
-chứng. Mục kiểm chứng vật lý để trống; chưa có dữ liệu máy thật để điền.
-Đây là bản làm việc, chưa phải bản được tác giả duyệt hoặc sẵn sàng nộp.
+Tên: **A Network-Aware Predictive Digital Twin Framework for Event-Based
+Production Monitoring**. Bài đề xuất cách tách bộ dự báo, điều kiện dữ liệu
+hợp lệ và lõi so sự kiện. Dây chuyền MuJoCo chỉ là một nghiên cứu tình huống.
+Chưa chứng minh khả năng chuyển mô hình đã hiệu chuẩn giữa các loại máy.
 
-## Các tệp cần sửa
+- `title_abstract.tex`: title/abstract riêng,217 từ; tác giả/đơn vị còn trống.
+- `body.tex`: lý thuyết tổng quát, giả thiết áp dụng, bệ thử, kết quả và giới hạn.
+- `prepare.py`: tạo hai bảng từ receipt; kiểm tra trích dẫn, hash và mục vật lý.
+- `evidence/`: dữ liệu dẫn xuất và hồ sơ nguồn; tác giả chưa xác minh/duyệt.
+- `../reports/dt_cppps_manuscript_virtual.pdf`: PDF hiện hành theo template LNCS.
 
-- title_abstract.tex: title, abstract và từ khóa; tên tác giả/đơn vị để trống.
-- body.tex: toàn bộ phần thân bài, gồm Introduction/Related Work, mô hình và
-  lý thuyết, phương pháp ảo, kết quả ảo, phần vật lý trống, thảo luận, kết luận.
-- main.tex: tệp ghép bài theo class LNCS một cột, không tự đổi lề/cỡ chữ.
-- generated/: bảng số liệu và giá trị sinh từ bằng chứng, không sửa tay.
-- evidence/: bản chụp dữ liệu, dấu kiểm tra nguồn, các nhóm nhận định và kiểm tra nhất quán.
-
-Các bản thảo trùng đã bỏ khỏi cây làm việc; paper/ là nguồn hiện hành duy nhất. File paper/export_pdf.py
-đã thay bộ xuất abstract cũ bằng biên dịch LaTeX thật của bản mới.
-
-## Biên dịch
-
-Cài Python và Tectonic hoặc pdfLaTeX, tại thư mục gốc dự án chạy:
-
-```text
-python paper/prepare.py
-python paper/export_pdf.py --engine /duong/dan/tectonic
+```bash
+python paper/export_pdf.py
 ```
 
-Có thể bỏ --engine nếu chương trình đã ở PATH. Tệp class llncs.cls được sao
-chép nguyên bản từ template đã có trong dự án. Không bắt buộc dùng trình biên
-dịch nằm ở tmp/; đó chỉ là đường dẫn dự phòng trên máy phát triển hiện tại.
-Xuất: output/pdf/dt_cppps_manuscript_virtual.pdf và reports/dt_cppps_manuscript_virtual.pdf.
-Có thể tải thư mục paper lên công cụ LaTeX do chính tác giả cho phép; người dùng
-phải tự quyết định việc gửi bản thảo chưa công bố ra dịch vụ bên ngoài.
+Cần Tectonic hoặc pdfLaTeX. Gói mẫu giữ llncs.cls; không tự thay font/lề để ép
+số trang. Giới hạn trang và quy định AI/tác giả phải rà theo hội nghị cụ thể.
 
-## Phân biệt các loại bằng chứng
+Bản rộng trước khi thu hẹp ở Git commit7bbde4a. Các thí nghiệm điều khiển toàn
+chu trình và tối ưu toàn mô hình được giữ trong lịch sử/evidence, không dùng
+làm bằng chứng cho câu hỏi hẹp hiện tại. Chỉ hai bảng giám sát/ETA được sinh
+và đưa vào bài. Kết quả ML kém về thời gian báo và ngoài miền vẫn được công bố.
 
-- Số liệu lấy từ Docker candidate-20261102-qualification, không phải phép đo máy thật.
-- 24 lượt đạt tiêu chí nghĩa là 18 đặt phôi và 6 dừng còn được hỗ trợ trong mô phỏng;
-  không phải cả 24 đều sản xuất thành công.
-- So bật/tắt giới hạn tốc độ tái cấu hình, không phải PLC tuần tự đối đầu DT.
-- Nhánh MuJoCo chưa đạt hạn 20 ms; kết quả không đạt vẫn được nêu trong bài.
-- Mô hình toán là mô tả thuật toán/giả thiết; chưa chứng minh ổn định hoặc an toàn vật lý.
-- Tối ưu native MuJoCo và chạy nền có bằng chứng riêng ngày 03/11; không trộn
-  với bảng thời gian ngày 02/11. Chạy nền chỉ quan sát, chưa điều khiển.
+Các phần vật lý để trống; không tự thêm số. Chưa có kết quả second-device,
+nguồn PLC/mạng thật, độ chính xác chẩn đoán máy thật hoặc tự phục hồi. Đổi tên
+sự kiện trong kiểm tra phần mềm không phải thử nghiệm trên máy thứ hai.
 
-## Các phần cố ý chưa điền
-
-Thiết lập và hiệu chuẩn máy thật; đồng bộ PLC/mạng thực; lỗi và độ chính xác đặt
-phôi vật lý; so sánh PLC tuần tự. Tác giả, đơn vị, tài trợ, xung đột lợi ích và
-công bố dùng AI cũng cần người chịu trách nhiệm xác nhận; không sao chép từ bài mẫu.
-
-## Rà soát của tác giả trước khi nộp
-
-Đã đối chiếu nguồn và dữ liệu bằng trợ lý, chưa có xác nhận của tác giả chịu
-trách nhiệm. evidence/claims.csv liên kết nhóm nhận định với nguồn; các trường
-human_verification giữ pending. evidence/audit.json không tự cấp chứng nhận.
-Chuẩn định dạng phải rà lại theo hội nghị cụ thể, kể cả giới hạn trang, thông
-tin tác giả, tài liệu tham khảo, khả năng tiếp cận và yêu cầu công bố dùng AI.
-Không suy việc dùng template LNCS thành bài đã được Springer chấp nhận.
-
-
-Bổ sung 03/11: body.tex có phần tối ưu native rollout. Bảng cũ 02/11 được giữ riêng; bảng mới lấy từ candidate-20261103-native-physics. Không biến thể nào tính đủ trong hạn 20 ms ở các mẫu mới; các mục vật lý vẫn trống.
-
-Bổ sung tiếp: phần Observation-Only Background Forecasts gắn E005, lấy từ ảnh
-candidate-20261103-background-observer. So sánh ba chu trình có nhịp thời gian;
-không diễn giải thành kiểm chứng thời gian thực hoặc năng lực điều khiển từ dự báo cũ.
-
-
-Bổ sung 06/11/2026: E009 gắn mô hình Ridge dự báo phần dư thời điểm PS3, các
-split 32/8/8/9/4 và đối chứng bù hằng số có công bố hậu kiểm. E010/E011 gắn
-thử kín đoạn băng và phản ví dụ mất truyền động. Không trộn các nhóm này với
-24 chu trình cũ; không gọi ETA tốt hơn là năng suất hoặc khả năng tự hồi phục.
-Title/abstract giữ trong tệp riêng và chưa sửa ở mục này; các mục vật lý vẫn trống.
-
-Bản 2026-11-06 bổ sung mục 6.4 và bảng giám sát ETA từ E012: 31 bản ghi/465 lượt phát lại, ML không báo sớm hơn bù hằng số. Phân biệt từ chối dữ liệu, dự phòng và lỗi vật lý; phần vật lý tiếp tục trống.
+Hai nguồn mới Shao2023/Lu2024 đã xem tóm tắt tác giả và metadata NIST; chưa
+xác minh toàn văn. Những thông tin đó được ghi ở literature_scope_20261106.json.
+Bản thảo chưa sẵn sàng nộp, không có bảo đảm được hội nghị chấp nhận.

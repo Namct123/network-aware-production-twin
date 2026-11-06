@@ -17,6 +17,13 @@ class DeliveryTest(unittest.TestCase):
         self.assertFalse(any(forbidden.intersection(Path(n).parts) for n in names))
         self.assertFalse(any(Path(n).suffix in {'.pdf','.docx','.env','.pyc'} for n in names))
 
+    def test_focused_context_keeps_method_and_testbed_without_full_controller(self):
+        names={p.relative_to(ROOT).as_posix() for p in context_files('monitoring')}
+        self.assertTrue({'mujoco/event_window.py','mujoco/study_eta_monitor.py','mujoco/parametric_cell.py'}<=names)
+        self.assertFalse(any(n.startswith(('web/','fusion/','scenes/')) for n in names))
+        self.assertNotIn('mujoco/runtime.py',names);self.assertNotIn('mujoco/reconfiguration.py',names)
+        self.assertLess(len(names),len(context_files()))
+
     def test_headless_rejects_view_before_starting_a_simulation(self):
         result = subprocess.run([sys.executable,str(ROOT/'scripts/portable_bundle/launch.py'),'demo','--view'],
                                 env={**os.environ,'DT_CONTAINER_HEADLESS':'1'},capture_output=True,text=True)

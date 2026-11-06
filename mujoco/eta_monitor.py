@@ -3,6 +3,7 @@ from copy import deepcopy
 import math
 from eta_ml import predict,predict_from_pulse
 from pulse_observer import PulseObserver
+from event_window import EventWindow
 
 
 def calibration_context(config):
@@ -34,7 +35,7 @@ class EtaEventMonitor:
         self.pulse=PulseObserver(config,settings["pulse_settings"],settings["length_guard_m"])
         self.model=deepcopy(model);self.settings=deepcopy(settings);self.method=method
         self.speed=None;self.constant=True;self.prediction=None;self.outside=False
-        self.previous_down=None;self.seen=False;self.streak=0;self.first_alert=None
+        self.window=None;self.first_alert=None
 
     def issued(self,now,speed):
         self.pulse.issued(now,speed)
@@ -48,7 +49,7 @@ class EtaEventMonitor:
                 "eta_interval_s":None,"outside_training_feature_box":self.outside,"fallback_reason":None,"data_issue":None}
         # A missing sample cannot establish absence through receiver wall time.
         if not pulse["usable_for_monitoring"]:
-            self.previous_down=None;self.streak=0
+            if self.window is not None:self.window.observe(None,None,eligible=False)
             issue=("no_packet" if frame is None else "stale_packet" if now-frame.source_time_s>self.pulse.core.config["timing"]["max_age_s"]+1e-9 else "signal_quality_unavailable" if any(frame.quality.get(k)!="good" for k in ("ps1","ps2")) else "edge_history_incomplete" if self.pulse.fit is not None else "upstream_pulse_not_ready")
             return {**result,"status":pulse["status"] if self.pulse.fit is None else "history_or_transport_unusable","data_issue":issue}
         down=frame.values["ps2"];t=frame.source_time_s
@@ -60,6 +61,7 @@ class EtaEventMonitor:
             eta={"pulse":point,"constant":max(self.pulse.fit["at_s"],point+self.model["constant_bias_s"]),"ml":learned["eta_s"]}[self.method]
             radius=self.settings["radii_s"][self.method]
             self.prediction=[max(self.pulse.fit["at_s"],eta-radius),eta+radius]
+            self.window=EventWindow(self.prediction,self.pulse.fit["at_s"],self.settings["confirm_samples"])
         reason="profile_outside_calibration" if not self.context_matches else "command_changed" if not self.constant else "outside_training_feature_box" if self.outside else None
         result.update(outside_training_feature_box=self.outside,fallback_reason=reason)
         if reason is not None:
@@ -67,20 +69,7 @@ class EtaEventMonitor:
             result.update(basis="engineering_pulse_fallback",status=pulse["status"],finding=pulse["finding"],alert=pulse["alert"])
         elif self.prediction is not None:
             result.update(basis="eta_"+self.method,status="within_empirical_envelope",eta_interval_s=list(self.prediction))
-            if down and self.previous_down is None:
-                self.seen=True;result["status"]="target_present_without_resolved_edge"
-            else:
-                rising=self.previous_down is False and down
-                finding=None
-                if rising:
-                    self.seen=True
-                    if t<self.prediction[0]-1e-9:finding="target_earlier_than_eta_envelope"
-                    elif t>self.prediction[1]+1e-9:finding="target_later_than_eta_envelope"
-                if not self.seen and not down and t>self.prediction[1]+1e-9:finding="expected_target_edge_missing"
-                self.streak=self.streak+1 if finding else 0
-                alert=bool(finding) and (rising or self.streak>=self.settings["confirm_samples"])
-                result.update(finding=finding,alert=alert,status="prediction_observation_mismatch" if alert else result["status"])
-        self.previous_down=down
+            result.update(self.window.observe(t,down))
         if result["alert"] and self.first_alert is None:
             self.first_alert={"time_s":now,"source_time_s":t,"basis":result["basis"],"finding":result["finding"]}
         return result

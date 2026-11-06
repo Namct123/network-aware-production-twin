@@ -1,76 +1,34 @@
-name: Validate project
-
+name: Validate focused monitoring study
 on:
   push:
   pull_request:
-
 permissions:
   contents: read
-
 jobs:
-  docker-candidate:
+  monitoring:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     env:
-      DT_IMAGE_TAG: candidate-20261104-sensor-drive-v2
+      IMAGE: production-twin-dt:candidate-ci-monitoring
     steps:
       - uses: actions/checkout@v7
-      - name: Build headless DT candidate (no registry push or accepted tag)
+      - name: Check delivery boundary and build focused candidate
         run: |
-          mkdir -p output/docker
-          chmod 777 output/docker
           python3 docker/test_delivery.py
-          python3 docker/build_image.py
-      - name: Test pre-hardware software batch inside image
-        run: docker compose run --rm dt software-check
-      - name: Test learned ETA and admissible event monitoring inside image
-        run: docker compose run --rm --entrypoint python dt -m unittest discover -s mujoco -p 'test_eta*.py'
-      - name: Test paired MuJoCo scenarios inside image
+          python3 docker/build_image.py --scope monitoring --tag candidate-ci-monitoring
+          mkdir -p output/docker
+          chmod a+rwx output/docker
+      - name: Check event kernel, predictors and evidence gates
+        run: docker run --rm --network none --read-only "$IMAGE"
+      - name: Reproduce normal segments and monitoring case study
         run: |
-          docker compose run --rm dt predictive-check
-          python3 -c "import json; from pathlib import Path; c=json.loads(Path('mujoco/configs/measured_cell_20261030.json').read_text()); c['prediction']['wall_budget_s']=1.0; Path('output/docker/ci-measured-functional.json').write_text(json.dumps(c))"
-          docker compose run --rm dt measured-check --config /app/output/ci-measured-functional.json
-          docker compose run --rm dt observer-check
-          docker compose run --rm dt reconfiguration-check
-          docker compose run --rm dt robustness-check --plan /plans/robustness_smoke.json
-          docker compose run --rm dt adaptive-check --plan /plans/adaptive_speed_smoke.json
-          docker compose run --rm dt recovery-check
-          docker compose run --rm dt physics-check
-      - name: Preserve simulation evidence
+          docker run --rm --network none --read-only -v "$PWD/output/docker:/app/output" "$IMAGE" mujoco/study_eta_ml.py --output /app/output/ci_ml
+          docker run --rm --network none --read-only -v "$PWD/output/docker:/app/output" "$IMAGE" mujoco/study_eta_monitor.py --source /app/output/ci_ml --output /app/output/ci_monitor
+          python3 -c "import json; from pathlib import Path; actual=json.loads(Path('output/docker/ci_monitor/results.json').read_text()); expected=json.loads(Path('docker/evidence/candidate-20261106-eta-monitor-v2.json').read_text())['study']; assert actual==expected"
+      - name: Preserve virtual evidence
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: docker-candidate-evidence
+          name: monitoring-study-evidence
           path: output/docker/
           if-no-files-found: ignore
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: actions/setup-python@v7
-        with:
-          python-version: '3.12'
-      - name: Check MuJoCo and CAD inputs
-        run: |
-          python -c "from pathlib import Path; required=['mujoco/production_cell.urdf','mujoco/production_cell.xml','cad_reference/production_twin_v0_parts.csv']; assert all(Path(p).is_file() for p in required); assert not Path('unity').exists()"
-      - name: Test Digital Twin signal contract and replay
-        run: python mujoco/test_signals.py
-      - name: Test Digital Twin estimator and sequence
-        run: python mujoco/test_sequence.py
-      - name: Test machine profiles, calibration and network transport
-        run: python mujoco/test_configuration.py
-      - name: Test bounded prediction and supervisory policy selection
-        run: python mujoco/test_prediction.py
-      - name: Test local experiment boundary and paired comparisons
-        run: python web/test_experiments.py
-      - name: Test causal prediction-observation residual boundary
-        run: python mujoco/test_innovation.py
-      - name: Test calibration split and observed-event fitting
-        run: python mujoco/test_interval_calibration.py
-      - name: Test upstream pulse estimate and discontinuity rejection
-        run: python mujoco/test_pulse.py
-      - name: Test pulse network history and causality guards
-        run: python mujoco/test_pulse_network.py
-      - name: Test closed-loop reference timeout and prediction gate
-        run: python mujoco/test_closed_loop_segment.py
-      - name: Test alternative confirmation and stop-boundary prerequisites
-        run: python mujoco/test_model_confirmation.py

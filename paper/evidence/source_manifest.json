@@ -1,11 +1,10 @@
 {
   "prepared_on": "2026-11-06",
+  "scope": "event_monitoring_focus_v1",
   "status": "working_draft_human_verification_pending",
   "physical_evidence": null,
-  "baseline_artifact_commit": "93d60ca",
-  "native_candidate_image": "sha256:d7458ca5cc4766b8a537aa80b77b48bcf6e32096c49574f2a42606132f22aa27",
-  "background_candidate_image": "sha256:6b492b8a086469154e4853bc50161672db58eb8633a8645c8bbf24b629e0e914",
   "author_approval": false,
+  "historical_draft_commit": "7bbde4a",
   "literature_sources": {
     "E108": {
       "key": "Negri2017",
@@ -51,6 +50,21 @@
       "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0166361519304385",
       "locator": "Institutional abstract lines 8-23 and publisher article metadata",
       "scope": "Manufacturing services and production-control/MES integration. Historical review findings are not a current universal gap."
+    },
+    "E114": {
+      "key": "Shao2023",
+      "doi": "10.1016/j.mfglet.2022.11.009",
+      "url": "https://www.nist.gov/publications/credibility-consideration-digital-twins-manufacturing",
+      "metadata_url": "https://www.nist.gov/programs-projects/digital-twins-advanced-manufacturing",
+      "locator": "NIST author abstract, lines124-127; NIST program publication list gives journal35,24-28,2023. Landing-page release date is2022.",
+      "scope": "Life-cycle VVUQ and credibility for intended decision support; primary author abstract read, full text not verified."
+    },
+    "E115": {
+      "key": "Lu2024",
+      "doi": "10.1109/CASE59546.2024.10711607",
+      "url": "https://www.nist.gov/publications/overarching-quality-evaluation-framework-additive-manufacturing-digital-twin",
+      "locator": "NIST author abstract lines124-128 and publication metadata lines129-161",
+      "scope": "Tracking quality issues through digital-twin development objects; primary author abstract read, full text not verified."
     }
   },
   "literature_records": [
@@ -61,142 +75,20 @@
     {
       "path": "paper/evidence/literature_metadata_20261103.json",
       "sha256": "034e32e5ffb86fc7b130322388568a1deda4dc457f5cf8ae17589fdd510fc017"
+    },
+    {
+      "path": "paper/evidence/literature_scope_20261106.json",
+      "sha256": "8b3736b2b3cb3ee1498ec7d1ae71dd5cb968737def71a0acf03c8ca542ba7206"
     }
   ],
   "sources": {
-    "E001": [
-      {
-        "path": "docker/evidence/candidate-20261102-qualification.json",
-        "sha256": "6834465472411197a1f06632949d58889cefb5167fbe1f209abfe8ec69539939"
-      }
-    ],
-    "E002": [
-      {
-        "path": "mujoco/runtime.py",
-        "sha256": "37670d233f965545f10a9c821a95252fe15daaacd310716f159d03ad21acfe64"
-      },
-      {
-        "path": "mujoco/estimator.py",
-        "sha256": "b6a3755c039f44d5a539187b60a3931ce98e433fd772e5f6f61ef2343870916a"
-      },
-      {
-        "path": "mujoco/predictor.py",
-        "sha256": "05a26ed28862413873387a1ec40865e2f4cbaf436d6dbf1608f6440ad5c4b740"
-      },
-      {
-        "path": "mujoco/physics_predictor.py",
-        "sha256": "36c703bc79d49713c5e25f88a7d34c11275300642b76a3f9dd559e5f33cbcdd2"
-      },
-      {
-        "path": "mujoco/sequence.py",
-        "sha256": "7765621c6af407ffe5785d283310cd802f9654e6a1c0186595a2627210db84af"
-      },
-      {
-        "path": "mujoco/reconfiguration.py",
-        "sha256": "48aaafc37ab0c18757e50d6bb268927c062003c6727671658d9834c623be31c1"
-      },
-      {
-        "path": "mujoco/check_robustness.py",
-        "sha256": "01b0aa364e76d281c7befc4b18aab88820588b20d5c9935fe14b3ba1098e6086"
-      },
-      {
-        "path": "mujoco/qualify.py",
-        "sha256": "d3caa09726081a5c4b3dd27de81a94309f8d42a4fa961ce9b342d063a2025dd3"
-      }
-    ],
     "E003": [
       {
         "path": "mujoco/configs/reconfigurable_cell_20261030.json",
         "sha256": "a875fecf1be13e913ea65c336b33d218573a680ad09a46007a8dbae52fd9f0b2"
-      },
-      {
-        "path": "mujoco/experiments/qualification_20261102.json",
-        "sha256": "5c453625c09582985949e17fda6d3e1c4f31664def78e03e856a8f6a7bb31e5d"
-      }
-    ],
-    "E004": [
-      {
-        "path": "docker/evidence/candidate-20261103-native-physics.json",
-        "sha256": "1fcfcf2e9648735e4cad40f771cf35ed76c3dc0a85c22b75122e0fc3b7113f66"
-      },
-      {
-        "path": "mujoco/check_physics_optimization.py",
-        "sha256": "803a8249c3984bcf127f2aa12bdc5e3c7fe3ff75fbf942a444d481802fba8b2e"
-      }
-    ],
-    "E005": [
-      {
-        "path": "docker/evidence/candidate-20261103-background-observer.json",
-        "sha256": "50fe081b101752b13879f1bd08cfcd39b01b667695e4442b73687062178bd6d2"
-      },
-      {
-        "path": "mujoco/background_forecast.py",
-        "sha256": "a5113f4ce76a69d1200585dddc9422ee89eadafeb31d1d241577e69a679a0868"
-      },
-      {
-        "path": "mujoco/check_background.py",
-        "sha256": "6c6d56727731cf19d194a63880f7cf677e81caa53a31ddc43cc2ea682e4c907c"
-      },
-      {
-        "path": "mujoco/configs/background_observer_20261103.json",
-        "sha256": "5a0b2a450b0ffe6bf92a54093e29cecfac886d9daa5fa61d40d95bb6406fc021"
-      }
-    ],
-    "E006": [
-      {
-        "path": "docker/evidence/candidate-20261103-model-audit.json",
-        "sha256": "01a55d79a39b577afe1fe19f1c9354881ef22d53f00fd519603ec0d7d9a0ed29"
-      },
-      {
-        "path": "mujoco/audit_background.py",
-        "sha256": "881d7dc3861e2ddcc822d14adfa2b33ceb0f8d5917f8abac7226b58e0794e772"
-      },
-      {
-        "path": "mujoco/test_background_audit.py",
-        "sha256": "d0821cfdce11d31502a84dfc5386864cb47b3033313352264e633694829d50fe"
-      }
-    ],
-    "E007": [
-      {
-        "path": "docker/evidence/candidate-20261103-boundary-study.json",
-        "sha256": "d05ac76b2c33d2e4277daf9e8b99a82ffe2ad675cbae3d4c6cb6ee726a7882b3"
-      },
-      {
-        "path": "mujoco/study_model_boundary.py",
-        "sha256": "ec6364d267c94d72d4201de0929e0ff75f00cb7381ac9ba620322c482bcf92c8"
-      },
-      {
-        "path": "mujoco/experiments/model_boundary_20261103.json",
-        "sha256": "50eb8b56762a8dd8f1fcb4049454053d176b0a192cad49ea420b55b70cf5ebd7"
-      }
-    ],
-    "E008": [
-      {
-        "path": "docker/evidence/candidate-20261103-software-v2.json",
-        "sha256": "6fd50586449815ba7fafc39610b2169098d75efb168bdab6ab8a9a1d3787cd85"
-      },
-      {
-        "path": "mujoco/stream_input.py",
-        "sha256": "17fa74d696f0a9f3afa2189c3cd88a7b50675b550c29bbc77bac37523f901d5e"
-      },
-      {
-        "path": "mujoco/check_stream.py",
-        "sha256": "55fdc4f153d544c387d51b43905080c7efe0b00fc849652c219614ea8874c1d5"
-      },
-      {
-        "path": "mujoco/check_software.py",
-        "sha256": "4ba3a359fcb0335023a76d3ab1f40bc8155106a7487a1e53f1d1c2081af2115a"
-      },
-      {
-        "path": "mujoco/software_release_v2.json",
-        "sha256": "01c26d9ae76ee7d431f242bedfc66d80f6e82ff6e6b5609725c90abe84b1d77a"
       }
     ],
     "E009": [
-      {
-        "path": "paper/evidence/eta_ml_recording_audit_20261106.json",
-        "sha256": "14947eb12d91671c1edbe0a6b17f6bb2baf8537258505f00c1d4f40272d6e7ff"
-      },
       {
         "path": "docker/evidence/candidate-20261106-eta-ml-v2.json",
         "sha256": "48d4d299d20a1f8d62bd381e629efeccdf6f0d2718e9c0ec65c9c429f6a4f858"
@@ -206,28 +98,16 @@
         "sha256": "f101a1513ed70729a7a879285d3e0ae0fef7812afe28ad13f4645f6bddb5d40b"
       },
       {
+        "path": "paper/evidence/eta_ml_recording_audit_20261106.json",
+        "sha256": "14947eb12d91671c1edbe0a6b17f6bb2baf8537258505f00c1d4f40272d6e7ff"
+      },
+      {
         "path": "mujoco/eta_ml.py",
         "sha256": "39e45bb9a5fb44160a5c9ab2750061dc96b691c970be205896fd5b2c0f3b597c"
       },
       {
-        "path": "mujoco/study_eta_ml.py",
-        "sha256": "2f3506e165e2169b047a238cb6e9d9c493a923ae0fba20f9c0c61746d98d30d9"
-      },
-      {
-        "path": "mujoco/experiments/eta_ml_20261106.json",
-        "sha256": "b5ced27adcb278f9a75f3f2075fd0e65f44da1d87943faf00850af17544dc25b"
-      }
-    ],
-    "E010": [
-      {
-        "path": "docker/evidence/candidate-20261106-closed-loop.json",
-        "sha256": "fcb5228fd57a35a9096fa35f8b08b7ac877c0d36a3343f5da412b9a4e4caaa59"
-      }
-    ],
-    "E011": [
-      {
-        "path": "docker/evidence/candidate-20261106-confirmation-v2.json",
-        "sha256": "3070e7e9fccbbf8e8c0d11e452fd60549ef282f4072cde0f30bc4315875611bc"
+        "path": "mujoco/models/eta_residual_v1.json",
+        "sha256": "3514af2aa660915062b14592da66aa764ec04d953a47c433cc6b7991792fbe2f"
       }
     ],
     "E012": [
@@ -236,20 +116,34 @@
         "sha256": "cee75042a3fd70c008005232c48cb97f6c92cc39f8676d82fc144de6b41bd3ac"
       },
       {
-        "path": "mujoco/eta_monitor.py",
-        "sha256": "5ed2a66c16a8784a62117fac7c1754399fc29d5bd3eb3c379416321b7f2ec8e0"
-      },
-      {
-        "path": "mujoco/study_eta_monitor.py",
-        "sha256": "f86394038b99222cc3ecfcf5b19891cbfbe4db5a69862c394eb6c05d6a68d0be"
-      },
-      {
         "path": "mujoco/models/eta_monitor_v1.json",
         "sha256": "5abaeaa151a157bb0534c5b4302beb1fcb26ec1e51e35a931fcc5c4be942c346"
       },
       {
         "path": "mujoco/experiments/eta_monitor_20261106.json",
         "sha256": "5222e5b03b722d6f49d7fd765ce9806ba5193c0277f45fb49c5133de50b852b9"
+      }
+    ],
+    "E013": [
+      {
+        "path": "docker/evidence/candidate-20261106-monitoring-focus.json",
+        "sha256": "0e70e1a39d7f62c28408c5ce13bf2d17c4ca5c064a0dec4f7d50606255b040be"
+      },
+      {
+        "path": "research_scope.json",
+        "sha256": "40a1966c48b8e113c716737e1fa4ed085c710a1018473e66b71b6199c12e5def"
+      },
+      {
+        "path": "mujoco/event_window.py",
+        "sha256": "da9199da5b5cda39a1b947ff2b88219913409e43cce7df418d4b1bb87f921d2b"
+      },
+      {
+        "path": "mujoco/eta_monitor.py",
+        "sha256": "8465cb3a0cfcd5dbab3733d00b2d8f6a9f61b71bbd45dc272ea94115e423764a"
+      },
+      {
+        "path": "mujoco/test_eta_event_window.py",
+        "sha256": "4df07eafaf81cdc5a3edb9126cf8c5ab1729195076795b5aa863e2b3fb4454c4"
       }
     ]
   }

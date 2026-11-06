@@ -923,3 +923,44 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   làm thay đổi dữ liệu/mô hình/kết quả. Kiểm tra trực quan trang mới và toàn bài.
 - Chưa nối cảnh báo vào chính sách RuntimeCore hoặc quyền ghi PLC; không suy
   cảnh báo đủ ca ảo thành năng suất hoặc độ chính xác chẩn đoán máy thật.
+
+
+### 078 — Thu hẹp câu hỏi để có nghiên cứu hoàn thành được
+
+- Theo yêu cầu người dùng, tập trung giám sát sự kiện có xét độ mới/lịch sử dữ
+  liệu; phương pháp dành cho lớp hệ sản xuất có sự kiện dự đoán được. Dây chuyền
+  hiện tại là bệ kiểm thử, không phải đối tượng duy nhất của cách phát biểu.
+- Không tiếp tục lấy ML luôn tốt hơn, tự phục hồi toàn dây chuyền hoặc tăng tốc
+  toàn mô hình3D làm mục tiêu bài. Giữ các nhánh và bằng chứng cũ để truy vết,
+  không xóa lõi/profile hoặc che kết quả bất lợi. Kế hoạch ở docs/pham_vi_bai_bao_20261106.md.
+- Chốt ba bước còn thiếu: tập điều kiện mới chưa xem; đối chứng nhận thức mạng
+  dùng/không dùng source time; bộ nối sự kiện thứ hai. Chưa có kết quả cho các
+  mục này, không trình bày như đã kiểm chứng. Không bảo đảm được nhận bài.
+
+### 079 — Tách lõi tổng quát và gói chạy32 tệp
+
+- event_window.py không chứa tên/tọa độ băng tải, robot hay PLC. eta_monitor.py
+  dùng lại lõi này; bộ nối vẫn mang mô hình/điều kiện riêng của xung quang.
+- Contract tests với tên sự kiện khác chỉ kiểm tra giao diện, không phải thử
+  trên nhiều máy. Giữ một ca MuJoCo thực sự được đánh giá.
+- Dockerfocused13 kiểm tra; lõi đầy đủWSL168; kiểm tra giao gói3.61 đoạn học,
+  465 summary và toàn bộ465 log quyết định khớp bản trước sau khi tách. Hash
+  nguồn đúng, bản accepted không đổi. Candidate ID/receipt ở docker/RELEASES.md.
+- Thêm tùy chọn --scope monitoring cho builder; Dockerfile riêng và allowlist
+  research_scope.json. CI tập trung vào mô đun và tái lập đúng nghiên cứu hẹp.
+  Gói ZIP riêng chứa lõi cần chạy, bệ thử, bài báo và hướng dẫn, không gom các
+  nhánh cũ vào bản giao nghiên cứu này.
+
+### 080 — Bài báo phương pháp, hệ thống là nghiên cứu tình huống
+
+- Viết lại title/abstract và body theo phạm vi mới; vẫn tách file title/abstract.
+ 217 từ abstract,14 nguồn bài báo, giữ class/font/lề LNCS. Bài tập trung9 trang;
+  các bảng toàn chu trình/tối ưu cũ không còn đưa vào nguồn hiện hành.
+- Bổ sung định nghĩa sự kiện/tuổi dữ liệu/điều kiện dùng dự báo, vai trò bộ nối,
+  cảnh báo so với thiếu bằng chứng, và giới hạn áp dụng sang máy khác.
+- Giữ đầy đủ kết quả ML ít lợi ích, báo muộn hơn và phản ví dụ cùng tín hiệu;
+  không suy lớp phương pháp tổng quát thành đã kiểm chứng đa hệ thống.
+- Nguồn Shao2023/Lu2024 xem tóm tắt/metadata NIST, ghi rõ chưa xác minh toàn văn.
+  Phần vật lý, tác giả và phê duyệt vẫn để trống/chưa duyệt. Bản rộng lịch sử ở
+  Git7bbde4a. Bộ sinh có lỗi chuỗi lúc đổi cấu trúc, đã sửa trước xuất PDF;
+  chỉnh câu tràn lề, không đổi font hoặc thu lề để ép trang.

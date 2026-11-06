@@ -1,0 +1,21 @@
+{
+  "checked_on": "2026-11-06",
+  "human_verification": "pending",
+  "sources": {
+    "E114": {
+      "key": "Shao2023",
+      "doi": "10.1016/j.mfglet.2022.11.009",
+      "url": "https://www.nist.gov/publications/credibility-consideration-digital-twins-manufacturing",
+      "metadata_url": "https://www.nist.gov/programs-projects/digital-twins-advanced-manufacturing",
+      "locator": "NIST author abstract, lines124-127; NIST program publication list gives journal35,24-28,2023. Landing-page release date is2022.",
+      "scope": "Life-cycle VVUQ and credibility for intended decision support; primary author abstract read, full text not verified."
+    },
+    "E115": {
+      "key": "Lu2024",
+      "doi": "10.1109/CASE59546.2024.10711607",
+      "url": "https://www.nist.gov/publications/overarching-quality-evaluation-framework-additive-manufacturing-digital-twin",
+      "locator": "NIST author abstract lines124-128 and publication metadata lines129-161",
+      "scope": "Tracking quality issues through digital-twin development objects; primary author abstract read, full text not verified."
+    }
+  }
+}

@@ -1,80 +1,16 @@
-# Hướng nghiên cứu hiện tại — 2026-11-05
+# Hướng nghiên cứu hiện tại — 2026-11-06
 
-## Material Passport
+Phạm vi đang có hiệu lực: **giám sát sự kiện dự báo có điều kiện dữ liệu**, áp
+cho lớp hệ sản xuất có sự kiện dự đoán được. Dây chuyền hiện tại là một bệ thử.
 
-- Origin Skill: experiment-agent (tham khảo thiết kế và giới hạn bằng chứng)
-- Origin Mode: plan; triển khai mã theo ủy quyền trực tiếp của người dùng
-- Origin Date: 2026-11-05
-- Verification Status: kế hoạch nghiên cứu; không phải kết quả kiểm chứng vật lý
-- Version Label: predictive_residual_scope_v1
+Đọc [bản chốt phạm vi](pham_vi_bai_bao_20261106.md) để xem câu hỏi, phần giữ/
+tạm hoãn, giới hạn tổng quát hóa và ba thí nghiệm cần ưu tiên. Cách chạy ở
+[chạy gói giám sát](chay_goi_giam_sat.md); cấu hình nguồn ở research_scope.json.
 
-## Câu hỏi chính
+Bản kế hoạch rộng trước đây đã được thay bởi phạm vi này theo yêu cầu người
+dùng; lịch sử ở Git commit7bbde4a. Lõi DT và profile không bị xóa. Mục tiêu
+PLC tự cấu hình là hướng dài hạn, chưa phải đóng góp được kiểm chứng của bài.
 
-Với cùng thông tin đầu vào, hệ có thể phát hiện sai lệch dự đoán–quan sát và chọn
-cấu hình tốt hơn để tiếp tục làm việc trong điều kiện tín hiệu/mạng suy giảm không?
-Không mặc định câu trả lời là có. ML chỉ được giữ nếu bổ sung lợi ích có đối chứng.
-
-## Các mục phải làm theo thứ tự
-
-1. Bộ so sánh độc lập: dự đoán trước khi nhận mốc cần kiểm tra, tính miền sai số,
-   kiểm tra tín hiệu và thời gian; dữ liệu thật chỉ dùng để chấm ngoài lõi.
-2. Hiệu chuẩn miền sai số trên tập bình thường riêng, kiểm tra mức bao phủ và báo
-   nhầm trên tập chưa dùng để chọn tham số. Không gọi khoảng giả định là 95%.
-3. So với timeout và quy tắc thích nghi có cùng dữ liệu. Kết quả ngoại tuyến không
-   được chuyển thành kết luận tăng năng suất hoặc hồi phục chu trình.
-4. Tạo chế độ suy giảm có giới hạn: tốc độ, thời gian, nguồn xác nhận và điều kiện
-   chuyển bước. Thử kín trong mô phỏng; không tự bỏ qua liên động/feedback chưa có.
-5. Thêm ML để học sai lệch hoặc đánh giá bất thường; tách train/validation/test
-   theo phiên/điều kiện, không trộn các mẫu gần nhau hoặc lặp xác định để phóng đại
-   độ chính xác. Giữ đối chứng quy tắc và DT không ML.
-6. Hợp đồng PLC: yêu cầu chế độ/phiên bản, tham số giới hạn, hạn hiệu lực, ACK,
-   trạng thái thực thi và chuyển HOLD khi không hợp lệ. Chưa có bộ ghi S7 thật.
-7. Đo và kiểm chứng vật lý sau cùng theo yêu cầu người dùng; cập nhật tham số
-   thay vì viết cứng số đo chưa có.
-
-## Điều chưa thể suy ra
-
-Không có mốc đầu vào thì không khẳng định đã biết vị trí. Hai lỗi cùng quan sát
-thì chưa tách được nguyên nhân. Mất truyền động thật không có nghĩa phần mềm có
-thể tạo đường cơ khí thay thế. Camera là khả năng bổ sung, chưa phải dữ liệu đo.
-
-## Tiêu chí chấp nhận nghiên cứu
-
-- Phát hiện: báo nhầm, bỏ sót trong cửa sổ quan sát đủ dài, thời gian từ dấu hiệu
-  quan sát được tới báo; tách với thời gian từ lúc chèn lỗi.
-- Mô hình: mức bao phủ khoảng theo điều kiện, độ rộng và sai số dự đoán.
-- Vận hành: số sản phẩm đúng, thời gian dừng, vi phạm ràng buộc và chi phí tính.
-- Mỗi phép so phải cùng thông tin, điều kiện và ngân sách tính; báo cả ca không
-  có lợi, hết quan sát hoặc không đủ thông tin. Chưa cam kết % cải thiện.
-
-## Tinh giản
-
-Ưu tiên các mục trên. Không tiếp tục thêm giao diện, đổi engine, RL hoặc bản thảo
-trùng nếu chưa phục vụ phép thử cụ thể. Giữ MuJoCo làm môi trường thử; giữ mô hình
-1D nhẹ và nhánh tiếp xúc để đối chiếu, chưa cho mô hình nền quyền điều khiển.
-
-## Cập nhật 2026-11-06: đã có mô hình học từ dữ liệu
-
-Đã huấn luyện Ridge sửa sai lệch ETA (thời điểm dự kiến tới cảm biến PS3), đóng
-băng trọng số và cung cấp hàm nhận trực tiếp xung PS2. Đây là phần ML đầu tiên,
-chưa phải bộ phân loại lỗi hay chính sách PLC. Test: 15,4 ms so với 18,1 ms khi
-chỉ bù sai lệch trung bình; ngoài miền ML kém hơn. Xem
-[phương pháp, đối chứng và giới hạn](mo_hinh_ml_eta_20261106.md).
-
-Mục kế tiếp là nối dự báo này vào bộ so sánh dự đoán–quan sát, giữ đối chứng bù
-hằng số và từ chối ML ngoài miền/đứt lịch sử. Phải đánh giá báo nhầm, bỏ sót và
-thời gian báo trên các kịch bản chưa dùng để chọn tham số trước khi cân nhắc
-cho kết quả tham gia chọn cấu hình. Chưa tự bỏ liên động khi mất PS3.
-
-## Cập nhật giám sát ETA — 2026-11-06
-
-Đã nối Ridge vào mô đun so dự đoán–quan sát, có miền sai số riêng cho từng
-đối chứng, kiểm tra miền và chặn dữ liệu cũ/đứt lịch sử. Đổi hình học hoặc chu
-kỳ lấy mẫu không được tiếp tục dùng miền hiệu chuẩn cũ. Kết quả và cách chạy ở
-[giám sát ETA](giam_sat_eta_ml_20261106.md).
-
-ML không báo sớm hơn bù hằng số trong 18 ca lỗi đã chấm; miền hiệu chuẩn rộng
-hơn khiến phần lớn báo muộn hơn 20–40 ms. Không ép chọn ML cho điều khiển từ
-kết quả này. Cần nối nhật ký tư vấn vào RuntimeCore, đo chi phí tính và thử các
-điều kiện mới có ý nghĩa trước khi cho chọn cấu hình. Không gọi 465 lượt phát
-lại từ 31 bản ghi là 465 lần thử độc lập.
+Không thêm giao diện, engine, RL hoặc nhánh phục hồi mới trước khi hoàn thành
+phép so với cùng thông tin, kiểm tra trên điều kiện mới, và bộ nối sự kiện thứ
+hai. Không bắt buộc ML phải thắng; mọi kết luận phải theo kết quả đã đo.
