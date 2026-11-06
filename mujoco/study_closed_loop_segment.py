@@ -80,9 +80,10 @@ def trial(folder,base,fixture,policy,zone,plan):
             prediction_misses+=sum(t["forecast"]["status"]!="complete" for t in forecasts)
             command={"front":0.,"long":speed,"targets":{},"vacuum":False,"hold":speed==0}
             decisions.write(json.dumps({"time_s":now,"received":frame.as_dict() if frame else None,"observer":record,"command":command,"stop_reason":reason,"forecasts":forecasts})+"\n")
-            truth.write(json.dumps({"time_s":now,"product_xyz_m":state["product_xyz_m"]})+"\n")
+            actual={**command,"long":0. if fixture["fault"]=="drive_stall" and fault_on else speed}
+            truth.write(json.dumps({"time_s":now,"product_xyz_m":state["product_xyz_m"],"applied_command":actual})+"\n")
             # True pose is used only here, in the evaluator, never passed to select_speed.
-            max_y=max(max_y,state["product_xyz_m"][1]);observer.issued(now,speed);cell.apply(command)
+            max_y=max(max_y,state["product_xyz_m"][1]);observer.issued(now,speed);cell.apply(actual)
             if stopped is not None and now-stopped+1e-9>=plan["settle_s"]:break
             cell.step()
     y=state["product_xyz_m"][1]

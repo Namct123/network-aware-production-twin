@@ -813,3 +813,33 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Manifest/hash và log đầy đủ giữ trong Docker receipt/output; các tệp MuJoCo
   cũ và ảnh accepted giữ nguyên. Chưa có PLC/kiểm chứng vật lý/ML được huấn luyện,
   chưa tuyên bố tăng năng suất toàn dây chuyền. Không đẩy registry/tự nghiệm thu.
+
+
+### 070 — Điều kiện xác nhận thay thế và mất truyền động
+
+- Thêm bộ đánh giá chỉ đọc: xung/lịch sử hợp lệ, dừng đủ thời gian và toàn
+  khoảng hiện tại nằm trong vùng. Tách phù hợp có điều kiện với release_eligible;
+  tiền điều kiện mô hình/chuyển động chưa được kiểm chứng nên không phát lệnh.
+- Bổ sung drive_stall ở plant, không làm biến đổi issued command hoặc cấp nhãn
+  lỗi/pose vào bộ chọn. 72 ca với tốc độ 0,16, hai gain, hai mức trễ, ba tình
+  huống, ba chính sách và hai cửa sổ giữ nguyên.
+- Audit khôi phục observer theo từng nhịp, dùng mốc dừng đã thấy; chỉ đọc pose
+  sau quyết định để chấm. 24/24 cặp PS3 không báo/băng đứng cùng quan sát và
+  quyết định, nhưng pose cuối chênh 191–271 mm. Không suy thành tỷ lệ chẩn đoán.
+
+### 071 — Phát hiện lỗi gate và chấm lại nguyên trạng
+
+- Gate đầu dùng max_speed_m_s trong cửa sổ dừng, gồm cả tốc độ bên trái biên
+  ngay trước lệnh dừng; đã từ chối sai toàn bộ với stop_not_maintained. Không
+  dùng số này như kết quả nghiên cứu.
+- Sửa theo quãng lệnh và lệnh cuối thực sự trong khoảng dừng; thêm test từng
+  chạy rồi dừng đúng biên, đồng thời từ chối chạy lại. Không sửa CommandHistory
+  chung vốn cần giá trị biên cho lượng hóa biến thiên lệnh.
+- Chấm lại dữ liệu nguyên trạng: vẫn 0/72 khoảng nằm trọn vùng, nhưng lý do
+  đúng là interval_outside_zone. Không có xác nhận sai vì không phát hành xác
+  nhận nào; không gọi đây là độ chính xác 100%.
+- Giữ candidate/audit đầu riêng. Bản đúng candidate-20261106-confirmation-v2
+  đạt 155 kiểm tra lõi, 10 web; 72 summary và audit đúng trùng pilot đã sửa.
+  Bản accepted không đổi, không đẩy registry hoặc tự nghiệm thu.
+- Báo cáo docs/xac_nhan_thay_the_20261106.md chỉ rõ cần quan sát độc lập hoặc
+  tiền điều kiện kiểm chứng, không thu nhỏ khoảng bằng tay để cho robot chạy.

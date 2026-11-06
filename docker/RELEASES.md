@@ -506,3 +506,29 @@ immutable image ID, preserved source manifest, and the tests actually run.
 - Evidence `docker/evidence/candidate-20261106-closed-loop.json`, data/logs
   `output/docker/closed_loop_segment_20261106_final`, `output/closed_loop_validation_20261106`;
   report `docs/thu_kin_doan_bang_20261106.md`.
+
+
+## 2026-11-06 — Alternative confirmation qualification (candidate v2)
+
+- Corrected tag `production-twin-dt:candidate-20261106-confirmation-v2`, ID
+  `sha256:a9bde45902a5d0852a3a6548e4b68608ba2e1039aeba317fc4576e41b60227e5`. User acceptance pending, no registry push/promotion.
+  Accepted unchanged: `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+- 155 core tests, 10 web tests; 72/72 summaries and corrected audit run/pair
+  values match pilot. Runtime hashes match host. Prior-source intentional
+  change is study_closed_loop_segment.py (plant-side drive-stall fixture);
+  existing controller/runtime/parameter profiles preserved.
+- Read-only gate requires full model interval inside provisional zone plus verified
+  prerequisites for release. No prerequisite verification supplied in this study.
+- 24/24 sensor-missing/stalled-drive pairs share observations/logical decisions while
+  final position differs 191–271 mm. Corrected gate finds 0/72 conditional positions
+  eligible (interval outside zone), releases 0; not a 100% accuracy/safety claim.
+- Superseded pilot tag candidate-20261106-confirmation, ID
+  sha256:663ace05c41d3002f429b7742683f61cdbb99a1b4583dd336aef664fc1cdbe84,
+  retained with original evidence: its stop-maintenance gate incorrectly included
+  speed immediately before stop. It is NOT the version to approve. Boundary regression
+  test fixes caller use of CommandHistory; no shared-history semantics changed.
+- Evidence `docker/evidence/candidate-20261106-confirmation-v2.json`; source/data
+  `output/docker/confirmation_20261106_final_v2`, audit
+  `output/docker/confirmation_20261106_audit_v2.json`, logs
+  `output/confirmation_validation_20261106_v2`. Report
+  `docs/xac_nhan_thay_the_20261106.md`. No actual bypass/PLC/full-cycle recovery.

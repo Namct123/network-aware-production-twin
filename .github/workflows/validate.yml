@@ -70,3 +70,5 @@ jobs:
         run: python mujoco/test_pulse_network.py
       - name: Test closed-loop reference timeout and prediction gate
         run: python mujoco/test_closed_loop_segment.py
+      - name: Test alternative confirmation and stop-boundary prerequisites
+        run: python mujoco/test_model_confirmation.py

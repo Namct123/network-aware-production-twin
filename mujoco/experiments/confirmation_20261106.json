@@ -1,0 +1,48 @@
+{
+  "kind": "closed_loop_segment_v1",
+  "speeds_m_s": [
+    0.16
+  ],
+  "plant_gains": [
+    0.9,
+    1.1
+  ],
+  "delays_s": [
+    0,
+    0.08
+  ],
+  "faults": [
+    "none",
+    "pickup_missing",
+    "drive_stall"
+  ],
+  "policies": [
+    "sequential",
+    "age_rule",
+    "predictive"
+  ],
+  "zones_m": {
+    "tight": [
+      0.01,
+      0.035
+    ],
+    "wide": [
+      0,
+      0.06
+    ]
+  },
+  "speed_candidates_m_s": [
+    0.2,
+    0.12,
+    0.08
+  ],
+  "warning_age_s": 0.02,
+  "rule_cap_m_s": 0.12,
+  "run_budget_s": 6.0,
+  "settle_s": 0.3,
+  "scope": "Exploratory model-confirmation qualification with indistinguishable drive-stall challenge; no actual sensor bypass or PLC. Existing provisional zones unchanged.",
+  "start_y_m": -0.25,
+  "drift_m_s": 0.005,
+  "length_guard_m": 0.004,
+  "timeout_slack_s": 0.2
+}
