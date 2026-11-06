@@ -199,3 +199,14 @@ This supports model-assumption failure, not exclusion of every geometric effect.
 No evaluator pose is fed to online predictors. Offline initial-high prehistory
 bug fixed; original61 study results exactly reproduced, model/envelope unchanged.
 Not a new independent validation, improved fault outcome or physical guarantee.
+
+
+E016 — Post-hoc paired simulator contact/startup diagnostic. Protocol Git1d3fc5c
+precedes execution, but conditions were already inspected in E014/E015.48 records
+are12 conditions x4 interventions, only6 complete pulses per arm. Unchanged
+observation/command/pose logs exactly match36 reference files. Artificial bridge
+surface velocity and rest settling are separate factors; production geometry,
+profile, model and envelope unchanged. Pose/orientation/forces evaluator-only.
+Pulse MAE95.6/95.6/32.2/28.9ms; old constant envelope covers4/5/0/0 of6. This
+shows simulator-contact sensitivity; not improved fault-detection, fresh
+validation, measured hardware dynamics or proposed hardware replacement.

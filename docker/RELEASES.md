@@ -668,3 +668,40 @@ immutable image ID, preserved source manifest, and the tests actually run.
   output/docker/pulse_model_audit_20261106_final. No live PLC/network integration.
 - User acceptance pending, no promotion or registry push. Accepted remains
   `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+
+
+## 2026-11-06 — Paired simulator contact/startup diagnostic (candidate)
+
+- Tag `production-twin-dt:candidate-20261106-contact-startup`, ID
+  `sha256:c95ae2815042655826d2e3d4fead77af93327a880a774863dae9c60b5fea80fc`.
+- 176 WSL full-core,21 focused Docker and3 delivery-boundary checks pass.40-file
+  runtime context; hashes match. Prior runtime files unchanged except explicit
+  allowlist extension. Original models, profiles and monitors unchanged.
+- 48 records on12 already inspected conditions,4 paired interventions; only6
+  complete pulses per arm.12 baseline runs reproduce36 reference files exactly.
+  All36 input and192 output hashes match; WSL/container results equal.
+- Pulse MAE95.6/95.6/32.2/28.9ms across baseline/rest/moving-bridge/both; old
+  correction envelope covers4/5/0/0 of6. Artificial moving support diagnoses
+  contact-regime sensitivity; not a production/hardware change or repaired
+  online predictor. All pose/contact-force data evaluator-only.
+- Plan frozen in Git1d3fc5c before execution; study is still post hoc because
+  conditions are already seen. Receipt docker/evidence/candidate-20261106-contact-startup.json.
+  Logs output/contact_startup_validation_20261106; data
+  output/docker/contact_startup_20261106_final. No new independent validation.
+- User acceptance pending, no promotion or registry push. Accepted remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+
+
+### Final portability revision — candidate-20261106-contact-startup-v2
+
+- ID `sha256:cbb75a046f399d2554f11bdd167d947574f18531700a7f14112a9f8acaafd3e2`; receipt
+  `docker/evidence/candidate-20261106-contact-startup-v2.json`.
+- Reference-plan hash normalized to UTF-8/LF; original frozen arms, conditions
+  and results unchanged. Execution manifest retains raw-byte hashes.
+- A temporary-directory unit check failed in the read-only container and its
+  log is preserved. Replaced filesystem use with a byte-input test double.
+- Final176 WSL/21 Docker/3 delivery checks pass; same48 diagnostic results and
+  all36 baseline/192 output hashes verified. No predictor/profile change.
+- Logs output/contact_startup_validation_20261106_v2_final; data
+  output/docker/contact_startup_20261106_final_v2. Earlier candidate retained;
+  no promotion/registry push; last accepted ID unchanged.

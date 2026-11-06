@@ -1,7 +1,7 @@
 {
   "kind": "contact_startup_audit_v1",
   "date": "2026-11-06",
-  "reference_plan_sha256": "f671afbe574bfd9e8e29fb53092173944d13a9d2adfbb7004d73bc8cd0a77c2c",
+  "reference_plan_sha256": "79d96ce3d002afd126cbf0e2359b3498cc7fe25f64eb99f4e66d407dc612bea1",
   "arms": {
     "baseline": {
       "settle_s": 0.0,
@@ -20,5 +20,7 @@
       "moving_bridge": true
     }
   },
-  "scope": "Post-hoc mechanistic diagnostic using the12 previously observed normal conditions. All arms retain geometry and old predictor/calibration. Moving bridge is a deliberately artificial solver intervention, not a hardware proposal or production command. Rest settling occurs before the recording clock is rebased; resulting pose is retained. Pose/orientation/contact forces are evaluator-only, not predictor inputs. Baseline observation/command/pose files must exactly match retained recordings. No new validation, parameter fitting, causal claim about hardware, or repaired fault-detection claim."
+  "scope": "Post-hoc mechanistic diagnostic using the12 previously observed normal conditions. All arms retain geometry and old predictor/calibration. Moving bridge is a deliberately artificial solver intervention, not a hardware proposal or production command. Rest settling occurs before the recording clock is rebased; resulting pose is retained. Pose/orientation/contact forces are evaluator-only, not predictor inputs. Baseline observation/command/pose files must exactly match retained recordings. No new validation, parameter fitting, causal claim about hardware, or repaired fault-detection claim.",
+  "reference_hash_encoding": "utf8_lf",
+  "portability_amendment": "After the diagnostic, reference protocol hashing was normalized to UTF-8/LF to support Git checkouts across Windows and Linux. Arms, conditions, simulation and outcomes unchanged; raw file hashes remain recorded in the execution manifest."
 }

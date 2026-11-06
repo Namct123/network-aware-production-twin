@@ -5,9 +5,9 @@
   "overfull_boxes": false,
   "physical_sections_unfilled": true,
   "human_review": "pending",
-  "assistant_visual_review": "All11 final pages rendered/contact sheet inspected; post-hoc derivation, assumptions and evidence on page8 inspected individually. Authors and physical sections remain intentionally blank.",
+  "assistant_visual_review": "All11 final pages rendered and contact sheet inspected; changed contact/startup evidence subsection on page9 individually inspected. Authors and physical sections intentionally unfilled.",
   "reference_count": 14,
   "abstract_words": 221,
   "scope": "event_monitoring_focus_v1",
-  "pdf_sha256": "66fed474032ea2b80a9dc0b18712a65929f4380229efff6bbf58fdce780fe0eb"
+  "pdf_sha256": "5e505ee413c7227dd9755db65f73490a0f6fc74ef93a03cb6d27cedfa4f18d85"
 }

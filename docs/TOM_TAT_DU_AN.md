@@ -21,7 +21,7 @@ WSL Ubuntu-24.04; Python /home/admin/dt-cpps-venv/bin/python; Docker engine ở 
 - eta_monitor.py: bộ nối xung quang, kiểm tra dữ liệu và dự phòng; chỉ cảnh báo.
 - eta_ml.py/models/: Ridge, bù hằng và miền sai số đã khóa, không ghi PLC.
 - study_network_clock.py: phép so đồng hồ/tuổi mới, kế hoạch Git5a39fe5.
-- research_scope.json:37 tệp nguồn cho Docker tập trung; configs/ có tham số
+- research_scope.json:40 tệp nguồn cho Docker tập trung; configs/ có tham số
   đổi được. Bộ nối mới cần mô hình/hiệu chuẩn riêng, không dùng trọng số như
   mô hình phổ quát. Lõi/profile/CAD và bằng chứng lịch sử vẫn giữ trong kho đầy đủ.
 
@@ -41,7 +41,7 @@ trễ. Trễ80 ms: thời gian nguồn2 ca, thời gian nhận5 ca. Trễ120 ms 
 từ chối tất cả, không phải chẩn đoán đúng. Kết quả không đạt mục tiêu0 báo nhầm.
 12 cặp mất PS3/băng đứng cùng quan sát, nên không tách được nguyên nhân.
 
-174 kiểm tra lõi WSL,19 kiểm tra Docker; không suy thành độ chính xác máy thật.
+176 kiểm tra lõi WSL,21 kiểm tra Docker; không suy thành độ chính xác máy thật.
 Hậu kiểm:6/6 đoạn có vận tốc trung bình sau xung cao hơn trong xung5,9–7,9%;
 chặn chỉ do lấy mẫu dưới giả thiết lý tưởng không bao phủ4/6 ca. Đã chặn đầu
 xung offline chưa quan sát;61 kết quả cũ không đổi, không nới ngưỡng. Chi tiết:
@@ -52,14 +52,20 @@ docs/vai_tro_dt_plc_tu_dong_hoa_mang.md.
 
 Accepted vẫn production-twin-dt:accepted-20261103-software-v2,
 ID sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8.
-Bản mới candidate-20261106-pulse-model-audit chờ người dùng kiểm tra; chỉ khi người
+Bản mới candidate-20261106-contact-startup-v2 chờ người dùng kiểm tra; chỉ khi người
 dùng nghiệm thu mới nâng tag. IDs/hash ở docker/RELEASES.md.
 
 Nguồn paper/title_abstract.tex riêng, paper/body.tex chính; PDF ở
 reports/dt_cppps_manuscript_virtual.pdf. Chuẩn LNCS; tác giả và vật lý trống,
 chưa duyệt/nộp. Bản rộng cũ Git7bbde4a. Phạm vi ở docs/pham_vi_bai_bao_20261106.md.
 
-Tiếp theo: rà mô hình cạnh/lấy mẫu/khởi đầu; tạo tập hiệu chuẩn khác và khóa
+Đối chiếu tiếp xúc mới:48 bản ghi trên12 điều kiện đã xem,4 nhánh.12 baseline
+tái tạo đúng36 tệp cũ. Chỉ6 ca/nhánh đủ xung. Khi cầu nối chuyển động nhân tạo
+cùng băng: MAE xung95,6→32,2 ms nhưng bù hằng cũ xấu hơn, miền cũ chứa0/6.
+Đây là chẩn đoán mô hình, không sửa phần cứng/profile hoặc dự báo online. Xem
+docs/kiem_tra_tiep_xuc_khoi_dong_20261106.md.
+
+Tiếp theo: mô hình hóa điều kiện tiếp xúc/khởi đầu; tạo tập hiệu chuẩn khác và khóa
 trước một tập chưa xem; sau đó thêm bộ nối sự kiện xi lanh. Đo máy thật sau.
 Không dùng lại bộ mới đã xem để tự chứng nhận sau khi sửa.
 

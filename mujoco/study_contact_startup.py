@@ -2,6 +2,7 @@
 import argparse
 from copy import deepcopy
 import itertools
+import hashlib
 import json
 import math
 from pathlib import Path
@@ -10,6 +11,10 @@ from config import load_config
 from audit_pulse_model import sampling_window
 from study_pulse import rows
 HERE=Path(__file__).resolve().parent
+
+
+def protocol_digest(path):
+    return hashlib.sha256(path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()
 
 
 def pulse_summary(obs,truth,length,distance,period,bias,radius):
@@ -35,6 +40,7 @@ def pulse_summary(obs,truth,length,distance,period,bias,radius):
 
 def record(folder,base,condition,start,settle_s,moving_bridge,segment):
     import mujoco
+    import numpy as np
     from run_cell import Cell
     from sensor_model import SensorModel
     cfg=deepcopy(base);v,g=condition
@@ -65,7 +71,6 @@ def record(folder,base,condition,start,settle_s,moving_bridge,segment):
                 other=int(contact.geom[1] if contact.geom[0]==product else contact.geom[0])
                 pairs.append(cell.model.geom(other).name)
                 if other==bridge and contact.efc_address>=0:
-                    import numpy as np
                     force=np.zeros(6);mujoco.mj_contactForce(cell.model,cell.data,contact_id,force);normal+=abs(float(force[0]))
             records=[frame.as_dict(),{'time_s':now,'command':command},
                      {'time_s':now,'product_xyz_m':state['product_xyz_m'],'applied_command':command},
@@ -80,7 +85,7 @@ def record(folder,base,condition,start,settle_s,moving_bridge,segment):
 
 def study(plan_path,source,out):
     p=json.loads(plan_path.read_text());clock=HERE/'experiments/network_clock_ablation_20261106.json'
-    if p['kind']!='contact_startup_audit_v1' or p['reference_plan_sha256']!=digest(clock):raise ValueError('frozen reference plan required')
+    if p['kind']!='contact_startup_audit_v1' or p.get('reference_hash_encoding')!='utf8_lf' or p['reference_plan_sha256']!=protocol_digest(clock):raise ValueError('frozen reference plan required')
     expected={'baseline':(0.,False),'settled':(.4,False),'moving_bridge':(0.,True),'settled_moving_bridge':(.4,True)}
     if p['arms']!={n:{'settle_s':s,'moving_bridge':b} for n,(s,b) in expected.items()}:raise ValueError('fixed paired interventions required')
     prior=json.loads(clock.read_text());cfg_path=HERE/'configs/reconfigurable_cell_20261030.json';base=load_config(cfg_path)

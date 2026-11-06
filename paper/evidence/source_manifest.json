@@ -179,7 +179,25 @@
       },
       {
         "path": "research_scope.json",
-        "sha256": "66b7c653872b8c52f91b382969f5a2ef81809a60dba608c0521577a25002ee87"
+        "sha256": "951e951cb44b0a361c889aa02c57bc837dc49905c6d68e473c4139af3ba6d199"
+      }
+    ],
+    "E016": [
+      {
+        "path": "docker/evidence/candidate-20261106-contact-startup-v2.json",
+        "sha256": "8774159fd888b1cd7fc0f6fb64476875f84f7923f4ffc3011d95a7993d2016a2"
+      },
+      {
+        "path": "mujoco/study_contact_startup.py",
+        "sha256": "f4ad14b1b6e02badc5263ffc35e72eb0475b632c698ae5bd12c5f37c60724562"
+      },
+      {
+        "path": "mujoco/test_eta_contact_startup.py",
+        "sha256": "9535716a4619e0ff09c84b964ec3515625d2c5f98760134ea5f870c5b73c6757"
+      },
+      {
+        "path": "mujoco/experiments/contact_startup_audit_20261106.json",
+        "sha256": "7c7a0b91fa10e06ea634920cb1465333acdf5a33a1e3aa8d721839196e4938bd"
       }
     ]
   }

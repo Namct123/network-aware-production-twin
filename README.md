@@ -13,14 +13,15 @@ chưa chứng minh khả năng áp dụng đã được kiểm chứng trên cá
 5. [Nhật ký từng hạng mục](docs/nhat_ky_cong_viec.md).
 
 [Vai trò DT, PLC, sản xuất và mạng](docs/vai_tro_dt_plc_tu_dong_hoa_mang.md) ·
-[Rà mô hình và nguyên nhân báo nhầm](docs/kiem_tra_mo_hinh_xung_20261106.md).
+[Rà mô hình và nguyên nhân báo nhầm](docs/kiem_tra_mo_hinh_xung_20261106.md) ·
+[Đối chiếu tiếp xúc và khởi động](docs/kiem_tra_tiep_xuc_khoi_dong_20261106.md).
 
 ## Phần triển khai chính
 
 - `mujoco/event_window.py`: lõi so sự kiện với miền dự đoán, không biết thiết bị.
 - `mujoco/eta_monitor.py`: bộ nối cảm biến quang, kiểm tra dữ liệu, dự phòng.
 - `mujoco/eta_ml.py`: ML tùy chọn để so với công thức xung và bù sai lệch đơn giản.
-- `research_scope.json`: 37 tệp nguồn trong runtime Docker tập trung.
+- `research_scope.json`: 40 tệp nguồn trong runtime Docker tập trung.
 - `mujoco/study_eta_monitor.py`: phép so trên bệ thử MuJoCo, giữ dữ liệu chấm ngoài lõi.
 
 Lõi phân biệt tiến độ không khớp với dữ liệu chưa đủ để kết luận. Mất lịch sử
@@ -35,8 +36,8 @@ hoặc ghi lệnh PLC từ mô đun mới. Bài báo giữ nguyên các kết qu
 
 Gói tập trung tái lập 61 đoạn học và 465 quyết định cũ. Bộ thử mới có 36 bản ghi/
 720 lượt so đồng hồ/tuổi; ngưỡng cũ báo nhầm 2 trong 6 ca bình thường đủ đầu vào.
-Xem [kết quả và giới hạn](docs/doi_chung_thoi_gian_20261106.md). 19 kiểm tra ETA
-trong Docker và 174 kiểm tra lõi kho đầy đủ trong WSL đã đạt. Kiểm tra phần mềm
+Xem [kết quả và giới hạn](docs/doi_chung_thoi_gian_20261106.md). 21 kiểm tra ETA
+trong Docker và 176 kiểm tra lõi kho đầy đủ trong WSL đã đạt. Kiểm tra phần mềm
 không thay cho nghiệm thu của người dùng hay kiểm chứng khoa học.
 
 ## Phần giữ làm nền

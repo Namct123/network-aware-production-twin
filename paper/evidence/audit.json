@@ -18,7 +18,7 @@
     "Uhlemann2017",
     "Yates2021"
   ],
-  "claims": 18,
+  "claims": 19,
   "physical_result_values": 0,
   "authors_unfilled": true,
   "ml_segments": 61,
@@ -28,11 +28,13 @@
   "distinct_virtual_case_studies": 1,
   "cross_machine_validation": false,
   "kernel_contract_tests_are_not_device_experiments": true,
-  "runtime_source_allowlist_files": 37,
+  "runtime_source_allowlist_files": 40,
   "network_ablation_recordings": 36,
   "network_ablation_replays": 720,
   "fresh_normal_finding_budget_met": false,
   "posthoc_sampling_audit": true,
+  "posthoc_contact_recordings": 48,
+  "posthoc_contact_independent_validation": false,
   "sampling_bound_physical_guarantee": false,
   "human_verification": "pending",
   "submission_ready": false

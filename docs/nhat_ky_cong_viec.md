@@ -1030,3 +1030,30 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
 - Dẫn NIST về DT đồng bộ và Siemens về process image; không suy mô phỏng hiện
   tại thành DT vật lý đã hoàn chỉnh. Giữ bản bàn giao ngắn, không quay lại nhánh
   đã hoãn. Bài báo bổ sung chặn lấy mẫu/hậu kiểm E015, mục vật lý vẫn trống.
+
+
+### 087 — Tách ảnh hưởng cầu nối và trạng thái khởi đầu
+
+- Thêm study_contact_startup.py, kế hoạch JSON và kiểm tra. Git1d3fc5c lưu
+  trước chạy; đây là hậu kiểm12 điều kiện đã xem, không gọi là xác nhận mới.
+- 48 bản ghi: gốc, ổn định0,4s, cầu nối chuyển động nhân tạo, kết hợp.12 nhánh
+  gốc tái tạo đúng từng byte36 tệp cũ. Mỗi nhánh6 ca đủ xung,6 ca thiếu đầu xung.
+- MAE xung95,6/95,6/32,2/28,9ms. Miền bù hằng cũ chứa4/5/0/0 trên6 ca.
+  Tiếp xúc mô phỏng ảnh hưởng mạnh dự báo; không nới miền để che kết quả.
+- Lực/tư thế/vị trí chỉ chấm riêng, không cấp cho bộ dự báo. Không đổi profile,
+  hình học sản xuất, ML, bộ giám sát hoặc phần cứng. Chưa chọn mô hình tăng tốc
+  khi chưa tách các điều kiện tiếp xúc.
+
+### 088 — Kiểm tra và bàn giao hạng mục tiếp xúc
+
+- 176 kiểm tra lõi WSL,21 Docker và3 ranh giới đóng gói đạt. Kết quả WSL/Docker
+  giống nhau,36 hash tham chiếu và192 hash đầu ra đúng; context40 tệp.
+- Candidate contact-startup lưu ID/source hash trong docker/RELEASES.md, chờ
+  người dùng nghiệm thu; accepted giữ nguyên. Không đẩy Docker registry.
+- Cập nhật tài liệu dễ hiểu, bản bàn giao, bài báo E016 và CI tái lập. Các mục
+  vật lý/tác giả vẫn chưa điền; không công bố đã sửa xong dự báo online.
+
+- Bản cuối contact-startup-v2 chuẩn hóa hash kế hoạch UTF-8/LF để tương thích
+  checkout Windows/Linux. Không đổi điều kiện hay số liệu. Giữ log lần kiểm
+  tra tệp tạm không đạt trong container chỉ đọc; bỏ phụ thuộc ghi tệp khỏi
+  kiểm tra đó, rồi chạy lại toàn bộ176/21/3 kiểm tra thành công.
