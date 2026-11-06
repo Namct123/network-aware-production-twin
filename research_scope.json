@@ -56,6 +56,9 @@
     "mujoco/test_eta_network_clock.py",
     "mujoco/experiments/network_clock_ablation_20261106.json",
     "mujoco/audit_pulse_model.py",
-    "mujoco/test_eta_pulse_model.py"
+    "mujoco/test_eta_pulse_model.py",
+    "mujoco/study_contact_startup.py",
+    "mujoco/test_eta_contact_startup.py",
+    "mujoco/experiments/contact_startup_audit_20261106.json"
   ]
 }
