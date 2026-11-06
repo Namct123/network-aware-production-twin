@@ -1,0 +1,16 @@
+\begin{table}[t]
+\caption{Advisory ETA findings in fixed replay conditions; fault denominator combines nine missing-target and nine stalled-drive segments, which form nine identical input pairs.}
+\label{tab:eta-monitor}
+\centering\small
+\begin{tabular}{lrrrr}
+\toprule
+Method & Radius & Normal alerts & Fault alerts & Fault alerts\\
+ & (ms) & no delay (/9) & no delay (/18) & 40 ms (/18)\\
+\midrule
+Pulse & 140.0 & 0 & 18 & 16\\
+Constant bias & 42.9 & 0 & 18 & 18\\
+Ridge & 65.0 & 0 & 18 & 18\\
+\bottomrule
+\end{tabular}
+\par\smallskip\footnotesize Two delayed pulse replays end before a late-edge confirmation window. Data rejection and engineering fallback are not credited as learned-model detections.
+\end{table}

@@ -1,0 +1,12 @@
+{
+  "kind": "eta_event_monitor_study_v1",
+  "methods": ["pulse", "constant", "ml"],
+  "cases": {
+    "immediate": {"delay_ticks": 0, "gap_after_pulse_s": null, "target_unavailable_after_pulse_s": null},
+    "delay40ms": {"delay_ticks": 2, "gap_after_pulse_s": null, "target_unavailable_after_pulse_s": null},
+    "stale120ms": {"delay_ticks": 6, "gap_after_pulse_s": null, "target_unavailable_after_pulse_s": null},
+    "gap_after_fit": {"delay_ticks": 0, "gap_after_pulse_s": [0.10, 0.14], "target_unavailable_after_pulse_s": null},
+    "target_quality_lost": {"delay_ticks": 0, "gap_after_pulse_s": null, "target_unavailable_after_pulse_s": 0.10}
+  },
+  "scope": "Exploratory replay of existing normal test/shift recordings and new paired missing-target/stalled-drive segments; fixed trained model and normal-calibration radii, no fault classifier, PLC writes or cycle reconfiguration."
+}

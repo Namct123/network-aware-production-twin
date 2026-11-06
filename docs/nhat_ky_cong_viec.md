@@ -882,3 +882,44 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   Kiểm tra biên dịch, các nguồn số liệu/hash và bố cục PDF; tác giả chưa duyệt.
 - Cập nhật hướng nghiên cứu, README, gói mã tích hợp và CI chạy kiểm tra ML
   trong Docker có NumPy. Không đưa bộ ML chưa kiểm chứng vào bản accepted.
+
+
+### 075 — Nối ML vào bộ giám sát cạnh cảm biến
+
+- Thêm eta_monitor.py với observe/issued, nhận SignalFrame và lệnh cục bộ,
+  dùng lại PulseObserver. Chốt ETA trước cạnh PS3; cảnh báo cạnh sớm/muộn hoặc
+  hai mẫu liên tiếp quá hạn không thấy cạnh. Không dùng vị trí/nhãn lỗi plant.
+- Hiệu chuẩn riêng nửa độ rộng cửa sổ bằng tám ca bình thường cũ: xung140 ms,
+  bù hằng42,9 ms, Ridge65,0 ms. Không đổi trọng số/ngưỡng theo ca lỗi mới.
+- Ba phương án dùng cùng điều kiện dữ liệu và miền. Ngoài miền/đổi lệnh về
+  biên xung kỹ thuật; dữ liệu không dùng được trả lý do riêng, không báo lỗi ML.
+- Candidate đầu hoàn tất 164 kiểm tra lõi/10 web. Bổ sung chặn đổi chiều dài
+  phôi/khoảng cảm biến/chu kỳ mẫu mà vẫn dùng miền cũ; v2 thêm test, đạt165/10.
+  Giữ receipt đầu riêng. Không đổi kết quả cảnh báo hoặc thu nhỏ miền cho đẹp.
+
+### 076 — Kết quả cảnh báo và ranh giới bằng chứng
+
+- Dùng lại9 bản ghi test và4 shift; tạo18 đoạn MuJoCo lỗi. 31 bản ghi ×5 cách
+  truyền ×3 phương án =465 lượt phát lại, không phải465 phép thử độc lập.
+- Không trễ: cả ba báo18/18 lỗi và0/9 bình thường. Trễ40 ms: ML/bù hằng18/18,
+  xung16/18; hai ca còn lại hết bản ghi trước cửa sổ xác nhận, chưa đủ quan sát.
+- ML không sớm hơn bù hằng:2 lượt bằng lúc,16 lượt muộn20–40 ms; giữ kết quả
+  bất lợi. Sai số ETA trung bình nhỏ hơn không đồng nghĩa báo lỗi nhanh hơn.
+- Trễ120 ms không fit; mất gói sau xung hoặc quality PS3 không còn dùng được
+  thì ngừng đánh giá. Không tính từ chối dữ liệu thành phát hiện lỗi vật lý.
+- Chín cặp mất PS3/băng đứng có cùng hash quan sát/lệnh. Phát hiện tiến độ sai
+  không tách được nguyên nhân. Thử nghiệm thăm dò trên nguồn bình thường đã xem.
+
+### 077 — Docker, hướng dẫn và bài báo giám sát
+
+- Candidate-20261106-eta-monitor-v2 chứa mô đun và miền hiệu chuẩn theo profile;
+  hash nguồn đúng,62 hash đầu vào đúng,465 quyết định tái lập pilot. Accepted
+  không đổi; không tự nghiệm thu hoặc đẩy registry. IDs ở docker/RELEASES.md.
+- Thêm báo cáo tiếng Việt giam_sat_eta_ml_20261106.md và hướng dẫn chạy lại;
+  cập nhật gói mã tích hợp, README và CI cho các kiểm tra ETA.
+- Bài báo thêm mục6.4, công thức cửa sổ, bảng tự sinh từ receipt và giới hạn;
+  PDF18 trang, title/abstract không đổi, phần vật lý trống, người dùng chưa duyệt.
+  Một lỗi chuỗi trong bộ sinh bảng đã sửa trước khi xuất PDF thành công; không
+  làm thay đổi dữ liệu/mô hình/kết quả. Kiểm tra trực quan trang mới và toàn bài.
+- Chưa nối cảnh báo vào chính sách RuntimeCore hoặc quyền ghi PLC; không suy
+  cảnh báo đủ ca ảo thành năng suất hoặc độ chính xác chẩn đoán máy thật.

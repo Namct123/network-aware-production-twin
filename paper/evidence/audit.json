@@ -37,5 +37,9 @@
     4
   ],
   "eta_ml_kind": "supervised_ridge_residual_advisory",
-  "eta_ml_physical_validation": false
+  "eta_ml_physical_validation": false,
+  "eta_monitor_recordings": 31,
+  "eta_monitor_replays": 465,
+  "eta_monitor_new_mujoco_segments": 18,
+  "eta_monitor_runtime_policy_connected": false
 }

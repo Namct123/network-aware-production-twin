@@ -560,3 +560,37 @@ immutable image ID, preserved source manifest, and the tests actually run.
   validation. Paper/report updated separately from runtime build.
 - User acceptance pending. No promotion/registry push. Accepted image remains
   `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+
+
+## 2026-11-06 — Advisory learned event monitoring (candidate v2)
+
+- Current tag `production-twin-dt:candidate-20261106-eta-monitor-v2`, ID
+  `sha256:3cbaf0f3eade0662ad7554f061270e514d6edf2a2aa8d86d45f4de7de1d14069`.
+  165 core tests, 10 web tests; runtime source hashes match host, prior runtime
+  files from ETA-ML-v2 unchanged. All 62 input hashes verified; 465 replay
+  summaries reproduce the initial pilot decisions. New model weights were NOT
+  trained or tuned in this item. Calibration radii are separately frozen per method.
+- Adds advisory EtaEventMonitor around PulseObserver: pre-target ETA windows,
+  source-timed early/late/missing findings, data-availability reasons, shared domain
+  gates and engineering fallback. v2 also rejects old empirical windows after a
+  change of product length, sensor gap or sampling period. No central RuntimeCore
+  policy integration, PLC writes or physical validation.
+- Initial tag `production-twin-dt:candidate-20261106-eta-monitor`, ID
+  `sha256:9f8237e7aceaf3997a2d05e839a3fc924e1e7308c3f7a68b9c5c15cbcf5e997a`,
+  passed164/10, retained with its evidence. It predates the calibration-context
+  guard; v2 is the version for review, not the initial tag.
+- 31 recordings (13 existing normal/shift,18 new fault segments), three methods,
+  five scheduled delivery cases. 465 replays are not independent trials. Nine
+  missing-target/stalled-drive pairs have identical inputs. Both corrected methods
+  flag18/18 faults under immediate and40ms delivery; no-delay normal findings0/9.
+  Two delayed pulse cases lack a late confirmation window before recording end.
+- Compared with constant correction, Ridge is equal in2 and20–40ms later in16
+  immediate fault replays, earlier in0. Stale/gapped/bad-quality evidence is rejected;
+  rejection is not credited as fault detection. No overall superiority claim.
+- Receipts `docker/evidence/candidate-20261106-eta-monitor.json` and
+  `docker/evidence/candidate-20261106-eta-monitor-v2.json`; final data
+  `output/docker/eta_monitor_20261106_final_v2`, logs
+  `output/eta_monitor_validation_v2_20261106`. Report:
+  `docs/giam_sat_eta_ml_20261106.md`.
+- User acceptance pending, no registry push or promotion. Accepted ID remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.

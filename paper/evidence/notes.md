@@ -147,3 +147,15 @@ New source/claim hashes are assistant-checked; human verification, authors, appr
 and submission readiness remain pending. No physical results were supplied.
 
 E009 recording audit: 16/4/4/9/4 unique observation-command hash pairs, no cross-split overlap; friction duplicates do not supply independent repetitions. See eta_ml_recording_audit_20261106.json.
+
+
+E012 — Frozen advisory event monitoring (2026-11-06): source is candidate-eta-monitor-v2,
+165 core/10 web checks,31 recordings/465 scheduled method replays,18 new MuJoCo
+segments. Existing normal/shift test recordings are retrospectively reused. All
+nine missing-target/stalled-drive input pairs are identical. Immediate ML and bias
+findings18/18 each, normal0/9; ML equal in2/later in16, earlier in0. Two delayed
+uncorrected-pulse records end before a confirmation window; censored, not proven
+misses. Data rejection/engineering fallback is not credited as learned findings.
+The original candidate predates the geometry/sample-period calibration-context guard;
+v2 preserves model weights and original decisions with that additional boundary.
+No central runtime policy authority, physical diagnostic accuracy or production gain.

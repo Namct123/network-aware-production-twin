@@ -65,3 +65,16 @@ Mục kế tiếp là nối dự báo này vào bộ so sánh dự đoán–quan
 hằng số và từ chối ML ngoài miền/đứt lịch sử. Phải đánh giá báo nhầm, bỏ sót và
 thời gian báo trên các kịch bản chưa dùng để chọn tham số trước khi cân nhắc
 cho kết quả tham gia chọn cấu hình. Chưa tự bỏ liên động khi mất PS3.
+
+## Cập nhật giám sát ETA — 2026-11-06
+
+Đã nối Ridge vào mô đun so dự đoán–quan sát, có miền sai số riêng cho từng
+đối chứng, kiểm tra miền và chặn dữ liệu cũ/đứt lịch sử. Đổi hình học hoặc chu
+kỳ lấy mẫu không được tiếp tục dùng miền hiệu chuẩn cũ. Kết quả và cách chạy ở
+[giám sát ETA](giam_sat_eta_ml_20261106.md).
+
+ML không báo sớm hơn bù hằng số trong 18 ca lỗi đã chấm; miền hiệu chuẩn rộng
+hơn khiến phần lớn báo muộn hơn 20–40 ms. Không ép chọn ML cho điều khiển từ
+kết quả này. Cần nối nhật ký tư vấn vào RuntimeCore, đo chi phí tính và thử các
+điều kiện mới có ý nghĩa trước khi cho chọn cấu hình. Không gọi 465 lượt phát
+lại từ 31 bản ghi là 465 lần thử độc lập.

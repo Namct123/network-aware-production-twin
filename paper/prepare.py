@@ -113,6 +113,22 @@ def prepare():
     lines += [r'\bottomrule',r'\end{tabular}',r'\par\smallskip\footnotesize Constant-bias reference added after the initial pilot; its value uses training rows only.',r'\end{table}']
     (output/'eta_ml_table.tex').write_text('\n'.join(lines)+'\n',encoding='utf-8')
     (HERE/'evidence/eta_ml_20261106.json').write_bytes(ml_path.read_bytes())
+    monitor_path=ROOT/'docker/evidence/candidate-20261106-eta-monitor-v2.json'
+    monitor_evidence=json.loads(monitor_path.read_text(encoding='utf-8'))
+    mon=monitor_evidence['study']; assert mon['replays']==465 and mon['recordings']==31
+    assert not mon['physical_validation'] and not mon['parameter_tuning'] and mon['identical_missing_stall_pairs']==9
+    assert monitor_evidence['paired_immediate_comparison']['ml_earlier']==0
+    bs=chr(92)
+    lines=[bs+'begin{table}[t]',bs+'caption{Advisory ETA findings in fixed replay conditions; fault denominator combines nine missing-target and nine stalled-drive segments, which form nine identical input pairs.}',bs+'label{tab:eta-monitor}',bs+'centering'+bs+'small',bs+'begin{tabular}{lrrrr}',bs+'toprule','Method & Radius & Normal alerts & Fault alerts & Fault alerts'+bs*2,' & (ms) & no delay (/9) & no delay (/18) & 40 ms (/18)'+bs*2,bs+'midrule']
+    for key,label in [('pulse','Pulse'),('constant','Constant bias'),('ml','Ridge')]:
+        immediate=mon['groups']['immediate'][key]; delayed=mon['groups']['delay40ms'][key]
+        fa=sum(immediate[n]['alerts'] for n in ['test_target_missing','test_drive_stall'])
+        da=sum(delayed[n]['alerts'] for n in ['test_target_missing','test_drive_stall'])
+        lines.append(f"{label} & {monitor_evidence['monitor_settings']['radii_s'][key]*1000:.1f} & {immediate['test_none']['alerts']} & {fa} & {da}"+bs*2)
+    lines += [bs+'bottomrule',bs+'end{tabular}',bs+'par'+bs+'smallskip'+bs+'footnotesize Two delayed pulse replays end before a late-edge confirmation window. Data rejection and engineering fallback are not credited as learned-model detections.',bs+'end{table}']
+    (output/'eta_monitor_table.tex').write_text(chr(10).join(lines)+chr(10),encoding='utf-8')
+    (HERE/'evidence/eta_monitor_20261106.json').write_bytes(monitor_path.read_bytes())
+
     abstract=(HERE/'title_abstract.tex').read_text(encoding='utf-8')
     words=re.search(r'\\begin\{abstract\}(.*?)\\keywords',abstract,re.S)[1].split()
     assert 150<=len(words)<=250, len(words)
@@ -140,7 +156,8 @@ def prepare():
              'E008':[ROOT/'docker/evidence/candidate-20261103-software-v2.json',ROOT/'mujoco/stream_input.py',ROOT/'mujoco/check_stream.py',ROOT/'mujoco/check_software.py',ROOT/'mujoco/software_release_v2.json']}
     sources.update({'E009':[recording_audit,ml_path,ROOT/'docker/evidence/candidate-20261106-eta-ml.json',ROOT/'mujoco/eta_ml.py',ROOT/'mujoco/study_eta_ml.py',ROOT/'mujoco/experiments/eta_ml_20261106.json'],
                     'E010':[ROOT/'docker/evidence/candidate-20261106-closed-loop.json'],
-                    'E011':[ROOT/'docker/evidence/candidate-20261106-confirmation-v2.json']})
+                    'E011':[ROOT/'docker/evidence/candidate-20261106-confirmation-v2.json'],
+                    'E012':[monitor_path,ROOT/'mujoco/eta_monitor.py',ROOT/'mujoco/study_eta_monitor.py',ROOT/'mujoco/models/eta_monitor_v1.json',ROOT/'mujoco/experiments/eta_monitor_20261106.json']})
     manifest={'prepared_on':'2026-11-06','status':'working_draft_human_verification_pending','physical_evidence':None,
         'baseline_artifact_commit':'93d60ca','native_candidate_image':native_evidence['image_id'],
         'background_candidate_image':background_evidence['image_id'],'author_approval':False,
@@ -160,7 +177,7 @@ def prepare():
     with (HERE/'evidence/claims.csv').open('w',newline='',encoding='utf-8') as f:
         w=csv.DictWriter(f,fieldnames=list(claims[0]));w.writeheader();w.writerows(claims)
     audit={'abstract_words':len(words),'citations':sorted(keys),'reference_count':len(refs),'new_published_papers':6,'removed_nonpaper_references':['SoftwareArtifact','MuJoCoRollout'],'physical_result_values':0,'authors_unfilled':True,
-           'study_runs':24,'done':done,'hold':hold,'logic_checks':count,'human_verification':'pending','submission_ready':False,'eta_ml_runs':61,'eta_ml_split_sizes':[32,8,8,9,4],'eta_ml_kind':'supervised_ridge_residual_advisory','eta_ml_physical_validation':False}
+           'study_runs':24,'done':done,'hold':hold,'logic_checks':count,'human_verification':'pending','submission_ready':False,'eta_ml_runs':61,'eta_ml_split_sizes':[32,8,8,9,4],'eta_ml_kind':'supervised_ridge_residual_advisory','eta_ml_physical_validation':False,'eta_monitor_recordings':31,'eta_monitor_replays':465,'eta_monitor_new_mujoco_segments':18,'eta_monitor_runtime_policy_connected':False}
     (HERE/'evidence/audit.json').write_text(json.dumps(audit,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(audit),flush=True)
     return audit

@@ -11,7 +11,9 @@ chưa coi là phần cứng đã triển khai.
 - Đã có mô phỏng MuJoCo, lõi nhận tín hiệu, ước lượng, dự báo, giám sát mạng,
   giảm tốc/HOLD và công cụ lưu/phát lại thí nghiệm.
 - Đã huấn luyện mô hình Ridge sửa sai lệch thời điểm phôi tới PS3, có trọng số
-  và API dự báo từ xung PS2. Đây là dự báo tư vấn, chưa nối vào quyền điều khiển.
+  và API dự báo từ xung PS2. Đã có mô đun so cạnh dự kiến với cạnh nhận được,
+  có từ chối dữ liệu và dự phòng. Chưa nối mô đun này vào chính sách RuntimeCore
+  hoặc quyền điều khiển PLC.
 - Chưa có kết nối điều khiển PLC thật, hiệu chuẩn vật lý hoặc bằng chứng tổng thể
   tốt hơn bộ điều khiển đối chứng được thiết kế tốt; chưa có bộ ML phân loại lỗi.
 - CAD V5 và mô hình MuJoCo chức năng chưa đồng bộ đầy đủ. Độ không chắc chắn
@@ -22,7 +24,8 @@ chưa coi là phần cứng đã triển khai.
 ## Đọc và chạy từ đâu?
 
 1. [Mục tiêu, tiêu chí và lộ trình nghiên cứu](docs/huong_nghien_cuu_hien_tai.md).
-2. [Mô hình ML đã huấn luyện và giới hạn](docs/mo_hinh_ml_eta_20261106.md);
+2. [Giám sát ETA và kết quả đối chứng mới](docs/giam_sat_eta_ml_20261106.md);
+   [Mô hình ML đã huấn luyện và giới hạn](docs/mo_hinh_ml_eta_20261106.md);
    [Điều kiện xác nhận thay thế — kết quả mới](docs/xac_nhan_thay_the_20261106.md);
    [Thử kín chọn tốc độ và dừng](docs/thu_kin_doan_bang_20261106.md);
    [Giới hạn xung và suy giảm mạng](docs/gioi_han_xung_va_mang_20261105.md);

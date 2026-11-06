@@ -71,3 +71,5 @@ split 32/8/8/9/4 và đối chứng bù hằng số có công bố hậu kiểm.
 thử kín đoạn băng và phản ví dụ mất truyền động. Không trộn các nhóm này với
 24 chu trình cũ; không gọi ETA tốt hơn là năng suất hoặc khả năng tự hồi phục.
 Title/abstract giữ trong tệp riêng và chưa sửa ở mục này; các mục vật lý vẫn trống.
+
+Bản 2026-11-06 bổ sung mục 6.4 và bảng giám sát ETA từ E012: 31 bản ghi/465 lượt phát lại, ML không báo sớm hơn bù hằng số. Phân biệt từ chối dữ liệu, dự phòng và lỗi vật lý; phần vật lý tiếp tục trống.

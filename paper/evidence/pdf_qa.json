@@ -1,11 +1,11 @@
 {
-  "pages": 16,
+  "pages": 18,
   "page_size": "A4",
   "unresolved_references": false,
   "overfull_boxes": false,
   "physical_sections_unfilled": true,
   "human_review": "pending",
-  "assistant_visual_review": "Final 16-page contact sheet inspected; new methods/results/physical placeholders pages 12-14 inspected at higher resolution. Intentional blank authors and physical sections retained.",
+  "assistant_visual_review": "All18 final pages rendered/contact-sheet reviewed; new methods and Table7 pages14-15 inspected at1200px. Intentional blank authors/physical sections retained.",
   "reference_count": 12,
-  "pdf_sha256": "799b2c622c99062dea76a9cf73401eb9f489aed6aabe5f8330d500070370f98b"
+  "pdf_sha256": "b8aabf17cfabff20c8e07f779d9dfbe401e84e1bdd44394266a31468b20aeae0"
 }

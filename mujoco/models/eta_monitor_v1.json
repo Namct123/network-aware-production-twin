@@ -1,0 +1,45 @@
+{
+  "kind": "eta_event_monitor_v1",
+  "radii_s": {
+    "pulse": 0.14000000000003343,
+    "constant": 0.04291666666668359,
+    "ml": 0.06504792759651767
+  },
+  "calibration_rows": 8,
+  "confirm_samples": 2,
+  "pulse_settings": {
+    "gain_bounds": [
+      0.8,
+      1.2
+    ],
+    "drift_m_s": 0.005,
+    "confirm_samples": 2
+  },
+  "length_guard_m": 0.004,
+  "scope": "Empirical calibration maxima; no statistical guarantee. Constant forward single-product cycle, advisory only.",
+  "model_sha256": "3514af2aa660915062b14592da66aa764ec04d953a47c433cc6b7991792fbe2f",
+  "calibration_examples_sha256": "b5041f9ae973356a4b75f5ad3e9ea12afded247ab31bccebf60f18c3c69ae9c0",
+  "calibration_input_sha256": {
+    "calibration_00/observations.jsonl": "5eaad184fa130aa38a762d15a966af01bef247cc4bf4d43dc8b9ac03e16efa79",
+    "calibration_00/issued_commands.jsonl": "3b831be200015f9e03cd151c14c696793d1dd8407e21c9338d079a4b74716102",
+    "calibration_01/observations.jsonl": "5eaad184fa130aa38a762d15a966af01bef247cc4bf4d43dc8b9ac03e16efa79",
+    "calibration_01/issued_commands.jsonl": "3b831be200015f9e03cd151c14c696793d1dd8407e21c9338d079a4b74716102",
+    "calibration_02/observations.jsonl": "fe592caecae393aa0b50083db43bac432fcf98c64ab3db86f5d592188f4af520",
+    "calibration_02/issued_commands.jsonl": "3b831be200015f9e03cd151c14c696793d1dd8407e21c9338d079a4b74716102",
+    "calibration_03/observations.jsonl": "fe592caecae393aa0b50083db43bac432fcf98c64ab3db86f5d592188f4af520",
+    "calibration_03/issued_commands.jsonl": "3b831be200015f9e03cd151c14c696793d1dd8407e21c9338d079a4b74716102",
+    "calibration_04/observations.jsonl": "dce8cb1bc832d250c6e19836eec118a00c8d9a05f585cab1651e8f82602f13b9",
+    "calibration_04/issued_commands.jsonl": "c2d0e7010efd4e9f41cdfffd375ce64b11339c115825edcd12060972935a3b3f",
+    "calibration_05/observations.jsonl": "dce8cb1bc832d250c6e19836eec118a00c8d9a05f585cab1651e8f82602f13b9",
+    "calibration_05/issued_commands.jsonl": "c2d0e7010efd4e9f41cdfffd375ce64b11339c115825edcd12060972935a3b3f",
+    "calibration_06/observations.jsonl": "b7ec0f082e07058a31f0b85945e2365ec56d6243672d2ca622aed91661954809",
+    "calibration_06/issued_commands.jsonl": "c2d0e7010efd4e9f41cdfffd375ce64b11339c115825edcd12060972935a3b3f",
+    "calibration_07/observations.jsonl": "b7ec0f082e07058a31f0b85945e2365ec56d6243672d2ca622aed91661954809",
+    "calibration_07/issued_commands.jsonl": "c2d0e7010efd4e9f41cdfffd375ce64b11339c115825edcd12060972935a3b3f"
+  },
+  "calibration_context": {
+    "product_length_m": 0.06,
+    "sensor_gap_m": 0.26,
+    "sample_period_s": 0.02
+  }
+}

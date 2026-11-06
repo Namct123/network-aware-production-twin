@@ -22,8 +22,8 @@ Fu et al.~\cite{Fu2025} developed a digital-twin-based framework that monitors d
 MuJoCo supplies multibody and contact dynamics for model-based control~\cite{Todorov2012}. Engine selection alone does not establish calibrated pneumatics or guarantee that an online forecast finishes before the next decision. We therefore separate plant simulation from two supervisory prediction alternatives and measure computation time explicitly. The focused research question is whether timestamped observations and bounded motion forecasts support traceable decisions under controlled disturbances without exposing simulator ground truth to the supervisor. This synthesis of selected relevant studies is not a systematic review or evidence that the complete literature lacks such integration.
 
 \subsection{Scope and Contributions}
-% [claim:C005] [evidence:E001,E002,E003,E009,E010]
-The implemented contributions are an observation-constrained modular architecture; a command-history estimator and continue-or-hold supervisor; a cycle-latched speed-degradation policy; and reproducible virtual experiments with separate timing measurements. Resilience is examined through terminal support and completion in specified fixtures, not through a general resilience index. Self-reconfiguration refers to the software speed limit and hold, not mechanical rearrangement, sensor replacement, or autonomous recovery. A later exploratory component learns optical-event arrival residuals, and a separate segment-level comparison evaluates speed selection. Physical-validation sections remain intentionally unfilled.
+% [claim:C005] [evidence:E001,E002,E003,E009,E010,E012]
+The implemented contributions are an observation-constrained modular architecture; a command-history estimator and continue-or-hold supervisor; a cycle-latched speed-degradation policy; and reproducible virtual experiments with separate timing measurements. Resilience is examined through terminal support and completion in specified fixtures, not through a general resilience index. Self-reconfiguration refers to the software speed limit and hold, not mechanical rearrangement, sensor replacement, or autonomous recovery. A later exploratory component learns optical-event arrival residuals and supplies an advisory event monitor; a separate segment-level comparison evaluates speed selection. Physical-validation sections remain intentionally unfilled.
 
 \section{System and Information Boundaries}
 \subsection{Cell and Hybrid Representation}
@@ -212,6 +212,25 @@ A separate 144-run closed-loop segment comparison evaluates sequential, age-rule
 
 A further 72-run read-only qualification includes stalled-drive counterexamples. All 24 paired missing-sensor/stalled-drive cases have identical observation and logical decision traces, although final positions differ by 191--271~mm. No interval fits entirely within its allowed window after settling; no model-only release is issued. Zero false release claims therefore reflects abstention, not demonstrated diagnostic accuracy. An initial qualification bug incorrectly included speed immediately before the stop boundary; the corrected version uses issued distance and terminal command during the stopping interval. The original and corrected evidence are retained separately. Actual release remains blocked because model and actuation prerequisites have not been independently verified.
 
+\subsection{Advisory Event Monitoring with a Frozen Learned Residual}
+% [claim:C029] [evidence:E009,E012]
+An advisory monitor now connects the frozen predictor to the existing upstream-pulse observer. For each of the pulse, train-mean correction, and Ridge alternatives, the event window is
+\begin{equation}
+ I_m=[\max(t_a,\widehat t_m-r_m),\widehat t_m+r_m],\qquad
+ r_m=\max_{i\in\mathcal D_{\mathrm{cal}}}|t_{\mathrm{edge},i}-\widehat t_{m,i}|.
+\end{equation}
+The same eight normal calibration rows yield radii of 140.0, 42.9, and 65.0~ms, respectively; their recordings contain only four distinct pairs. A resolved target edge outside the window is flagged. In the absence of a seen target edge, two consecutive admissible source-time samples beyond the upper endpoint trigger a missing-edge finding. Receiver time does not substitute for the latest observed source time.
+
+All three empirical alternatives share feature-box, quality, freshness, and history gates. An input outside the training feature box, a changed command, or a changed product length, sensor spacing, or sampling period selects the existing engineering pulse bounds instead. Lost edge history or unusable packets suppress model findings and retain a separate data-availability reason. These checks delimit use of this calibration; they do not validate every aspect of the model domain. The component consumes signal frames and locally issued commands. It is not connected to the central runtime policy or PLC output authority.
+
+% [claim:C030] [evidence:E012]
+This exploratory study retrospectively reuses the nine normal test and four shifted recordings from Sect.~6.2 and adds 18 MuJoCo segments: missing-target feedback and a stalled drive for each of the nine normal conditions. Five scheduled delivery cases and three methods produce 465 replays from 31 recordings, not 465 independent production trials. Model weights and calibration radii remain fixed. Network cases are immediate reception, 40~ms delay, 120~ms stale delivery, a brief post-pulse gap, and unavailable target-signal quality. These are shared-clock scheduling fixtures, not measurements of a physical network.
+\input{generated/eta_monitor_table}
+
+Under immediate delivery, each method flags all 18 fault segments and none of the nine normal segments. With 40~ms delay, Ridge and constant correction each flag 18 of 18; the uncorrected pulse alternative flags 16. In its two remaining replays the delivered recording ends before its late-edge confirmation window; these are censored observations, not established missed detections. Neither stale delivery nor the post-fit gap or quality-loss cases produces an authorized model finding; abstention is recorded separately. The four shifted normal records use engineering fallback under usable delivery.
+
+Relative to constant correction, Ridge flags the immediate fault cases at the same time in two replays and 20--40~ms later in 16; it is never earlier. The 40~ms delivery case retains this pattern. Lower arrival-time MAE therefore does not imply faster anomaly detection when the calibrated window is wider. Moreover, all nine paired missing-sensor/stalled-drive inputs are identical, so these are findings of inconsistent expected progress, not uniquely isolated faults. These counts do not establish physical diagnostic accuracy, recovery, or improved production availability.
+
 \section{Physical Validation}
 \label{sec:physical}
 \noindent\textit{Reserved: no physical measurements or validation results are reported.}
@@ -232,8 +251,8 @@ The principal computation limitation is the gap between complete contact forecas
 
 Sparse binary sensing leaves sensor, communication, and model errors partly ambiguous. Findings indicate suspicions rather than uniquely isolated physical failure causes. CAD-to-simulation consistency, sensor offsets, belt slip, vacuum holding, pneumatics, and axis feedback remain unvalidated. Simultaneous products and continuing an interrupted old workpiece are outside the demonstrated capability. Section~\ref{sec:physical} is left blank rather than substituting synthetic measurements.
 
-% [claim:C028] [evidence:E009,E010,E011]
-The learned component improves a sampled-event prediction metric in a small held-out grid; it does not resolve the observation ambiguity exposed by stalled-drive pairs. Its advantage over a train-mean correction is small and reverses in shifted conditions. Before inclusion in supervisory decisions, model-domain checks, empirical error envelopes, decision budgets, and a matched same-information controller comparison remain necessary. Learning and more conservative stopping are distinct from demonstrated reconfiguration that sustains production.
+% [claim:C028] [evidence:E009,E010,E011,E012]
+The learned component improves a sampled-event prediction metric in a small held-out grid; it does not resolve the observation ambiguity exposed by stalled-drive pairs. Its advantage over a train-mean correction is small and reverses in shifted conditions. The advisory extension now applies empirical windows and selected model-domain checks, but the observed wider Ridge window delays findings relative to a constant correction. Before inclusion in supervisory decisions, verified model-domain assumptions, decision budgets, and a matched same-information controller comparison remain necessary. Learning and more conservative stopping are distinct from demonstrated reconfiguration that sustains production.
 
 \section{Conclusion}
 % [claim:C016] [evidence:E001,E002,E009,E010]
