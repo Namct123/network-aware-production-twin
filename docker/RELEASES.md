@@ -484,3 +484,25 @@ immutable image ID, preserved source manifest, and the tests actually run.
 - Receipt `docker/evidence/candidate-20261105-pulse-network.json` contains source
   and recording hashes and the study input manifest. Logs/data:
   `output/pulse_network_validation_20261105`, `output/docker/pulse_network_20261105_final`.
+
+
+## 2026-11-06 — Closed-loop stopping segment (candidate)
+
+- Tag `production-twin-dt:candidate-20261106-closed-loop`, ID `sha256:3964d237420b537621695b535de8e79fb0a4161b91ac405288fa56b6cffeb1b8`.
+- User acceptance pending, no registry push/promotion. Accepted remains
+  `sha256:0115d22bc509e55536ae4f2facc3e9812ce5540f0a4b5daa6099761d7424f3d8`.
+- 154 core tests, 10 web tests. 144/144 final summaries match corrected pilot_v2;
+  runtime manifest matches host, prior MuJoCo files unchanged. Compute deadlines
+  remain active in decisions; zero forecast overruns recorded in this matrix.
+- Three same-signal policies, two provisional stop zones, speed/gain/delay and missing
+  target feedback. Predictive selection integrates past commands for age propagation;
+  adaptive reference timeout integrates its actual issued slowdown.
+- Missing PS3: 0/24 predictive upper-bound exceedances vs 15/24 sequential and 24/24
+  chosen age-rule. Tight healthy zone: predictive 2/12 confirmed completions vs 12/12
+  age-rule. Strict completion requires PS3, so missing-sensor completed cycles remain 0
+  by design; no bypass, recovery or full-production superiority claim.
+- Original pilot contained an adaptive-timeout bug; retained but excluded. Corrected
+  pilot and final use a regression test. No post-result threshold adjustment.
+- Evidence `docker/evidence/candidate-20261106-closed-loop.json`, data/logs
+  `output/docker/closed_loop_segment_20261106_final`, `output/closed_loop_validation_20261106`;
+  report `docs/thu_kin_doan_bang_20261106.md`.

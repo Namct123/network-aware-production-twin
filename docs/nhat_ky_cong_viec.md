@@ -778,3 +778,38 @@ tiếp tục một phôi đang dang dở được ghi riêng, không gọi là �
   pulse_observer.py và test_pulse.py; các tệp cũ khác và ảnh accepted giữ nguyên.
 - Báo cáo: docs/gioi_han_xung_va_mang_20261105.md. Chưa có quyền ghi PLC,
   kiểm chứng vật lý, năng suất hoặc chính sách hồi phục đã chứng minh.
+
+
+### 067 — Thử kín ba chính sách trên đoạn băng (2026-11-06)
+
+- Ghép Cell, SensorModel, Network, PulseObserver và Predictor đang có; lệnh
+  làm đổi chuyển động/sensor tiếp theo. Pose chỉ vào bộ chấm, không vào chọn tốc độ.
+- 144 ca: hai tốc độ, hai gain, ba mức trễ, hai trạng thái PS3, ba chính sách,
+  hai cửa sổ dừng giả định. Cửa sổ không phải dung sai gắp đã đo.
+- So tuần tự, quy tắc giảm tốc theo tuổi dữ liệu và chọn tốc độ dự báo.
+  Đưa miền nguồn tới hiện tại bằng lịch sử lệnh trước khi dự báo, không dùng
+  tốc độ mới thay cho lệnh đã chạy trong khoảng trễ.
+- Pilot đầu lỗi timeout của đối chứng thích nghi; sửa theo tích phân lệnh và
+  thêm test giảm tốc, chạy pilot_v2 riêng. Giữ pilot lỗi để truy vết, loại khỏi
+  kết luận. Các giả định được đưa vào JSON mà không đổi giá trị để làm đẹp số.
+
+### 068 — Kết quả giữ vùng và mất tiến độ
+
+- Mất PS3: dự báo không vượt mép trên ở 24/24 ca, tuần tự vượt 15/24, quy tắc
+  đã chọn vượt 24/24. Theo pose chấm, dự báo dừng trong vùng ở cả 24 ca này.
+- Nhưng vùng hẹp với sensor tốt, dự báo chỉ có 2/12 ca đủ xác nhận; quy tắc
+  thích nghi 12/12, tuần tự 11/12. Vùng rộng cả ba 12/12. Không đổi ràng buộc
+  sau kết quả hoặc gọi không vượt vùng là đã hoàn thành sản xuất.
+- Tiêu chí finished bắt buộc có PS3, nên khi PS3 mất luôn 0. Đây là giới hạn
+  thiết kế xác nhận của mục này, không chứng minh DT không thể dùng xác nhận
+  thay thế. Chưa cho phép robot tiếp tục chỉ từ pose chấm của MuJoCo.
+- Báo cáo dễ hiểu ở docs/thu_kin_doan_bang_20261106.md; bước tiếp là điều kiện
+  xác nhận thay thế có giới hạn, đối chứng cùng thông tin và kiểm tra mới.
+
+### 069 — Candidate thử kín và tái lập
+
+- Candidate-20261106-closed-loop đạt 154 kiểm tra lõi và 10 web. Summary của
+  144/144 ca khớp pilot_v2; không có lần dự báo quá ngân sách trong bộ đã ghi.
+- Manifest/hash và log đầy đủ giữ trong Docker receipt/output; các tệp MuJoCo
+  cũ và ảnh accepted giữ nguyên. Chưa có PLC/kiểm chứng vật lý/ML được huấn luyện,
+  chưa tuyên bố tăng năng suất toàn dây chuyền. Không đẩy registry/tự nghiệm thu.

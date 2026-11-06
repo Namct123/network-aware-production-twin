@@ -20,7 +20,8 @@ chưa coi là phần cứng đã triển khai.
 ## Đọc và chạy từ đâu?
 
 1. [Mục tiêu, tiêu chí và lộ trình nghiên cứu](docs/huong_nghien_cuu_hien_tai.md).
-2. [Giới hạn xung và suy giảm mạng — kết quả mới](docs/gioi_han_xung_va_mang_20261105.md);
+2. [Thử kín chọn tốc độ và dừng — kết quả mới](docs/thu_kin_doan_bang_20261106.md);
+   [Giới hạn xung và suy giảm mạng](docs/gioi_han_xung_va_mang_20261105.md);
    [Ước lượng theo xung PS2](docs/du_doan_tu_xung_PS2_20261105.md);
    [Hiệu chuẩn miền dự đoán](docs/hieu_chuan_mien_du_doan_20261105.md);
    [bước thử sai lệch ban đầu](docs/sai_lech_du_doan_quan_sat.md).

@@ -68,3 +68,5 @@ jobs:
         run: python mujoco/test_pulse.py
       - name: Test pulse network history and causality guards
         run: python mujoco/test_pulse_network.py
+      - name: Test closed-loop reference timeout and prediction gate
+        run: python mujoco/test_closed_loop_segment.py
